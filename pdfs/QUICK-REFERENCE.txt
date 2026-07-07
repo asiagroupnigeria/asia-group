@@ -1,0 +1,266 @@
+═══════════════════════════════════════════════════════════════════════════════════
+🎨 PROFESSIONAL PDF PUBLISHING STUDIO - QUICK REFERENCE CARD 🎨
+═══════════════════════════════════════════════════════════════════════════════════
+
+⚡ INSTANT START
+───────────────────────────────────────────────────────────────────────────────────
+1. Install Prince: https://www.princexml.com/download/
+2. Run: build.bat (Windows) or bash build.sh (Mac/Linux)
+3. Check folder for PDFs
+4. Edit HTML & CSS, regenerate
+
+🎯 PRESS Ctrl+Shift+B (VS Code) for single PDF generation
+
+
+📋 FILE QUICK REFERENCE
+───────────────────────────────────────────────────────────────────────────────────
+
+CHOOSE YOUR TEMPLATE:
+  company-profile.html    → Corporate overview (About, Services, Team)
+  product-catalogue.html  → E-commerce (Product grid, pricing)
+  brochure.html          → Marketing (3-column features, CTA)
+  annual-report.html     → Financial (Tables, metrics, initiatives)
+
+MATCHING STYLESHEETS:
+  styles-base.css        → Always included (typography, print setup)
+  styles-profile.css     → For company profiles (blue gradient)
+  styles-catalogue.css   → For catalogues (product cards)
+  styles-brochure.css    → For brochures (bold marketing)
+  styles-report.css      → For reports (corporate tables)
+
+
+🎨 COLOR PALETTES (Choose One)
+───────────────────────────────────────────────────────────────────────────────────
+
+PRESET 1: Modern Purple
+  Primary: #667eea   (Purple)
+  Secondary: #764ba2 (Deep purple)
+  Accent: #f093fb    (Pink)
+
+PRESET 2: Corporate Blue
+  Primary: #34495e   (Dark blue-grey)
+  Secondary: #3498db (Bright blue)
+  Accent: #e74c3c    (Red)
+
+PRESET 3: Professional Green
+  Primary: #27ae60   (Green)
+  Secondary: #229954 (Dark green)
+  Accent: #f39c12    (Orange)
+
+PRESET 4: Executive Black
+  Primary: #2c3e50   (Dark grey)
+  Secondary: #34495e (Medium grey)
+  Accent: #3498db    (Blue)
+
+TO USE: Replace hex codes in styles-*.css files
+
+
+✏️  CUSTOMIZATION CHEAT SHEET
+───────────────────────────────────────────────────────────────────────────────────
+
+CHANGE COMPANY NAME
+  File: company-profile.html
+  Find: <h1>Your Company Name</h1>
+  Replace: <h1>YOUR NAME HERE</h1>
+
+CHANGE COLOR SCHEME
+  File: styles-profile.css (or styles-*.css)
+  Find: #667eea (primary color)
+  Replace: #YOUR-HEX-CODE
+  Find: #764ba2 (secondary color)
+  Replace: #YOUR-HEX-CODE
+
+ADD LOGO IMAGE
+  File: company-profile.html
+  Find: <div class="cover-content">
+  Add: <img src="path/to/logo.png" alt="Logo" class="logo">
+
+ADD PRODUCT
+  File: product-catalogue.html
+  Find: <div class="product-card">
+  Copy entire div, edit:
+    - Change <h3> (product name)
+    - Edit <p> (description, features)
+    - Update <p class="price">
+
+ADD TEAM MEMBER
+  File: company-profile.html
+  Find: <div class="team-member">
+  Copy entire div, edit:
+    - <img src="photo.jpg"> (add photo)
+    - <h4> (member name)
+    - <p class="title"> (position)
+    - <p> (bio)
+
+UPDATE CONTACT INFO
+  File: Any HTML file
+  Find: <strong>Phone:</strong> +1 (555) 123-4567
+  Replace: <strong>Phone:</strong> YOUR-NUMBER
+
+ADD TABLE
+  File: annual-report.html
+  Copy: <table class="financial-table">...</table>
+  Edit headers and data rows
+
+
+📐 LAYOUT CLASSES
+───────────────────────────────────────────────────────────────────────────────────
+
+GRID LAYOUTS:
+  class="two-column"      → 2-column layout (1fr 1fr)
+  class="three-column"    → 3-column layout (1fr 1fr 1fr)
+  class="four-column"     → 4-column layout (1fr 1fr 1fr 1fr)
+  class="products-grid"   → Product cards (2x2 grid)
+
+UTILITY CLASSES:
+  class="text-center"     → Center align text
+  class="text-right"      → Right align text
+  class="no-break"        → Prevent page break
+  class="page-break-after" → Force next page
+  class="page-break-before" → Start on new page
+
+CARD STYLING:
+  class="card"            → Basic card
+  class="stat-box"        → Statistics box
+  class="service-card"    → Service description
+  class="product-card"    → Product showcase
+  class="team-member"     → Team member profile
+
+
+🔧 BUILD COMMANDS
+───────────────────────────────────────────────────────────────────────────────────
+
+GENERATE ALL PDFS (Windows):
+  > build.bat
+
+GENERATE ALL PDFS (Mac/Linux):
+  $ bash build.sh
+
+SINGLE PDF (Command Line):
+  $ prince company-profile.html -o company-profile.pdf -s styles-base.css -s styles-profile.css
+
+VS CODE TASK (All Platforms):
+  Press: Ctrl+Shift+B
+  Select: Build Company Profile PDF (or other option)
+
+
+📊 TYPOGRAPHY HIERARCHY
+───────────────────────────────────────────────────────────────────────────────────
+
+h1   36pt  Title / Cover page
+h2   24pt  Section headers
+h3   16pt  Subsection / Card titles
+h4   14pt  Card headings / Smaller section titles
+h5   12pt  Minor headings
+h6   11pt  Metadata / Labels
+p    11pt  Body text
+small 10pt Captions / Fine print
+
+FONTS:
+  h1-h6: Open Sans (modern, clean)
+  p:     Merriweather (professional, readable)
+  code:  Courier New (monospace)
+
+LINE HEIGHT:
+  Body: 1.8   (professional readability)
+  Headings: 1.2 (tight)
+  Lists: 1.6  (easy scanning)
+
+
+🖼️  IMAGE SIZING GUIDE
+───────────────────────────────────────────────────────────────────────────────────
+
+RESOLUTION:
+  Print: 300 dpi (professional standard)
+  Screen: 72-96 dpi
+
+RECOMMENDED SIZES:
+  Logo: 80-120pt width
+  Product images: 120-200pt width
+  Team photos: 100-150pt diameter (for circles)
+  Cover image: Full bleed (edge-to-edge)
+
+FORMATS:
+  Use: PNG (transparency), JPG (photos)
+  Avoid: GIF (poor quality), BMP (large files)
+
+
+✨ PROFESSIONAL TOUCHES
+───────────────────────────────────────────────────────────────────────────────────
+
+✓ Keep color palette to 2-3 colors
+✓ Use consistent fonts (2 max)
+✓ Maintain 1.5em+ white space between sections
+✓ Align elements in grid pattern
+✓ Use high-quality, relevant images
+✓ Professional typography hierarchy
+✓ Subtle shadows, not bold
+✓ Test print preview before export
+
+
+🆘 COMMON FIXES
+───────────────────────────────────────────────────────────────────────────────────
+
+PDF not generating?
+  → Ensure Prince is installed: prince --version
+  → Check file paths are correct
+  → Verify image files exist
+
+Text cut off on page?
+  → Reduce padding: margin/padding value
+  → Increase page margin in CSS: @page { margin: 3cm; }
+  → Use page-break-inside: avoid; on large elements
+
+Colors look different?
+  → PDF colors may render slightly differently
+  → Check hex code format: #RRGGBB
+  → Test in different PDF viewer
+
+Images not showing?
+  → Check image path (relative or absolute)
+  → Verify image file exists at path
+  → Use common formats: JPG, PNG
+
+
+📚 DOCUMENTATION GUIDE
+───────────────────────────────────────────────────────────────────────────────────
+
+START HERE:
+  → START-HERE.txt (visual overview)
+  → QUICK-START.md (3-step setup)
+
+FOR DETAILS:
+  → INDEX.md (complete overview)
+  → SETUP-GUIDE.md (customization deep dive)
+  → STYLE-GUIDE.md (design principles)
+  → FILE-MANIFEST.md (file descriptions)
+
+
+🎯 WORKFLOW CHECKLIST
+───────────────────────────────────────────────────────────────────────────────────
+
+Before Generating PDF:
+  □ Edit HTML content (company name, info, etc.)
+  □ Update CSS colors (brand colors)
+  □ Add images (logo, photos)
+  □ Update contact information
+  □ Test in browser (Ctrl+P print preview)
+
+Quality Check:
+  □ No text cut off
+  □ Margins consistent
+  □ Colors look right
+  □ Images display properly
+  □ Page breaks are logical
+
+Final PDF:
+  □ Generate with build.bat or Ctrl+Shift+B
+  □ Open PDF and review
+  □ Check first page carefully
+  □ Spot-check middle and last pages
+  □ Verify file size is reasonable
+
+
+═══════════════════════════════════════════════════════════════════════════════════
+Ready to create professional PDFs? Start with QUICK-START.md for step-by-step guide!
+═══════════════════════════════════════════════════════════════════════════════════

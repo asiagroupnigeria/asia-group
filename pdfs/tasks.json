@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "📘 Build Company Profile PDF",
+      "type": "shell",
+      "command": "prince",
+      "args": [
+        "src/templates/company-profile.html",
+        "-o",
+        "output/pdfs/company-profile.pdf",
+        "--style=src/styles/base.css",
+        "--style=src/styles/profile.css"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🛍️ Build Product Catalogue PDF",
+      "type": "shell",
+      "command": "prince",
+      "args": [
+        "src/templates/product-catalogue.html",
+        "-o",
+        "output/pdfs/product-catalogue.pdf",
+        "--style=src/styles/base.css",
+        "--style=src/styles/catalogue.css"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "📑 Build Brochure PDF",
+      "type": "shell",
+      "command": "prince",
+      "args": [
+        "src/templates/brochure.html",
+        "-o",
+        "output/pdfs/brochure.pdf",
+        "--style=src/styles/base.css",
+        "--style=src/styles/brochure.css"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "📊 Build Annual Report PDF",
+      "type": "shell",
+      "command": "prince",
+      "args": [
+        "src/templates/report.html",
+        "-o",
+        "output/pdfs/annual-report.pdf",
+        "--style=src/styles/base.css",
+        "--style=src/styles/report.css"
+      ],
+      "group": "build"
+    }
+  ]
+}

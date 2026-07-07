@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400;1,700&family=Alegreya+SC:wght@400;700&display=swap');
+
+:root {
+  --blue: #2d2f7a;
+  --gold: #c9a24a;
+  --light-gold: #f3efe6;
+  --text: #3a3a3a;
+  --border: #d8d2c6;
+}
+
+@page {
+  size: A4;
+  margin-top: 2.2cm;
+  margin-bottom: 2.2cm;
+  margin-left: 2cm;
+  margin-right: 2cm;
+  background-image: linear-gradient(to bottom, #2d2f7a 0, #2d2f7a 5pt, #c9a24a 5pt, #c9a24a 6pt, transparent 6pt);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+
+@page :first {
+  margin: 0;
+  background-image: none;
+}
+
+body.catalogue {
+  font-family: 'Alegreya', serif;
+  color: var(--text);
+  font-size: 10.5pt;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+@media print {
+  body.catalogue {
+    background: transparent !important;
+  }
+
+  .page {
+    padding: 0 !important;
+  }
+}
+
+body.catalogue p {
+  text-align: left;
+  margin-bottom: 0.6em;
+}
+
+.catalogue h1,
+.catalogue h2,
+.catalogue h3,
+.catalogue h4,
+.catalogue h5,
+.catalogue h6 {
+  font-family: 'Alegreya SC', serif;
+  color: var(--blue);
+  margin: 0 0 0.4em;
+}
+
+/* Cover */
+.cover-page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  page-break-after: always;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.cover-split {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  width: 210mm;
+  height: 297mm;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.cover-left {
+  background: linear-gradient(135deg, var(--gold) 0%, #a48135 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 4pt solid #090a1a;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.cover-right {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(201, 162, 74, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(45, 47, 122, 0.25) 0%, transparent 50%),
+    linear-gradient(135deg, #090a1a 0%, #151636 50%, #20224d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 3cm 2.5cm;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.cover-content-align {
+  max-width: 100%;
+}
+
+.logo-wrapper {
+  width: 170px;
+  height: 170px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 4pt solid #090a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  padding: 8px;
+  /* logo almost fills the frame */
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.cover-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.cover-company {
+  font-family: 'Alegreya SC', serif;
+  font-size: 16pt;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.2em;
+}
+
+.cover-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  margin: 1.2em 0;
+}
+
+.cover-tagline {
+  font-family: 'Alegreya', serif;
+  font-size: 10pt;
+  font-style: italic;
+  color: #e2dbcd;
+  margin-bottom: 2.5em;
+}
+
+.cover-title-group {
+  margin-bottom: 2em;
+}
+
+.cover-kicker {
+  font-family: 'Alegreya SC', serif;
+  font-size: 10pt;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  margin-bottom: 0.4em;
+}
+
+.cover-main-title {
+  font-family: 'Alegreya SC', serif;
+  font-size: 38pt;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 0.3em;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.cover-subtitle {
+  font-family: 'Alegreya SC', serif;
+  font-size: 11pt;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 0;
+}
+
+.cover-description {
+  font-family: 'Alegreya', serif;
+  font-size: 10pt;
+  line-height: 1.8;
+  margin: 0 0 2.5em;
+  max-width: 480px;
+  color: #d1c9bb;
+  opacity: 0.9;
+}
+
+.cover-pill {
+  display: inline-block;
+  padding: 0.6em 2em;
+  background: linear-gradient(135deg, var(--gold) 0%, #b8913b 100%);
+  color: #0b0c22;
+  border-radius: 999px;
+  font-family: 'Alegreya SC', serif;
+  font-weight: 700;
+  font-size: 9pt;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Page framing */
+.page {
+  position: relative;
+  padding: .1cm;
+  padding-top: .11cm;
+  padding-bottom: .11cm;
+  page-break-after: always;
+  box-sizing: border-box;
+}
+
+
+
+.page-kicker {
+  font-family: 'Alegreya SC', serif;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.8pt;
+  font-size: 8pt;
+  font-weight: 700;
+  margin-bottom: 0.4em;
+}
+
+.category-page .page-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.category-page .page-kicker::before {
+  content: "";
+  width: 6pt;
+  height: 6pt;
+  background: var(--gold);
+  display: inline-block;
+}
+
+.page-title {
+  font-size: 18pt;
+  margin-bottom: 0.6em;
+}
+
+.page-bottom-rule {
+  height: 2pt;
+  background: var(--gold);
+  margin: 1.4em 0 0.8em;
+}
+
+.page-bottom-rule.light {
+  background: #cfcfcf;
+}
+
+.section-divider {
+  height: 2pt;
+  background: var(--gold);
+  margin: 0.8em 0 1.2em;
+}
+
+/* Contents */
+.contents-page .page-title {
+  font-size: 17pt;
+}
+
+.contents-category {
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--blue);
+  margin-top: 1.2em;
+}
+
+.contents-rule {
+  height: 2pt;
+  background: var(--gold);
+  margin: 0.4em 0 0.8em;
+}
+
+.contents-products {
+  list-style: disc;
+  margin: 0 0 0.6em 1.2em;
+  color: var(--blue);
+  font-size: 9.5pt;
+}
+
+.contents-products li {
+  margin-bottom: 0.3em;
+}
+
+/* Category pages */
+.category-description {
+  font-size: 9.5pt;
+  color: #666;
+  margin-bottom: 1.2em;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.product-row {
+  display: grid;
+  grid-template-columns: 95pt 1fr;
+  gap: 1em;
+  align-items: start;
+  page-break-inside: avoid;
+}
+
+.product-thumb {
+  width: 95pt;
+  height: 95pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1pt solid var(--border);
+  border-radius: 100px;
+  box-sizing: border-box;
+  padding: 8pt;
+  page-break-inside: avoid;
+}
+
+.product-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+}
+
+.product-card {
+  position: relative;
+  border: 1pt solid var(--border);
+  padding: 0.8em 1em;
+  background: white;
+  min-height: 95pt;
+}
+
+.product-row:nth-child(even) .product-card {
+  background: var(--light-gold);
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1em;
+  width: 4pt;
+  height: 14pt;
+  background: var(--gold);
+}
+
+.product-name {
+  font-size: 11pt;
+  margin-bottom: 0.2em;
+}
+
+.product-description {
+  font-size: 9pt;
+  color: #4a4a4a;
+  margin-bottom: 0.4em;
+}
+
+.product-meta,
+.product-tags {
+  font-size: 8.5pt;
+  color: var(--blue);
+  font-weight: 700;
+  margin: 0 0 0.2em;
+}
+
+/* Contact */
+.contact-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1pt solid var(--border);
+  font-size: 9.5pt;
+  margin-bottom: 1em;
+}
+
+.contact-table th {
+  background-color: var(--blue);
+  color: white;
+  padding: 0.25em 0.4em;
+  font-weight: 700;
+  text-align: left;
+}
+
+.contact-table td {
+  padding: 0.25em 0.4em;
+  border-bottom: 1pt solid #e4ddcf;
+  vertical-align: top;
+}
+
+.contact-table tr:nth-child(even) {
+  background: var(--light-gold);
+}
+
+.contact-table td:first-child {
+  width: 35%;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.contact-institutional-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+  margin: 1.5em 0;
+}
+
+.info-block {
+  border-left: 3pt solid var(--gold);
+  padding-left: 1em;
+}
+
+.info-block strong {
+  display: block;
+  font-family: 'Alegreya SC', serif;
+  font-size: 11pt;
+  color: var(--blue);
+  margin-bottom: 0.3em;
+}
+
+.info-block p {
+  font-size: 9.5pt;
+  line-height: 1.4;
+  color: var(--text);
+  margin: 0;
+}
+
+.contact-footnote {
+  font-size: 8.5pt;
+  color: #666;
+  margin-top: 0.4em;
+}
+
+/* Specs and SKUs Tables */
+.product-specs,
+.product-skus {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  font-size: 8.5pt;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+.product-specs td,
+.product-skus th,
+.product-skus td {
+  padding: 1.5pt 3pt;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.product-specs tr:nth-child(even) {
+  background-color: rgba(201, 162, 74, 0.08); /* light gold tint */
+}
+
+.product-specs td:first-child {
+  font-weight: 700;
+  width: 35%;
+  color: var(--blue);
+}
+
+.product-skus th {
+  background-color: var(--blue);
+  color: white;
+  font-weight: 700;
+  font-size: 8pt;
+}
+
+.product-skus tr:nth-child(even) {
+  background-color: rgba(201, 162, 74, 0.08); /* light gold tint */
+}

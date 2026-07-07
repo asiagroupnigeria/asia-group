@@ -1,0 +1,36 @@
+{
+  "name": "Your Company Name",
+  "description": "Professional PDF Publishing Studio",
+  "version": "1.0.0",
+  "author": "Your Name",
+  "license": "MIT",
+  "keywords": [
+    "pdf",
+    "prince",
+    "publishing",
+    "catalogue",
+    "brochure",
+    "report"
+  ],
+  "scripts": {
+    "build": "build.bat",
+    "build:all": "build.bat",
+    "build:profile": "prince company-profile.html -o company-profile.pdf -s styles-base.css -s styles-profile.css",
+    "build:catalogue": "prince product-catalogue.html -o product-catalogue.pdf -s styles-base.css -s styles-catalogue.css",
+    "build:brochure": "prince brochure.html -o brochure.pdf -s styles-base.css -s styles-brochure.css",
+    "build:report": "prince annual-report.html -o annual-report.pdf -s styles-base.css -s styles-report.css"
+  },
+  "devDependencies": {
+    "prince": "requires PrinceXML installation from https://www.princexml.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "your-repo-url-here"
+  },
+  "documentation": {
+    "quick_start": "QUICK-START.md",
+    "setup_guide": "SETUP-GUIDE.md",
+    "style_guide": "STYLE-GUIDE.md",
+    "readme": "README.md"
+  }
+}

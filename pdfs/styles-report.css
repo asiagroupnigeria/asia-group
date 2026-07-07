@@ -1,0 +1,204 @@
+/* ===============================================
+   ANNUAL REPORT STYLESHEET
+   =============================================== */
+
+.report-cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  page-break-after: always;
+  text-align: center;
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  color: white;
+}
+
+.report-cover .logo {
+  max-width: 100pt;
+  margin-bottom: 3em;
+}
+
+.report-cover h1 {
+  font-size: 48pt;
+  color: white;
+  margin: 0 0 0.5em 0;
+}
+
+.report-cover h2 {
+  font-size: 32pt;
+  color: rgba(255,255,255,0.8);
+  margin: 0 0 1.5em 0;
+  font-weight: 300;
+}
+
+.report-cover .year {
+  font-size: 18pt;
+  color: #3498db;
+  margin: 0;
+}
+
+/* Report Sections */
+.report-section {
+  page-break-inside: avoid;
+  margin: 2.5em 0;
+  padding: 1.5em;
+}
+
+.report-section h2 {
+  color: #2c3e50;
+  font-size: 26pt;
+  margin: 0 0 1.5em 0;
+  border-bottom: 3pt solid #3498db;
+  padding-bottom: 0.75em;
+}
+
+/* CEO Letter */
+.letter-box {
+  background: #f8f9fa;
+  padding: 2em;
+  border-left: 5pt solid #3498db;
+  border-radius: 4pt;
+  page-break-inside: avoid;
+}
+
+.letter-box p {
+  font-size: 11pt;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: 1em;
+}
+
+.letter-box p:first-child {
+  font-weight: 700;
+}
+
+.signature {
+  margin-top: 2em;
+  text-align: left;
+  font-family: 'Courier New', serif;
+  font-size: 11pt;
+}
+
+.signature span {
+  display: block;
+  font-size: 10pt;
+  color: #666;
+}
+
+/* Financial Table */
+.financial-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  page-break-inside: avoid;
+}
+
+.financial-table th {
+  background: #34495e;
+  color: white;
+  padding: 12pt;
+  text-align: right;
+  font-weight: 700;
+  border: none;
+}
+
+.financial-table th:first-child {
+  text-align: left;
+}
+
+.financial-table td {
+  padding: 12pt;
+  border-bottom: 1pt solid #e0e0e0;
+  text-align: right;
+  font-size: 11pt;
+}
+
+.financial-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.financial-table tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+/* Performance Grid */
+.performance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5em;
+  margin: 1.5em 0;
+}
+
+.performance-box {
+  background: linear-gradient(135deg, #3498db15 0%, #2980b915 100%);
+  padding: 1.5em;
+  border-radius: 6pt;
+  border-top: 3pt solid #3498db;
+  page-break-inside: avoid;
+}
+
+.performance-box h4 {
+  color: #2c3e50;
+  margin-top: 0;
+  font-size: 13pt;
+}
+
+.performance-box .metric {
+  font-size: 24pt;
+  font-weight: 700;
+  color: #3498db;
+  margin: 0.5em 0;
+}
+
+.performance-box p {
+  font-size: 10pt;
+  color: #666;
+  margin: 0;
+  text-align: left;
+}
+
+/* Initiatives */
+.initiatives {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5em;
+  margin: 1.5em 0;
+}
+
+.initiative {
+  background: white;
+  border: 1pt solid #ddd;
+  border-left: 4pt solid #3498db;
+  padding: 1.5em;
+  page-break-inside: avoid;
+  border-radius: 2pt;
+}
+
+.initiative h4 {
+  color: #2c3e50;
+  margin-top: 0;
+  font-size: 12pt;
+}
+
+.initiative p {
+  font-size: 10pt;
+  line-height: 1.6;
+  color: #555;
+  text-align: justify;
+  margin: 0;
+}
+
+/* Final Section */
+.report-section.final {
+  text-align: center;
+  page-break-inside: avoid;
+}
+
+.report-section.final p {
+  font-size: 12pt;
+  line-height: 1.8;
+  max-width: 100%;
+}

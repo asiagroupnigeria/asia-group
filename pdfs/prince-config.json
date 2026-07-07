@@ -1,0 +1,15 @@
+{
+  "input": "company-profile.html",
+  "output": "company-profile.pdf",
+  "style": [
+    "styles-base.css",
+    "styles-profile.css"
+  ],
+  "javascript": false,
+  "page-size": "A4",
+  "page-margin": "2cm",
+  "author": "Your Company",
+  "title": "Company Profile",
+  "pdf-title": "Company Profile",
+  "pdf-creator": "PDF Publishing Studio"
+}

@@ -1,0 +1,7 @@
+node_modules/
+*.pdf
+.DS_Store
+.env
+.env.local
+Thumbs.db
+.vscode/.history
