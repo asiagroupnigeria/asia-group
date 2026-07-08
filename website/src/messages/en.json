@@ -1,0 +1,16 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "businesses": "Our Businesses",
+    "sustainability": "Sustainability",
+    "news": "News & Insights",
+    "careers": "Careers",
+    "contact": "Contact",
+    "investors": "Investor Relations"
+  },
+  "Home": {
+    "title": "We Build the Supply Chain of Africa",
+    "description": "38 years serving 350M+ people. Zero compromise on trust."
+  }
+}

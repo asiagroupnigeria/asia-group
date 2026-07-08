@@ -1,0 +1,101 @@
+backend:
+  name: github
+  repo: your-github-username/asia-group-website # UPDATE THIS LATER
+  branch: main
+
+media_folder: public/media
+public_folder: /media
+
+collections:
+  - name: "news"
+    label: "Newsroom"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "insights"
+    label: "Insights"
+    folder: "content/insights"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "leadership"
+    label: "Leadership Profiles"
+    folder: "content/leadership"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Portrait", name: "portrait", widget: "image" }
+      - { label: "Bio", name: "body", widget: "markdown" }
+
+  - name: "businesses"
+    label: "Business Units"
+    folder: "content/businesses"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Unit Name", name: "title", widget: "string" }
+      - { label: "Short Description", name: "description", widget: "text" }
+      - { label: "Key Metric 1", name: "metric1", widget: "string", required: false }
+      - { label: "Key Metric 2", name: "metric2", widget: "string", required: false }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "sustainability"
+    label: "Sustainability Metrics"
+    folder: "content/sustainability"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Pillar Name", name: "title", widget: "string" }
+      - { label: "Impact Number", name: "impact_number", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Icon", name: "icon", widget: "string", hint: "Remix Icon class name" }
+
+  - name: "partnerships"
+    label: "Partnerships"
+    folder: "content/partnerships"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Partner Name", name: "name", widget: "string" }
+      - { label: "Logo", name: "logo", widget: "image" }
+      - { label: "Description", name: "description", widget: "text", required: false }
+
+  - name: "careers"
+    label: "Career Listings"
+    folder: "content/careers"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Job Title", name: "title", widget: "string" }
+      - { label: "Division", name: "division", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Posted Date", name: "date", widget: "datetime" }
+      - { label: "Job Description", name: "body", widget: "markdown" }
+
+  - name: "settings"
+    label: "Settings"
+    files:
+      - name: "general"
+        label: "General Site Settings"
+        file: "content/settings/general.json"
+        fields:
+          - { label: "Company Name", name: "company_name", widget: "string" }
+          - { label: "Contact Email", name: "contact_email", widget: "string" }
+          - { label: "Contact Phone", name: "contact_phone", widget: "string" }
+          - { label: "LinkedIn URL", name: "linkedin_url", widget: "string", required: false }
+          - { label: "Twitter URL", name: "twitter_url", widget: "string", required: false }
