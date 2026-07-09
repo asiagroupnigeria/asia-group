@@ -3,10 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { MapPin, Mail, Phone, Clock } from 'lucide-react';
 
 export default function ContactPage() {
   const t = useTranslations('Navigation');
@@ -15,7 +12,6 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Placeholder for actual Sveltia CMS collection submission logic
     setTimeout(() => {
       setIsSubmitting(false);
       alert("Thank you! Your inquiry has been received.");
@@ -23,93 +19,92 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="container px-4 md:px-8 py-24 min-h-[70vh]">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-          Contact & Investor Relations
-        </h1>
-        <p className="text-muted-foreground text-lg mb-12">
-          Reach out to our teams across West, Central, and East Africa for partnerships, investor inquiries, or general questions.
-        </p>
-
-        <div className="grid md:grid-cols-2 gap-16">
-          {/* Contact Form */}
-          <div className="bg-card p-8 rounded-2xl border border-border shadow-sm">
-            <h2 className="text-2xl font-bold mb-6">Send an Inquiry</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="name">Full Name <span className="text-destructive">*</span></Label>
-                <Input id="name" required placeholder="Dr. Sani Abubakar" />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="email">Email Address <span className="text-destructive">*</span></Label>
-                <Input id="email" type="email" required placeholder="sani@example.com" />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number <span className="text-destructive">*</span></Label>
-                <Input id="phone" type="tel" required placeholder="+234 800 000 0000" />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="organization">Organization</Label>
-                <Input id="organization" placeholder="Your Company Name" />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="interest">Area of Interest <span className="text-destructive">*</span></Label>
-                <Select required>
-                  <SelectTrigger id="interest">
-                    <SelectValue placeholder="Select an area..." />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="financial">Financial Reports / Investor Relations</SelectItem>
-                    <SelectItem value="partnerships">Supplier / Distribution Partnerships</SelectItem>
-                    <SelectItem value="careers">Career Opportunities</SelectItem>
-                    <SelectItem value="general">General Inquiry</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea id="message" placeholder="How can we help you?" className="min-h-[100px]" />
-              </div>
-
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "Sending..." : "Submit Inquiry"}
-              </Button>
-            </form>
-          </div>
-
-          {/* Contact Info */}
-          <div className="space-y-12">
+    <div className="flex flex-col min-h-screen bg-slate-950">
+      <section className="section-padding bg-slate-900">
+        <div className="container max-w-6xl">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+            
+            {/* Contact Information */}
             <div>
-              <h3 className="text-xl font-bold mb-4">Headquarters</h3>
-              <p className="text-muted-foreground mb-1">Asia Group of Companies Ltd.</p>
-              <p className="text-muted-foreground mb-1">Kano, Nigeria</p>
-              <p className="text-muted-foreground mb-4">West Africa</p>
-              <a href="mailto:contact@asiagroup.ng" className="text-primary font-medium hover:underline block mb-1">
-                contact@asiagroup.ng
-              </a>
-              <a href="tel:+2340000000000" className="text-primary font-medium hover:underline block">
-                +234 (0) 000 000 0000
-              </a>
+              <div className="inline-flex items-center gap-4 mb-6">
+                 <div className="h-px w-8 bg-primary"></div>
+                 <span className="text-xs uppercase tracking-widest font-bold text-primary">Get In Touch</span>
+              </div>
+              <h1 className="text-display-section text-white mb-12">Let's Build the <em className="text-primary not-italic font-bold">Future</em> Together</h1>
+              
+              <div className="flex flex-col border-t border-white/10">
+                 {[
+                   { icon: <MapPin className="h-5 w-5 text-primary mt-1" />, label: 'Headquarters', value: 'Asia Group of Companies Ltd.\nKano, Nigeria\nWest Africa' },
+                   { icon: <Mail className="h-5 w-5 text-primary mt-1" />, label: 'Email Us', value: 'contact@asiagroup.ng\ninvestors@asiagroup.ng' },
+                   { icon: <Phone className="h-5 w-5 text-primary mt-1" />, label: 'Call Us', value: '+234 (0) 800 000 0000\n+234 (0) 900 000 0000' },
+                   { icon: <Clock className="h-5 w-5 text-primary mt-1" />, label: 'Hours', value: 'Monday - Saturday: 8:00 AM - 6:00 PM\nSunday: Closed' },
+                 ].map((info, i) => (
+                   <div key={i} className="flex gap-6 py-8 border-b border-white/10">
+                      {info.icon}
+                      <div>
+                        <h4 className="text-xs tracking-widest uppercase font-bold text-slate-500 mb-2">{info.label}</h4>
+                        <p className="text-body-standard text-white whitespace-pre-line">{info.value}</p>
+                      </div>
+                   </div>
+                 ))}
+              </div>
             </div>
-
-            <div id="investors" className="p-6 bg-slate-50 dark:bg-slate-900 rounded-xl border border-border">
-               <h3 className="text-xl font-bold mb-2">Investor Relations</h3>
-               <p className="text-sm text-muted-foreground mb-4">
-                 Three decades of growth. Zero regulatory violations. 30+ global partnerships. Your confidence in Africa's supply chain is our accountability.
-               </p>
-               <p className="text-sm text-muted-foreground">
-                 Select "Financial Reports" in the form to request access to our latest disclosures and performance metrics.
-               </p>
+            
+            {/* Contact Form */}
+            <div className="bg-slate-950 p-8 md:p-12 border-subtle">
+               <h3 className="text-2xl font-heading text-white mb-8">Send an Inquiry</h3>
+               
+               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                 <div className="grid md:grid-cols-2 gap-6">
+                   <div className="flex flex-col gap-2">
+                     <label htmlFor="name" className="text-[10px] tracking-widest uppercase font-bold text-slate-500">Full Name *</label>
+                     <input id="name" required className="bg-slate-900 border border-white/10 text-white p-4 font-light focus:outline-none focus:border-primary transition-colors w-full" placeholder="John Doe" />
+                   </div>
+                   <div className="flex flex-col gap-2">
+                     <label htmlFor="email" className="text-[10px] tracking-widest uppercase font-bold text-slate-500">Email Address *</label>
+                     <input id="email" type="email" required className="bg-slate-900 border border-white/10 text-white p-4 font-light focus:outline-none focus:border-primary transition-colors w-full" placeholder="john@example.com" />
+                   </div>
+                 </div>
+                 
+                 <div className="grid md:grid-cols-2 gap-6">
+                   <div className="flex flex-col gap-2">
+                     <label htmlFor="phone" className="text-[10px] tracking-widest uppercase font-bold text-slate-500">Phone Number *</label>
+                     <input id="phone" type="tel" required className="bg-slate-900 border border-white/10 text-white p-4 font-light focus:outline-none focus:border-primary transition-colors w-full" placeholder="+234 800 000 0000" />
+                   </div>
+                   <div className="flex flex-col gap-2">
+                     <label htmlFor="organization" className="text-[10px] tracking-widest uppercase font-bold text-slate-500">Organization</label>
+                     <input id="organization" className="bg-slate-900 border border-white/10 text-white p-4 font-light focus:outline-none focus:border-primary transition-colors w-full" placeholder="Company Name" />
+                   </div>
+                 </div>
+                 
+                 <div className="flex flex-col gap-2">
+                   <label htmlFor="interest" className="text-[10px] tracking-widest uppercase font-bold text-slate-500">Area of Interest *</label>
+                   <select id="interest" required className="bg-slate-900 border border-white/10 text-white p-4 font-light focus:outline-none focus:border-primary transition-colors w-full appearance-none rounded-none">
+                      <option value="" disabled selected>Select an area...</option>
+                      <option value="financial">Financial Reports / Investor Relations</option>
+                      <option value="partnerships">Supplier / Distribution Partnerships</option>
+                      <option value="careers">Career Opportunities</option>
+                      <option value="general">General Inquiry</option>
+                   </select>
+                 </div>
+                 
+                 <div className="flex flex-col gap-2">
+                   <label htmlFor="message" className="text-[10px] tracking-widest uppercase font-bold text-slate-500">Message</label>
+                   <textarea id="message" className="bg-slate-900 border border-white/10 text-white p-4 font-light focus:outline-none focus:border-primary transition-colors w-full min-h-[160px] resize-y" placeholder="How can we help you?"></textarea>
+                 </div>
+                 
+                 <div className="flex items-center justify-between mt-4">
+                   <p className="text-xs text-slate-500 font-light max-w-[200px]">By submitting this form, you agree to our privacy policy.</p>
+                   <Button type="submit" disabled={isSubmitting} className="uppercase tracking-widest text-xs h-12 px-8 rounded-none">
+                     {isSubmitting ? "Sending..." : "Submit Inquiry"}
+                   </Button>
+                 </div>
+               </form>
             </div>
+            
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

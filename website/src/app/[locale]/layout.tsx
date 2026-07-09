@@ -1,13 +1,21 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { Inter } from 'next/font/google';
+import { Inter, Nobile } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 import '../globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 
-const inter = Inter({ subsets: ['latin'] });
+const nobile = Nobile({ 
+  subsets: ['latin'], 
+  weight: ['400', '500', '700'],
+  variable: '--font-sans' 
+});
+const inter = Inter({ 
+  subsets: ['latin'], 
+  variable: '--font-heading' 
+});
 
 export const metadata = {
   title: 'Asia Group | Gateway to the Sahel',
@@ -32,7 +40,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${inter.className} bg-background text-foreground min-h-screen flex flex-col antialiased`}>
+      <body className={`${nobile.variable} ${inter.variable} font-sans bg-background text-foreground min-h-screen flex flex-col antialiased`}>
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="flex-grow">{children}</main>

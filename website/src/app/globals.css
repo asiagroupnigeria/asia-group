@@ -5,6 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-heading: var(--font-heading), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -122,5 +125,79 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .text-display-hero {
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+  }
+  .text-display-section {
+    font-size: clamp(36px, 4.5vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+  }
+  .text-body-large {
+    font-size: clamp(15px, 1.8vw, 19px);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .text-body-standard {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.85;
+  }
+  
+  /* Section Spacing */
+  .section-padding {
+    padding: 140px 60px;
+  }
+  @media (max-width: 1100px) {
+    .section-padding {
+      padding: 100px 32px;
+    }
+  }
+  @media (max-width: 600px) {
+    .section-padding {
+      padding: 72px 20px;
+    }
+  }
+  
+  /* Borders */
+  .border-subtle {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .dark .border-subtle {
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .border-subtle-top {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .dark .border-subtle-top {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .border-subtle-bottom {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .dark .border-subtle-bottom {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .border-subtle-left {
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .dark .border-subtle-left {
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .border-subtle-right {
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .dark .border-subtle-right {
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
   }
 }
