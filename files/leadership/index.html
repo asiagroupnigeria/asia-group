@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leadership — Asia Group of Companies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --green: #1B5E20; --green-mid: #2E7D32; --green-bright: #388E3C; --green-light: #4CAF50;
+    --gold: #B8860B; --gold-light: #D4AC0D;
+    --black: #0A0A0A; --dark: #111111; --dark-2: #1A1A1A; --dark-3: #222222;
+    --mid: #444444; --muted: #888888; --light: #CCCCCC; --off-white: #F5F4F0; --white: #FFFFFF;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Barlow', sans-serif;
+    --font-condensed: 'Barlow Condensed', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--dark); color: var(--white); overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; height: 80px;
+    background: rgba(10,10,10,0.95); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 60px; z-index: 1000;
+  }
+  .nav-back { display:flex; align-items:center; gap:10px; font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+  .nav-back:hover { color: var(--white); }
+  .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; font-family:var(--font-condensed); font-size:17px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--white); }
+  .nav-logo img { height:40px; }
+  .nav-cta { font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--dark); background:var(--gold-light); padding:10px 24px; text-decoration:none; }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 160px 60px 100px;
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: 'LEADERSHIP';
+    position: absolute; right: 60px; bottom: -20px;
+    font-family: var(--font-condensed); font-size: 160px; font-weight: 800;
+    color: rgba(255,255,255,0.025); letter-spacing: -0.03em;
+    pointer-events: none; user-select: none; white-space: nowrap;
+  }
+  .page-header-inner { max-width: 1300px; margin: 0 auto; }
+  .breadcrumb { display:flex; align-items:center; gap:10px; font-family:var(--font-condensed); font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
+  .breadcrumb a { color:var(--gold-light); text-decoration:none; }
+  .section-tag { font-family:var(--font-condensed); font-size:11px; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold-light); display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+  .section-tag::before { content:''; display:block; width:30px; height:1px; background:var(--gold-light); }
+  .page-title { font-family:var(--font-display); font-size: clamp(48px, 6vw, 88px); font-weight:300; line-height:1.0; color:var(--white); }
+  .page-title em { font-style:italic; color:var(--gold-light); }
+  .page-desc { font-size:17px; font-weight:300; line-height:1.85; color:rgba(255,255,255,0.55); max-width:600px; margin-top:24px; }
+
+  /* FOUNDER FEATURE */
+  .founder-section { padding: 0 60px 80px; background: var(--dark); }
+  .founder-inner { max-width: 1300px; margin: 0 auto; }
+  .founder-card {
+    display: grid; grid-template-columns: 380px 1fr;
+    background: var(--dark-2); border: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+  }
+  .founder-portrait {
+    /* MEDIA: Full portrait of Alhaji Sani Isah Abubakar — PRIORITY ASSET
+       File: media/leadership/ceo-portrait.jpg
+       Recommended: Professional 3/4 or full-length portrait, formal or field setting */
+    background: var(--green);
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px;
+    min-height: 560px; position: relative;
+  }
+  .founder-portrait-placeholder {
+    text-align: center; padding: 32px;
+  }
+  .founder-portrait-placeholder svg { opacity: 0.15; margin-bottom: 16px; }
+  .founder-portrait-placeholder p {
+    font-family: var(--font-condensed); font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: rgba(255,255,255,0.25); line-height: 1.7;
+  }
+  .founder-badge {
+    position: absolute; top: 24px; left: 24px;
+    background: var(--gold-light); color: var(--dark);
+    font-family: var(--font-condensed); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 12px;
+  }
+  .founder-content { padding: 64px 60px; display: flex; flex-direction: column; justify-content: center; }
+  .founder-name { font-family: var(--font-display); font-size: 40px; font-weight: 500; color: var(--white); line-height: 1.2; margin-bottom: 6px; }
+  .founder-title { font-family: var(--font-condensed); font-size: 13px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 32px; }
+  .founder-bio { font-size: 16px; font-weight: 300; line-height: 1.9; color: rgba(255,255,255,0.6); }
+  .founder-quote {
+    font-family: var(--font-display); font-size: 22px; font-weight: 400; font-style: italic;
+    color: rgba(255,255,255,0.85); line-height: 1.5;
+    border-left: 3px solid var(--gold-light); padding-left: 24px; margin: 32px 0;
+  }
+  .founder-facts { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.06); margin-top: 32px; }
+  .founder-fact { background: var(--dark); padding: 20px 24px; }
+  .founder-fact-value { font-family: var(--font-condensed); font-size: 24px; font-weight: 700; color: var(--gold-light); line-height: 1; }
+  .founder-fact-label { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 5px; }
+
+  /* EXECUTIVE TEAM */
+  .executives-section { padding: 100px 60px; background: var(--dark-2); }
+  .executives-inner { max-width: 1300px; margin: 0 auto; }
+  .executives-intro { max-width: 600px; margin-bottom: 60px; }
+  .executives-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.04); }
+  .exec-card { background: var(--dark); overflow: hidden; }
+  .exec-portrait {
+    aspect-ratio: 3/4; position: relative; overflow: hidden;
+    /* MEDIA: Individual executive portrait
+       Files: media/leadership/[exec-name].jpg
+       Recommended: Consistent lighting, formal or business-casual, same background tone across all cards */
+    background: var(--dark-3);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .exec-portrait-placeholder { text-align: center; padding: 24px; }
+  .exec-portrait-placeholder svg { opacity: 0.1; margin-bottom: 12px; }
+  .exec-portrait-placeholder p { font-family: var(--font-condensed); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.15); line-height: 1.7; }
+  .exec-hover {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(27,94,32,0.92) 0%, transparent 55%);
+    opacity: 0; transition: opacity 0.3s;
+    display: flex; align-items: flex-end; padding: 24px;
+  }
+  .exec-card:hover .exec-hover { opacity: 1; }
+  .exec-hover-bio { font-size: 12px; line-height: 1.65; color: rgba(255,255,255,0.9); font-weight: 300; }
+  .exec-info { padding: 24px 24px 28px; border-top: 1px solid rgba(255,255,255,0.04); }
+  .exec-name { font-family: var(--font-condensed); font-size: 17px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--white); margin-bottom: 5px; }
+  .exec-title { font-size: 12px; color: var(--gold-light); font-weight: 400; letter-spacing: 0.06em; margin-bottom: 12px; }
+  .exec-subsidiary { display: inline-block; font-family: var(--font-condensed); font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); border: 1px solid rgba(255,255,255,0.1); padding: 4px 10px; }
+
+  /* BOARD */
+  .board-section { padding: 100px 60px; background: var(--dark); }
+  .board-inner { max-width: 1300px; margin: 0 auto; }
+  .board-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: rgba(255,255,255,0.04); margin-top: 60px; }
+  .board-card { background: var(--dark-2); padding: 32px 28px 28px; }
+  .board-avatar { width: 64px; height: 64px; border-radius: 50%;
+    /* MEDIA: Board member headshot (circular) — File: media/leadership/board-[name].jpg */
+    background: var(--dark-3); border: 2px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+    font-family: var(--font-condensed); font-size: 18px; font-weight: 700; color: var(--muted);
+  }
+  .board-name { font-family: var(--font-condensed); font-size: 15px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--white); margin-bottom: 5px; }
+  .board-title { font-size: 12px; color: var(--gold-light); font-weight: 400; margin-bottom: 14px; }
+  .board-bio { font-size: 13px; line-height: 1.7; color: var(--muted); font-weight: 300; }
+
+  /* CTA */
+  .cta-band { padding: 100px 60px; background: var(--green); }
+  .cta-band-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  .cta-band h2 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 56px); font-weight: 300; color: var(--white); }
+  .cta-band h2 em { font-style: italic; color: var(--gold-light); }
+  .btn-primary { font-family:var(--font-condensed); font-size:13px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--dark); background:var(--gold-light); padding:18px 48px; text-decoration:none; display:inline-block; white-space:nowrap; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--white); }
+
+  .footer-mini { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 60px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-mini p { font-size: 12px; color: rgba(255,255,255,0.2); font-weight: 300; }
+  .footer-mini a { color: var(--gold-light); text-decoration: none; font-family: var(--font-condensed); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  @media (max-width: 1000px) {
+    .founder-card { grid-template-columns: 1fr; }
+    .founder-portrait { min-height: 400px; }
+    .founder-content { padding: 40px 32px; }
+    .executives-grid { grid-template-columns: 1fr 1fr; }
+    .board-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 700px) {
+    nav, .page-header, .founder-section, .executives-section, .board-section, .cta-band, .footer-mini { padding-left: 24px; padding-right: 24px; }
+    .executives-grid, .board-grid { grid-template-columns: 1fr; }
+    .founder-facts { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-back">← Asia Group</a>
+  <a href="../index.html" class="nav-logo">
+    <img src="../asia-group-logo.png" alt="Asia Group" onerror="this.style.display='none'">
+    Asia Group
+  </a>
+  <a href="../index.html#contact" class="nav-cta">Contact</a>
+</nav>
+
+<section class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="../index.html">Asia Group</a>
+      <span>/</span>
+      <span style="color:var(--white);">Leadership</span>
+    </div>
+    <div class="section-tag">The People Behind the Empire</div>
+    <h1 class="page-title">Visionary <em>Leadership</em><br>Built for a Continent</h1>
+    <p class="page-desc">
+      A founder who built from nothing, executives who lead with depth, and a board that steers with wisdom. Meet the individuals carrying Asia Group toward its next chapter.
+    </p>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder-section">
+  <div class="founder-inner">
+    <div class="founder-card">
+      <div class="founder-portrait">
+        <div class="founder-badge">Founder &amp; Group Chairman</div>
+        <!-- MEDIA: CEO/Founder full portrait — HIGHEST PRIORITY ASSET
+             Replace the placeholder below with:
+             <img src="../media/leadership/ceo-sani-isah.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+             Recommended: Professional portrait, 3:4 aspect ratio, formal or company setting -->
+        <div class="founder-portrait-placeholder">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="28" r="18" stroke="white" stroke-width="2"/>
+            <path d="M8 72c0-17.673 14.327-32 32-32s32 14.327 32 32" stroke="white" stroke-width="2"/>
+          </svg>
+          <p>MEDIA PLACEHOLDER<br><br>Alhaji Sani Isah Abubakar<br>Founder &amp; Group Chairman<br><br>Priority: Professional portrait<br>Full-length or 3/4 view<br>Formal or company setting</p>
+        </div>
+      </div>
+      <div class="founder-content">
+        <div class="section-tag" style="margin-bottom:14px;">Founder &amp; Group Chairman</div>
+        <h2 class="founder-name">Alhaji Sani Isah<br>Abubakar (Asia)</h2>
+        <div class="founder-title">Founder &amp; Group Chairman — Asia Group of Companies Ltd</div>
+        <!-- PLACEHOLDER: Full bio to be written after detailed founder interview session -->
+        <p class="founder-bio">
+          One of Northern Nigeria's most remarkable entrepreneurial stories began at Abubakar Rimi Market in 1988. A young man — still attending school — started with ₦20,000 and a stall selling polythene bags. Within years, he had pivoted into sugar, then into detergent distribution, forging a partnership with PZ Cussons that would become the foundation of an empire.
+        </p>
+        <blockquote class="founder-quote">
+          "We want to build a legacy — a company that will stand the test of time, benefit our generation and future generations, and grow together with everyone involved."
+        </blockquote>
+        <p class="founder-bio">
+          Today, Alhaji Sani Isah oversees Africa's largest detergent distribution operation, a group of five distinct subsidiaries, operations in four countries, and a philanthropic programme feeding 4,000 people in Kano every single day. His defining philosophy: <em style="color: rgba(255,255,255,0.85);">Trust and Integrity above all else.</em>
+        </p>
+        <!-- PLACEHOLDER: Additional biography sections to be written after CEO interview:
+          - Early life and education (Western + Islamic)
+          - Key business turning points
+          - Philosophy on trade and Africa's potential
+          - Vision for the next 10 years
+          - Personal life and community role
+        -->
+        <div class="founder-facts">
+          <div class="founder-fact">
+            <div class="founder-fact-value">1988</div>
+            <div class="founder-fact-label">Founded</div>
+          </div>
+          <div class="founder-fact">
+            <div class="founder-fact-value">36+</div>
+            <div class="founder-fact-label">Years in Business</div>
+          </div>
+          <div class="founder-fact">
+            <div class="founder-fact-value">4,000</div>
+            <div class="founder-fact-label">Daily Meals Funded</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXECUTIVE TEAM -->
+<section class="executives-section">
+  <div class="executives-inner">
+    <div class="executives-intro">
+      <div class="section-tag">Executive Management</div>
+      <h2 style="font-family:var(--font-display); font-size: clamp(32px,4vw,52px); font-weight:300; color:var(--white); line-height:1.1;">
+        The Executives Who<br><em style="font-style:italic; color:var(--gold-light);">Run the Machine</em>
+      </h2>
+      <p style="font-size:15px; font-weight:300; line-height:1.85; color:rgba(255,255,255,0.5); margin-top:16px;">
+        Each subsidiary is led by a dedicated Managing Director with deep sector expertise. Together they form an executive team that has commanded Africa's most dominant distribution group for decades.
+      </p>
+    </div>
+
+    <div class="executives-grid">
+
+      <!-- PLACEHOLDER EXECUTIVE CARDS — Complete after sessions with each subsidiary MD -->
+      <!-- Template for each card:
+        Name, Title, Subsidiary, 2-3 sentence bio, Portrait image path
+        Recommended: Consistent portrait style — formal, dark or white background, shoulders-up
+      -->
+
+      <div class="exec-card">
+        <div class="exec-portrait">
+          <!-- MEDIA: Group MD portrait — File: media/leadership/group-md.jpg -->
+          <div class="exec-portrait-placeholder">
+            <svg width="52" height="52" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="28" r="18" stroke="white" stroke-width="2"/><path d="M8 72c0-17.673 14.327-32 32-32s32 14.327 32 32" stroke="white" stroke-width="2"/></svg>
+            <p>MEDIA: Group MD Portrait<br>— To be photographed</p>
+          </div>
+          <div class="exec-hover"><p class="exec-hover-bio">Full biography to be added after executive interview session.</p></div>
+        </div>
+        <div class="exec-info">
+          <div class="exec-name">[ Name — TBD ]</div>
+          <div class="exec-title">Group Managing Director</div>
+          <span class="exec-subsidiary">Asia Group</span>
+        </div>
+      </div>
+
+      <div class="exec-card">
+        <div class="exec-portrait">
+          <!-- MEDIA: Asia Pharmacy MD portrait — File: media/leadership/pharmacy-md.jpg -->
+          <div class="exec-portrait-placeholder">
+            <svg width="52" height="52" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="28" r="18" stroke="white" stroke-width="2"/><path d="M8 72c0-17.673 14.327-32 32-32s32 14.327 32 32" stroke="white" stroke-width="2"/></svg>
+            <p>MEDIA: Asia Pharmacy MD Portrait</p>
+          </div>
+          <div class="exec-hover"><p class="exec-hover-bio">Full biography to be added after executive interview session.</p></div>
+        </div>
+        <div class="exec-info">
+          <div class="exec-name">[ Name — TBD ]</div>
+          <div class="exec-title">Managing Director</div>
+          <span class="exec-subsidiary">Asia Pharmacy</span>
+        </div>
+      </div>
+
+      <div class="exec-card">
+        <div class="exec-portrait">
+          <!-- MEDIA: Asia Automobiles MD portrait — File: media/leadership/automobiles-md.jpg -->
+          <div class="exec-portrait-placeholder">
+            <svg width="52" height="52" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="28" r="18" stroke="white" stroke-width="2"/><path d="M8 72c0-17.673 14.327-32 32-32s32 14.327 32 32" stroke="white" stroke-width="2"/></svg>
+            <p>MEDIA: Asia Automobiles MD Portrait</p>
+          </div>
+          <div class="exec-hover"><p class="exec-hover-bio">Full biography to be added after executive interview session.</p></div>
+        </div>
+        <div class="exec-info">
+          <div class="exec-name">[ Name — TBD ]</div>
+          <div class="exec-title">Managing Director</div>
+          <span class="exec-subsidiary">Asia Automobiles</span>
+        </div>
+      </div>
+
+      <div class="exec-card">
+        <div class="exec-portrait">
+          <!-- MEDIA: Asia Beverages MD portrait — File: media/leadership/beverages-md.jpg -->
+          <div class="exec-portrait-placeholder">
+            <svg width="52" height="52" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="28" r="18" stroke="white" stroke-width="2"/><path d="M8 72c0-17.673 14.327-32 32-32s32 14.327 32 32" stroke="white" stroke-width="2"/></svg>
+            <p>MEDIA: Asia Beverages MD Portrait</p>
+          </div>
+          <div class="exec-hover"><p class="exec-hover-bio">Full biography to be added after executive interview session.</p></div>
+        </div>
+        <div class="exec-info">
+          <div class="exec-name">[ Name — TBD ]</div>
+          <div class="exec-title">Managing Director</div>
+          <span class="exec-subsidiary">Asia Beverages</span>
+        </div>
+      </div>
+
+      <div class="exec-card">
+        <div class="exec-portrait">
+          <!-- MEDIA: Asia Cosmetics MD portrait — File: media/leadership/cosmetics-md.jpg -->
+          <div class="exec-portrait-placeholder">
+            <svg width="52" height="52" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="28" r="18" stroke="white" stroke-width="2"/><path d="M8 72c0-17.673 14.327-32 32-32s32 14.327 32 32" stroke="white" stroke-width="2"/></svg>
+            <p>MEDIA: Asia Cosmetics MD Portrait</p>
+          </div>
+          <div class="exec-hover"><p class="exec-hover-bio">Full biography to be added after executive interview session.</p></div>
+        </div>
+        <div class="exec-info">
+          <div class="exec-name">[ Name — TBD ]</div>
+          <div class="exec-title">Managing Director</div>
+          <span class="exec-subsidiary">Asia Cosmetics</span>
+        </div>
+      </div>
+
+      <div class="exec-card">
+        <div class="exec-portrait">
+          <!-- MEDIA: Asia Phones MD portrait — File: media/leadership/phones-md.jpg -->
+          <div class="exec-portrait-placeholder">
+            <svg width="52" height="52" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="28" r="18" stroke="white" stroke-width="2"/><path d="M8 72c0-17.673 14.327-32 32-32s32 14.327 32 32" stroke="white" stroke-width="2"/></svg>
+            <p>MEDIA: Asia Phones MD Portrait</p>
+          </div>
+          <div class="exec-hover"><p class="exec-hover-bio">Full biography to be added after executive interview session.</p></div>
+        </div>
+        <div class="exec-info">
+          <div class="exec-name">[ Name — TBD ]</div>
+          <div class="exec-title">Managing Director</div>
+          <span class="exec-subsidiary">Asia Phones &amp; Accessories</span>
+        </div>
+      </div>
+
+      <!-- Additional executive slots — CFO, COO, Heads of Operations, Regional Heads, etc. -->
+      <!-- Each follows the same card template above — fill after executive data sessions -->
+
+    </div>
+    <p style="font-size:13px; color:var(--muted); margin-top:16px; font-weight:300;">
+      * All executive biographies, portraits, and role details to be completed after individual data sessions. Additional positions (CFO, COO, Regional Directors, Heads of Operations) to be added.
+    </p>
+  </div>
+</section>
+
+<!-- BOARD OF DIRECTORS -->
+<section class="board-section">
+  <div class="board-inner">
+    <div class="section-tag">Governance</div>
+    <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--white); line-height:1.1;">
+      Board of <em style="font-style:italic; color:var(--gold-light);">Directors</em>
+    </h2>
+    <p style="font-size:15px; font-weight:300; line-height:1.8; color:rgba(255,255,255,0.5); max-width:560px; margin-top:16px;">
+      Asia Group's Board provides strategic oversight and governance across all subsidiaries. Members bring diverse expertise in finance, trade, law, and public affairs.
+    </p>
+    <!-- PLACEHOLDER: Board of Directors details to be confirmed with legal/company secretary
+         Required: Full names, titles, brief bios, headshots (circular format)
+    -->
+    <div class="board-grid">
+      <div class="board-card">
+        <div class="board-avatar">
+          <!-- MEDIA: Board member headshot (circular) -->
+          SA
+        </div>
+        <div class="board-name">Alhaji Sani Isah Abubakar</div>
+        <div class="board-title">Chairman of the Board</div>
+        <p class="board-bio">Founder and visionary behind Asia Group. 36+ years of entrepreneurial leadership in wholesale distribution, cross-border trade, and philanthropy.</p>
+      </div>
+
+      <!-- PLACEHOLDER: Remaining board members — complete after company secretary session -->
+      <div class="board-card" style="opacity:0.4;">
+        <div class="board-avatar">—</div>
+        <div class="board-name">[ Director — TBD ]</div>
+        <div class="board-title">Non-Executive Director</div>
+        <p class="board-bio">Profile to be completed after board documentation session with company secretary.</p>
+      </div>
+      <div class="board-card" style="opacity:0.4;">
+        <div class="board-avatar">—</div>
+        <div class="board-name">[ Director — TBD ]</div>
+        <div class="board-title">Non-Executive Director</div>
+        <p class="board-bio">Profile to be completed after board documentation session with company secretary.</p>
+      </div>
+      <div class="board-card" style="opacity:0.4;">
+        <div class="board-avatar">—</div>
+        <div class="board-name">[ Director — TBD ]</div>
+        <div class="board-title">Independent Director</div>
+        <p class="board-bio">Profile to be completed after board documentation session with company secretary.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <h2>Join a team building<br><em>Africa's legacy.</em></h2>
+    <a href="careers.html" class="btn-primary">View Open Roles →</a>
+  </div>
+</section>
+
+<div class="footer-mini">
+  <p>© 2025 Asia Group of Companies Ltd</p>
+  <a href="../index.html">← Back to Asia Group</a>
+</div>
+
+</body>
+</html>

@@ -1,25 +1,35 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { Inter, Nobile } from 'next/font/google';
+import { Cormorant_Garamond, Barlow, Barlow_Condensed } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
+import 'remixicon/fonts/remixicon.css';
 import '../globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 
-const nobile = Nobile({ 
-  subsets: ['latin'], 
-  weight: ['400', '500', '700'],
-  variable: '--font-sans' 
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-display',
 });
-const inter = Inter({ 
-  subsets: ['latin'], 
-  variable: '--font-heading' 
+
+const barlow = Barlow({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-body',
+});
+
+const barlowCondensed = Barlow_Condensed({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-condensed',
 });
 
 export const metadata = {
-  title: 'Asia Group | Gateway to the Sahel',
-  description: '38 years serving 350M+ people. Zero compromise on trust.',
+  title: 'Asia Group of Companies — Africa\'s Leading Wholesale & Distribution Conglomerate',
+  description: 'From a single market stall in Abubakar Rimi Market to commanding over 30 global partnerships across four nations — Asia Group is the backbone of African trade.',
 };
 
 export default async function LocaleLayout({
@@ -30,7 +40,6 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  // Ensure that the incoming `locale` is valid
   let messages;
   try {
     messages = await getMessages({ locale });
@@ -40,10 +49,14 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${nobile.variable} ${inter.variable} font-sans bg-background text-foreground min-h-screen flex flex-col antialiased`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className={`${cormorant.variable} ${barlow.variable} ${barlowCondensed.variable}`}>
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <main className="flex-grow">{children}</main>
+          <main>{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

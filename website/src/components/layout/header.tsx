@@ -2,113 +2,97 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
-import { cn } from '@/lib/utils';
-import { Menu } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export function Header() {
-  const t = useTranslations('Navigation');
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
 
-  const routes = [
-    { name: t('home'), path: '/' },
-    { name: t('about'), path: '/about' },
-    { name: t('businesses'), path: '/businesses' },
-    { name: t('sustainability'), path: '/sustainability' },
-    { name: t('news'), path: '/news' },
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'About', href: '/about' },
+    { name: 'Subsidiaries', href: '/businesses' },
+    { name: 'Operations', href: '/#operations' },
+    { name: 'Partners', href: '/#partners' },
+    { name: 'Leadership', href: '/#leadership' },
+    { name: 'Impact', href: '/sustainability' },
+    { name: 'News', href: '/news' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-20 items-center justify-between px-4 md:px-8">
-        <Link href="/" className="flex items-center space-x-2">
-          {/* PLACEHOLDER: Asia Group Logo - Green, White and Black */}
-          <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl tracking-tighter">
-            AG
-          </div>
-          <span className="font-bold text-xl tracking-tight hidden sm:inline-block">
-            ASIA GROUP
-          </span>
+    <>
+      <nav id="main-nav" className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
+        {/* Logo */}
+        <Link href="/" className="nav__logo">
+          <img src="/logo.jpg" alt="Asia Group" style={{ height: '60px', width: 'auto', borderRadius: '0px' }} />
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex flex-1 justify-center">
-          <NavigationMenu>
-            <NavigationMenuList>
-              {routes.map((route) => (
-                <NavigationMenuItem key={route.path}>
-                  <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
-                    <Link href={route.path}>
-                      {route.name}
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
+        {/* Desktop Links */}
+        <ul className="nav__links" style={{ margin: 0, padding: 0 }}>
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href} className="nav__link">
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-        <div className="hidden md:flex items-center space-x-4">
-          <Button variant="outline" asChild>
-            <Link href="/contact">{t('contact')}</Link>
-          </Button>
-          <Button asChild>
-            <Link href="/contact#investors">{t('investors')}</Link>
-          </Button>
-        </div>
+        {/* CTA + Hamburger */}
+        <div className="nav__actions">
+          <Link href="/contact" className="nav__cta">
+            Partner With Us
+          </Link>
 
-        {/* Mobile Nav */}
-        <div className="md:hidden">
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle Menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="pl-1 pr-0">
-              <div className="px-7 flex flex-col space-y-4 mt-8">
-                {routes.map((route) => (
-                  <Link
-                    key={route.path}
-                    href={route.path}
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium hover:text-primary transition-colors"
-                  >
-                    {route.name}
-                  </Link>
-                ))}
-                <div className="h-px bg-border my-4" />
-                <Link
-                  href="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="text-lg font-medium hover:text-primary transition-colors"
-                >
-                  {t('contact')}
-                </Link>
-                <Link
-                  href="/contact#investors"
-                  onClick={() => setIsOpen(false)}
-                  className="text-lg font-medium text-primary hover:text-primary/80 transition-colors"
-                >
-                  {t('investors')}
-                </Link>
-              </div>
-            </SheetContent>
-          </Sheet>
+          {/* Hamburger (mobile) */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+            className="nav__hamburger"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
-      </div>
-    </header>
+      </nav>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="nav__mobile">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="nav__mobile-link"
+            >
+              {link.name}
+            </Link>
+          ))}
+          <Link
+            href="/contact"
+            onClick={() => setMenuOpen(false)}
+            className="nav__mobile-cta"
+          >
+            Partner With Us
+          </Link>
+        </div>
+      )}
+
+      {/* Hide desktop links and CTA on mobile */}
+      <style>{`
+        @media (max-width: 900px) {
+          .nav__links { display: none !important; }
+          .nav__cta { display: none !important; }
+          .nav__hamburger { display: flex !important; }
+        }
+      `}</style>
+    </>
   );
 }

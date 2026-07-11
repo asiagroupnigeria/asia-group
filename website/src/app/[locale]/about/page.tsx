@@ -1,137 +1,166 @@
-import { getTranslations } from 'next-intl/server';
-import { Globe, ShieldCheck, Truck, BarChart3, Image as ImageIcon } from 'lucide-react';
+'use client';
 
-export default async function AboutUsPage() {
-  const t = await getTranslations('Navigation');
+import Link from 'next/link';
+import { useEffect } from 'react';
+
+export default function AboutPage() {
+  useEffect(() => {
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((el) => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+          observer.unobserve(el.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-950">
-      
-      {/* 1. OUR FOUNDATION */}
-      <section className="section-padding bg-slate-900 text-white">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+    <div>
+      {/* PAGE HEADER */}
+      <section className="page-header">
+        <div className="page-header__watermark" aria-hidden="true">ABOUT</div>
+        <div className="inner">
+          
+          <h1 className="display-title">
+            Built on <em>Trust.</em><br />Scaled by <em>Vision.</em>
+          </h1>
+          <p className="page-header__desc">
+            From ₦20,000 and a market stall to commanding Africa&apos;s most powerful distribution network — this is the story of Asia Group of Companies.
+          </p>
+        </div>
+      </section>
+
+      {/* ABOUT / ORIGIN STORY */}
+      <section className="section bg-dark">
+        <div className="inner grid-2">
+          <div className="fade-up about-visual">
+            <div className="about-image">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none" style={{ opacity: 0.15 }}>
+                <rect x="8" y="28" width="44" height="24" stroke="white" strokeWidth="2"/>
+                <rect x="22" y="36" width="16" height="16" stroke="white" strokeWidth="2"/>
+                <path d="M4 28L30 8L56 28" stroke="white" strokeWidth="2"/>
+              </svg>
+              <p className="about-image__placeholder">CEO Portrait / Flagship Warehouse</p>
+            </div>
+            <div className="about-badge">Est. 1988</div>
+            <div className="about-accent">
+              <div style={{ textAlign: 'center' }}>
+                <div className="about-accent__rank">#1</div>
+                <div className="about-accent__label">Detergent Distributor<br />in Africa</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="fade-up delay-2" style={{ paddingRight: '20px' }}>
             
-            {/* Visual Column */}
-            <div className="relative">
-               <div className="aspect-[4/5] bg-slate-800 border-subtle flex flex-col items-center justify-center p-8 text-center">
-                 <ImageIcon className="h-16 w-16 text-white/10 mb-4" />
-                 <p className="text-xs uppercase tracking-widest text-white/20">MEDIA PLACEHOLDER<br/>CEO Portrait / Flagship Warehouse</p>
-               </div>
-               
-               <div className="absolute top-8 -left-6 bg-primary text-primary-foreground px-6 py-4 text-xs tracking-widest uppercase font-bold shadow-2xl">
-                 Est. 1988
-               </div>
-               
-               <div className="absolute -bottom-8 -right-8 w-48 aspect-square bg-slate-800 border-subtle flex flex-col items-center justify-center p-6 shadow-2xl">
-                 <div className="text-5xl font-bold text-primary mb-2">#1</div>
-                 <div className="text-xs tracking-widest uppercase text-white/60 text-center font-semibold">Detergent Distributor<br/>in Africa</div>
-               </div>
+            <h2 className="section-title">Built on <em>Trust,</em><br />Scaled by <em>Vision</em></h2>
+            <p className="section-body mt-4">
+              Asia Group of Companies began with nothing more than a young man&apos;s ambition, ₦20,000 in capital, and a stall at Abubakar Rimi Market. Alhaji Sani Isah Abubakar started selling polythene bags after school — and never stopped building.
+            </p>
+            <blockquote className="quote">
+              &ldquo;We want to build a legacy — a company that will stand the test of time, benefit our generation and future generations, and grow together with everyone involved.&rdquo;
+            </blockquote>
+            <div className="about-author">
+              <div className="about-author__avatar">SA</div>
+              <div>
+                <p className="about-author__name">Alhaji Sani Isah Abubakar (Asia)</p>
+                <p className="about-author__role">Founder &amp; Group Chairman</p>
+              </div>
             </div>
             
-            {/* Content Column */}
+            <div className="pillars-grid">
+              {[
+                { icon: <i className="ri-team-line"></i>, title: 'Trust & Integrity', desc: 'Our defining differentiator in a continent of 1.4B people and growing commerce.' },
+                { icon: <i className="ri-earth-line"></i>, title: 'Pan-African Reach', desc: 'Nigeria, Cameroon, Chad, Niger — with expansion into Central & East Africa underway.' },
+                { icon: <i className="ri-building-4-line"></i>, title: 'Vertical Integration', desc: 'From wholesale to pharmaceuticals, automobiles, cosmetics, and beverages.' },
+                { icon: <i className="ri-line-chart-line"></i>, title: 'Legacy Building', desc: 'Manufacturing expansion planned — Pampas, pads, and detergent production.' },
+              ].map((p, i) => (
+                <div key={i} className="pillar">
+                  <div className="pillar__icon">{p.icon}</div>
+                  <h4 className="pillar__title">{p.title}</h4>
+                  <p className="pillar__desc">{p.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LEADERSHIP */}
+      <section className="section bg-dark-2">
+        <div className="inner">
+          <div className="grid-2 grid-2--end" style={{ marginBottom: '80px' }}>
             <div>
-              <div className="inline-flex items-center gap-4 mb-6">
-                 <div className="h-px w-8 bg-primary"></div>
-                 <span className="text-xs uppercase tracking-widest font-bold text-primary">Our Foundation</span>
-              </div>
-              <h2 className="text-display-section text-white mb-8">Building the <em className="text-primary not-italic font-bold">Backbone</em> of Trade</h2>
               
-              <blockquote className="text-2xl md:text-3xl font-heading font-medium italic text-white/80 border-l-4 border-primary pl-6 my-10 leading-snug">
-                "We didn't just build a company—we built a legacy. Starting with polythene bags and a vision, we transformed a local trader's dream into Africa's most trusted distribution powerhouse."
-              </blockquote>
-              
-              <div className="grid grid-cols-2 gap-[1px] bg-white/10 border-subtle mt-12">
-                {[
-                  { title: 'Gateway to the Sahel', desc: 'Connecting 350M+ people.', icon: <Globe className="h-5 w-5 text-primary mb-3" /> },
-                  { title: 'Legacy of Trust', desc: '38 years of integrity.', icon: <ShieldCheck className="h-5 w-5 text-primary mb-3" /> },
-                  { title: 'Total Logistics', desc: '99.7% on-time delivery.', icon: <Truck className="h-5 w-5 text-primary mb-3" /> },
-                  { title: 'Economic Engine', desc: 'Driving local growth.', icon: <BarChart3 className="h-5 w-5 text-primary mb-3" /> },
-                ].map((pillar, i) => (
-                  <div key={i} className="p-6 bg-slate-900 hover:bg-slate-800 transition-colors">
-                    {pillar.icon}
-                    <h4 className="text-sm tracking-widest uppercase font-bold text-white mb-2">{pillar.title}</h4>
-                    <p className="text-xs text-slate-400 leading-relaxed">{pillar.desc}</p>
-                  </div>
-                ))}
-              </div>
+              <h2 className="section-title">Leadership<br /><em>That Builds</em></h2>
             </div>
-            
+            <p className="section-body">
+              Every subsidiary is led by a seasoned executive. Together they represent decades of industry experience and the next generation of Africa&apos;s business leadership.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* 2. THE TEAM BEHIND THE EMPIRE (Leadership) */}
-      <section className="section-padding bg-slate-950">
-        <div className="container">
-          <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
-             <h2 className="text-display-section text-white max-w-2xl">The Team Behind the Empire</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-white/5 border-subtle">
-             {[
-               { name: 'Alhaji (Dr.) Sani Isah Abubakar', title: 'Founder & Chairman', isFounder: true },
-               { name: 'Executive Name', title: 'Chief Executive Officer', isFounder: false },
-               { name: 'Executive Name', title: 'Chief Operating Officer', isFounder: false },
-               { name: 'Executive Name', title: 'Chief Financial Officer', isFounder: false },
-             ].map((leader, i) => (
-               <div key={i} className="bg-slate-900 group relative block overflow-hidden cursor-pointer">
-                 <div className="aspect-[3/4] bg-slate-950 flex flex-col items-center justify-center relative border-b border-white/5">
-                    <ImageIcon className="h-10 w-10 text-white/10 mb-4" />
-                    <p className="text-[10px] tracking-widest uppercase text-white/20 text-center px-4">Portrait<br/>Placeholder</p>
-                    
-                    {leader.isFounder && (
-                      <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1.5 text-[10px] uppercase tracking-widest font-bold z-10">
-                        Founder
-                      </div>
-                    )}
-                    
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 z-20">
-                      <p className="text-xs text-white/90 leading-relaxed">Brief biography or key achievements hover text placeholder.</p>
+          <div className="grid-4">
+            {[
+              { name: 'Alhaji Sani Isah Abubakar', title: 'Founder & Group Chairman', badge: 'Founder & Chairman', green: true, bio: 'Started business at junior secondary school age in 1988 with ₦20,000. Built Africa\'s #1 detergent distribution empire across 4 nations in 36 years.' },
+              { name: '[ Name — TBD ]', title: 'Group Managing Director', bio: 'Bio to be filled after executive session.' },
+              { name: '[ Name — TBD ]', title: 'MD, Asia Pharmacy', bio: 'Bio to be filled after executive session.' },
+              { name: '[ Name — TBD ]', title: 'MD, Asia Automobiles', bio: 'Bio to be filled after executive session.' },
+            ].map((leader, i) => (
+              <div key={i} className={`leader-card fade-up delay-${i + 1}`}>
+                <div className={`leader-card__photo ${leader.green ? 'leader-card__photo--green' : 'leader-card__photo--dark'}`}>
+                  {leader.badge && <div className="leader-card__badge">{leader.badge}</div>}
+                  <div className="flex-col gap-2 flex-1 relative">
+                    <div className="aspect-square bg-black border border-white/10 flex items-center justify-center overflow-hidden relative">
+                      <img src="/media/leadership/ceo-sani-isah.jpg" alt="Alhaji Sani Isah" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
-                 </div>
-                 <div className="p-6 relative z-30 bg-slate-900 group-hover:bg-slate-800 transition-colors">
-                   <h3 className="text-base uppercase tracking-widest font-bold text-white mb-1">{leader.name}</h3>
-                   <p className="text-xs text-primary">{leader.title}</p>
-                 </div>
-               </div>
-             ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* 3. 36 YEARS OF EXCELLENCE (History Timeline) */}
-      <section className="section-padding bg-slate-50">
-        <div className="container max-w-4xl">
-          <div className="text-center mb-20">
-            <h2 className="text-display-section text-slate-900 mb-6">36 Years of Excellence</h2>
-            <p className="text-body-standard text-slate-500">A journey of trust, resilience, and unyielding ambition.</p>
-          </div>
-          
-          <div className="relative pl-8 md:pl-20">
-             {/* Vertical Line */}
-             <div className="absolute top-0 bottom-0 left-0 md:left-4 w-[2px] bg-gradient-to-b from-primary to-slate-300"></div>
-             
-             {[
-               { year: '1988', title: 'The Genesis', desc: 'Founded in Kano, Nigeria, beginning with a focus on trading basic commodities and polythene products in Abubakar Rimi Market.' },
-               { year: '2000', title: 'Strategic Partnerships', desc: 'Expanded into FMCG wholesale, establishing the first of many long-lasting relationships with global manufacturing giants.' },
-               { year: '2015', title: 'Regional Expansion', desc: 'Crossed borders to establish a dominant logistics and distribution network serving the broader Sahel region.' },
-               { year: 'Present', title: 'Africa\'s Leading Conglomerate', desc: 'Operating across 30+ countries with a diversified portfolio spanning automotive, pharmaceuticals, cosmetics, and telecom.' },
-             ].map((era, i) => (
-               <div key={i} className="relative mb-16 last:mb-0 grid md:grid-cols-[120px_1fr] gap-4 md:gap-12 items-start">
-                  <div className="absolute -left-[39px] md:-left-[23px] top-2 w-4 h-4 bg-primary border-[3px] border-slate-50 rounded-full"></div>
-                  <div className="text-3xl md:text-4xl font-bold text-primary leading-none mt-1">{era.year}</div>
-                  <div>
-                    <h3 className="text-lg uppercase tracking-widest font-bold text-slate-900 mb-3">{era.title}</h3>
-                    <p className="text-body-standard text-slate-600">{era.desc}</p>
+                    <div className="leader-card__overlay">
+                      <p className="leader-card__bio">{leader.bio}</p>
+                    </div>
                   </div>
-               </div>
-             ))}
+                </div>
+                <div className="leader-card__body">
+                  <div className="leader-card__name">{leader.name}</div>
+                  <div className="leader-card__title">{leader.title}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* HISTORY TIMELINE */}
+      <section className="section bg-off-white">
+        <div className="inner">
+          <div className="fade-up" style={{ marginBottom: '80px' }}>
+            
+            <h2 className="section-title section-title--dark">From a Market Stall<br /><em>to a Continental Empire</em></h2>
+          </div>
+
+          <div className="fade-up delay-1 timeline">
+            {[
+              { year: '1988', title: 'The Beginning', content: 'Alhaji Sani Isah Abubakar, still in junior secondary school, starts trading polythene bags at Abubakar Rimi Market in Kano with ₦20,000 capital.', gold: false },
+              { year: '1990s', title: 'Expansion into Sugar & Detergents', content: 'The business pivots into sugar trading, then detergent distribution. A partnership with PZ Cussons marks the beginning of Asia Group\'s rise to continental prominence.', gold: false },
+              { year: '2003', title: 'Multi-Location Expansion', content: 'Operations expand across multiple locations within Abubakar Rimi Market and beyond. Distribution footprint begins to grow beyond Kano.', gold: true },
+              { year: '2010s', title: 'Subsidiary Formation', content: 'Formal incorporation of Asia Pharmacy, Asia Beverages, Asia Automobiles, Asia Cosmetics, and Asia Phones & Accessories as distinct subsidiary businesses.', gold: true },
+              { year: '2019', title: 'Head Office & Regional Dominance', content: 'Formal Head Office established. Asia Group recognised as the leading distribution partner for Nestlé, Cadbury, Olam, Dangote Group, BUA Group, and others.', gold: true },
+              { year: '2024+', title: 'Continental & Global Expansion', content: 'Expansion into Central and East Africa underway. Plans for global presence in Asia, Europe, and America. Manufacturing ambitions announced.', gold: true },
+            ].map((item, i) => (
+              <div key={i} className="timeline__item">
+                <div className={`timeline__dot ${item.gold ? 'timeline__dot--gold' : 'timeline__dot--green'}`} />
+                <div className="timeline__year">{item.year}</div>
+                <div>
+                  <h3 className="timeline__title">{item.title}</h3>
+                  <p className="timeline__desc">{item.content}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

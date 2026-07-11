@@ -1,117 +1,111 @@
-import { getTranslations } from 'next-intl/server';
-import Link from 'next/link';
-import { ArrowRight, Package, Truck, Activity, Droplet, MonitorSmartphone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+'use client';
 
-export default async function BusinessesHubPage() {
-  const t = await getTranslations('Navigation');
+import Link from 'next/link';
+import { useEffect } from 'react';
+
+export default function BusinessesPage() {
+  useEffect(() => {
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((el) => {
+        if (el.isIntersecting) { el.target.classList.add('visible'); observer.unobserve(el.target); }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  const subsidiaries = [
+    { num: '01', icon: <i className="ri-capsule-line"></i>, name: 'Asia Pharmacy', sector: 'Pharmaceutical Distribution', desc: 'Wholesale pharmaceutical distribution supplying hospitals, clinics, and retail pharmacies across the region with quality-assured medicines and healthcare products.', href: '/businesses/pharmaceuticals', image: '/media/about-hero.jpg' },
+    { num: '02', icon: <i className="ri-cup-line"></i>, name: 'Asia Beverages', sector: 'Beverages Distribution', desc: 'Distributor for leading beverage brands including 7UP Bottling Company, connecting manufacturers to retailers, hospitality groups, and bulk buyers across Nigeria.', href: '/businesses/beverages', image: '/media/hero-fmcg.jpg' },
+    { num: '03', icon: <i className="ri-truck-line"></i>, name: 'Asia Automobiles', sector: 'Commercial Vehicles & Logistics', desc: 'Authorised partner for SinoTruck and Mikano Motors, supplying commercial trucks, generators, and industrial vehicles to construction, logistics, and industrial clients.', href: '/businesses/automobiles', image: '/media/hero-logistics.jpg' },
+    { num: '04', icon: <i className="ri-sparkling-line"></i>, name: 'Asia Cosmetics', sector: 'Beauty & Personal Care', desc: 'Distribution of soaps, pommades, skincare and personal care products from global and regional brand principals to Nigeria\'s rapidly growing consumer market.', href: '/businesses/cosmetics', image: '/media/community-impact.jpg' },
+    { num: '05', icon: <i className="ri-smartphone-line"></i>, name: 'Asia Phones & Accessories', sector: 'Technology & Consumer Electronics', desc: 'Wholesale distribution of mobile phones and accessories into Northern Nigeria\'s fast-growing technology retail ecosystem, serving thousands of stockists.', href: '/businesses/phones', image: '/media/about-hero.jpg' },
+  ];
 
   return (
-    <div className="container px-4 md:px-8 py-24 min-h-[70vh]">
-      <div className="max-w-3xl mb-16">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
-          {t('businesses')}
-        </h1>
-        <p className="text-xl text-muted-foreground leading-relaxed">
-          From pharmaceuticals to automotive, our business divisions are the arteries of African commerce. With scalable infrastructure, we are continually expanding to meet the continent's growing demands.
-        </p>
-      </div>
+    <div>
+      {/* PAGE HEADER */}
+      <section className="page-header">
+        <div className="page-header__watermark" aria-hidden="true">BUSINESSES</div>
+        <div className="inner">
+          
+          <h1 className="display-title">
+            Six Pillars of a<br /><em>Diversified Empire</em>
+          </h1>
+          <p className="page-header__desc">
+            Each subsidiary leads its sector. Together they form the most vertically diversified distribution and commerce group in Northern Nigeria — and one of the largest on the continent.
+          </p>
+        </div>
+      </section>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        {/* FMCG Division */}
-        <Link href="/businesses/fmcg" className="group block bg-card rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1">
-          <div className="aspect-[4/3] bg-muted relative overflow-hidden flex items-center justify-center">
-            {/* PLACEHOLDER: FMCG Warehouse Image */}
-            <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors z-10" />
-            <Package className="h-16 w-16 text-muted-foreground opacity-50" />
-          </div>
-          <div className="p-8">
-            <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">FMCG & Distribution</h3>
-            <p className="text-muted-foreground mb-6">Distributing over 100,000 tonnes of essentials annually across the Sahel.</p>
-            <span className="text-primary font-medium inline-flex items-center">
-              Explore Division <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </span>
-          </div>
-        </Link>
+      {/* SUBSIDIARIES GRID */}
+      <section className="section bg-dark-2">
+        <div className="inner">
+          <div className="grid-3">
+            {subsidiaries.map((sub, i) => (
+              <Link 
+                key={i} 
+                href={sub.href} 
+                className="subsidiary-card"
+                style={{ 
+                  background: `linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.3) 100%), url(${sub.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
+                <div style={{ marginTop: 'auto' }}>
+                  <span className="subsidiary-card__num">{sub.num}</span>
+                  <span className="subsidiary-card__icon">{sub.icon}</span>
+                  <div className="subsidiary-card__name">{sub.name}</div>
+                  <div className="subsidiary-card__sector">{sub.sector}</div>
+                  <p className="subsidiary-card__desc">{sub.desc}</p>
+                </div>
+                <div className="subsidiary-card__arrow">→</div>
+              </Link>
+            ))}
 
-        {/* Pharmaceuticals Division */}
-        <Link href="/businesses/pharmaceuticals" className="group block bg-card rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1">
-          <div className="aspect-[4/3] bg-muted relative overflow-hidden flex items-center justify-center">
-            {/* PLACEHOLDER: Pharmaceuticals Image */}
-            <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors z-10" />
-            <Activity className="h-16 w-16 text-muted-foreground opacity-50" />
+            {/* Promo card */}
+            <Link 
+              href="/businesses/wholesale" 
+              className="subsidiary-card subsidiary-card--promo"
+              style={{
+                background: 'linear-gradient(to right, rgba(27, 94, 32, 0.95) 30%, rgba(27, 94, 32, 0.3) 100%), url(/media/hero-fmcg.jpg) center/cover'
+              }}
+            >
+              <div>
+                <span className="subsidiary-card__num">CORE BUSINESS</span>
+                <div className="subsidiary-card__name">Asia Wholesale &amp; Distribution</div>
+                <div className="subsidiary-card__sector">Sugar · Rice · Detergent · Seasoning · Soap · Flour</div>
+                <p className="subsidiary-card__desc">
+                  The engine that started it all — and still the most powerful. Africa&apos;s #1 detergent distributor, moving 100,000 tonnes annually and commanding logistics across four nations and expanding.
+                </p>
+              </div>
+              <div style={{ flexShrink: 0 }}>
+                <span className="btn btn--primary" style={{ whiteSpace: 'nowrap' }}>Explore Wholesale →</span>
+              </div>
+            </Link>
           </div>
-          <div className="p-8">
-            <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">Pharmaceuticals</h3>
-            <p className="text-muted-foreground mb-6">Delivering certified excellence and combating counterfeit drugs.</p>
-            <span className="text-primary font-medium inline-flex items-center">
-              Explore Division <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </span>
-          </div>
-        </Link>
+        </div>
+      </section>
 
-        {/* Automotive Division */}
-        <Link href="/businesses/automobiles" className="group block bg-card rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1">
-          <div className="aspect-[4/3] bg-muted relative overflow-hidden flex items-center justify-center">
-            {/* PLACEHOLDER: Automotive Image */}
-            <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors z-10" />
-            <Truck className="h-16 w-16 text-muted-foreground opacity-50" />
+      {/* PARTNERS STRIP */}
+      <section className="section bg-dark">
+        <div className="inner">
+          <div className="partners-header" style={{ marginBottom: '48px' }}>
+            
+            <h2 className="section-title">Brands That <em>Trust Asia Group</em></h2>
           </div>
-          <div className="p-8">
-            <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">Automobiles</h3>
-            <p className="text-muted-foreground mb-6">Engineering the future of mobility with partners like Geely and Mikano.</p>
-            <span className="text-primary font-medium inline-flex items-center">
-              Explore Division <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </span>
-          </div>
-        </Link>
 
-        {/* Cosmetics Division */}
-        <Link href="/businesses/cosmetics" className="group block bg-card rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1">
-          <div className="aspect-[4/3] bg-muted relative overflow-hidden flex items-center justify-center">
-            {/* PLACEHOLDER: Cosmetics Image */}
-            <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors z-10" />
-            <Droplet className="h-16 w-16 text-muted-foreground opacity-50" />
+          <div className="partners-strip">
+            {['Olam International','Nestlé Nigeria','Cadbury Nigeria','Dangote Group','BUA Group','PZ Cussons','SinoTruck','Mikano Motors','7UP Bottling Co.','EUROMEGA','Aspira','Mamuda Group','Ammasco'].map((name, i) => (
+              <div key={i} className="partners-strip__item">
+                <span className="partners-strip__name">{name}</span>
+              </div>
+            ))}
           </div>
-          <div className="p-8">
-            <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">Cosmetics</h3>
-            <p className="text-muted-foreground mb-6">Premium beauty and personal care products for the African market.</p>
-            <span className="text-primary font-medium inline-flex items-center">
-              Explore Division <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </span>
-          </div>
-        </Link>
-        
-        {/* Telecom Division */}
-        <Link href="/businesses/telecom" className="group block bg-card rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1">
-          <div className="aspect-[4/3] bg-muted relative overflow-hidden flex items-center justify-center">
-            {/* PLACEHOLDER: Telecom Image */}
-            <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors z-10" />
-            <MonitorSmartphone className="h-16 w-16 text-muted-foreground opacity-50" />
-          </div>
-          <div className="p-8">
-            <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">Phones & Accessories</h3>
-            <p className="text-muted-foreground mb-6">Connecting communities with reliable technology infrastructure.</p>
-            <span className="text-primary font-medium inline-flex items-center">
-              Explore Division <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </span>
-          </div>
-        </Link>
-
-      </div>
-
-      {/* Expansion Infrastructure Notice */}
-      <div className="mt-24 p-8 md:p-12 bg-primary/5 rounded-3xl border border-primary/10 text-center">
-         <h3 className="text-2xl font-bold mb-4">Poised for Expansion</h3>
-         <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
-           Our infrastructure is currently supporting 8 more emerging sectors. As Asia Group grows, our digital architecture scales seamlessly.
-         </p>
-         <Button asChild>
-            <Link href="/contact">Partner on New Ventures</Link>
-         </Button>
-      </div>
-
+        </div>
+      </section>
     </div>
   );
 }

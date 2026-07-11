@@ -1,70 +1,78 @@
-import { getTranslations } from 'next-intl/server';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+'use client';
 
-export default async function NewsPage() {
-  const t = await getTranslations('Navigation');
+import Link from 'next/link';
+import { useEffect } from 'react';
+
+export default function NewsPage() {
+  useEffect(() => {
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((el) => {
+        if (el.isIntersecting) { el.target.classList.add('visible'); observer.unobserve(el.target); }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  const articles = [
+    { featured: true, category: 'Corporate', title: 'Asia Group Announces Expansion into Central and East Africa — New Logistics Infrastructure to Serve 8 Additional Markets', meta: 'Press Release · [ Date — TBD ]' },
+    { featured: false, category: 'Philanthropy', title: '4,000 Meals a Day: How Asia Group\'s Daily Feeding Programme Is Transforming Kano', meta: 'CSR Report · [ Date — TBD ]' },
+    { featured: false, category: 'Business', title: 'Chairman Alhaji Sani Isah Speaks on Building Africa\'s Most Trusted Distribution Company', meta: 'CEO Interview · [ Date — TBD ]' },
+    { featured: false, category: 'Corporate', title: 'Asia Automobiles Signs New Partnership with SinoTruck for Expanded Fleet Supply to West Africa', meta: 'Press Release · [ Date — TBD ]' },
+    { featured: false, category: 'Philanthropy', title: 'Asia Group Launches Scholarship Fund for Secondary School Students in Kano State', meta: 'CSR Report · [ Date — TBD ]' },
+    { featured: false, category: 'Business', title: 'Asia Pharmacy Expands into 12 New States, Becoming Nigeria\'s Largest Independent Pharmaceutical Distributor', meta: 'Business Update · [ Date — TBD ]' },
+  ];
 
   return (
-    <div className="container px-4 md:px-8 py-24 min-h-[70vh]">
-      <div className="max-w-4xl mb-16">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
-          {t('news')}
-        </h1>
-        <p className="text-xl text-muted-foreground leading-relaxed">
-          Stay updated with the latest announcements, market insights, and regional expansions from Asia Group.
-        </p>
-      </div>
+    <div>
+      {/* PAGE HEADER */}
+      <section className="page-header">
+        <div className="page-header__watermark" aria-hidden="true">NEWS</div>
+        <div className="inner">
+          
+          <h1 className="display-title">
+            Latest from<br /><em>Asia Group</em>
+          </h1>
+          <p className="page-header__desc">
+            Stay updated with the latest announcements, market insights, expansion news, and community impact stories from Asia Group of Companies.
+          </p>
+        </div>
+      </section>
 
-      {/* Featured Article */}
-      <div className="mb-16">
-         <h2 className="text-2xl font-bold mb-6">Featured Story</h2>
-         <div className="group relative bg-card rounded-3xl border border-border overflow-hidden grid md:grid-cols-2 shadow-sm hover:shadow-md transition-all">
-            <div className="bg-muted aspect-[4/3] md:aspect-auto flex items-center justify-center">
-              <span className="text-muted-foreground">Featured Image Placeholder</span>
-            </div>
-            <div className="p-8 md:p-12 flex flex-col justify-center">
-              <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary mb-4 w-fit">
-                Press Release
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
-                Asia Group Expands FMCG Distribution Network into Chad and Niger
-              </h3>
-              <p className="text-muted-foreground mb-6 line-clamp-3">
-                Strengthening our commitment to the Sahel region, we are proud to announce the opening of three new strategic distribution hubs...
-              </p>
-              <Button className="w-fit" variant="outline">Read Full Story</Button>
-            </div>
-         </div>
-      </div>
+      {/* NEWS GRID */}
+      <section className="section bg-dark-2">
+        <div className="inner">
+          <div className="grid-news-page">
+            {articles.map((article, i) => (
+              <Link key={i} href="#" className={`news-card fade-up delay-${(i % 3) + 1}`}>
+                <div className={`news-card__image ${article.featured ? 'news-card__image--featured' : 'news-card__image--thumb'}`}>
+                  <p className="placeholder-text">Media Placeholder</p>
+                </div>
+                <div className="news-card__body">
+                  <div className="news-card__category">{article.category}</div>
+                  <div className={`news-card__title ${article.featured ? 'news-card__title--lg' : 'news-card__title--sm'}`}>{article.title}</div>
+                  <div className="news-card__meta">{article.meta}</div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      {/* Grid of Articles */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {[1, 2, 3, 4, 5, 6].map((i) => (
-          <Card key={i} className="group hover:border-primary/50 transition-colors cursor-pointer flex flex-col">
-            <div className="aspect-video bg-muted border-b border-border flex items-center justify-center">
-               <span className="text-sm text-muted-foreground">Thumbnail</span>
-            </div>
-            <CardHeader>
-              <div className="text-xs text-muted-foreground mb-2">October {i + 10}, 2026 • Market Insight</div>
-              <CardTitle className="group-hover:text-primary transition-colors">Strategic Partnership with Global Brands Renewed</CardTitle>
-            </CardHeader>
-            <CardContent className="flex-1">
-              <p className="text-muted-foreground text-sm line-clamp-2">
-                A detailed look into how our continuous commitment to zero compliance violations has secured long-term...
-              </p>
-            </CardContent>
-            <CardFooter>
-              <span className="text-primary text-sm font-medium">Read Article →</span>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-      
-      <div className="mt-16 text-center">
-        <Button variant="outline" size="lg">Load More Articles</Button>
-      </div>
+      {/* CATEGORIES */}
+      <section className="section bg-dark">
+        <div className="inner">
+          
+          <div className="news-categories mt-4">
+            {['All News', 'Press Releases', 'CSR & Philanthropy', 'Business Updates', 'CEO Interviews', 'Expansion News'].map((cat, i) => (
+              <button key={i} className={`category-btn ${i === 0 ? 'active' : ''}`}>
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

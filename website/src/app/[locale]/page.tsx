@@ -1,216 +1,255 @@
-import { getTranslations } from 'next-intl/server';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Globe, ShieldCheck, Truck, Package, Building2, Leaf, Factory, MapPin, Heart, Users, Newspaper } from 'lucide-react';
+'use client';
 
-export default async function Home() {
-  const t = await getTranslations('Home');
+import Link from 'next/link';
+import { useEffect } from 'react';
+import { Hero } from '@/components/home/hero';
+import { SubsidiariesGrid } from '@/components/home/subsidiaries-grid';
+import { AnimatedNumber } from '@/components/ui/animated-number';
+
+export default function Home() {
+  // Fade-up scroll animation
+  useEffect(() => {
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((el) => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+          observer.unobserve(el.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* HERO SECTION */}
-      <section className="relative h-[90vh] min-h-[700px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-slate-950/80 z-10" />
-        <div className="absolute inset-0 bg-slate-900 bg-cover bg-center" />
-        
-        <div className="container relative z-20 px-4 md:px-8 flex flex-col items-center text-center mt-16">
-          <div className="inline-flex items-center rounded-full border border-primary/50 bg-primary/10 px-3 py-1 text-sm font-medium text-primary-foreground mb-8 backdrop-blur-sm">
-            <span className="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse"></span>
-            Established 1988 — Kano, Nigeria
-          </div>
-          <h1 className="text-display-hero text-white max-w-5xl mb-6">
-            Africa's <em className="text-primary not-italic font-bold">Number One</em> <br />
-            Wholesale & Distribution Conglomerate
-          </h1>
-          <p className="text-body-large text-slate-300 max-w-2xl mb-10">
-            From a single market stall in Abubakar Rimi Market to commanding over 30 global partnerships across four nations — Asia Group is the backbone of African trade.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <Button size="lg" className="text-sm tracking-widest uppercase h-14 px-10" asChild>
-              <Link href="/about">Discover Our Story</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="text-sm tracking-widest uppercase h-14 px-10 bg-transparent text-white border-white/30 hover:bg-white/10 hover:border-white" asChild>
-              <Link href="/businesses">View Subsidiaries</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+    <div>
 
-      {/* 1. SCALE OF OPERATIONS (Numbers Grid) */}
-      <section className="bg-primary section-padding relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15rem] lg:text-[20rem] font-bold text-white/5 whitespace-nowrap pointer-events-none select-none tracking-tighter">
-          SCALE
-        </div>
-        <div className="container relative z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 border-subtle">
-            {[
-              { num: '36+', label: 'Years of Dominance' },
-              { num: '30+', label: 'Global Partners' },
-              { num: '4', label: 'Nations Served' },
-              { num: '100K', label: 'Tonnes Distributed / Year' }
-            ].map((stat, i) => (
-              <div key={i} className="p-8 lg:p-12 border-subtle-right border-subtle-bottom lg:border-subtle-bottom-0 relative bg-primary/20 backdrop-blur-sm">
-                <div className="text-4xl md:text-6xl font-bold text-white mb-2">{stat.num}</div>
-                <div className="text-xs tracking-widest uppercase text-white/70 font-semibold">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ==================== HERO ==================== */}
+      <Hero />
 
-      {/* 2. OUR COMPANIES (Subsidiaries Grid) */}
-      <section className="bg-slate-900 w-full">
-        <div className="container py-20">
-          <h2 className="text-display-section text-white mb-4">Our Companies</h2>
-          <p className="text-body-standard text-slate-400 max-w-2xl">Discover the divisions driving economic resilience across the continent.</p>
+
+
+      {/* ==================== NUMBERS ==================== */}
+      <section id="numbers" className="numbers-section">
+        <div className="numbers-watermark" aria-hidden="true">SCALE</div>
+
+        <div className="fade-up inner">
+
+          <h2 className="section-title">
+            Numbers That Define<br />a Continent&apos;s Trade
+          </h2>
         </div>
-        {/* Full-width Edge-to-Edge Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-[1px] w-full bg-white/5 border-t border-b border-white/5">
+
+        <div className="numbers-grid inner">
           {[
-            { name: 'Asia Distribution', sector: 'FMCG Wholesale', icon: <Truck className="h-8 w-8 mb-6" /> },
-            { name: 'Asia Plastics', sector: 'Manufacturing', icon: <Package className="h-8 w-8 mb-6" /> },
-            { name: 'Asia Logistics', sector: 'Transportation', icon: <Globe className="h-8 w-8 mb-6" /> },
-            { name: 'Asia Agro', sector: 'Agriculture', icon: <Leaf className="h-8 w-8 mb-6" /> },
-            { name: 'Asia Real Estate', sector: 'Property', icon: <Building2 className="h-8 w-8 mb-6" /> },
-          ].map((sub, i) => (
-            <Link href={`/businesses/${sub.name.toLowerCase().replace(' ', '-')}`} key={i} className="group block bg-slate-950 aspect-[3/4] p-8 md:p-10 relative overflow-hidden hover:bg-slate-900 transition-colors border-t-2 border-transparent hover:border-primary">
-              <span className="text-xs tracking-widest text-slate-600 font-bold mb-8 block">0{i + 1}</span>
-              <div className="text-white group-hover:text-primary transition-colors">
-                {sub.icon}
+            { value: 100, suffix: 'K', unit: 'T', label: 'Tonnes of Detergent', desc: 'Distributed annually — the highest volume of any distributor on the African continent' },
+            { value: 30, suffix: '', unit: '+', label: 'Global Brands Represented', desc: 'Including Nestlé, Cadbury, Olam, Dangote, SinoTruck, and PZ Cussons among others' },
+            { value: 4, suffix: '', unit: '', label: 'Countries Active', desc: 'Nigeria, Cameroon, Chad, and Niger — with Central and East Africa expansion in progress' },
+            { value: 8, suffix: 'K', unit: '', label: 'Staff Across Nigeria', desc: 'A dedicated workforce driving our operations and distribution network nationwide' },
+            { value: 500, suffix: 'K+', unit: 'sq. ft.', label: 'Warehousing & Logistics Infrastructure', desc: 'State-of-the-art infrastructure powering our supply chain' },
+            { value: 19, suffix: '', unit: '', label: 'Operating Locations Across Nigeria', desc: 'Strategic hubs spread across Nigeria ensuring seamless reach and efficiency' },
+            { value: 3, suffix: '', unit: '', label: 'Decades of Generational Growth', desc: 'Building a legacy of commercial excellence and generational success since 1988' },
+            { value: 4, suffix: 'K', unit: '', label: 'Daily Meals Served', desc: '2,000 afternoon and 2,000 evening meals provided daily to people across Kano' },
+          ].map((item, i) => (
+            <div key={i} className={`number-item fade-up delay-${(i % 4) + 1}`}>
+              <div className="number-item__value">
+                <AnimatedNumber value={item.value} duration={2} />{item.suffix}{item.unit && <span className="number-item__unit">{item.unit}</span>}
               </div>
-              <h3 className="text-xl md:text-2xl font-bold uppercase text-white mb-2">{sub.name}</h3>
-              <p className="text-xs text-primary uppercase tracking-widest">{sub.sector}</p>
-              
-              <div className="absolute bottom-8 right-8 h-12 w-12 border border-white/10 flex items-center justify-center text-white/30 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all">
-                <ArrowRight className="h-5 w-5" />
-              </div>
-            </Link>
+              <div className="number-item__label">{item.label}</div>
+              <div className="number-item__desc">{item.desc}</div>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* 3. GLOBAL PARTNERS */}
-      <section className="section-padding bg-slate-50">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-display-section text-slate-900 mb-4">Global Partners & Principals</h2>
-            <div className="flex items-center justify-center gap-4">
-              <div className="h-px w-10 bg-primary"></div>
-              <p className="text-xs tracking-widest uppercase font-bold text-primary">Trusted By The Best</p>
-              <div className="h-px w-10 bg-primary"></div>
-            </div>
+      {/* ==================== SUBSIDIARIES ==================== */}
+      <section id="subsidiaries" className="section bg-dark-2">
+        <div className="inner grid-2 grid-2--end" style={{ marginBottom: '80px' }}>
+          <div>
+
+            <h2 className="section-title">
+              Six Pillars of a<br /><em>Diversified Empire</em>
+            </h2>
           </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-[1px] bg-slate-200 border-subtle">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div key={i} className="bg-slate-50 aspect-square flex items-center justify-center p-8 hover:bg-white transition-colors">
-                {/* PLACEHOLDER FOR REAL IMAGES */}
-                <span className="text-xs uppercase tracking-widest text-slate-400 font-bold text-center">Partner Logo<br/>{i+1}</span>
-              </div>
-            ))}
+          <div>
+            <p className="section-body">
+              Each subsidiary leads its sector. Together they form the most vertically diversified distribution and commerce group in Northern Nigeria — and one of the largest on the continent.
+            </p>
           </div>
+        </div>
+
+        <SubsidiariesGrid />
+
+        <div className="inner" style={{ display: 'flex', justifyContent: 'center', marginTop: '60px' }}>
+          <Link href="/businesses" className="btn btn--outline" style={{ padding: '16px 40px' }}>
+            View All Subsidiaries
+          </Link>
         </div>
       </section>
 
-      {/* 4. GEOGRAPHIC PRESENCE */}
-      <section className="section-padding bg-slate-950">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            <div className="aspect-square bg-slate-900 border-subtle flex items-center justify-center relative overflow-hidden">
-               {/* PLACEHOLDER FOR MAP SVG */}
-               <MapPin className="h-16 w-16 text-white/10" />
-               <p className="absolute bottom-8 text-xs tracking-widest uppercase text-white/20">Interactive Map Visualization</p>
+      {/* ==================== PARTNERS ==================== */}
+      <section id="partners" className="partners-section">
+        <div className="partners-header">
+
+          <h2 className="section-title section-title--dark">
+            The World&apos;s Best<br /><em>Trust Asia Group</em>
+          </h2>
+          <p className="partners-desc">
+            Over 30 of the world&apos;s most recognized manufacturers and conglomerates have chosen Asia Group as their distribution partner. When global brands need African reach, they come here.
+          </p>
+        </div>
+
+        <div className="inner grid-6">
+          {[
+            { name: 'Olam International', src: '/media/logos/olam.svg' },
+            { name: 'Nestlé Nigeria', src: '/media/logos/nestle.svg' },
+            { name: 'Cadbury Nigeria', src: '/media/logos/cadbury.svg' },
+            { name: 'Dangote Group', src: '/media/logos/dangote.svg' },
+            { name: 'BUA Group', src: '/media/logos/bua.svg' },
+            { name: 'SinoTruck Nigeria', src: '/media/logos/sinotruck.svg' },
+            { name: 'Mikano Motors', src: '/media/logos/mikano.svg' },
+            { name: '7UP Bottling Company', src: '/media/logos/7up.svg' },
+            { name: 'EUROMEGA', src: '/media/logos/euromega.svg' },
+            { name: 'Aspira', src: '/media/logos/aspira.svg' },
+            { name: 'Mamuda Group', src: '/media/logos/mamuda.svg' },
+            { name: 'Ammasco', src: '/media/logos/ammasco.svg' }
+          ].map((partner, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px 16px', borderRight: (i + 1) % 6 !== 0 ? '1px solid rgba(255,255,255,0.06)' : 'none', borderBottom: i < 6 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+              <img src={partner.src} alt={partner.name} style={{ width: '100%', maxWidth: '120px', opacity: 0.6, filter: 'grayscale(100%) brightness(200%)', transition: 'opacity 0.3s' }} onMouseEnter={e => e.currentTarget.style.opacity = '1'} onMouseLeave={e => e.currentTarget.style.opacity = '0.6'} />
             </div>
-            
-            <div>
-              <h2 className="text-display-section text-white mb-12">Operations Network</h2>
-              <div className="flex flex-col border-subtle">
-                {[
-                  { country: 'Nigeria', status: 'Headquarters & Active', active: true },
-                  { country: 'Niger Republic', status: 'Active Operations', active: true },
-                  { country: 'Chad', status: 'Active Operations', active: true },
-                  { country: 'Cameroon', status: 'Expanding', active: false },
-                ].map((loc, i) => (
-                  <div key={i} className="flex items-center p-6 border-subtle-bottom last:border-0 gap-6 bg-slate-900/50 hover:bg-slate-900 transition-colors">
-                    <div className={`h-3 w-3 rounded-full flex-shrink-0 ${loc.active ? 'bg-primary' : 'bg-yellow-500'}`} />
-                    <div className="flex-grow">
-                      <h4 className="text-lg font-bold uppercase tracking-wider text-white">{loc.country}</h4>
-                    </div>
-                    <div className={`text-xs tracking-widest uppercase font-semibold ${loc.active ? 'text-primary' : 'text-yellow-500'}`}>
-                      {loc.status}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* 5. COMMUNITY IMPACT (CSR) */}
-      <section className="section-padding bg-slate-900">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div>
-               <h2 className="text-display-section text-white mb-6">Beyond Business. <br/><em className="text-primary not-italic font-bold">Community Impact.</em></h2>
-               <div className="flex items-baseline gap-4 my-10">
-                 <span className="text-6xl md:text-7xl font-bold text-primary">4,000+</span>
-                 <span className="text-sm tracking-widest uppercase text-slate-400 font-bold">Daily Meals Provided</span>
-               </div>
-               
-               <div className="flex flex-col gap-4 mt-12">
-                 <div className="flex gap-6 p-6 bg-slate-950 border-subtle items-start">
-                    <Heart className="h-6 w-6 text-primary flex-shrink-0" />
-                    <div>
-                      <h4 className="text-sm uppercase tracking-widest text-white font-bold mb-2">Philanthropy</h4>
-                      <p className="text-slate-400 text-sm leading-relaxed">Daily feeding programs across Kano State, ensuring thousands have access to nutritious meals.</p>
-                    </div>
-                 </div>
-                 <div className="flex gap-6 p-6 bg-slate-950 border-subtle items-start">
-                    <Users className="h-6 w-6 text-primary flex-shrink-0" />
-                    <div>
-                      <h4 className="text-sm uppercase tracking-widest text-white font-bold mb-2">Job Creation</h4>
-                      <p className="text-slate-400 text-sm leading-relaxed">Empowering over 8,000 employees directly and indirectly across our supply chain network.</p>
-                    </div>
-                 </div>
-               </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-2">
-              <div className="aspect-square bg-slate-800 border-subtle flex items-center justify-center p-4 text-center text-xs tracking-widest text-white/20 uppercase">CSR Image 1</div>
-              <div className="aspect-[1/2] row-span-2 bg-slate-800 border-subtle flex items-center justify-center p-4 text-center text-xs tracking-widest text-white/20 uppercase">CSR Image 2 (Tall)</div>
-              <div className="aspect-square bg-slate-800 border-subtle flex items-center justify-center p-4 text-center text-xs tracking-widest text-white/20 uppercase">CSR Image 3</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ==================== OPERATIONS ==================== */}
+      <section id="operations" className="section bg-dark">
+        <div className="inner grid-2 grid-2--img grid-2--start">
+          <div className="fade-up">
 
-      {/* 6. NEWS & MEDIA */}
-      <section className="section-padding bg-slate-950">
-        <div className="container">
-          <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
-            <h2 className="text-display-section text-white">News & Insights</h2>
-            <Button variant="outline" className="border-white/20 text-white hover:bg-white hover:text-slate-950 rounded-none uppercase tracking-widest text-xs h-12 px-8" asChild>
-              <Link href="/news">View All News</Link>
-            </Button>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-white/5 border-subtle">
-            {[1, 2, 3].map((item, i) => (
-              <Link href="/news" key={i} className="bg-slate-900 hover:bg-slate-800 transition-colors group">
-                <div className="aspect-[16/9] bg-slate-950 flex items-center justify-center overflow-hidden relative">
-                   <Newspaper className="h-10 w-10 text-white/10 group-hover:scale-110 transition-transform duration-500" />
+            <h2 className="section-title">
+              Operating Across<br /><em>Four Nations.</em><br />Expanding to the World.
+            </h2>
+            <p className="section-body mt-4">
+              Headquartered in Kano, Nigeria with operational footprint in Cameroon, Chad, and Niger — and active expansion into Central Africa, East Africa, Asia, Europe, and America.
+            </p>
+
+            <div className="locations-list mt-4">
+              {[
+                { country: 'Nigeria', status: 'HQ + Full Operations', active: true },
+                { country: 'Cameroon', status: 'Active', active: true },
+                { country: 'Chad', status: 'Active', active: true },
+                { country: 'Niger Republic', status: 'Active', active: true },
+                { country: 'Central Africa', status: 'Expanding', active: false },
+                { country: 'East Africa', status: 'Expanding', active: false },
+                { country: 'Asia · Europe · America', status: 'Coming Soon', active: false },
+              ].map((loc, i) => (
+                <div key={i} className="location-row">
+                  <div className={`location-row__dot ${loc.active ? 'location-row__dot--active' : 'location-row__dot--expanding'}`} />
+                  <div className="location-row__name">{loc.country}</div>
+                  <div className={`location-row__status ${loc.active ? 'location-row__status--active' : 'location-row__status--expanding'}`}>{loc.status}</div>
                 </div>
-                <div className="p-8 md:p-10">
-                  <div className="text-xs uppercase tracking-widest text-primary font-bold mb-4">Press Release</div>
-                  <h3 className="text-xl text-white font-medium leading-snug mb-4 group-hover:text-primary transition-colors">Asia Group Expands Logistics Fleet with 200 New SinoTrucks</h3>
-                  <div className="text-xs text-slate-500">October 12, 2023</div>
-                </div>
-              </Link>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          <div className="fade-up delay-2">
+            {/* Map placeholder */}
+            <div className="map-placeholder">
+              <p className="placeholder-text">
+                Interactive Map of Operations<br /><br />
+                Africa + Global Presence
+              </p>
+            </div>
+            {/* Video placeholder */}
+            <div className="video-placeholder">
+              <p className="placeholder-text">
+                Logistics / Warehouse Operations Cinematic
+              </p>
+            </div>
           </div>
         </div>
       </section>
+
+
+
+      {/* ==================== NEWS ==================== */}
+      <section id="news" className="section bg-dark-2">
+        <div className="inner grid-2 grid-2--end" style={{ marginBottom: '80px' }}>
+          <div>
+
+            <h2 className="section-title">Asia Group<br /><em>in the News</em></h2>
+          </div>
+          <div>
+            <p className="section-body">
+              Stay updated on our latest expansions, community initiatives, and corporate announcements across all our subsidiaries and operating regions.
+            </p>
+          </div>
+        </div>
+
+        <div className="inner grid-news">
+          {/* Featured News */}
+          <Link href="/news" className="news-card fade-up">
+            <div className="news-card__image news-card__image--featured">
+              <p className="placeholder-text">Featured News Image</p>
+            </div>
+            <div className="news-card__body">
+              <div className="news-card__category">Corporate Expansion</div>
+              <h3 className="news-card__title news-card__title--lg">Asia Group Announces Expansion into Central and East African Markets for 2025</h3>
+              <div className="news-card__meta">July 15, 2026 · 5 min read</div>
+            </div>
+          </Link>
+
+          {/* Secondary News Column */}
+          <div className="flex-col gap-1" style={{ gap: '2px' }}>
+            <Link href="/news" className="news-card fade-up delay-1" style={{ flex: 1 }}>
+              <div className="news-card__image news-card__image--thumb">
+                <p className="placeholder-text">Thumbnail</p>
+              </div>
+              <div className="news-card__body">
+                <div className="news-card__category">Community</div>
+                <h3 className="news-card__title news-card__title--sm">Daily Meal Distribution Programme Reaches 4,000 Milestone</h3>
+                <div className="news-card__meta">June 28, 2026</div>
+              </div>
+            </Link>
+            <Link href="/news" className="news-card fade-up delay-2" style={{ flex: 1 }}>
+              <div className="news-card__body mt-auto">
+                <div className="news-card__category">Partnerships</div>
+                <h3 className="news-card__title news-card__title--sm">SinoTruck Renews Exclusive Distribution Agreement</h3>
+                <div className="news-card__meta">June 10, 2026</div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Third Column */}
+          <div className="flex-col gap-1" style={{ gap: '2px' }}>
+            <Link href="/news" className="news-card fade-up delay-3" style={{ flex: 1 }}>
+              <div className="news-card__body mt-auto">
+                <div className="news-card__category">Subsidiaries</div>
+                <h3 className="news-card__title news-card__title--sm">Asia Pharmacy Opens New Logistics Hub in Kano</h3>
+                <div className="news-card__meta">May 22, 2026</div>
+              </div>
+            </Link>
+            <Link href="/news" className="news-card fade-up delay-4" style={{ flex: 1 }}>
+              <div className="news-card__image news-card__image--thumb">
+                <p className="placeholder-text">Thumbnail</p>
+              </div>
+              <div className="news-card__body">
+                <div className="news-card__category">Awards</div>
+                <h3 className="news-card__title news-card__title--sm">Chairman Honoured for Trade Excellence</h3>
+                <div className="news-card__meta">April 15, 2026</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        <div className="inner text-center mt-8" style={{ textAlign: 'center', marginTop: '40px' }}>
+          <Link href="/news" className="btn btn--outline">View All News & Press →</Link>
+        </div>
+      </section>
+
+
+
     </div>
   );
 }

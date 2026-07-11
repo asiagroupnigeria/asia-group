@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News & Media — Asia Group of Companies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --green: #1B5E20; --green-mid: #2E7D32; --green-bright: #388E3C; --green-light: #4CAF50;
+    --gold: #B8860B; --gold-light: #D4AC0D;
+    --black: #0A0A0A; --dark: #111111; --dark-2: #1A1A1A; --dark-3: #222222;
+    --mid: #444444; --muted: #888888; --light: #CCCCCC; --off-white: #F5F4F0; --white: #FFFFFF;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Barlow', sans-serif;
+    --font-condensed: 'Barlow Condensed', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--dark); color: var(--white); overflow-x: hidden; }
+  nav { position:fixed; top:0; left:0; right:0; height:80px; background:rgba(10,10,10,0.95); backdrop-filter:blur(20px); border-bottom:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:space-between; padding:0 60px; z-index:1000; }
+  .nav-back { display:flex; align-items:center; gap:10px; font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+  .nav-back:hover { color:var(--white); }
+  .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; font-family:var(--font-condensed); font-size:17px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--white); }
+  .nav-logo img { height:40px; }
+  .nav-cta { font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--dark); background:var(--gold-light); padding:10px 24px; text-decoration:none; }
+
+  .page-header { padding: 160px 60px 100px; background: var(--dark); position: relative; overflow: hidden; }
+  .page-header::before { content:'MEDIA'; position:absolute; right:60px; bottom:-20px; font-family:var(--font-condensed); font-size:160px; font-weight:800; color:rgba(255,255,255,0.025); letter-spacing:-0.03em; pointer-events:none; user-select:none; white-space:nowrap; }
+  .page-header-inner { max-width:1300px; margin:0 auto; }
+  .breadcrumb { display:flex; align-items:center; gap:10px; font-family:var(--font-condensed); font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
+  .breadcrumb a { color:var(--gold-light); text-decoration:none; }
+  .section-tag { font-family:var(--font-condensed); font-size:11px; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold-light); display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+  .section-tag::before { content:''; display:block; width:30px; height:1px; background:var(--gold-light); }
+  .page-title { font-family:var(--font-display); font-size:clamp(48px,6vw,88px); font-weight:300; line-height:1.0; color:var(--white); }
+  .page-title em { font-style:italic; color:var(--gold-light); }
+
+  /* FILTER BAR */
+  .filter-bar { padding: 0 60px 60px; background: var(--dark); }
+  .filter-bar-inner { max-width: 1300px; margin: 0 auto; display: flex; gap: 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .filter-btn { font-family: var(--font-condensed); font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); padding: 16px 24px; background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: color 0.2s, border-color 0.2s; margin-bottom: -1px; }
+  .filter-btn.active { color: var(--white); border-bottom-color: var(--gold-light); }
+  .filter-btn:hover { color: var(--white); }
+
+  /* FEATURED ARTICLE */
+  .featured-section { padding: 0 60px 80px; background: var(--dark); }
+  .featured-inner { max-width: 1300px; margin: 0 auto; }
+  .featured-article { display: grid; grid-template-columns: 1fr 1fr; background: var(--dark-2); border: 1px solid rgba(255,255,255,0.06); overflow: hidden; text-decoration: none; transition: border-color 0.3s; }
+  .featured-article:hover { border-color: rgba(255,255,255,0.15); }
+  .featured-img {
+    aspect-ratio: 4/3;
+    /* MEDIA: Featured article hero image */
+    background: var(--dark-3); display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .featured-img p { font-family:var(--font-condensed); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.15); text-align:center; padding:20px; }
+  .featured-label { position: absolute; top: 20px; left: 20px; background: var(--gold-light); color: var(--dark); font-family: var(--font-condensed); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 12px; }
+  .featured-body { padding: 56px 52px; display: flex; flex-direction: column; justify-content: center; }
+  .article-category { font-family:var(--font-condensed); font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--green-light); margin-bottom:16px; }
+  .article-title { font-family:var(--font-display); font-size:clamp(24px,3vw,40px); font-weight:400; line-height:1.25; color:var(--white); margin-bottom:18px; }
+  .article-excerpt { font-size:15px; font-weight:300; line-height:1.8; color:rgba(255,255,255,0.55); margin-bottom:28px; }
+  .article-meta { display:flex; align-items:center; gap:10px; font-family:var(--font-condensed); font-size:11px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
+  .article-meta span:first-child { color: var(--gold-light); }
+  .read-more { display:inline-flex; align-items:center; gap:8px; font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--white); text-decoration:none; margin-top:24px; transition:gap 0.2s; }
+  .read-more:hover { gap: 14px; }
+
+  /* ARTICLES GRID */
+  .articles-section { padding: 0 60px 120px; background: var(--dark); }
+  .articles-inner { max-width: 1300px; margin: 0 auto; }
+  .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.04); }
+  .article-card { background: var(--dark-2); overflow: hidden; text-decoration: none; display: block; transition: background 0.3s; }
+  .article-card:hover { background: var(--dark-3); }
+  .article-img { aspect-ratio: 16/9;
+    /* MEDIA: Article thumbnail image */
+    background: var(--dark-3); display:flex; align-items:center; justify-content:center; position:relative;
+  }
+  .article-img p { font-family:var(--font-condensed); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.15); text-align:center; padding:16px; }
+  .article-body { padding: 28px 28px 32px; }
+  .article-card .article-title { font-size: 18px; font-family:var(--font-display); font-weight:400; line-height:1.35; color:var(--white); margin-bottom:12px; }
+  .article-card .article-excerpt { font-size:13px; font-weight:300; line-height:1.75; color:rgba(255,255,255,0.45); margin-bottom:20px; }
+  .article-card .article-meta { font-size:11px; }
+
+  /* PRESS RELEASES */
+  .press-section { padding: 100px 60px; background: var(--dark-2); }
+  .press-inner { max-width: 1300px; margin: 0 auto; }
+  .press-list { margin-top: 48px; display: flex; flex-direction: column; gap: 0; border: 1px solid rgba(255,255,255,0.06); }
+  .press-item { display: flex; align-items: flex-start; gap: 32px; padding: 28px 32px; border-bottom: 1px solid rgba(255,255,255,0.04); text-decoration: none; transition: background 0.2s; }
+  .press-item:last-child { border-bottom: none; }
+  .press-item:hover { background: var(--dark-3); }
+  .press-date { font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.08em; color:var(--muted); min-width:100px; padding-top:4px; }
+  .press-category { display:inline-block; font-family:var(--font-condensed); font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--green-light); border:1px solid rgba(76,175,80,0.25); padding:3px 8px; margin-bottom:8px; }
+  .press-title { font-family:var(--font-display); font-size:20px; font-weight:400; line-height:1.3; color:var(--white); }
+  .press-excerpt { font-size:13px; font-weight:300; line-height:1.7; color:rgba(255,255,255,0.45); margin-top:8px; }
+  .press-arrow { font-size:18px; color:rgba(255,255,255,0.2); padding-top:4px; transition:color 0.2s; flex-shrink:0; }
+  .press-item:hover .press-arrow { color:var(--gold-light); }
+
+  /* MEDIA KIT */
+  .mediakit-section { padding: 100px 60px; background: var(--green); }
+  .mediakit-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .mediakit-content h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--white); line-height:1.1; }
+  .mediakit-content h2 em { font-style:italic; color:var(--gold-light); }
+  .mediakit-content p { font-size:15px; font-weight:300; line-height:1.8; color:rgba(255,255,255,0.65); margin-top:16px; max-width:440px; }
+  .mediakit-assets { display:flex; flex-direction:column; gap:12px; margin-top:32px; }
+  .asset-item { display:flex; align-items:center; gap:16px; padding:16px 20px; background:rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.1); text-decoration:none; transition:background 0.2s; }
+  .asset-item:hover { background:rgba(0,0,0,0.35); }
+  .asset-icon { font-size:20px; flex-shrink:0; }
+  .asset-name { font-family:var(--font-condensed); font-size:13px; font-weight:600; letter-spacing:0.08em; color:var(--white); }
+  .asset-desc { font-size:12px; color:rgba(255,255,255,0.45); font-weight:300; margin-top:3px; }
+  .asset-dl { font-family:var(--font-condensed); font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-light); margin-left:auto; }
+  .mediakit-contact { background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); padding: 40px; }
+  .mediakit-contact h3 { font-family:var(--font-condensed); font-size:16px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--white); margin-bottom:16px; }
+  .mediakit-contact p { font-size:14px; font-weight:300; line-height:1.75; color:rgba(255,255,255,0.6); }
+  .mediakit-contact a { color:var(--gold-light); text-decoration:none; }
+  .btn-primary { font-family:var(--font-condensed); font-size:13px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--dark); background:var(--gold-light); padding:16px 36px; text-decoration:none; display:inline-block; margin-top:24px; transition:background 0.2s; }
+  .btn-primary:hover { background:var(--white); }
+
+  .footer-mini { background:var(--black); border-top:1px solid rgba(255,255,255,0.06); padding:32px 60px; display:flex; align-items:center; justify-content:space-between; }
+  .footer-mini p { font-size:12px; color:rgba(255,255,255,0.2); font-weight:300; }
+  .footer-mini a { color:var(--gold-light); text-decoration:none; font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; }
+
+  @media (max-width:900px) {
+    nav, .page-header, .filter-bar, .featured-section, .articles-section, .press-section, .mediakit-section, .footer-mini { padding-left:24px; padding-right:24px; }
+    .featured-article { grid-template-columns:1fr; }
+    .featured-img { aspect-ratio:16/9; }
+    .articles-grid { grid-template-columns:1fr 1fr; }
+    .mediakit-inner { grid-template-columns:1fr; gap:48px; }
+    .press-item { flex-direction:column; gap:12px; }
+    .press-date { min-width:auto; }
+  }
+  @media (max-width:600px) {
+    .articles-grid { grid-template-columns:1fr; }
+    .filter-bar-inner { overflow-x:auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-back">← Asia Group</a>
+  <a href="../index.html" class="nav-logo">
+    <img src="../asia-group-logo.png" alt="Asia Group" onerror="this.style.display='none'">
+    Asia Group
+  </a>
+  <a href="../index.html#contact" class="nav-cta">Contact</a>
+</nav>
+
+<section class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="../index.html">Asia Group</a>
+      <span>/</span>
+      <span style="color:var(--white);">News &amp; Media</span>
+    </div>
+    <div class="section-tag">Latest News</div>
+    <h1 class="page-title">News &amp; <em>Media</em></h1>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <button class="filter-btn active">All</button>
+    <button class="filter-btn">Corporate</button>
+    <button class="filter-btn">Partnerships</button>
+    <button class="filter-btn">Philanthropy</button>
+    <button class="filter-btn">Expansion</button>
+    <button class="filter-btn">Awards</button>
+    <button class="filter-btn">Press Releases</button>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<section class="featured-section">
+  <div class="featured-inner">
+    <a href="article-1.html" class="featured-article">
+      <div class="featured-img">
+        <!-- MEDIA: Featured article image — press conference, ceremony, or operations shot
+             File: media/news/featured-1.jpg -->
+        <div class="featured-label">Featured</div>
+        <p>MEDIA PLACEHOLDER<br>Featured Article Image<br>Recommended: Press conference or major announcement photography</p>
+      </div>
+      <div class="featured-body">
+        <div class="article-category">Corporate Announcement</div>
+        <!-- PLACEHOLDER: Replace with actual headline and excerpt from press release -->
+        <h2 class="article-title">Asia Group Announces Continental Expansion — Eight New Markets Targeted Across Central and East Africa</h2>
+        <p class="article-excerpt">The Group Chairman, Alhaji Sani Isah Abubakar, announces a multi-year expansion strategy to cement Asia Group's position as Africa's undisputed distribution leader, targeting Central Africa, East Africa, and ultimately global markets in Asia, Europe, and America.</p>
+        <div class="article-meta">
+          <span>Corporate</span>
+          <span>·</span>
+          <span>[ Publication Date — TBD ]</span>
+          <span>·</span>
+          <span>Press Release</span>
+        </div>
+        <span class="read-more">Read Full Story →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ARTICLES GRID -->
+<section class="articles-section">
+  <div class="articles-inner">
+    <div class="articles-grid">
+
+      <a href="article-2.html" class="article-card">
+        <div class="article-img">
+          <!-- MEDIA: CSR / philanthropy photography — meal distribution, community event
+               File: media/news/article-2.jpg -->
+          <p>MEDIA: CSR/Philanthropy Image</p>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Philanthropy</div>
+          <div class="article-title">4,000 Meals a Day: Inside Asia Group's Kano Feeding Programme</div>
+          <p class="article-excerpt">How one of Northern Nigeria's most powerful conglomerates turns commercial success into community sustenance — every single day.</p>
+          <div class="article-meta"><span>Philanthropy</span><span>·</span><span>[ Date — TBD ]</span></div>
+        </div>
+      </a>
+
+      <a href="article-3.html" class="article-card">
+        <div class="article-img">
+          <!-- MEDIA: CEO interview setting or portrait
+               File: media/news/article-3.jpg -->
+          <p>MEDIA: CEO Interview Photo</p>
+        </div>
+        <div class="article-body">
+          <div class="article-category">CEO Interview</div>
+          <div class="article-title">From ₦20,000 to Africa's #1: The Alhaji Sani Isah Story</div>
+          <p class="article-excerpt">The founder of Asia Group shares the philosophy, discipline, and vision behind building a continent-spanning empire from a market stall in Kano.</p>
+          <div class="article-meta"><span>Leadership</span><span>·</span><span>[ Date — TBD ]</span></div>
+        </div>
+      </a>
+
+      <a href="article-4.html" class="article-card">
+        <div class="article-img">
+          <!-- MEDIA: Partnership signing ceremony or warehouse operations
+               File: media/news/article-4.jpg -->
+          <p>MEDIA: Partnership / Operations Image</p>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Partnership</div>
+          <div class="article-title">Asia Group Deepens Distribution Partnership with Nestlé Nigeria for Northern Markets</div>
+          <p class="article-excerpt">A renewed and expanded partnership agreement positions Asia Group as the primary distribution vehicle for Nestlé's expanding product portfolio across Northern Nigeria.</p>
+          <div class="article-meta"><span>Partnership</span><span>·</span><span>[ Date — TBD ]</span></div>
+        </div>
+      </a>
+
+      <a href="article-5.html" class="article-card">
+        <div class="article-img">
+          <!-- MEDIA: Warehouse / logistics infrastructure photography
+               File: media/news/article-5.jpg -->
+          <p>MEDIA: Warehouse / Logistics Image</p>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Operations</div>
+          <div class="article-title">Inside Asia Group's 100,000-Tonne Annual Detergent Operation — Africa's Largest</div>
+          <p class="article-excerpt">A deep look at the warehousing, logistics, and distribution network that makes Asia Group the continent's undisputed leader in detergent and FMCG distribution.</p>
+          <div class="article-meta"><span>Operations</span><span>·</span><span>[ Date — TBD ]</span></div>
+        </div>
+      </a>
+
+      <a href="article-6.html" class="article-card">
+        <div class="article-img">
+          <!-- MEDIA: Niger State Head Office opening ceremony or building exterior
+               File: media/news/article-6.jpg -->
+          <p>MEDIA: Niger State HQ Image</p>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Milestone</div>
+          <div class="article-title">Asia Group Opens Niger State Head Office — A New Chapter of Growth Begins</div>
+          <p class="article-excerpt">The 2019 opening of Asia Group's Niger State Head Office marked a turning point in the company's formalisation and regional expansion ambitions.</p>
+          <div class="article-meta"><span>Milestone</span><span>·</span><span>2019</span></div>
+        </div>
+      </a>
+
+      <a href="article-7.html" class="article-card">
+        <div class="article-img">
+          <!-- MEDIA: Manufacturing facility concept or planning photography
+               File: media/news/article-7.jpg -->
+          <p>MEDIA: Manufacturing Plans Image</p>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Future Plans</div>
+          <div class="article-title">Asia Group Reveals Manufacturing Ambitions — Pampas, Pads, and Detergent Production Planned</div>
+          <p class="article-excerpt">The Group Chairman confirms plans to move beyond pure distribution into manufacturing, a move that would make Asia Group a fully integrated FMCG conglomerate.</p>
+          <div class="article-meta"><span>Strategy</span><span>·</span><span>[ Date — TBD ]</span></div>
+        </div>
+      </a>
+
+      <!-- PLACEHOLDER: Additional articles to be added as news is collected and published -->
+
+    </div>
+  </div>
+</section>
+
+<!-- PRESS RELEASES -->
+<section class="press-section">
+  <div class="press-inner">
+    <div class="section-tag">Official Announcements</div>
+    <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--white); line-height:1.1;">
+      Press <em style="font-style:italic; color:var(--gold-light);">Releases</em>
+    </h2>
+
+    <div class="press-list">
+      <!-- PLACEHOLDER: All press releases to be drafted and inserted chronologically, most recent first
+           Required for each: Date, category tag, headline, 1-2 sentence summary -->
+      <a href="press/expansion-2025.html" class="press-item">
+        <div class="press-date">[ Date — TBD ]</div>
+        <div style="flex:1;">
+          <span class="press-category">Corporate</span>
+          <div class="press-title">Asia Group of Companies Announces Pan-African Expansion Strategy</div>
+          <p class="press-excerpt">Press release to be drafted and inserted after approval from Group Chairman and communications team.</p>
+        </div>
+        <div class="press-arrow">→</div>
+      </a>
+      <a href="press/manufacturing-2025.html" class="press-item">
+        <div class="press-date">[ Date — TBD ]</div>
+        <div style="flex:1;">
+          <span class="press-category">Manufacturing</span>
+          <div class="press-title">Asia Group to Enter Manufacturing — Detergent, Pampas, and Pads Facilities Planned</div>
+          <p class="press-excerpt">Press release to be drafted and inserted after approval from Group Chairman and communications team.</p>
+        </div>
+        <div class="press-arrow">→</div>
+      </a>
+      <a href="press/partnership-nestle.html" class="press-item">
+        <div class="press-date">[ Date — TBD ]</div>
+        <div style="flex:1;">
+          <span class="press-category">Partnership</span>
+          <div class="press-title">Asia Group and Nestlé Nigeria Sign Expanded Northern Distribution Agreement</div>
+          <p class="press-excerpt">Press release to be drafted after partnership terms confirmed and approved for public disclosure.</p>
+        </div>
+        <div class="press-arrow">→</div>
+      </a>
+      <a href="press/niger-hq-2019.html" class="press-item">
+        <div class="press-date">2019</div>
+        <div style="flex:1;">
+          <span class="press-category">Milestone</span>
+          <div class="press-title">Asia Group Opens Niger State Head Office — Regional Hub for National Operations</div>
+          <p class="press-excerpt">Historical press release to be drafted from archived records and CEO interview. Marks the formal expansion of operations beyond Kano.</p>
+        </div>
+        <div class="press-arrow">→</div>
+      </a>
+      <!-- Add additional historical and upcoming press releases in chronological order -->
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA KIT -->
+<section class="mediakit-section">
+  <div class="mediakit-inner">
+    <div class="mediakit-content">
+      <div class="section-tag" style="color:rgba(255,255,255,0.6);">
+        <span style="background:rgba(255,255,255,0.3);width:30px;height:1px;display:block;"></span>
+        Press Resources
+      </div>
+      <h2>Download Our<br><em>Media Kit</em></h2>
+      <p>Official logos, photography, executive portraits, company fact sheets, and brand guidelines — available for accredited media and verified journalists.</p>
+      <div class="mediakit-assets">
+        <!-- PLACEHOLDER: All media kit assets to be prepared and uploaded -->
+        <a href="downloads/asia-group-logo-pack.zip" class="asset-item">
+          <div class="asset-icon">🖼️</div>
+          <div>
+            <div class="asset-name">Logo Pack</div>
+            <div class="asset-desc">SVG, PNG, dark &amp; light variants — placeholder, upload when ready</div>
+          </div>
+          <span class="asset-dl">Download</span>
+        </a>
+        <a href="downloads/asia-group-fact-sheet.pdf" class="asset-item">
+          <div class="asset-icon">📄</div>
+          <div>
+            <div class="asset-name">Company Fact Sheet</div>
+            <div class="asset-desc">Key statistics, milestones, subsidiary overview — to be compiled</div>
+          </div>
+          <span class="asset-dl">Download</span>
+        </a>
+        <a href="downloads/executive-portraits.zip" class="asset-item">
+          <div class="asset-icon">📸</div>
+          <div>
+            <div class="asset-name">Executive Portrait Photography</div>
+            <div class="asset-desc">High-res portraits for all executives — upload after shoots</div>
+          </div>
+          <span class="asset-dl">Download</span>
+        </a>
+        <a href="downloads/brand-guidelines.pdf" class="asset-item">
+          <div class="asset-icon">📐</div>
+          <div>
+            <div class="asset-name">Brand Guidelines</div>
+            <div class="asset-desc">Colors, typography, usage rules — to be prepared by design team</div>
+          </div>
+          <span class="asset-dl">Download</span>
+        </a>
+      </div>
+    </div>
+    <div class="mediakit-contact">
+      <h3>Media Enquiries</h3>
+      <p>For interview requests, photography licensing, press accreditation, or editorial enquiries, please contact the Asia Group Communications team.</p>
+      <!-- PLACEHOLDER: Add actual media contact name, email, and phone -->
+      <p style="margin-top:16px;">
+        <strong style="color:var(--white);">[ Communications Contact Name — TBD ]</strong><br>
+        Head of Communications, Asia Group<br>
+        <a href="mailto:media@asiagroup.com.ng">[ media@asiagroup.com.ng — confirm ]</a><br>
+        <span style="color:rgba(255,255,255,0.5);">[ Phone — TBD ]</span>
+      </p>
+      <a href="../index.html#contact" class="btn-primary">Send Media Enquiry →</a>
+    </div>
+  </div>
+</section>
+
+<div class="footer-mini">
+  <p>© 2025 Asia Group of Companies Ltd</p>
+  <a href="../index.html">← Back to Asia Group</a>
+</div>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // PLACEHOLDER: Add actual filtering logic once articles are tagged with data-category attributes
+    });
+  });
+</script>
+
+</body>
+</html>

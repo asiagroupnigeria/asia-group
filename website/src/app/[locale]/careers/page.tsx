@@ -1,76 +1,211 @@
-import { getTranslations } from 'next-intl/server';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Briefcase, MapPin, ArrowRight } from 'lucide-react';
+'use client';
 
-export default async function CareersPage() {
-  const t = await getTranslations('Navigation');
+import { useEffect, useState } from 'react';
+
+export default function CareersPage() {
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  useEffect(() => {
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((el) => {
+        if (el.isIntersecting) { el.target.classList.add('visible'); observer.unobserve(el.target); }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  const filters = ['All', 'Distribution', 'Pharmaceuticals', 'Automobiles', 'Corporate'];
+  const jobs = [
+    { dept: 'Distribution', title: 'Senior Logistics Coordinator', location: 'Kano, Nigeria', type: 'Full-time', urgent: true },
+    { dept: 'Pharmaceuticals', title: 'Pharmaceutical Compliance Manager', location: 'Lagos, Nigeria', type: 'Full-time', urgent: false },
+    { dept: 'Automobiles', title: 'Regional Sales Director', location: 'Niamey, Niger', type: 'Full-time', urgent: false },
+    { dept: 'Corporate', title: 'Supply Chain Analyst', location: 'Kano, Nigeria', type: 'Full-time', urgent: false },
+    { dept: 'Distribution', title: 'Fleet Manager', location: 'Kano, Nigeria', type: 'Full-time', urgent: false },
+    { dept: 'Corporate', title: 'Financial Controller', location: 'Kano, Nigeria', type: 'Full-time', urgent: true },
+  ];
+
+  const filteredJobs = activeFilter === 'All' ? jobs : jobs.filter(j => j.dept === activeFilter);
 
   return (
-    <div className="container px-4 md:px-8 py-24 min-h-[70vh]">
-      <div className="max-w-4xl mb-16">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
-          {t('careers')}
-        </h1>
-        <p className="text-xl text-muted-foreground leading-relaxed">
-          Join 8,000+ professionals dedicated to building the supply chain of Africa. We offer dynamic opportunities across logistics, FMCG, pharmaceuticals, automotive, and corporate services.
-        </p>
-      </div>
-
-      <div className="bg-primary/5 rounded-3xl p-8 md:p-12 border border-primary/10 mb-16 text-center">
-        <h2 className="text-3xl font-bold mb-4">Why Asia Group?</h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-          We believe in nurturing local talent and empowering our workforce with global best practices. Our scale offers unparalleled career growth and cross-border experience.
-        </p>
-        <div className="grid md:grid-cols-3 gap-8 text-left mt-12">
-           <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
-             <h3 className="text-lg font-bold mb-2 text-primary">Continental Scale</h3>
-             <p className="text-sm text-muted-foreground">Work on projects that impact 350M+ people across 30+ countries.</p>
-           </div>
-           <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
-             <h3 className="text-lg font-bold mb-2 text-primary">Integrity First</h3>
-             <p className="text-sm text-muted-foreground">Join a culture that prides itself on zero compliance violations.</p>
-           </div>
-           <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
-             <h3 className="text-lg font-bold mb-2 text-primary">Continuous Growth</h3>
-             <p className="text-sm text-muted-foreground">Access training programs and mobility across our 5+ business divisions.</p>
-           </div>
+    <div>
+      {/* PAGE HEADER */}
+      <section className="page-header">
+        <div className="page-header__watermark" aria-hidden="true">CAREERS</div>
+        <div className="inner">
+          
+          <h1 className="display-title">
+            Build Africa&apos;s<br /><em>Biggest Story</em>
+          </h1>
+          <p className="page-header__desc">
+            Join 8,000+ professionals dedicated to building the supply chain of Africa. We offer dynamic opportunities across logistics, FMCG, pharmaceuticals, automotive, and corporate services.
+          </p>
         </div>
-      </div>
+      </section>
 
-      <div className="mb-12">
-        <h2 className="text-3xl font-bold mb-8">Open Positions</h2>
-        {/* Placeholder for Sveltia CMS dynamic listings */}
-        <div className="space-y-4">
-          {[
-            { title: "Senior Logistics Coordinator", div: "FMCG Distribution", loc: "Kano, Nigeria" },
-            { title: "Pharmaceutical Compliance Manager", div: "Pharmaceuticals", loc: "Lagos, Nigeria" },
-            { title: "Regional Sales Director", div: "Automobiles", loc: "Niamey, Niger" },
-            { title: "Supply Chain Analyst", div: "Corporate HQ", loc: "Kano, Nigeria" },
-          ].map((job, i) => (
-            <div key={i} className="group bg-card p-6 rounded-2xl border border-border hover:border-primary/50 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer hover:shadow-sm">
-              <div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{job.title}</h3>
-                <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-                   <span className="flex items-center"><Briefcase className="mr-1 h-4 w-4" /> {job.div}</span>
-                   <span className="flex items-center"><MapPin className="mr-1 h-4 w-4" /> {job.loc}</span>
-                </div>
+      {/* WHY ASIA */}
+      <section className="section bg-dark-2">
+        <div className="inner">
+          <div className="fade-up">
+            
+            <h2 className="section-title">
+              More Than a Job.<br /><em>A Legacy.</em>
+            </h2>
+          </div>
+          
+          <div className="why-grid mt-4" style={{ marginTop: '60px' }}>
+            {[
+              { icon: <i className="ri-earth-line"></i>, title: 'Continental Scale', desc: 'Work on projects that impact 350M+ people across four nations and expanding.' },
+              { icon: <i className="ri-team-line"></i>, title: 'Integrity First', desc: 'Join a culture built on 36 years of uncompromising trust and business ethics.' },
+              { icon: <i className="ri-line-chart-line"></i>, title: 'Continuous Growth', desc: 'Access training programs and mobility across our 5+ business divisions.' },
+              { icon: <i className="ri-lightbulb-line"></i>, title: 'Global Exposure', desc: 'Work with 30+ global brand principals including Nestlé, Cadbury, and Dangote.' },
+            ].map((card, i) => (
+              <div key={i} className={`why-card fade-up delay-${i + 1}`}>
+                <div className="why-card__icon">{card.icon}</div>
+                <div className="why-card__title">{card.title}</div>
+                <p className="why-card__desc">{card.desc}</p>
               </div>
-              <Button variant="ghost" className="group-hover:bg-primary/10 group-hover:text-primary">
-                View Details <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-      
-      <div className="text-center mt-12 p-8 border-t border-border">
-         <p className="text-muted-foreground mb-4">Don't see a perfect fit? Send your CV to our talent pool.</p>
-         <Button variant="outline" asChild>
-           <a href="mailto:careers@asiagroup.ng">careers@asiagroup.ng</a>
-         </Button>
-      </div>
+      </section>
 
+      {/* JOB LISTINGS */}
+      <section className="section bg-dark">
+        <div className="inner">
+          <div className="fade-up" style={{ marginBottom: '48px' }}>
+            
+            <h2 className="section-title">
+              Current <em>Opportunities</em>
+            </h2>
+          </div>
+
+          {/* Filters */}
+          <div className="jobs-filters">
+            {filters.map((f) => (
+              <button 
+                key={f} 
+                onClick={() => setActiveFilter(f)} 
+                className={`filter-btn ${activeFilter === f ? 'active' : ''}`}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+
+          {/* Jobs */}
+          <div className="jobs-list">
+            {filteredJobs.map((job, i) => (
+              <a key={i} href="#" className="job-item">
+                <div className="job-item__dept">{job.dept}</div>
+                <div className="job-item__info">
+                  <div className="job-item__title">{job.title}</div>
+                  <div className="job-item__meta">
+                    <span className="job-item__meta-item">📍 {job.location}</span>
+                    <span className="job-item__meta-item">💼 {job.type}</span>
+                  </div>
+                </div>
+                {job.urgent && (
+                  <span className="job-badge job-badge--urgent">Urgent</span>
+                )}
+                <span className="job-arrow">→</span>
+              </a>
+            ))}
+          </div>
+          
+          <p className="jobs-note">
+            More positions being added — check back regularly or send an open application below.
+          </p>
+        </div>
+      </section>
+
+      {/* CULTURE */}
+      <section className="section bg-green-mid">
+        <div className="inner grid-2">
+          <div className="fade-up">
+            
+            <h2 className="section-title">
+              Built by <em>People,</em><br />for People.
+            </h2>
+            <p className="section-body section-body--muted mt-4">
+              Our workplace reflects our values — discipline, trust, and ambition. We&apos;re a family built on mutual respect and a shared mission to transform Africa&apos;s commerce landscape.
+            </p>
+            
+            <div className="culture-values">
+              {[
+                { title: 'Growth Culture', desc: 'Continuous learning and cross-divisional mobility.' },
+                { title: 'Strong Ethics', desc: 'Integrity embedded at every level of the organisation.' },
+                { title: 'Family Values', desc: 'A close-knit team that works and grows together.' },
+                { title: 'Impact Driven', desc: 'Every role contributes to Africa\'s economic growth.' },
+              ].map((v, i) => (
+                <div key={i} className="culture-value">
+                  <div className="culture-value__title">{v.title}</div>
+                  <p className="culture-value__desc">{v.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="fade-up delay-2 map-placeholder" style={{ aspectRatio: '4/3' }}>
+            <p className="placeholder-text">
+              Team / Workplace Photography<br />Placeholder
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* OPEN APPLICATION */}
+      <section className="section bg-dark-2">
+        <div className="inner">
+          <div className="fade-up" style={{ marginBottom: '48px' }}>
+            
+            <h2 className="section-title">
+              Don&apos;t See Your <em>Role?</em>
+            </h2>
+            <p className="section-body mt-4">
+              We&apos;re always looking for exceptional talent. Send your CV and we&apos;ll reach out when the right opportunity arises.
+            </p>
+          </div>
+          
+          <div className="fade-up open-app-grid">
+            <div className="form-group">
+              <label className="form-label">Full Name</label>
+              <input type="text" className="form-control" placeholder="Your full name" />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Email Address</label>
+              <input type="email" className="form-control" placeholder="your@email.com" />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Phone Number</label>
+              <input type="tel" className="form-control" placeholder="+234 800 000 0000" />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Preferred Division</label>
+              <input type="text" className="form-control" placeholder="e.g. Distribution, Pharmacy..." />
+            </div>
+            
+            <div className="form-group form-group--full">
+              <label className="form-label">Cover Note</label>
+              <textarea className="form-control" rows={4} placeholder="Tell us about yourself and what value you can bring to Asia Group..." />
+            </div>
+            
+            <div className="form-group form-group--full">
+              <label className="form-label">CV / Resume</label>
+              <div className="file-drop">
+                <input type="file" />
+                <span className="file-drop__icon">📎</span>
+                <p className="file-drop__label">Click to upload or drag & drop your CV (PDF preferred)</p>
+              </div>
+            </div>
+            
+            <div className="form-group--full" style={{ marginTop: '8px' }}>
+              <button type="submit" className="btn btn--primary">Submit Application →</button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
