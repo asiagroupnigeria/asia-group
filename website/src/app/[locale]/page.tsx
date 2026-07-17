@@ -14,6 +14,19 @@ export default async function Home() {
   const metricsDocs = getCollection('metrics');
   const metrics = metricsDocs.map(doc => doc.data).sort((a, b) => a.order - b.order);
 
+  const newsDocs = getCollection('news');
+  const news = newsDocs.map(doc => ({
+    slug: doc.slug,
+    title: doc.data.title,
+    date: doc.data.date,
+    category: doc.data.category,
+    hero_image: doc.data.hero_image,
+    excerpt: doc.data.excerpt,
+    featured: doc.data.featured || false,
+    author: doc.data.author || 'Asia Group Communications',
+    read_time: doc.data.read_time || 3
+  })).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
   const businessesDocs = getCollection('businesses');
   const businessesAll = businessesDocs
     .map(doc => ({
@@ -149,57 +162,74 @@ export default async function Home() {
 
         <div className="inner grid-news">
           {/* Featured News */}
-          <Link href="/news" className="news-card fade-up">
-            <div className="news-card__image news-card__image--featured">
-              <p className="placeholder-text">Featured News Image</p>
-            </div>
-            <div className="news-card__body">
-              <div className="news-card__category">Corporate Expansion</div>
-              <h3 className="news-card__title news-card__title--lg">Asia Group Announces Expansion into Central and East African Markets for 2025</h3>
-              <div className="news-card__meta">July 15, 2026 · 5 min read</div>
-            </div>
-          </Link>
+          {news[0] && (
+            <Link href={`/news/${news[0].slug}`} className="news-card fade-up">
+              <div className="news-card__image news-card__image--featured" style={{ backgroundImage: `url(${news[0].hero_image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+              </div>
+              <div className="news-card__body">
+                <div className="news-card__category">{news[0].category}</div>
+                <h3 className="news-card__title news-card__title--lg">{news[0].title}</h3>
+                <div className="news-card__meta">
+                  {new Date(news[0].date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} · {news[0].read_time} min read
+                </div>
+              </div>
+            </Link>
+          )}
 
           {/* Secondary News Column */}
           <div className="flex-col gap-1" style={{ gap: '2px' }}>
-            <Link href="/news" className="news-card fade-up delay-1" style={{ flex: 1 }}>
-              <div className="news-card__image news-card__image--thumb">
-                <p className="placeholder-text">Thumbnail</p>
-              </div>
-              <div className="news-card__body">
-                <div className="news-card__category">Community</div>
-                <h3 className="news-card__title news-card__title--sm">Daily Meal Distribution Programme Reaches 4,000 Milestone</h3>
-                <div className="news-card__meta">June 28, 2026</div>
-              </div>
-            </Link>
-            <Link href="/news" className="news-card fade-up delay-2" style={{ flex: 1 }}>
-              <div className="news-card__body mt-auto">
-                <div className="news-card__category">Partnerships</div>
-                <h3 className="news-card__title news-card__title--sm">SinoTruck Renews Exclusive Distribution Agreement</h3>
-                <div className="news-card__meta">June 10, 2026</div>
-              </div>
-            </Link>
+            {news[1] && (
+              <Link href={`/news/${news[1].slug}`} className="news-card fade-up delay-1" style={{ flex: 1 }}>
+                <div className="news-card__image news-card__image--thumb" style={{ backgroundImage: `url(${news[1].hero_image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                </div>
+                <div className="news-card__body">
+                  <div className="news-card__category">{news[1].category}</div>
+                  <h3 className="news-card__title news-card__title--sm">{news[1].title}</h3>
+                  <div className="news-card__meta">
+                    {new Date(news[1].date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                  </div>
+                </div>
+              </Link>
+            )}
+            {news[2] && (
+              <Link href={`/news/${news[2].slug}`} className="news-card fade-up delay-2" style={{ flex: 1 }}>
+                <div className="news-card__body mt-auto">
+                  <div className="news-card__category">{news[2].category}</div>
+                  <h3 className="news-card__title news-card__title--sm">{news[2].title}</h3>
+                  <div className="news-card__meta">
+                    {new Date(news[2].date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                  </div>
+                </div>
+              </Link>
+            )}
           </div>
 
           {/* Third Column */}
           <div className="flex-col gap-1" style={{ gap: '2px' }}>
-            <Link href="/news" className="news-card fade-up delay-3" style={{ flex: 1 }}>
-              <div className="news-card__body mt-auto">
-                <div className="news-card__category">Subsidiaries</div>
-                <h3 className="news-card__title news-card__title--sm">Asia Pharmacy Opens New Logistics Hub in Kano</h3>
-                <div className="news-card__meta">May 22, 2026</div>
-              </div>
-            </Link>
-            <Link href="/news" className="news-card fade-up delay-4" style={{ flex: 1 }}>
-              <div className="news-card__image news-card__image--thumb">
-                <p className="placeholder-text">Thumbnail</p>
-              </div>
-              <div className="news-card__body">
-                <div className="news-card__category">Awards</div>
-                <h3 className="news-card__title news-card__title--sm">Chairman Honoured for Trade Excellence</h3>
-                <div className="news-card__meta">April 15, 2026</div>
-              </div>
-            </Link>
+            {news[3] && (
+              <Link href={`/news/${news[3].slug}`} className="news-card fade-up delay-3" style={{ flex: 1 }}>
+                <div className="news-card__body mt-auto">
+                  <div className="news-card__category">{news[3].category}</div>
+                  <h3 className="news-card__title news-card__title--sm">{news[3].title}</h3>
+                  <div className="news-card__meta">
+                    {new Date(news[3].date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                  </div>
+                </div>
+              </Link>
+            )}
+            {news[4] && (
+              <Link href={`/news/${news[4].slug}`} className="news-card fade-up delay-4" style={{ flex: 1 }}>
+                <div className="news-card__image news-card__image--thumb" style={{ backgroundImage: `url(${news[4].hero_image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                </div>
+                <div className="news-card__body">
+                  <div className="news-card__category">{news[4].category}</div>
+                  <h3 className="news-card__title news-card__title--sm">{news[4].title}</h3>
+                  <div className="news-card__meta">
+                    {new Date(news[4].date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                  </div>
+                </div>
+              </Link>
+            )}
           </div>
         </div>
 
