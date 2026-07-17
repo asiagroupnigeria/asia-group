@@ -17,11 +17,15 @@ export interface NewsItem {
 
 export function NewsClient({ initialNews }: { initialNews: NewsItem[] }) {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const filters = ['All', 'Corporate', 'Partnerships', 'Philanthropy', 'Expansion', 'Awards', 'Press Releases', 'Milestone', 'Operations', 'Leadership', 'Strategy'];
+  const filters = ['All', 'Corporate', 'Partnerships', 'Philanthropy', 'Expansion', 'Awards', 'Milestone', 'Operations', 'Leadership', 'Strategy'];
 
   // Only show articles that match the filter (or all if 'All' is selected)
-  const filteredNews = initialNews.filter(n => activeFilter === 'All' || n.category === activeFilter);
+  // Exclude 'Press Releases' because they have their own dedicated section at the bottom
+  const filteredNews = initialNews.filter(n => 
+    n.category !== 'Press Releases' && (activeFilter === 'All' || n.category === activeFilter)
+  );
 
   // Featured is the most recent article that is explicitly marked as featured
   // If none is marked, fallback to the most recent article overall
@@ -32,6 +36,10 @@ export function NewsClient({ initialNews }: { initialNews: NewsItem[] }) {
 
   // The rest of the articles go into the grid
   const gridArticles = filteredNews.filter(n => n !== featuredArticle);
+
+  const CARDS_PER_PAGE = 12;
+  const paginatedGridArticles = gridArticles.slice(0, currentPage * CARDS_PER_PAGE);
+  const hasMore = paginatedGridArticles.length < gridArticles.length;
 
   // Press releases section specifically picks up "Press Releases" category regardless of the top filter
   const pressReleases = initialNews.filter(n => n.category === 'Press Releases');
@@ -44,7 +52,10 @@ export function NewsClient({ initialNews }: { initialNews: NewsItem[] }) {
             <button 
               key={f} 
               className={`filter-btn ${activeFilter === f ? 'active' : ''}`}
-              onClick={() => setActiveFilter(f)}
+              onClick={() => {
+                setActiveFilter(f);
+                setCurrentPage(1);
+              }}
             >
               {f}
             </button>
@@ -55,7 +66,7 @@ export function NewsClient({ initialNews }: { initialNews: NewsItem[] }) {
       {/* FEATURED ARTICLE */}
       {featuredArticle && (
         <section className="featured-section">
-          <div className="featured-inner fade-up">
+          <div key={featuredArticle.slug} className="featured-inner fade-up">
             <Link href={`/news/${featuredArticle.slug}`} className="featured-article">
               <div className="featured-img" style={{ backgroundImage: `url(${featuredArticle.hero_image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="featured-label">Featured</div>
@@ -82,9 +93,9 @@ export function NewsClient({ initialNews }: { initialNews: NewsItem[] }) {
       {gridArticles.length > 0 && (
         <section className="articles-section">
           <div className="articles-inner">
-            <div className="articles-grid">
-              {gridArticles.map((article, i) => (
-                <Link key={i} href={`/news/${article.slug}`} className={`article-card fade-up delay-${(i % 3) + 1}`}>
+            <div key={activeFilter} className="articles-grid">
+              {paginatedGridArticles.map((article, i) => (
+                <Link key={article.slug} href={`/news/${article.slug}`} className={`article-card fade-up delay-${(i % 3) + 1}`}>
                   <div className="article-img" style={{ backgroundImage: `url(${article.hero_image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                   </div>
                   <div className="article-body">
@@ -100,6 +111,17 @@ export function NewsClient({ initialNews }: { initialNews: NewsItem[] }) {
                 </Link>
               ))}
             </div>
+            {hasMore && (
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '48px' }} className="fade-up">
+                <button 
+                  className="btn btn--secondary"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => setCurrentPage(prev => prev + 1)}
+                >
+                  Load More News
+                </button>
+              </div>
+            )}
           </div>
         </section>
       )}
@@ -109,12 +131,12 @@ export function NewsClient({ initialNews }: { initialNews: NewsItem[] }) {
         <div className="press-inner fade-up">
           <div className="label label--green mb-4">Official Announcements</div>
           <h2 className="display-title" style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}>
-            Press <em>Releases</em>
+            Press Releases
           </h2>
 
           <div className="press-list mt-8">
             {pressReleases.map((pr, i) => (
-              <Link key={i} href={`/news/${pr.slug}`} className="press-item">
+              <Link key={pr.slug} href={`/news/${pr.slug}`} className="press-item">
                 <div className="press-date">{new Date(pr.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</div>
                 <div style={{ flex: 1 }}>
                   <span className="press-category">{pr.category}</span>
@@ -142,7 +164,7 @@ export function NewsClient({ initialNews }: { initialNews: NewsItem[] }) {
             <div className="label label--white mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>
               Press Resources
             </div>
-            <h2 className="display-title" style={{ color: '#FFFFFF' }}>Download Our<br/><em>Media Kit</em></h2>
+            <h2 className="display-title" style={{ color: '#FFFFFF' }}>Download Our<br/>Media Kit</h2>
             <p className="section-body mt-4" style={{ color: 'rgba(255,255,255,0.85)' }}>
               Official logos, photography, executive portraits, company fact sheets, and brand guidelines — available for accredited media and verified journalists.
             </p>

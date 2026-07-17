@@ -53,7 +53,7 @@ export default async function BusinessesPage() {
                 href={`/businesses/${sub.slug}`} 
                 className="subsidiary-card fade-up delay-1"
                 style={{ 
-                  background: `url(${sub.hero_image})`,
+                  backgroundImage: `url(${sub.hero_image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
                 }}

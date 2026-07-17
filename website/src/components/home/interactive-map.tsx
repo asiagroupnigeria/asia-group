@@ -40,6 +40,16 @@ export function InteractiveMap() {
     setPosition(pos);
   };
 
+  const [mounted, setMounted] = useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="interactive-map map-container" style={{ position: 'relative', width: '100%', overflow: 'hidden' }} />;
+  }
+
   return (
     <div 
       className="interactive-map map-container" 

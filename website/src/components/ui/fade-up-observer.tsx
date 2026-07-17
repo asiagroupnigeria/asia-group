@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 
 export function FadeUpObserver() {
   useEffect(() => {
-    const fadeEls = document.querySelectorAll('.fade-up');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((el) => {
         if (el.isIntersecting) {
@@ -13,8 +12,28 @@ export function FadeUpObserver() {
         }
       });
     }, { threshold: 0.1 });
-    fadeEls.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+
+    const observeAll = () => {
+      document.querySelectorAll('.fade-up:not(.visible)').forEach((el) => {
+        observer.observe(el);
+      });
+    };
+
+    observeAll();
+
+    const mutationObserver = new MutationObserver(() => {
+      observeAll();
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 
   return null;

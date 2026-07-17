@@ -32,7 +32,7 @@ export default async function NewsPage() {
           </div>
           <div className="label label--green mb-4 mt-6">Latest News</div>
           <h1 className="display-title" style={{ fontSize: 'clamp(48px, 6vw, 88px)' }}>
-            News &amp; <em>Media</em>
+            News &amp; Media
           </h1>
         </div>
       </section>

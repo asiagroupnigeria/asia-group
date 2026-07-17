@@ -2,17 +2,20 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getEntryBySlug, getCollection } from '@/lib/cms';
 import ReactMarkdown from 'react-markdown';
+import { FadeUpObserver } from '@/components/ui/fade-up-observer';
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
     locale: string;
-  };
+  }>;
 }
 
 export default async function ArticlePage({ params }: Props) {
+  const { slug } = await params;
+  
   // Fetch specific article by slug
-  const entry = getEntryBySlug('news', params.slug);
+  const entry = getEntryBySlug('news', slug);
   
   if (!entry) {
     notFound();
@@ -30,15 +33,19 @@ export default async function ArticlePage({ params }: Props) {
 
   // Fetch related articles (same category, exclude current)
   const allNews = getCollection('news');
-  const related = allNews
-    .filter(doc => doc.slug !== params.slug && doc.data.category === article.category)
-    .slice(0, 3)
-    .map(doc => ({
-      slug: doc.slug,
-      title: doc.data.title,
-      category: doc.data.category,
-      hero_image: doc.data.hero_image
-    }));
+  let related = allNews.filter(doc => doc.slug !== slug && doc.data.category === article.category);
+  
+  // Fallback to any recent news if no exact category match
+  if (related.length === 0) {
+    related = allNews.filter(doc => doc.slug !== slug);
+  }
+
+  const relatedMapped = related.slice(0, 3).map(doc => ({
+    slug: doc.slug,
+    title: doc.data.title,
+    category: doc.data.category,
+    hero_image: doc.data.hero_image
+  }));
 
   return (
     <div>
@@ -70,7 +77,6 @@ export default async function ArticlePage({ params }: Props) {
               <div className="meta-avatar">AG</div>
               <div className="meta-author-info">
                 <p>{article.author}</p>
-                <p>Asia Group</p>
               </div>
             </div>
             <div className="meta-divider"></div>
@@ -99,27 +105,27 @@ export default async function ArticlePage({ params }: Props) {
             </div>
             <div className="share-row">
               <span className="share-label">Share:</span>
-              <a href="#" className="share-btn">LinkedIn</a>
-              <a href="#" className="share-btn">Twitter / X</a>
-              <a href="#" className="share-btn">WhatsApp</a>
-              <a href="#" className="share-btn">Copy Link</a>
+              <a href="#" className="share-btn" style={{ padding: '8px 12px', fontSize: '16px' }} aria-label="Share on LinkedIn"><i className="ri-linkedin-fill"></i></a>
+              <a href="#" className="share-btn" style={{ padding: '8px 12px', fontSize: '16px' }} aria-label="Share on Twitter/X"><i className="ri-twitter-x-line"></i></a>
+              <a href="#" className="share-btn" style={{ padding: '8px 12px', fontSize: '16px' }} aria-label="Share on WhatsApp"><i className="ri-whatsapp-line"></i></a>
+              <a href="#" className="share-btn" style={{ padding: '8px 12px', fontSize: '16px' }} aria-label="Copy Link"><i className="ri-link"></i></a>
             </div>
           </div>
         </div>
       </section>
 
       {/* RELATED ARTICLES */}
-      {related.length > 0 && (
+      {relatedMapped.length > 0 && (
         <section className="related-section">
           <div className="related-inner">
             <div style={{ fontFamily: 'var(--font-condensed)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--green-light)', marginBottom: '16px' }}>
               More from Asia Group
             </div>
             <h2 className="display-title" style={{ fontSize: 'clamp(28px, 3vw, 44px)', color: 'var(--text-main)' }}>
-              Related <em>Stories</em>
+              Related Stories
             </h2>
             <div className="related-grid">
-              {related.map((rel, i) => (
+              {relatedMapped.map((rel, i) => (
                 <Link key={i} href={`/news/${rel.slug}`} className="related-card fade-up">
                   <div className="related-img" style={{ backgroundImage: `url(${rel.hero_image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                   </div>
@@ -133,6 +139,8 @@ export default async function ArticlePage({ params }: Props) {
           </div>
         </section>
       )}
+
+      <FadeUpObserver />
     </div>
   );
 }

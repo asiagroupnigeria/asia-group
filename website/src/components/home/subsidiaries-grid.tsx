@@ -43,9 +43,8 @@ export function SubsidiariesGrid({ businesses }: SubsidiariesGridProps) {
           onMouseEnter={() => setHoveredIndex(i)}
           onMouseLeave={() => setHoveredIndex(null)}
           style={{
-            background: hoveredIndex === null 
-              ? `url(${sub.hero_image})` 
-              : (hoveredIndex === i ? 'transparent' : 'rgba(255, 255, 255, 0.15)'),
+            backgroundImage: hoveredIndex === null ? `url(${sub.hero_image})` : 'none',
+            backgroundColor: hoveredIndex === null ? 'transparent' : (hoveredIndex === i ? 'transparent' : 'rgba(255, 255, 255, 0.15)'),
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backdropFilter: hoveredIndex !== null && hoveredIndex !== i ? 'blur(4px)' : 'none',
@@ -71,7 +70,9 @@ export function SubsidiariesGrid({ businesses }: SubsidiariesGridProps) {
           className="subsidiary-card subsidiary-card--promo fade-up delay-2" 
           style={{ 
             zIndex: 2,
-            background: `linear-gradient(to right, rgba(27, 94, 32, 0.95) 30%, rgba(27, 94, 32, 0.3) 100%), url(${promoCard.hero_image}) center/cover`
+            backgroundImage: `linear-gradient(to right, rgba(27, 94, 32, 0.95) 30%, rgba(27, 94, 32, 0.3) 100%), url(${promoCard.hero_image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
           }}
         >
           <div>
