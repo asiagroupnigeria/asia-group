@@ -1,63 +1,61 @@
-'use client';
-
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { InteractiveMap } from '@/components/home/interactive-map';
 import { Hero } from '@/components/home/hero';
 import { SubsidiariesGrid } from '@/components/home/subsidiaries-grid';
 import { AnimatedNumber } from '@/components/ui/animated-number';
+import { FadeUpObserver } from '@/components/ui/fade-up-observer';
+import { getCollection } from '@/lib/cms';
 
-export default function Home() {
-  // Fade-up scroll animation
-  useEffect(() => {
-    const fadeEls = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((el) => {
-        if (el.isIntersecting) {
-          el.target.classList.add('visible');
-          observer.unobserve(el.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    fadeEls.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+export default async function Home() {
+  // Fetch data from CMS
+  const heroSlidesDocs = getCollection('hero_slides');
+  const heroSlides = heroSlidesDocs.map(doc => doc.data).sort((a, b) => a.order - b.order);
+
+  const metricsDocs = getCollection('metrics');
+  const metrics = metricsDocs.map(doc => doc.data).sort((a, b) => a.order - b.order);
+
+  const businessesDocs = getCollection('businesses');
+  const businesses = businessesDocs
+    .map(doc => ({
+      slug: doc.data.slug,
+      title: doc.data.title,
+      tagline: doc.data.tagline,
+      description: doc.data.description,
+      hero_image: doc.data.hero_image,
+      order: doc.data.order,
+      published: doc.data.published
+    }))
+    .filter(b => b.published)
+    .sort((a, b) => a.order - b.order);
+
+  const partnersDocs = getCollection('partners');
+  const partners = partnersDocs.map(doc => doc.data).sort((a, b) => a.order - b.order);
 
   return (
     <div>
+      <FadeUpObserver />
 
       {/* ==================== HERO ==================== */}
-      <Hero />
-
-
+      <Hero slides={heroSlides} />
 
       {/* ==================== NUMBERS ==================== */}
       <section id="numbers" className="numbers-section">
         <div className="numbers-watermark" aria-hidden="true">SCALE</div>
 
         <div className="fade-up inner">
-
           <h2 className="section-title">
             Numbers That Define<br />a Continent&apos;s Trade
           </h2>
         </div>
 
         <div className="numbers-grid inner">
-          {[
-            { value: 100, suffix: 'K', unit: 'T', label: 'Tonnes of Detergent', desc: 'Distributed annually — the highest volume of any distributor on the African continent' },
-            { value: 30, suffix: '', unit: '+', label: 'Global Brands Represented', desc: 'Including Nestlé, Cadbury, Olam, Dangote, SinoTruck, and PZ Cussons among others' },
-            { value: 4, suffix: '', unit: '', label: 'Countries Active', desc: 'Nigeria, Cameroon, Chad, and Niger — with Central and East Africa expansion in progress' },
-            { value: 8, suffix: 'K', unit: '', label: 'Staff Across Nigeria', desc: 'A dedicated workforce driving our operations and distribution network nationwide' },
-            { value: 500, suffix: 'K+', unit: 'sq. ft.', label: 'Warehousing & Logistics Infrastructure', desc: 'State-of-the-art infrastructure powering our supply chain' },
-            { value: 19, suffix: '', unit: '', label: 'Operating Locations Across Nigeria', desc: 'Strategic hubs spread across Nigeria ensuring seamless reach and efficiency' },
-            { value: 3, suffix: '', unit: '', label: 'Decades of Generational Growth', desc: 'Building a legacy of commercial excellence and generational success since 1988' },
-            { value: 4, suffix: 'K', unit: '', label: 'Daily Meals Served', desc: '2,000 afternoon and 2,000 evening meals provided daily to people across Kano' },
-          ].map((item, i) => (
+          {metrics.map((item, i) => (
             <div key={i} className={`number-item fade-up delay-${(i % 4) + 1}`}>
               <div className="number-item__value">
                 <AnimatedNumber value={item.value} duration={2} />{item.suffix}{item.unit && <span className="number-item__unit">{item.unit}</span>}
               </div>
               <div className="number-item__label">{item.label}</div>
-              <div className="number-item__desc">{item.desc}</div>
+              <div className="number-item__desc">{item.description}</div>
             </div>
           ))}
         </div>
@@ -67,9 +65,8 @@ export default function Home() {
       <section id="subsidiaries" className="section bg-dark-2">
         <div className="inner grid-2 grid-2--end" style={{ marginBottom: '80px' }}>
           <div>
-
             <h2 className="section-title">
-              Six Pillars of a<br /><em>Diversified Empire</em>
+              Six Pillars of a<br />Diversified Empire
             </h2>
           </div>
           <div>
@@ -79,7 +76,7 @@ export default function Home() {
           </div>
         </div>
 
-        <SubsidiariesGrid />
+        <SubsidiariesGrid businesses={businesses} />
 
         <div className="inner" style={{ display: 'flex', justifyContent: 'center', marginTop: '60px' }}>
           <Link href="/businesses" className="btn btn--outline" style={{ padding: '16px 40px' }}>
@@ -90,95 +87,53 @@ export default function Home() {
 
       {/* ==================== PARTNERS ==================== */}
       <section id="partners" className="partners-section">
-        <div className="partners-header">
-
-          <h2 className="section-title section-title--dark">
-            The World&apos;s Best<br /><em>Trust Asia Group</em>
-          </h2>
-          <p className="partners-desc">
-            Over 30 of the world&apos;s most recognized manufacturers and conglomerates have chosen Asia Group as their distribution partner. When global brands need African reach, they come here.
-          </p>
+        <div className="inner grid-2 grid-2--end" style={{ marginBottom: '80px' }}>
+          <div className="fade-up">
+            <h2 className="section-title section-title--dark">
+              The World&apos;s Best<br />Trust Asia Group
+            </h2>
+          </div>
+          <div className="fade-up delay-1">
+            <p className="section-body" style={{ color: 'var(--text-muted)' }}>
+              Over 30 of the world&apos;s most recognized manufacturers and conglomerates have chosen Asia Group as their distribution partner. When global brands need African reach, they come here.
+            </p>
+          </div>
         </div>
 
         <div className="inner grid-6">
-          {[
-            { name: 'Olam International', src: '/media/logos/olam.svg' },
-            { name: 'Nestlé Nigeria', src: '/media/logos/nestle.svg' },
-            { name: 'Cadbury Nigeria', src: '/media/logos/cadbury.svg' },
-            { name: 'Dangote Group', src: '/media/logos/dangote.svg' },
-            { name: 'BUA Group', src: '/media/logos/bua.svg' },
-            { name: 'SinoTruck Nigeria', src: '/media/logos/sinotruck.svg' },
-            { name: 'Mikano Motors', src: '/media/logos/mikano.svg' },
-            { name: '7UP Bottling Company', src: '/media/logos/7up.svg' },
-            { name: 'EUROMEGA', src: '/media/logos/euromega.svg' },
-            { name: 'Aspira', src: '/media/logos/aspira.svg' },
-            { name: 'Mamuda Group', src: '/media/logos/mamuda.svg' },
-            { name: 'Ammasco', src: '/media/logos/ammasco.svg' }
-          ].map((partner, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px 16px', borderRight: (i + 1) % 6 !== 0 ? '1px solid rgba(255,255,255,0.06)' : 'none', borderBottom: i < 6 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
-              <img src={partner.src} alt={partner.name} style={{ width: '100%', maxWidth: '120px', opacity: 0.6, filter: 'grayscale(100%) brightness(200%)', transition: 'opacity 0.3s' }} onMouseEnter={e => e.currentTarget.style.opacity = '1'} onMouseLeave={e => e.currentTarget.style.opacity = '0.6'} />
+          {partners.map((partner, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px 16px', borderRight: (i + 1) % 6 !== 0 ? '1px solid var(--border-color)' : 'none', borderBottom: i < partners.length - 6 ? '1px solid var(--border-color)' : 'none', height: '120px' }}>
+              <img src={partner.logo} alt={partner.name} style={{ maxWidth: '140px', maxHeight: '60px', width: 'auto', height: 'auto', objectFit: 'contain' }} />
             </div>
           ))}
         </div>
       </section>
 
       {/* ==================== OPERATIONS ==================== */}
-      <section id="operations" className="section bg-dark">
-        <div className="inner grid-2 grid-2--img grid-2--start">
+      <section id="operations" className="section bg-dark" style={{ backgroundColor: '#000000' }}>
+        <div className="inner grid-2 grid-2--start" style={{ marginBottom: '40px' }}>
           <div className="fade-up">
-
-            <h2 className="section-title">
-              Operating Across<br /><em>Four Nations.</em><br />Expanding to the World.
+            <h2 className="section-title" style={{ color: '#FFFFFF' }}>
+              Operating Across<br />Four Nations. Expanding to the World.
             </h2>
-            <p className="section-body mt-4">
+          </div>
+          <div className="fade-up delay-1">
+            <p className="section-body" style={{ color: '#A0AABF' }}>
               Headquartered in Kano, Nigeria with operational footprint in Cameroon, Chad, and Niger — and active expansion into Central Africa, East Africa, Asia, Europe, and America.
             </p>
-
-            <div className="locations-list mt-4">
-              {[
-                { country: 'Nigeria', status: 'HQ + Full Operations', active: true },
-                { country: 'Cameroon', status: 'Active', active: true },
-                { country: 'Chad', status: 'Active', active: true },
-                { country: 'Niger Republic', status: 'Active', active: true },
-                { country: 'Central Africa', status: 'Expanding', active: false },
-                { country: 'East Africa', status: 'Expanding', active: false },
-                { country: 'Asia · Europe · America', status: 'Coming Soon', active: false },
-              ].map((loc, i) => (
-                <div key={i} className="location-row">
-                  <div className={`location-row__dot ${loc.active ? 'location-row__dot--active' : 'location-row__dot--expanding'}`} />
-                  <div className="location-row__name">{loc.country}</div>
-                  <div className={`location-row__status ${loc.active ? 'location-row__status--active' : 'location-row__status--expanding'}`}>{loc.status}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="fade-up delay-2">
-            {/* Map placeholder */}
-            <div className="map-placeholder">
-              <p className="placeholder-text">
-                Interactive Map of Operations<br /><br />
-                Africa + Global Presence
-              </p>
-            </div>
-            {/* Video placeholder */}
-            <div className="video-placeholder">
-              <p className="placeholder-text">
-                Logistics / Warehouse Operations Cinematic
-              </p>
-            </div>
           </div>
         </div>
+
+        <div className="fade-up delay-2" style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)' }}>
+          <InteractiveMap />
+        </div>
       </section>
-
-
 
       {/* ==================== NEWS ==================== */}
       <section id="news" className="section bg-dark-2">
         <div className="inner grid-2 grid-2--end" style={{ marginBottom: '80px' }}>
           <div>
-
-            <h2 className="section-title">Asia Group<br /><em>in the News</em></h2>
+            <h2 className="section-title">Asia Group<br />in the News</h2>
           </div>
           <div>
             <p className="section-body">
@@ -247,8 +202,6 @@ export default function Home() {
           <Link href="/news" className="btn btn--outline">View All News & Press →</Link>
         </div>
       </section>
-
-
 
     </div>
   );

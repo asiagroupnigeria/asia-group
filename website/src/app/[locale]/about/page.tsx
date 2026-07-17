@@ -26,7 +26,7 @@ export default function AboutPage() {
         <div className="inner">
           
           <h1 className="display-title">
-            Built on <em>Trust.</em><br />Scaled by <em>Vision.</em>
+            Built on Trust.<br />Scaled by Vision.
           </h1>
           <p className="page-header__desc">
             From ₦20,000 and a market stall to commanding Africa&apos;s most powerful distribution network — this is the story of Asia Group of Companies.
@@ -57,7 +57,7 @@ export default function AboutPage() {
 
           <div className="fade-up delay-2" style={{ paddingRight: '20px' }}>
             
-            <h2 className="section-title">Built on <em>Trust,</em><br />Scaled by <em>Vision</em></h2>
+            <h2 className="section-title">Built on Trust,<br />Scaled by Vision</h2>
             <p className="section-body mt-4">
               Asia Group of Companies began with nothing more than a young man&apos;s ambition, ₦20,000 in capital, and a stall at Abubakar Rimi Market. Alhaji Sani Isah Abubakar started selling polythene bags after school — and never stopped building.
             </p>
@@ -96,7 +96,7 @@ export default function AboutPage() {
           <div className="grid-2 grid-2--end" style={{ marginBottom: '80px' }}>
             <div>
               
-              <h2 className="section-title">Leadership<br /><em>That Builds</em></h2>
+              <h2 className="section-title">Leadership<br />That Builds</h2>
             </div>
             <p className="section-body">
               Every subsidiary is led by a seasoned executive. Together they represent decades of industry experience and the next generation of Africa&apos;s business leadership.
@@ -137,7 +137,7 @@ export default function AboutPage() {
         <div className="inner">
           <div className="fade-up" style={{ marginBottom: '80px' }}>
             
-            <h2 className="section-title section-title--dark">From a Market Stall<br /><em>to a Continental Empire</em></h2>
+            <h2 className="section-title section-title--dark">From a Market Stall<br />to a Continental Empire</h2>
           </div>
 
           <div className="fade-up delay-1 timeline">

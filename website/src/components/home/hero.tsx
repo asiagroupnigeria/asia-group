@@ -4,38 +4,22 @@ import React, { useEffect, useCallback, useState } from 'react';
 import Link from 'next/link';
 import useEmblaCarousel from 'embla-carousel-react';
 
-const slides = [
-  {
-    video: '/media/hero-video.mp4',
-    poster: '/media/about-hero.jpg',
-        title: <>Africa&apos;s Number One<br /><strong>Wholesale &amp; Distribution</strong> Conglomerate</>,
-    desc: 'Powering commerce across four nations with trust, scale, and uncompromising vision.',
-    ctas: [
-      { text: 'Discover Our Story', href: '/about', type: 'primary' },
-      { text: 'View Subsidiaries', href: '/businesses', type: 'outline' }
-    ]
-  },
-  {
-    image: '/media/hero-fmcg.jpg',
-        title: <>Feeding &amp; Supplying<br /><strong>The Next Generation</strong> of Africa</>,
-    desc: 'Unrivaled volume in sugar, rice, and detergents, connecting global brands to local markets.',
-    ctas: [
-      { text: 'Explore FMCG Division', href: '/businesses', type: 'primary' },
-      { text: 'Partner With Us', href: '/contact', type: 'outline' }
-    ]
-  },
-  {
-    image: '/media/hero-logistics.jpg',
-        title: <>Moving Continents<br /><strong>With Precision &amp; Power</strong></>,
-    desc: 'A massive fleet ensuring seamless distribution across the hardest-to-reach borders.',
-    ctas: [
-      { text: 'View Logistics Network', href: '/businesses', type: 'primary' },
-      { text: 'Learn More', href: '/about#operations', type: 'outline' }
-    ]
-  }
-];
+export interface HeroSlide {
+  title: string;
+  subtitle: string;
+  background_media: string;
+  is_video: boolean;
+  cta_1_text?: string;
+  cta_1_link?: string;
+  cta_2_text?: string;
+  cta_2_link?: string;
+}
 
-export function Hero() {
+interface HeroProps {
+  slides: HeroSlide[];
+}
+
+export function Hero({ slides }: HeroProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 40 });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [resetKey, setResetKey] = useState(0);
@@ -83,22 +67,21 @@ export function Hero() {
           {slides.map((slide, i) => (
             <div className="embla__slide" key={i} style={{ flex: '0 0 100%', minWidth: 0, position: 'relative' }}>
               
-              {slide.video ? (
+              {slide.is_video ? (
                 <video 
                   autoPlay 
                   loop 
                   muted 
                   playsInline 
-                  poster={slide.poster}
                   className="hero__bg"
                   style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                 >
-                  <source src={slide.video} type="video/mp4" />
+                  <source src={slide.background_media} type="video/mp4" />
                 </video>
               ) : (
                 <div 
                   className="hero__bg" 
-                  style={{ backgroundImage: `url(${slide.image})` }} 
+                  style={{ backgroundImage: `url(${slide.background_media})` }} 
                 />
               )}
               <div className="hero__grid" />
@@ -107,16 +90,21 @@ export function Hero() {
               <div className="hero__content-wrap" style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                 <div className="hero__content">
                   
-                  <h1 className="hero__title">{slide.title}</h1>
+                  <h1 className="hero__title" dangerouslySetInnerHTML={{ __html: slide.title }} />
                   
-                  <p className="hero__desc">{slide.desc}</p>
+                  <p className="hero__desc">{slide.subtitle}</p>
 
                   <div className="hero__ctas">
-                    {slide.ctas.map((cta, j) => (
-                      <Link key={j} href={cta.href} className={`btn btn--${cta.type}`}>
-                        {cta.text}
+                    {slide.cta_1_text && slide.cta_1_link && (
+                      <Link href={slide.cta_1_link} className="btn btn--primary">
+                        {slide.cta_1_text}
                       </Link>
-                    ))}
+                    )}
+                    {slide.cta_2_text && slide.cta_2_link && (
+                      <Link href={slide.cta_2_link} className="btn btn--outline">
+                        {slide.cta_2_text}
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>

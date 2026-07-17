@@ -32,7 +32,7 @@ export default function NewsPage() {
         <div className="inner">
           
           <h1 className="display-title">
-            Latest from<br /><em>Asia Group</em>
+            Latest from<br />Asia Group
           </h1>
           <p className="page-header__desc">
             Stay updated with the latest announcements, market insights, expansion news, and community impact stories from Asia Group of Companies.

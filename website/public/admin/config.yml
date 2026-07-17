@@ -1,98 +1,188 @@
 backend:
   name: github
-  repo: your-github-username/asia-group-website # UPDATE THIS LATER
+  repo: asiagroupnigeria/asia-group
   branch: main
 
-media_folder: public/media
+media_folder: website/public/media
 public_folder: /media
 
 collections:
+  - name: "hero_slides"
+    label: "Hero Slides"
+    folder: "website/content/hero_slides"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string" }
+      - { label: "Background Media (Video/Image)", name: "background_media", widget: "string" }
+      - { label: "Is Video", name: "is_video", widget: "boolean", default: false }
+      - { label: "CTA 1 Text", name: "cta_1_text", widget: "string", required: false }
+      - { label: "CTA 1 Link", name: "cta_1_link", widget: "string", required: false }
+      - { label: "CTA 2 Text", name: "cta_2_text", widget: "string", required: false }
+      - { label: "CTA 2 Link", name: "cta_2_link", widget: "string", required: false }
+      - { label: "Display Order", name: "order", widget: "number" }
+
+  - name: "metrics"
+    label: "Metrics"
+    folder: "website/content/metrics"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Value", name: "value", widget: "number" }
+      - { label: "Suffix", name: "suffix", widget: "string", required: false }
+      - { label: "Unit", name: "unit", widget: "string", required: false }
+      - { label: "Label", name: "label", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Display Order", name: "order", widget: "number" }
+
+  - name: "businesses"
+    label: "Business Units"
+    folder: "website/content/businesses"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL-safe, e.g. logistics" }
+      - { label: "Unit Name", name: "title", widget: "string" }
+      - { label: "Tagline", name: "tagline", widget: "string" }
+      - { label: "Short Description", name: "description", widget: "text" }
+      - { label: "Hero Image", name: "hero_image", widget: "image" }
+      - { label: "Hero Video", name: "hero_video", widget: "file", required: false }
+      - label: "Key Metrics"
+        name: "key_metrics"
+        widget: "list"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "Value", name: "value", widget: "string" }
+      - label: "Products"
+        name: "products"
+        widget: "list"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+      - label: "Certifications"
+        name: "certifications"
+        widget: "list"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Body", name: "body", widget: "string" }
+          - { label: "Year", name: "year", widget: "number" }
+      - { label: "Contact Email", name: "contact_email", widget: "string" }
+      - { label: "Display Order", name: "order", widget: "number" }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "leadership"
+    label: "Leadership Profiles"
+    folder: "website/content/leadership"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "title", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["executive", "management", "board"] }
+      - { label: "Portrait", name: "portrait", widget: "image" }
+      - { label: "Philosophy Quote", name: "quote", widget: "text", required: false }
+      - { label: "Display Order", name: "order", widget: "number" }
+      - { label: "Bio", name: "body", widget: "markdown" }
+
   - name: "news"
     label: "Newsroom"
-    folder: "content/news"
+    folder: "website/content/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
-      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["company-news", "sector-insights", "sustainability", "international-trade", "partnerships"] }
+      - { label: "Author", name: "author", widget: "string", required: false }
+      - { label: "Featured Image", name: "featured_image", widget: "image" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
-  - name: "insights"
-    label: "Insights"
-    folder: "content/insights"
+  - name: "case_studies"
+    label: "Case Studies"
+    folder: "website/content/case_studies"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Division", name: "division", widget: "relation", collection: "businesses", search_fields: ["title"], value_field: "slug", display_fields: ["title"] }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - { label: "Video URL", name: "video_url", widget: "string", required: false }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - label: "Metrics"
+        name: "metrics"
+        widget: "list"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "Value", name: "value", widget: "string" }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
       - { label: "Body", name: "body", widget: "markdown" }
-
-  - name: "leadership"
-    label: "Leadership Profiles"
-    folder: "content/leadership"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Name", name: "name", widget: "string" }
-      - { label: "Role", name: "role", widget: "string" }
-      - { label: "Portrait", name: "portrait", widget: "image" }
-      - { label: "Bio", name: "body", widget: "markdown" }
-
-  - name: "businesses"
-    label: "Business Units"
-    folder: "content/businesses"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Unit Name", name: "title", widget: "string" }
-      - { label: "Short Description", name: "description", widget: "text" }
-      - { label: "Key Metric 1", name: "metric1", widget: "string", required: false }
-      - { label: "Key Metric 2", name: "metric2", widget: "string", required: false }
-      - { label: "Featured Image", name: "image", widget: "image" }
-      - { label: "Body", name: "body", widget: "markdown" }
-
-  - name: "sustainability"
-    label: "Sustainability Metrics"
-    folder: "content/sustainability"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Pillar Name", name: "title", widget: "string" }
-      - { label: "Impact Number", name: "impact_number", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Icon", name: "icon", widget: "string", hint: "Remix Icon class name" }
-
-  - name: "partnerships"
-    label: "Partnerships"
-    folder: "content/partnerships"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Partner Name", name: "name", widget: "string" }
-      - { label: "Logo", name: "logo", widget: "image" }
-      - { label: "Description", name: "description", widget: "text", required: false }
 
   - name: "careers"
-    label: "Career Listings"
-    folder: "content/careers"
+    label: "Careers"
+    folder: "website/content/careers"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Job Title", name: "title", widget: "string" }
       - { label: "Division", name: "division", widget: "string" }
       - { label: "Location", name: "location", widget: "string" }
-      - { label: "Posted Date", name: "date", widget: "datetime" }
-      - { label: "Job Description", name: "body", widget: "markdown" }
+      - { label: "Job Type", name: "type", widget: "select", options: ["full-time", "part-time", "contract", "internship"] }
+      - { label: "Requirements", name: "requirements", widget: "list" }
+      - { label: "Application Email", name: "application_email", widget: "string" }
+      - { label: "Closing Date", name: "closing_date", widget: "datetime", type: "date", required: false }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
+      - { label: "Description", name: "body", widget: "markdown" }
+
+  - name: "sustainability_metrics"
+    label: "Sustainability Metrics"
+    folder: "website/content/sustainability_metrics"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Pillar", name: "pillar", widget: "select", options: ["economic", "operational", "social", "environmental", "governance", "regional"] }
+      - { label: "Metric Label", name: "metric_label", widget: "string" }
+      - { label: "Metric Value", name: "metric_value", widget: "string" }
+      - { label: "Metric Unit", name: "metric_unit", widget: "string", required: false }
+      - { label: "Year", name: "year", widget: "number" }
+      - { label: "Source Note", name: "source_note", widget: "string", required: false }
+
+  - name: "partners"
+    label: "Partners"
+    folder: "website/content/partners"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Partner Name", name: "name", widget: "string" }
+      - { label: "Logo", name: "logo", widget: "image" }
+      - { label: "URL", name: "url", widget: "string", required: false }
+      - { label: "Relationship Type", name: "relationship_type", widget: "string", required: false }
+      - { label: "Display Order", name: "order", widget: "number" }
+
+  - name: "timeline_milestones"
+    label: "Timeline Milestones"
+    folder: "website/content/timeline_milestones"
+    create: true
+    slug: "{{year}}-{{slug}}"
+    fields:
+      - { label: "Year", name: "year", widget: "number" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Display Order", name: "order", widget: "number" }
 
   - name: "settings"
     label: "Settings"
     files:
       - name: "general"
         label: "General Site Settings"
-        file: "content/settings/general.json"
+        file: "website/content/settings/general.json"
         fields:
           - { label: "Company Name", name: "company_name", widget: "string" }
           - { label: "Contact Email", name: "contact_email", widget: "string" }

@@ -36,7 +36,7 @@ export default function CareersPage() {
         <div className="inner">
           
           <h1 className="display-title">
-            Build Africa&apos;s<br /><em>Biggest Story</em>
+            Build Africa&apos;s<br />Biggest Story
           </h1>
           <p className="page-header__desc">
             Join 8,000+ professionals dedicated to building the supply chain of Africa. We offer dynamic opportunities across logistics, FMCG, pharmaceuticals, automotive, and corporate services.
@@ -50,7 +50,7 @@ export default function CareersPage() {
           <div className="fade-up">
             
             <h2 className="section-title">
-              More Than a Job.<br /><em>A Legacy.</em>
+              More Than a Job.<br />A Legacy.
             </h2>
           </div>
           
@@ -77,7 +77,7 @@ export default function CareersPage() {
           <div className="fade-up" style={{ marginBottom: '48px' }}>
             
             <h2 className="section-title">
-              Current <em>Opportunities</em>
+              Current Opportunities
             </h2>
           </div>
 
@@ -126,7 +126,7 @@ export default function CareersPage() {
           <div className="fade-up">
             
             <h2 className="section-title">
-              Built by <em>People,</em><br />for People.
+              Built by People,<br />for People.
             </h2>
             <p className="section-body section-body--muted mt-4">
               Our workplace reflects our values — discipline, trust, and ambition. We&apos;re a family built on mutual respect and a shared mission to transform Africa&apos;s commerce landscape.
@@ -161,7 +161,7 @@ export default function CareersPage() {
           <div className="fade-up" style={{ marginBottom: '48px' }}>
             
             <h2 className="section-title">
-              Don&apos;t See Your <em>Role?</em>
+              Don&apos;t See Your Role?
             </h2>
             <p className="section-body mt-4">
               We&apos;re always looking for exceptional talent. Send your CV and we&apos;ll reach out when the right opportunity arises.

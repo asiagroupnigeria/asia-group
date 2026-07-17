@@ -31,7 +31,7 @@ export default function BusinessesPage() {
         <div className="inner">
           
           <h1 className="display-title">
-            Six Pillars of a<br /><em>Diversified Empire</em>
+            Six Pillars of a<br />Diversified Empire
           </h1>
           <p className="page-header__desc">
             Each subsidiary leads its sector. Together they form the most vertically diversified distribution and commerce group in Northern Nigeria — and one of the largest on the continent.
@@ -49,7 +49,7 @@ export default function BusinessesPage() {
                 href={sub.href} 
                 className="subsidiary-card"
                 style={{ 
-                  background: `linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.3) 100%), url(${sub.image})`,
+                  background: `url(${sub.image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
                 }}
@@ -74,7 +74,6 @@ export default function BusinessesPage() {
               }}
             >
               <div>
-                <span className="subsidiary-card__num">CORE BUSINESS</span>
                 <div className="subsidiary-card__name">Asia Wholesale &amp; Distribution</div>
                 <div className="subsidiary-card__sector">Sugar · Rice · Detergent · Seasoning · Soap · Flour</div>
                 <p className="subsidiary-card__desc">
@@ -94,7 +93,7 @@ export default function BusinessesPage() {
         <div className="inner">
           <div className="partners-header" style={{ marginBottom: '48px' }}>
             
-            <h2 className="section-title">Brands That <em>Trust Asia Group</em></h2>
+            <h2 className="section-title">Brands That Trust Asia Group</h2>
           </div>
 
           <div className="partners-strip">

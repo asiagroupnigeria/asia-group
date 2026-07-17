@@ -22,7 +22,7 @@ export default function SustainabilityPage() {
         <div className="inner">
           
           <h1 className="display-title">
-            Business as<br /><em>Service to People</em>
+            Business as<br />Service to People
           </h1>
           <p className="page-header__desc">
             For Alhaji Sani Isah, success is measured not only in trade volumes — but in lives touched. Asia Group&apos;s philanthropy is woven into its daily operations, not an afterthought.
@@ -44,11 +44,11 @@ export default function SustainabilityPage() {
               2,000 afternoon meals · 2,000 evening meals — provided every single day to the people of Kano. One of the largest private food security initiatives in Northern Nigeria.
             </p>
             
-            <div className="grid-2" style={{ gap: '1px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.12)' }}>
+            <div className="grid-2" style={{ gap: '1px', background: 'var(--bg-muted)', border: '1px solid var(--border-color)' }}>
               {[{ n: '2,000', l: 'Afternoon Meals' }, { n: '2,000', l: 'Evening Meals' }, { n: '365', l: 'Days a Year' }, { n: 'Kano', l: 'State, Nigeria' }].map((s, i) => (
-                <div key={i} style={{ background: 'rgba(0,0,0,0.15)', padding: '20px 24px' }}>
+                <div key={i} style={{ background: 'var(--bg-main)', padding: '20px 24px' }}>
                   <div style={{ fontFamily: 'var(--font-condensed)', fontSize: '28px', fontWeight: 700, color: '#EF5350' }}>{s.n}</div>
-                  <div style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: 'rgba(255,255,255,0.5)', marginTop: '4px' }}>{s.l}</div>
+                  <div style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: 'var(--text-muted)', marginTop: '4px' }}>{s.l}</div>
                 </div>
               ))}
             </div>
@@ -73,21 +73,21 @@ export default function SustainabilityPage() {
         <div className="inner">
           <div className="fade-up" style={{ marginBottom: '60px' }}>
             
-            <h2 className="section-title">How We <em>Give Back</em></h2>
+            <h2 className="section-title">How We Give Back</h2>
           </div>
           
-          <div className="flex-col" style={{ gap: '2px', border: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.03)' }}>
+          <div className="flex-col" style={{ gap: '2px', border: '1px solid var(--border-color)', background: 'var(--bg-muted)' }}>
             {[
               { icon: <i className="ri-restaurant-line"></i>, title: 'Daily Meal Programme', status: 'Active', desc: '4,000 free meals served every day across Kano — 2,000 afternoon and 2,000 evening. One of the largest private food security initiatives in Northern Nigeria, running continuously year-round.' },
               { icon: <i className="ri-graduation-cap-line"></i>, title: 'Education & Scholarships', status: 'TBC', desc: 'Details to be confirmed — scholarship programmes, school support initiatives, and youth empowerment details to be provided after executive data session.', muted: true },
               { icon: <i className="ri-hospital-line"></i>, title: 'Healthcare Access', status: 'TBC', desc: 'Details to be confirmed — healthcare CSR programmes, free medical outreach, and Asia Pharmacy community initiatives to be provided.', muted: true },
               { icon: <i className="ri-briefcase-line"></i>, title: 'Youth Employment', status: 'TBC', desc: 'Details to be confirmed — apprenticeship programmes, vocational training, and youth employment schemes run by Asia Group of Companies.', muted: true },
             ].map((prog, i) => (
-              <div key={i} className={`fade-up delay-${i + 1} flex-row`} style={{ gap: '28px', padding: '40px', background: '#111111', opacity: prog.muted ? 0.5 : 1, borderBottom: i < 3 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}>
+              <div key={i} className={`fade-up delay-${i + 1} flex-row`} style={{ gap: '28px', padding: '40px', background: 'var(--bg-main)', opacity: prog.muted ? 0.5 : 1, borderBottom: i < 3 ? '1px solid var(--border-color)' : 'none' }}>
                 <div style={{ fontSize: '32px', flexShrink: 0 }}>{prog.icon}</div>
                 <div style={{ flex: 1 }}>
                   <div className="flex-row items-center" style={{ gap: '12px', marginBottom: '10px' }}>
-                    <h3 style={{ fontFamily: 'var(--font-condensed)', fontSize: '18px', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#FFFFFF' }}>{prog.title}</h3>
+                    <h3 style={{ fontFamily: 'var(--font-condensed)', fontSize: '18px', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text-main)' }}>{prog.title}</h3>
                     <span style={{ 
                       fontFamily: 'var(--font-condensed)', fontSize: '10px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', 
                       padding: '4px 10px', 
