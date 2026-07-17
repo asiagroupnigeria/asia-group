@@ -11,10 +11,7 @@ export function Footer() {
           {/* Brand */}
           <div className="footer-brand">
             <Link href="/" className="nav__logo" style={{ textDecoration: 'none', marginBottom: '20px' }}>
-              <div className="flex-col">
-                <span className="nav__logo-name">Asia Group</span>
-                <span className="nav__logo-sub">of Companies Ltd</span>
-              </div>
+              <img src="/logo.jpg" alt="Asia Group" style={{ height: '50px', width: 'auto', borderRadius: '0px' }} />
             </Link>
             <p className="footer__desc">
               Africa&apos;s number one wholesale and distribution conglomerate. Building legacy. Empowering trade. Growing together.
@@ -22,10 +19,10 @@ export function Footer() {
             <div className="footer__socials">
               {[
                 <i key="in" className="ri-linkedin-fill"></i>,
-                <i key="x" className="ri-twitter-x-line"></i>,
+                // <i key="x" className="ri-twitter-x-line"></i>,
                 <i key="f" className="ri-facebook-fill"></i>,
-                <i key="ig" className="ri-instagram-line"></i>,
-                <i key="yt" className="ri-youtube-fill"></i>
+                // <i key="ig" className="ri-instagram-line"></i>,
+                // <i key="yt" className="ri-youtube-fill"></i>
               ].map((icon, i) => (
                 <a key={i} href="#" className="footer__social" style={{ fontSize: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   {icon}

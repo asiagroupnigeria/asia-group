@@ -47,7 +47,15 @@ export default async function Home() {
   const businesses = [...normalCards, ...(promoCard ? [promoCard] : [])];
 
   const partnersDocs = getCollection('partners');
-  const partners = partnersDocs.map(doc => doc.data).sort((a, b) => a.order - b.order);
+  let partners = partnersDocs.map(doc => doc.data).sort((a, b) => a.order - b.order);
+
+  // Duplicate logos to fill 4 lines (24 slots) as placeholders
+  if (partners.length > 0) {
+    const originalPartners = [...partners];
+    while (partners.length < 24) {
+      partners = [...partners, ...originalPartners].slice(0, 24);
+    }
+  }
 
   return (
     <div>

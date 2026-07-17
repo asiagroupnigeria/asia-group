@@ -1297,14 +1297,6 @@ a.footer__link {
   position: relative;
 }
 
-.number-item:nth-child(4n) {
-  border-right: none;
-}
-
-.number-item:nth-child(n+5) {
-  border-bottom: none;
-}
-
 .number-item__value {
   font-family: var(--font-condensed);
   font-size: clamp(48px, 5vw, 72px);
@@ -1944,11 +1936,14 @@ a.footer__link {
   overflow: hidden;
   text-decoration: none;
   display: block;
-  transition: background 0.3s;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .news-card:hover {
   background: var(--bg-muted);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+  z-index: 10;
 }
 
 .news-card__image {
@@ -2909,8 +2904,8 @@ textarea.form-control {
 /* FEATURED ARTICLE */
 .featured-section { padding: 0 60px 80px; background: var(--bg-main); }
 .featured-inner { max-width: var(--inner-max); margin: 0 auto; }
-.featured-article { display: grid; grid-template-columns: 1fr 1fr; background: var(--bg-card); border: 1px solid var(--border-color); overflow: hidden; text-decoration: none; transition: border-color 0.3s; }
-.featured-article:hover { border-color: rgba(27, 94, 32, 0.4); }
+.featured-article { display: grid; grid-template-columns: 1fr 1fr; background: var(--bg-card); border: 1px solid var(--border-color); overflow: hidden; text-decoration: none; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+.featured-article:hover { border-color: rgba(27, 94, 32, 0.4); box-shadow: 0 16px 40px rgba(0,0,0,0.12); transform: translateY(-4px); z-index: 10; }
 .featured-img { aspect-ratio: 4/3; background: var(--bg-muted); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 .featured-label { position: absolute; top: 20px; left: 20px; background: var(--green); color: #fff; font-family: var(--font-condensed); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 12px; z-index: 2; }
 .featured-body { padding: 56px 52px; display: flex; flex-direction: column; justify-content: center; }
@@ -2925,8 +2920,8 @@ textarea.form-control {
 .articles-section { padding: 0 60px 120px; background: var(--bg-main); }
 .articles-inner { max-width: var(--inner-max); margin: 0 auto; }
 .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(0,0,0,0.04); }
-.article-card { background: var(--bg-card); overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: background 0.3s; }
-.article-card:hover { background: var(--bg-muted); }
+.article-card { background: var(--bg-card); overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+.article-card:hover { background: var(--bg-muted); box-shadow: 0 12px 24px rgba(0,0,0,0.08); transform: translateY(-4px); z-index: 10; }
 .article-img { aspect-ratio: 16/9; background: var(--bg-muted); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 .article-body { padding: 28px 28px 32px; display: flex; flex-direction: column; flex: 1; }
 .article-card .article-title { font-size: 18px; font-family: var(--font-display); font-weight: 400; line-height: 1.35; color: var(--text-main); margin-bottom: 12px; }

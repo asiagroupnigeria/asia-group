@@ -25,12 +25,6 @@ export default async function NewsPage() {
       <section className="page-header">
         <div className="page-header__watermark" aria-hidden="true">MEDIA</div>
         <div className="inner fade-up">
-          <div className="breadcrumb">
-            <a href="/">Asia Group</a>
-            <span style={{ margin: '0 10px' }}>/</span>
-            <span style={{ color: 'var(--text-main)' }}>News &amp; Media</span>
-          </div>
-          <div className="label label--green mb-4 mt-6">Latest News</div>
           <h1 className="display-title" style={{ fontSize: 'clamp(48px, 6vw, 88px)' }}>
             News &amp; Media
           </h1>
