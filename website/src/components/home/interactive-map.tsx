@@ -82,7 +82,7 @@ export function InteractiveMap() {
           }}
         >
           {/* Render Sphere (Waters) UNDERNEATH the landmasses */}
-          <Sphere stroke="rgba(255, 255, 255, 0.1)" strokeWidth={0.5} fill="#000000" />
+          <Sphere id="rsm-sphere" stroke="rgba(255, 255, 255, 0.1)" strokeWidth={0.5} fill="#000000" />
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => {
