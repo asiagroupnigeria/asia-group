@@ -9,6 +9,7 @@ export interface BusinessProp {
   tagline: string;
   description: string;
   hero_image: string;
+  is_promo?: boolean;
 }
 
 interface SubsidiariesGridProps {
@@ -18,11 +19,14 @@ interface SubsidiariesGridProps {
 export function SubsidiariesGrid({ businesses }: SubsidiariesGridProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
+  const normalCards = businesses.filter(b => !b.is_promo);
+  const promoCard = businesses.find(b => b.is_promo);
+
   return (
     <div className="inner grid-3" style={{ position: 'relative', zIndex: 1, marginBottom: '40px' }}>
       
-      {/* Expanding Global Backgrounds */}
-      {businesses.map((sub, i) => (
+      {/* Expanding Global Backgrounds for Normal Cards */}
+      {normalCards.map((sub, i) => (
         <div 
           key={`bg-${i}`}
           className={`global-bg ${hoveredIndex === i ? 'global-bg--active' : ''}`}
@@ -31,11 +35,11 @@ export function SubsidiariesGrid({ businesses }: SubsidiariesGridProps) {
       ))}
 
       {/* Main Grid Cards */}
-      {businesses.map((sub, i) => (
+      {normalCards.map((sub, i) => (
         <Link 
           key={i} 
           href={`/businesses/${sub.slug}`} 
-          className="subsidiary-card"
+          className="subsidiary-card fade-up"
           onMouseEnter={() => setHoveredIndex(i)}
           onMouseLeave={() => setHoveredIndex(null)}
           style={{
@@ -61,25 +65,27 @@ export function SubsidiariesGrid({ businesses }: SubsidiariesGridProps) {
       ))}
 
       {/* Promo card */}
-      <Link 
-        href="/businesses/euromega" 
-        className="subsidiary-card subsidiary-card--promo" 
-        style={{ 
-          zIndex: 2,
-          background: 'linear-gradient(to right, rgba(27, 94, 32, 0.95) 30%, rgba(27, 94, 32, 0.3) 100%), url(/media/hero-fmcg.jpg) center/cover'
-        }}
-      >
-        <div>
-          <div className="subsidiary-card__name">Asia Wholesale &amp; Distribution</div>
-          <div className="subsidiary-card__sector">Sugar · Rice · Detergent · Seasoning · Soap · Flour</div>
-          <p className="subsidiary-card__desc">
-            The engine that started it all — and still the most powerful. Africa&apos;s #1 detergent distributor, moving 100,000 tonnes annually and commanding logistics across four nations and expanding.
-          </p>
-        </div>
-        <div>
-          <span className="btn btn--primary" style={{ whiteSpace: 'nowrap' }}>Explore Wholesale →</span>
-        </div>
-      </Link>
+      {promoCard && (
+        <Link 
+          href={`/businesses/${promoCard.slug}`} 
+          className="subsidiary-card subsidiary-card--promo fade-up delay-2" 
+          style={{ 
+            zIndex: 2,
+            background: `linear-gradient(to right, rgba(27, 94, 32, 0.95) 30%, rgba(27, 94, 32, 0.3) 100%), url(${promoCard.hero_image}) center/cover`
+          }}
+        >
+          <div>
+            <div className="subsidiary-card__name">{promoCard.title}</div>
+            <div className="subsidiary-card__sector">{promoCard.tagline}</div>
+            <p className="subsidiary-card__desc">
+              {promoCard.description}
+            </p>
+          </div>
+          <div>
+            <span className="btn btn--primary" style={{ whiteSpace: 'nowrap' }}>Explore Wholesale →</span>
+          </div>
+        </Link>
+      )}
     </div>
   );
 }

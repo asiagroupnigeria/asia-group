@@ -15,7 +15,7 @@ export default async function Home() {
   const metrics = metricsDocs.map(doc => doc.data).sort((a, b) => a.order - b.order);
 
   const businessesDocs = getCollection('businesses');
-  const businesses = businessesDocs
+  const businessesAll = businessesDocs
     .map(doc => ({
       slug: doc.data.slug,
       title: doc.data.title,
@@ -23,10 +23,15 @@ export default async function Home() {
       description: doc.data.description,
       hero_image: doc.data.hero_image,
       order: doc.data.order,
-      published: doc.data.published
+      published: doc.data.published,
+      is_promo: doc.data.is_promo || false
     }))
     .filter(b => b.published)
     .sort((a, b) => a.order - b.order);
+
+  const normalCards = businessesAll.filter(b => !b.is_promo).slice(0, 3);
+  const promoCard = businessesAll.find(b => b.is_promo);
+  const businesses = [...normalCards, ...(promoCard ? [promoCard] : [])];
 
   const partnersDocs = getCollection('partners');
   const partners = partnersDocs.map(doc => doc.data).sort((a, b) => a.order - b.order);
