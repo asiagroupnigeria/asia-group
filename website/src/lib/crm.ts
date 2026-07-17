@@ -1,5 +1,3 @@
-import * as brevo from '@getbrevo/brevo';
-
 /**
  * Business Logic:
  * This utility isolates our 3rd-party integrations (Brevo for transactional emails
@@ -7,17 +5,8 @@ import * as brevo from '@getbrevo/brevo';
  * we can swap out providers in the future without changing the core API logic.
  */
 
-// Initialize Brevo API client
-const apiInstance = new brevo.TransactionalEmailsApi();
-// We use a dummy key if env var is missing so build doesn't crash, 
-// but in production it needs the real key.
-apiInstance.setApiKey(
-  brevo.TransactionalEmailsApiApiKeys.apiKey,
-  process.env.BREVO_API_KEY || 'dummy_key'
-);
-
 /**
- * Sends a transactional email using Brevo.
+ * Sends a transactional email using Brevo via REST API.
  */
 export async function sendEmail({
   to,
@@ -32,19 +21,33 @@ export async function sendEmail({
   senderName?: string;
   senderEmail?: string;
 }) {
-  const sendSmtpEmail = new brevo.SendSmtpEmail();
-  sendSmtpEmail.subject = subject;
-  sendSmtpEmail.htmlContent = htmlContent;
-  sendSmtpEmail.sender = { name: senderName, email: senderEmail };
-  sendSmtpEmail.to = to;
-
   if (!process.env.BREVO_API_KEY) {
     console.warn("BREVO_API_KEY is not set. Simulating email send:", subject);
     return true;
   }
 
   try {
-    const data = await apiInstance.sendTransacEmail(sendSmtpEmail);
+    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'api-key': process.env.BREVO_API_KEY,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        sender: { name: senderName, email: senderEmail },
+        to: to,
+        subject: subject,
+        htmlContent: htmlContent
+      })
+    });
+
+    if (!response.ok) {
+      const errorData = await response.text();
+      throw new Error(`Brevo API Error: ${response.status} ${errorData}`);
+    }
+
+    const data = await response.json();
     console.log('Brevo email sent successfully:', data);
     return true;
   } catch (error) {
