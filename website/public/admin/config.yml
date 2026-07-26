@@ -2,7 +2,7 @@ backend:
   name: github
   repo: asiagroupnigeria/asia-group
   branch: main
-  base_url: https://sveltia-cms.net
+  base_url: /api
 
 media_folder: website/public/media
 public_folder: /media
