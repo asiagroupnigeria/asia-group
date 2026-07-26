@@ -15,3 +15,5 @@ const nextConfig: NextConfig = {
 };
 
 export default withNextIntl(nextConfig);
+
+// Trigger dev server restart

@@ -1,35 +1,97 @@
 const fs = require('fs');
+const path = require('path');
 
-const files = [
-  'src/app/globals.css',
-  'src/components/home/hero.tsx',
-  'src/app/[locale]/careers/page.tsx',
-  'src/app/[locale]/page.tsx',
-  'src/app/[locale]/sustainability/page.tsx',
-  'src/app/[locale]/news/page.tsx',
-  'src/app/[locale]/contact/page.tsx',
-  'src/app/[locale]/businesses/page.tsx',
-  'src/app/[locale]/about/page.tsx'
-];
+function walkDir(dir, callback) {
+  fs.readdirSync(dir).forEach(f => {
+    let dirPath = path.join(dir, f);
+    let isDirectory = fs.statSync(dirPath).isDirectory();
+    isDirectory ? walkDir(dirPath, callback) : callback(path.join(dir, f));
+  });
+}
 
-for (const file of files) {
-  let content = fs.readFileSync(file, 'utf8');
+function removeTags(content, classNames) {
+  let newContent = '';
+  let i = 0;
   
-  if (file.endsWith('.tsx')) {
-    // Remove <div className="section-tag...">...</div>
-    content = content.replace(/<div className="section-tag[^"]*">.*?<\/div>\n?/g, '');
+  while (i < content.length) {
+    // Look for <div 
+    let divMatch = content.slice(i).match(/<div\s+(className|class)="([^"]+)"/);
+    if (!divMatch) {
+      newContent += content.slice(i);
+      break;
+    }
     
-    // Remove multi-line partners-eyebrow
-    content = content.replace(/<div className="partners-eyebrow">[\s\S]*?<\/div>\n?/g, '');
-
-    // For hero.tsx, remove eyebrow from slides and JSX
-    if (file.includes('hero.tsx')) {
-      content = content.replace(/eyebrow:\s*'.*?',\n?/g, '');
-      content = content.replace(/<div className="hero__eyebrow">[\s\S]*?<\/div>\n?/g, '');
-      content = content.replace(/<div className="hero__dots">[\s\S]*?<\/div>\n?/g, '');
+    let matchIndex = i + divMatch.index;
+    
+    // Check if the class matches
+    let classes = divMatch[2].split(/\s+/);
+    if (classes.some(c => classNames.includes(c))) {
+      // Append everything up to this div
+      newContent += content.slice(i, matchIndex);
+      
+      // Parse the div and find its closing tag using a stack
+      let stack = 0;
+      let j = matchIndex;
+      let inString = false;
+      let stringChar = '';
+      
+      while (j < content.length) {
+        // Simple string handling to avoid matching <div inside strings (though rare in JSX, good to be safe)
+        if (!inString && (content[j] === '"' || content[j] === "'")) {
+          inString = true;
+          stringChar = content[j];
+          j++;
+          continue;
+        }
+        if (inString && content[j] === stringChar) {
+          inString = false;
+          j++;
+          continue;
+        }
+        
+        if (!inString && content.slice(j, j+4) === '<div') {
+          stack++;
+          j += 4;
+          continue;
+        }
+        
+        if (!inString && content.slice(j, j+6) === '</div>') {
+          stack--;
+          if (stack === 0) {
+            j += 6;
+            // Removed!
+            break;
+          }
+          j += 6;
+          continue;
+        }
+        
+        j++;
+      }
+      
+      i = j; // Advance past the div
+    } else {
+      // Not a match, just advance past the `<div ` so we don't match it again
+      newContent += content.slice(i, matchIndex + 4);
+      i = matchIndex + 4;
     }
   }
-
-  fs.writeFileSync(file, content, 'utf8');
-  console.log('Processed', file);
+  
+  return newContent;
 }
+
+const targetClasses = ['section-tag', 'hero__eyebrow', 'hero-eyebrow'];
+
+walkDir(path.resolve(__dirname, 'src/app'), (filePath) => {
+  if (filePath.endsWith('.tsx')) {
+    let content = fs.readFileSync(filePath, 'utf8');
+    let oldContent = content;
+    
+    content = removeTags(content, targetClasses);
+    
+    if (content !== oldContent) {
+      fs.writeFileSync(filePath, content);
+      console.log(`Updated ${filePath}`);
+    }
+  }
+});

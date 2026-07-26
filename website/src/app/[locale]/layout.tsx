@@ -48,7 +48,7 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale} data-scroll-behavior="smooth">
+    <html lang={locale} data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

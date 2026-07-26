@@ -38,8 +38,7 @@ export function Footer() {
               {[
                 { label: 'About Asia Group', href: '/about' },
                 { label: 'Our History', href: '/about#history' },
-                { label: 'Leadership', href: '/#leadership' },
-                { label: 'Community Impact', href: '/sustainability' },
+                { label: 'Community CSR', href: '/csr' },
                 { label: 'Careers', href: '/careers' },
               ].map((link) => (
                 <Link key={link.href} href={link.href} className="footer__link">

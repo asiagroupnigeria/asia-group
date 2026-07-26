@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operations — 19 Locations Across Kano | Asia Group of Companies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --green: #1B5E20; --green-mid: #2E7D32; --green-bright: #388E3C; --green-light: #4CAF50;
+    --gold: #B8860B; --gold-light: #D4AC0D;
+    --black: #0A0A0A; --dark: #111111; --dark-2: #1A1A1A; --dark-3: #222222;
+    --mid: #444444; --muted: #888888; --off-white: #F5F4F0; --white: #FFFFFF;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Barlow', sans-serif;
+    --font-condensed: 'Barlow Condensed', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--dark); color: var(--white); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; height: 80px;
+    background: rgba(10,10,10,0.95); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 60px; z-index: 1000;
+  }
+  .nav-back { display: flex; align-items: center; gap: 10px; font-family: var(--font-condensed); font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
+  .nav-back:hover { color: var(--white); }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; font-family: var(--font-condensed); font-size: 17px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); }
+  .nav-logo img { height: 40px; }
+  .nav-cta { font-family: var(--font-condensed); font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dark); background: var(--gold-light); padding: 10px 24px; text-decoration: none; }
+
+  /* ── HERO ── */
+  .hero {
+    padding-top: 80px; height: 85vh; min-height: 600px;
+    position: relative; display: flex; align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    /* MEDIA: Best aerial/drone shot of main Kano warehouse complex
+       File: ../media/operations/kano-aerial-hero.jpg OR kano-drone.mp4
+       Recommended: Highest-impact photograph across all 19 locations — drone preferred */
+    background: linear-gradient(160deg, #071a09 0%, #0a0a0a 55%, #111a11 100%);
+  }
+  /* MEDIA VIDEO VERSION — uncomment when drone footage is ready:
+  .hero-bg video { position:absolute;inset:0;width:100%;height:100%;object-fit:cover; } */
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.55) 50%, rgba(10,10,10,0.2) 100%);
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.018) 80px, rgba(255,255,255,0.018) 81px),
+      repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.018) 80px, rgba(255,255,255,0.018) 81px);
+  }
+  .hero-content {
+    position: relative; z-index: 2; padding: 0 60px 80px;
+    max-width: 1300px; margin: 0 auto; width: 100%;
+  }
+  .breadcrumb { display: flex; align-items: center; gap: 10px; font-family: var(--font-condensed); font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
+  .breadcrumb a { color: var(--gold-light); text-decoration: none; }
+  .hero-eyebrow { font-family: var(--font-condensed); font-size: 12px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold-light); }
+  .hero-headline {
+    font-family: var(--font-display); font-size: clamp(52px, 7.5vw, 110px);
+    font-weight: 300; line-height: 0.95; color: var(--white); letter-spacing: -0.01em;
+  }
+  .hero-headline em { font-style: italic; color: var(--gold-light); }
+  .hero-headline .line-2 { display: block; padding-left: clamp(60px, 8vw, 140px); }
+  .hero-sub { font-size: 17px; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.55); max-width: 540px; margin-top: 24px; }
+  /* Stat band at bottom of hero */
+  .hero-stat-band {
+    position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+    display: flex; border-top: 1px solid rgba(255,255,255,0.07);
+  }
+  .hero-stat {
+    flex: 1; padding: 24px 0; text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    background: rgba(10,10,10,0.82); backdrop-filter: blur(12px);
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat-n { font-family: var(--font-condensed); font-size: 30px; font-weight: 700; color: var(--gold-light); line-height: 1; }
+  .hero-stat-l { font-size: 11px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+
+  /* ── FILTER BAR ── */
+  .filter-bar { background: var(--dark-2); border-bottom: 1px solid rgba(255,255,255,0.06); position: sticky; top: 80px; z-index: 100; }
+  .filter-bar-inner { max-width: 1300px; margin: 0 auto; padding: 0 60px; display: flex; align-items: center; gap: 0; overflow-x: auto; }
+  .filter-btn {
+    font-family: var(--font-condensed); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+    padding: 18px 24px; background: none; border: none; border-bottom: 2px solid transparent;
+    cursor: pointer; transition: color .2s, border-color .2s; white-space: nowrap;
+    margin-bottom: -1px;
+  }
+  .filter-btn.active { color: var(--white); border-bottom-color: var(--gold-light); }
+  .filter-btn:hover { color: var(--white); }
+  .filter-count { font-size: 10px; background: rgba(255,255,255,0.1); border-radius: 99px; padding: 2px 7px; margin-left: 6px; color: var(--muted); }
+  .filter-btn.active .filter-count { background: rgba(212,172,13,0.2); color: var(--gold-light); }
+
+  /* ── LOCATIONS GRID ── */
+  .locations-section { padding: 80px 60px 120px; background: var(--dark); }
+  .locations-inner { max-width: 1300px; margin: 0 auto; }
+  .locations-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; background: rgba(255,255,255,0.04);
+  }
+
+  /* LOCATION CARD */
+  .loc-card {
+    background: var(--dark-2); overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: background .25s;
+    cursor: pointer;
+  }
+  .loc-card:hover { background: var(--dark-3); }
+  /* Photography container */
+  .loc-photo {
+    position: relative; aspect-ratio: 4/3; overflow: hidden;
+    /* MEDIA: Exterior photograph of this specific location
+       Each card has a unique File path in its comment */
+  }
+  .loc-photo-img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .5s ease;
+    /* MEDIA: Replace background with actual <img> tag */
+    background: var(--dark-3);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .loc-card:hover .loc-photo-img { transform: scale(1.04); }
+  .loc-photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; padding: 20px; text-align: center;
+  }
+  .loc-photo-placeholder svg { opacity: 0.1; }
+  .loc-photo-placeholder p { font-family: var(--font-condensed); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.15); line-height: 1.6; }
+  /* Subsidiary badge */
+  .loc-badge {
+    position: absolute; top: 14px; left: 14px;
+    font-family: var(--font-condensed); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 10px; background: rgba(10,10,10,0.85);
+    border: 1px solid rgba(255,255,255,0.1); color: var(--white);
+    backdrop-filter: blur(6px);
+  }
+  .loc-badge.wholesale { border-color: rgba(76,175,80,0.5); color: var(--green-light); }
+  .loc-badge.pharmacy  { border-color: rgba(79,193,172,0.5); color: #4DB6AC; }
+  .loc-badge.automobiles { border-color: rgba(239,83,80,0.5); color: #EF5350; }
+  .loc-badge.beverages  { border-color: rgba(66,165,245,0.5); color: #42A5F5; }
+  .loc-badge.cosmetics  { border-color: rgba(206,147,216,0.5); color: #CE93D8; }
+  .loc-badge.phones     { border-color: rgba(79,195,247,0.5); color: #4FC3F7; }
+  /* Location number */
+  .loc-number {
+    position: absolute; bottom: 14px; right: 14px;
+    font-family: var(--font-condensed); font-size: 28px; font-weight: 800;
+    color: rgba(255,255,255,0.08); line-height: 1; pointer-events: none;
+  }
+  /* Card body */
+  .loc-body { padding: 24px 24px 28px; flex: 1; display: flex; flex-direction: column; }
+  .loc-name { font-family: var(--font-condensed); font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--white); margin-bottom: 4px; }
+  .loc-role { font-size: 12px; color: var(--gold-light); font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; font-family: var(--font-condensed); margin-bottom: 14px; }
+  .loc-address { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 300; line-height: 1.55; margin-bottom: 16px; }
+  /* Key figures row */
+  .loc-figures { display: flex; gap: 0; border: 1px solid rgba(255,255,255,0.06); margin-top: auto; }
+  .loc-figure { flex: 1; padding: 12px 14px; border-right: 1px solid rgba(255,255,255,0.06); }
+  .loc-figure:last-child { border-right: none; }
+  .loc-fig-val { font-family: var(--font-condensed); font-size: 15px; font-weight: 700; color: var(--white); line-height: 1; }
+  .loc-fig-val.tbd { color: rgba(255,255,255,0.2); font-size: 12px; }
+  .loc-fig-lbl { font-size: 9px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+  /* Expand overlay */
+  .loc-expand {
+    position: absolute; inset: 0; background: rgba(10,10,10,0.92);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 32px; opacity: 0; transition: opacity .3s; pointer-events: none;
+  }
+  .loc-card:hover .loc-expand { opacity: 1; pointer-events: auto; }
+  .loc-expand-title { font-family: var(--font-condensed); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 12px; }
+  .loc-expand-md { font-size: 14px; color: var(--white); margin-bottom: 4px; font-weight: 500; }
+  .loc-expand-md-title { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+  .loc-expand-desc { font-size: 13px; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.6); }
+
+  /* ── MAP SECTION ── */
+  .map-section { padding: 100px 60px; background: var(--dark-2); }
+  .map-inner { max-width: 1300px; margin: 0 auto; }
+  .map-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 48px; }
+  .section-tag { font-family: var(--font-condensed); font-size: 11px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .section-tag::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold-light); }
+  h2 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px); font-weight: 300; color: var(--white); line-height: 1.1; }
+  h2 em { font-style: italic; color: var(--gold-light); }
+  .map-container {
+    width: 100%; aspect-ratio: 16/7;
+    /* MEDIA: Replace with embedded Google Map or custom Mapbox map
+       Recommended: Dark-themed map, Kano centred, 19 custom green pins
+       Each pin should be clickable, showing location name, type, and photo thumbnail
+       Google Maps Embed URL:
+       https://www.google.com/maps/embed?pb=... (generate in Google Maps with all 19 pins saved)
+       OR use Mapbox GL JS for full custom styling matching site palette */
+    background: var(--dark-3); border: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+  }
+  .map-placeholder-inner { text-align: center; }
+  .map-placeholder-inner svg { opacity: 0.08; margin-bottom: 20px; }
+  .map-placeholder-inner h3 { font-family: var(--font-condensed); font-size: 15px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 8px; }
+  .map-placeholder-inner p { font-family: var(--font-condensed); font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.12); line-height: 1.7; }
+  /* Map pin legend */
+  .map-legend { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 20px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-family: var(--font-condensed); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ── PHOTO STRIP ── */
+  .strip-section { overflow: hidden; background: var(--dark); }
+  .strip-inner {
+    display: flex; gap: 4px;
+    /* Each strip image: 300px wide, full height */
+  }
+  .strip-photo {
+    flex: 0 0 280px; height: 220px; position: relative; overflow: hidden;
+    /* MEDIA: Best operational photography — interior warehouse, products, loading bays
+       Files: ../media/operations/strip-[n].jpg (pick 8 best varied shots) */
+    background: var(--dark-3);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .strip-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+  .strip-photo:hover img { transform: scale(1.06); }
+  .strip-photo-placeholder { font-family: var(--font-condensed); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.12); text-align: center; padding: 12px; }
+
+  /* ── CAPACITY TABLE ── */
+  .capacity-section { padding: 100px 60px; background: var(--dark-2); }
+  .cap-inner { max-width: 1300px; margin: 0 auto; }
+  .cap-table { width: 100%; margin-top: 48px; border: 1px solid rgba(255,255,255,0.06); border-collapse: collapse; }
+  .cap-table th { font-family: var(--font-condensed); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); padding: 14px 20px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); }
+  .cap-table td { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.65); padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: middle; }
+  .cap-table tr:last-child td { border-bottom: none; }
+  .cap-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .cap-table .loc-name-cell { font-family: var(--font-condensed); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: var(--white); }
+  .cap-table .tbd { color: rgba(255,255,255,0.2); font-style: italic; }
+  .cap-total td { background: rgba(212,172,13,0.06); border-top: 1px solid rgba(212,172,13,0.2); font-weight: 600; color: var(--gold-light); font-family: var(--font-condensed); font-size: 14px; letter-spacing: 0.04em; }
+
+  /* ── CTA ── */
+  .cta-section { padding: 100px 60px; background: var(--green); }
+  .cta-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  .cta-section h2 { color: var(--white); }
+  .btn-primary { font-family: var(--font-condensed); font-size: 13px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dark); background: var(--gold-light); padding: 18px 48px; text-decoration: none; display: inline-block; white-space: nowrap; transition: background .2s; }
+  .btn-primary:hover { background: var(--white); }
+  .btn-outline { font-family: var(--font-condensed); font-size: 13px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); border: 1px solid rgba(255,255,255,0.35); padding: 18px 48px; text-decoration: none; display: inline-block; white-space: nowrap; transition: all .2s; }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+  .footer-mini { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 60px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-mini p { font-size: 12px; color: rgba(255,255,255,0.2); font-weight: 300; }
+  .footer-mini a { color: var(--gold-light); text-decoration: none; font-family: var(--font-condensed); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    nav, .hero-content, .locations-section, .map-section, .capacity-section, .cta-section, .footer-mini { padding-left: 32px; padding-right: 32px; }
+    .filter-bar-inner { padding-left: 32px; padding-right: 32px; }
+  }
+  @media (max-width: 900px) {
+    nav, .hero-content, .locations-section, .map-section, .capacity-section, .cta-section, .footer-mini { padding-left: 24px; padding-right: 24px; }
+    .filter-bar-inner { padding-left: 24px; }
+    .locations-grid { grid-template-columns: 1fr 1fr; }
+    .map-header { grid-template-columns: 1fr; gap: 32px; }
+    .cta-inner { flex-direction: column; align-items: flex-start; }
+    .hero-stat-band { flex-wrap: wrap; }
+    .hero-stat { min-width: 50%; }
+  }
+  @media (max-width: 600px) {
+    .hero-content { padding-left: 24px; padding-right: 24px; }
+    .locations-grid { grid-template-columns: 1fr; }
+    .cap-table { display: block; overflow-x: auto; }
+  }
+
+  /* JS-driven filter hide */
+  .loc-card.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-back">← Asia Group</a>
+  <a href="../index.html" class="nav-logo">
+    <img src="../asia-group-logo.png" alt="Asia Group" onerror="this.style.display='none'">
+    Asia Group
+  </a>
+  <a href="../index.html#contact" class="nav-cta">Partner With Us</a>
+</nav>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <!-- MEDIA: Drone / aerial of main Kano warehouse
+         File: ../media/operations/kano-aerial-hero.jpg
+         For video: <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><source src="../media/operations/kano-drone.mp4" type="video/mp4"></video> -->
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="breadcrumb">
+      <a href="../index.html">Asia Group</a><span>/</span>
+      <span style="color:var(--white);">Operations</span>
+    </div>
+    <div class="hero-eyebrow">Kano, Nigeria — Ground Operations</div>
+    <h1 class="hero-headline">
+      19 Locations.
+      <em class="line-2">One Kano.</em>
+    </h1>
+    <p class="hero-sub">
+      Every warehouse, showroom, pharmacy, and distribution hub that makes Asia Group the undisputed number one across Northern Nigeria — documented, staffed, and operational.
+    </p>
+  </div>
+  <div class="hero-stat-band">
+    <div class="hero-stat"><div class="hero-stat-n">19</div><div class="hero-stat-l">Active Locations</div></div>
+    <div class="hero-stat"><div class="hero-stat-n">6</div><div class="hero-stat-l">Business Divisions</div></div>
+    <div class="hero-stat"><div class="hero-stat-n">[ # ]</div><div class="hero-stat-l">Total Staff</div></div>
+    <div class="hero-stat"><div class="hero-stat-n">[ T ]</div><div class="hero-stat-l">Combined Capacity</div></div>
+    <div class="hero-stat"><div class="hero-stat-n">1988</div><div class="hero-stat-l">First Location Est.</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FILTER BAR ═══════════════════════════════ -->
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <button class="filter-btn active" data-filter="all">All Locations <span class="filter-count">19</span></button>
+    <button class="filter-btn" data-filter="wholesale">Wholesale &amp; Distribution <span class="filter-count">[ # ]</span></button>
+    <button class="filter-btn" data-filter="pharmacy">Asia Pharmacy <span class="filter-count">[ # ]</span></button>
+    <button class="filter-btn" data-filter="automobiles">Asia Automobiles <span class="filter-count">[ # ]</span></button>
+    <button class="filter-btn" data-filter="beverages">Asia Beverages <span class="filter-count">[ # ]</span></button>
+    <button class="filter-btn" data-filter="cosmetics">Asia Cosmetics <span class="filter-count">[ # ]</span></button>
+    <button class="filter-btn" data-filter="phones">Asia Phones <span class="filter-count">[ # ]</span></button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ LOCATIONS GRID ═══════════════════════════════ -->
+<section class="locations-section">
+  <div class="locations-inner">
+    <div class="locations-grid" id="locations-grid">
+
+      <!--
+      ═══════════════════════════════════════════════════════════
+      LOCATION CARD TEMPLATE — replicate for all 19 locations
+      Instructions:
+        1. Set data-subsidiary to: wholesale | pharmacy | automobiles | beverages | cosmetics | phones
+        2. Replace loc-badge class to match subsidiary
+        3. Replace MEDIA comment with actual <img> tag once photography is done
+        4. Fill all [ TBD ] values from MD interview forms
+        5. loc-number = sequential number 01–19
+      ═══════════════════════════════════════════════════════════
+      -->
+
+      <!-- LOCATION 01 — MAIN KANO DISTRIBUTION HUB -->
+      <div class="loc-card" data-subsidiary="wholesale">
+        <div class="loc-photo">
+          <!-- MEDIA: Exterior of main Kano distribution hub — aerial or wide facade
+               File: ../media/locations/01-kano-main-hub-exterior.jpg
+               This is the flagship location — use the most dramatic shot available -->
+          <div class="loc-photo-img">
+            <div class="loc-photo-placeholder">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg>
+              <p>MEDIA: Main Kano Hub<br>Exterior / Aerial<br>— Priority Shot</p>
+            </div>
+          </div>
+          <div class="loc-badge wholesale">Wholesale</div>
+          <div class="loc-number">01</div>
+          <!-- Hover expand overlay -->
+          <div class="loc-expand">
+            <div class="loc-expand-title">Location 01 — Management</div>
+            <!-- PLACEHOLDER: MD name and title from interview form -->
+            <div class="loc-expand-md">[ MD Full Name — TBD ]</div>
+            <div class="loc-expand-md-title">Branch Manager / MD</div>
+            <p class="loc-expand-desc">[ 1–2 sentence description of this location's role within the group — from MD interview. What makes this location the most significant? ]</p>
+          </div>
+        </div>
+        <div class="loc-body">
+          <!-- PLACEHOLDER: Location name from field visit — official or commonly used name -->
+          <div class="loc-name">Kano Central Distribution Hub</div>
+          <div class="loc-role">Flagship Warehouse &amp; Dispatch Centre</div>
+          <!-- PLACEHOLDER: Full address from field visit -->
+          <div class="loc-address">[ Full Address — Abubakar Rimi Market / confirm on visit ]<br>Kano, Kano State</div>
+          <div class="loc-figures">
+            <!-- PLACEHOLDER: All figures from MD interview form -->
+            <div class="loc-figure">
+              <div class="loc-fig-val tbd">[ T ]</div>
+              <div class="loc-fig-lbl">Capacity</div>
+            </div>
+            <div class="loc-figure">
+              <div class="loc-fig-val tbd">[ # ]</div>
+              <div class="loc-fig-lbl">Staff</div>
+            </div>
+            <div class="loc-figure">
+              <div class="loc-fig-val tbd">[ # ]</div>
+              <div class="loc-fig-lbl">Bays</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOCATION 02 -->
+      <div class="loc-card" data-subsidiary="wholesale">
+        <div class="loc-photo">
+          <!-- MEDIA: File: ../media/locations/02-[location-slug]-exterior.jpg -->
+          <div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 02<br>Exterior Photograph</p></div></div>
+          <div class="loc-badge wholesale">Wholesale</div>
+          <div class="loc-number">02</div>
+          <div class="loc-expand"><div class="loc-expand-title">Location 02 — Management</div><div class="loc-expand-md">[ MD Name — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ Description from MD interview — TBD ]</p></div>
+        </div>
+        <div class="loc-body">
+          <div class="loc-name">[ Location Name — TBD ]</div>
+          <div class="loc-role">[ Primary Function — TBD ]</div>
+          <div class="loc-address">[ Address — TBD ]<br>Kano, Kano State</div>
+          <div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ T ]</div><div class="loc-fig-lbl">Capacity</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Bays</div></div></div>
+        </div>
+      </div>
+
+      <!-- LOCATION 03 -->
+      <div class="loc-card" data-subsidiary="wholesale">
+        <div class="loc-photo">
+          <!-- MEDIA: File: ../media/locations/03-[location-slug]-exterior.jpg -->
+          <div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 03<br>Exterior Photograph</p></div></div>
+          <div class="loc-badge wholesale">Wholesale</div>
+          <div class="loc-number">03</div>
+          <div class="loc-expand"><div class="loc-expand-title">Location 03 — Management</div><div class="loc-expand-md">[ MD Name — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ Description from MD interview — TBD ]</p></div>
+        </div>
+        <div class="loc-body">
+          <div class="loc-name">[ Location Name — TBD ]</div>
+          <div class="loc-role">[ Primary Function — TBD ]</div>
+          <div class="loc-address">[ Address — TBD ]<br>Kano, Kano State</div>
+          <div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ T ]</div><div class="loc-fig-lbl">Capacity</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Bays</div></div></div>
+        </div>
+      </div>
+
+      <!-- LOCATION 04 — PHARMACY EXAMPLE -->
+      <div class="loc-card" data-subsidiary="pharmacy">
+        <div class="loc-photo">
+          <!-- MEDIA: File: ../media/locations/04-[location-slug]-exterior.jpg -->
+          <div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 04<br>Asia Pharmacy Exterior</p></div></div>
+          <div class="loc-badge pharmacy">Pharmacy</div>
+          <div class="loc-number">04</div>
+          <div class="loc-expand"><div class="loc-expand-title">Location 04 — Management</div><div class="loc-expand-md">[ MD Name — TBD ]</div><div class="loc-expand-md-title">Branch Pharmacist / Manager</div><p class="loc-expand-desc">[ Description from MD interview — TBD ]</p></div>
+        </div>
+        <div class="loc-body">
+          <div class="loc-name">[ Asia Pharmacy Location — TBD ]</div>
+          <div class="loc-role">Pharmaceutical Distribution Outlet</div>
+          <div class="loc-address">[ Address — TBD ]<br>Kano, Kano State</div>
+          <div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">SKUs</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Clients</div></div></div>
+        </div>
+      </div>
+
+      <!-- LOCATION 05 — AUTOMOBILES EXAMPLE -->
+      <div class="loc-card" data-subsidiary="automobiles">
+        <div class="loc-photo">
+          <!-- MEDIA: File: ../media/locations/05-[location-slug]-exterior.jpg -->
+          <div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 05<br>Asia Automobiles Yard / Showroom</p></div></div>
+          <div class="loc-badge automobiles">Automobiles</div>
+          <div class="loc-number">05</div>
+          <div class="loc-expand"><div class="loc-expand-title">Location 05 — Management</div><div class="loc-expand-md">[ MD Name — TBD ]</div><div class="loc-expand-md-title">Showroom / Yard Manager</div><p class="loc-expand-desc">[ Description from MD interview — TBD ]</p></div>
+        </div>
+        <div class="loc-body">
+          <div class="loc-name">[ Asia Automobiles Location — TBD ]</div>
+          <div class="loc-role">Vehicle Showroom &amp; Service Yard</div>
+          <div class="loc-address">[ Address — TBD ]<br>Kano, Kano State</div>
+          <div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Vehicles</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Brands</div></div></div>
+        </div>
+      </div>
+
+      <!-- LOCATIONS 06 – 19: Copy the template above and increment number.
+           Fill data-subsidiary, loc-badge class, loc-number, and all [ TBD ] fields
+           from the MD interview forms collected during the field visit.
+           
+           Each loc-card needs:
+           - data-subsidiary="wholesale|pharmacy|automobiles|beverages|cosmetics|phones"
+           - correct .loc-badge class (same values)
+           - MEDIA comment pointing to correct file path
+           - loc-number 06 through 19
+           - Location name, role/function, address
+           - Three figures (capacity/SKUs/vehicles + staff + bays/clients/stockists)
+           - MD name and title in the expand overlay
+           - MD quote or description in the expand overlay
+      -->
+
+      <!-- LOCATION 06 -->
+      <div class="loc-card" data-subsidiary="wholesale">
+        <div class="loc-photo"><div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 06</p></div></div><div class="loc-badge wholesale">Wholesale</div><div class="loc-number">06</div><div class="loc-expand"><div class="loc-expand-title">Location 06</div><div class="loc-expand-md">[ MD — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ From interview — TBD ]</p></div></div>
+        <div class="loc-body"><div class="loc-name">[ TBD ]</div><div class="loc-role">[ TBD ]</div><div class="loc-address">[ Address — TBD ]</div><div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ T ]</div><div class="loc-fig-lbl">Capacity</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Bays</div></div></div></div>
+      </div>
+      <div class="loc-card" data-subsidiary="wholesale">
+        <div class="loc-photo"><div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 07</p></div></div><div class="loc-badge wholesale">Wholesale</div><div class="loc-number">07</div><div class="loc-expand"><div class="loc-expand-title">Location 07</div><div class="loc-expand-md">[ MD — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ From interview — TBD ]</p></div></div>
+        <div class="loc-body"><div class="loc-name">[ TBD ]</div><div class="loc-role">[ TBD ]</div><div class="loc-address">[ Address — TBD ]</div><div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ T ]</div><div class="loc-fig-lbl">Capacity</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Bays</div></div></div></div>
+      </div>
+      <div class="loc-card" data-subsidiary="beverages">
+        <div class="loc-photo"><div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 08</p></div></div><div class="loc-badge beverages">Beverages</div><div class="loc-number">08</div><div class="loc-expand"><div class="loc-expand-title">Location 08</div><div class="loc-expand-md">[ MD — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ From interview — TBD ]</p></div></div>
+        <div class="loc-body"><div class="loc-name">[ TBD ]</div><div class="loc-role">[ TBD ]</div><div class="loc-address">[ Address — TBD ]</div><div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Accounts</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Brands</div></div></div></div>
+      </div>
+      <div class="loc-card" data-subsidiary="cosmetics">
+        <div class="loc-photo"><div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 09</p></div></div><div class="loc-badge cosmetics">Cosmetics</div><div class="loc-number">09</div><div class="loc-expand"><div class="loc-expand-title">Location 09</div><div class="loc-expand-md">[ MD — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ From interview — TBD ]</p></div></div>
+        <div class="loc-body"><div class="loc-name">[ TBD ]</div><div class="loc-role">[ TBD ]</div><div class="loc-address">[ Address — TBD ]</div><div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">SKUs</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Stockists</div></div></div></div>
+      </div>
+      <div class="loc-card" data-subsidiary="phones">
+        <div class="loc-photo"><div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 10</p></div></div><div class="loc-badge phones">Phones</div><div class="loc-number">10</div><div class="loc-expand"><div class="loc-expand-title">Location 10</div><div class="loc-expand-md">[ MD — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ From interview — TBD ]</p></div></div>
+        <div class="loc-body"><div class="loc-name">[ TBD ]</div><div class="loc-role">[ TBD ]</div><div class="loc-address">[ Address — TBD ]</div><div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">SKUs</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Stockists</div></div></div></div>
+      </div>
+      <!-- Locations 11–19: same pattern, fill from MD interview forms -->
+      <div class="loc-card" data-subsidiary="wholesale"><div class="loc-photo"><div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 11</p></div></div><div class="loc-badge wholesale">Wholesale</div><div class="loc-number">11</div><div class="loc-expand"><div class="loc-expand-title">Location 11</div><div class="loc-expand-md">[ MD — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ TBD ]</p></div></div><div class="loc-body"><div class="loc-name">[ TBD ]</div><div class="loc-role">[ TBD ]</div><div class="loc-address">[ TBD ]</div><div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ T ]</div><div class="loc-fig-lbl">Capacity</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Bays</div></div></div></div></div>
+      <div class="loc-card" data-subsidiary="wholesale"><div class="loc-photo"><div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 12</p></div></div><div class="loc-badge wholesale">Wholesale</div><div class="loc-number">12</div><div class="loc-expand"><div class="loc-expand-title">Location 12</div><div class="loc-expand-md">[ MD — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ TBD ]</p></div></div><div class="loc-body"><div class="loc-name">[ TBD ]</div><div class="loc-role">[ TBD ]</div><div class="loc-address">[ TBD ]</div><div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ T ]</div><div class="loc-fig-lbl">Capacity</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Bays</div></div></div></div></div>
+      <div class="loc-card" data-subsidiary="pharmacy"><div class="loc-photo"><div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 13</p></div></div><div class="loc-badge pharmacy">Pharmacy</div><div class="loc-number">13</div><div class="loc-expand"><div class="loc-expand-title">Location 13</div><div class="loc-expand-md">[ MD — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ TBD ]</p></div></div><div class="loc-body"><div class="loc-name">[ TBD ]</div><div class="loc-role">[ TBD ]</div><div class="loc-address">[ TBD ]</div><div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">SKUs</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Clients</div></div></div></div></div>
+      <div class="loc-card" data-subsidiary="wholesale"><div class="loc-photo"><div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 14</p></div></div><div class="loc-badge wholesale">Wholesale</div><div class="loc-number">14</div><div class="loc-expand"><div class="loc-expand-title">Location 14</div><div class="loc-expand-md">[ MD — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ TBD ]</p></div></div><div class="loc-body"><div class="loc-name">[ TBD ]</div><div class="loc-role">[ TBD ]</div><div class="loc-address">[ TBD ]</div><div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ T ]</div><div class="loc-fig-lbl">Capacity</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Bays</div></div></div></div></div>
+      <div class="loc-card" data-subsidiary="wholesale"><div class="loc-photo"><div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 15</p></div></div><div class="loc-badge wholesale">Wholesale</div><div class="loc-number">15</div><div class="loc-expand"><div class="loc-expand-title">Location 15</div><div class="loc-expand-md">[ MD — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ TBD ]</p></div></div><div class="loc-body"><div class="loc-name">[ TBD ]</div><div class="loc-role">[ TBD ]</div><div class="loc-address">[ TBD ]</div><div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ T ]</div><div class="loc-fig-lbl">Capacity</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Bays</div></div></div></div></div>
+      <div class="loc-card" data-subsidiary="automobiles"><div class="loc-photo"><div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 16</p></div></div><div class="loc-badge automobiles">Automobiles</div><div class="loc-number">16</div><div class="loc-expand"><div class="loc-expand-title">Location 16</div><div class="loc-expand-md">[ MD — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ TBD ]</p></div></div><div class="loc-body"><div class="loc-name">[ TBD ]</div><div class="loc-role">[ TBD ]</div><div class="loc-address">[ TBD ]</div><div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Vehicles</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Brands</div></div></div></div></div>
+      <div class="loc-card" data-subsidiary="wholesale"><div class="loc-photo"><div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 17</p></div></div><div class="loc-badge wholesale">Wholesale</div><div class="loc-number">17</div><div class="loc-expand"><div class="loc-expand-title">Location 17</div><div class="loc-expand-md">[ MD — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ TBD ]</p></div></div><div class="loc-body"><div class="loc-name">[ TBD ]</div><div class="loc-role">[ TBD ]</div><div class="loc-address">[ TBD ]</div><div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ T ]</div><div class="loc-fig-lbl">Capacity</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Bays</div></div></div></div></div>
+      <div class="loc-card" data-subsidiary="wholesale"><div class="loc-photo"><div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 18</p></div></div><div class="loc-badge wholesale">Wholesale</div><div class="loc-number">18</div><div class="loc-expand"><div class="loc-expand-title">Location 18</div><div class="loc-expand-md">[ MD — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ TBD ]</p></div></div><div class="loc-body"><div class="loc-name">[ TBD ]</div><div class="loc-role">[ TBD ]</div><div class="loc-address">[ TBD ]</div><div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ T ]</div><div class="loc-fig-lbl">Capacity</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Bays</div></div></div></div></div>
+      <div class="loc-card" data-subsidiary="wholesale"><div class="loc-photo"><div class="loc-photo-img"><div class="loc-photo-placeholder"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="18" width="32" height="18" stroke="white" stroke-width="1.5"/><rect x="14" y="24" width="12" height="12" stroke="white" stroke-width="1.5"/><path d="M2 18L20 6L38 18" stroke="white" stroke-width="1.5"/></svg><p>MEDIA: Location 19</p></div></div><div class="loc-badge wholesale">Wholesale</div><div class="loc-number">19</div><div class="loc-expand"><div class="loc-expand-title">Location 19</div><div class="loc-expand-md">[ MD — TBD ]</div><div class="loc-expand-md-title">Branch Manager</div><p class="loc-expand-desc">[ TBD ]</p></div></div><div class="loc-body"><div class="loc-name">[ TBD ]</div><div class="loc-role">[ TBD ]</div><div class="loc-address">[ TBD ]</div><div class="loc-figures"><div class="loc-figure"><div class="loc-fig-val tbd">[ T ]</div><div class="loc-fig-lbl">Capacity</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Staff</div></div><div class="loc-figure"><div class="loc-fig-val tbd">[ # ]</div><div class="loc-fig-lbl">Bays</div></div></div></div></div>
+
+    </div><!-- /locations-grid -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PHOTO STRIP ═══════════════════════════════ -->
+<section class="strip-section">
+  <div class="strip-inner">
+    <!-- MEDIA: 8 best operational photographs — varied: interior, products, loading, team
+         Files: ../media/operations/strip-01.jpg through strip-08.jpg
+         Replace each .strip-photo with: <div class="strip-photo"><img src="../media/operations/strip-0N.jpg" alt="Asia Group Operations"></div> -->
+    <div class="strip-photo"><div class="strip-photo-placeholder">MEDIA: Operations Strip 01<br>Interior warehouse</div></div>
+    <div class="strip-photo"><div class="strip-photo-placeholder">MEDIA: Strip 02<br>Loading bay</div></div>
+    <div class="strip-photo"><div class="strip-photo-placeholder">MEDIA: Strip 03<br>Product stacks</div></div>
+    <div class="strip-photo"><div class="strip-photo-placeholder">MEDIA: Strip 04<br>Truck fleet</div></div>
+    <div class="strip-photo"><div class="strip-photo-placeholder">MEDIA: Strip 05<br>Team at work</div></div>
+    <div class="strip-photo"><div class="strip-photo-placeholder">MEDIA: Strip 06<br>Warehouse depth</div></div>
+    <div class="strip-photo"><div class="strip-photo-placeholder">MEDIA: Strip 07<br>Product close-up</div></div>
+    <div class="strip-photo"><div class="strip-photo-placeholder">MEDIA: Strip 08<br>Aerial or signage</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ MAP ═══════════════════════════════ -->
+<section class="map-section">
+  <div class="map-inner">
+    <div class="map-header">
+      <div>
+        <div class="section-tag">Geographic Density</div>
+        <h2>19 Pins.<br><em>One City.</em></h2>
+      </div>
+      <p style="font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.5);">
+        Every pin on this map is a staffed, operational facility. No other distribution company in Kano — or Northern Nigeria — commands this density. This is what market dominance looks like from above.
+      </p>
+    </div>
+    <div class="map-container">
+      <!-- MEDIA: Replace this container with Google Maps embed or Mapbox GL map
+           Google Maps: Go to maps.google.com → Create map → Add all 19 pins → Share embed code
+           Recommended embed: <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>
+           Mapbox: Use dark-v11 style, custom green markers (#4CAF50), gold active state (#D4AC0D) -->
+      <div class="map-placeholder-inner">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><path d="M32 8C22.06 8 14 16.06 14 26c0 14 18 30 18 30s18-16 18-30c0-9.94-8.06-18-18-18zm0 24a6 6 0 110-12 6 6 0 010 12z" stroke="white" stroke-width="1.5"/></svg>
+        <h3>Kano Operations Map</h3>
+        <p>19 location pins — all active, staffed facilities<br>
+        Replace this placeholder with Google Maps embed or Mapbox<br>
+        Recommended: Dark map style, custom green pins, clickable location cards</p>
+      </div>
+    </div>
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green-light)"></div>Wholesale &amp; Distribution</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#4DB6AC"></div>Asia Pharmacy</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#EF5350"></div>Asia Automobiles</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#42A5F5"></div>Asia Beverages</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#CE93D8"></div>Asia Cosmetics</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#4FC3F7"></div>Asia Phones</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CAPACITY TABLE ═══════════════════════════════ -->
+<section class="capacity-section">
+  <div class="cap-inner">
+    <div class="section-tag">Infrastructure Summary</div>
+    <h2>Combined <em>Capacity Overview</em></h2>
+    <p style="font-size:15px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.5);max-width:560px;margin-top:16px;">
+      A consolidated view of Asia Group's physical infrastructure across all 19 Kano locations — to be completed from MD interview data after field visits.
+    </p>
+    <!-- PLACEHOLDER: Fill all [ TBD ] cells from MD interview forms collected during field visits -->
+    <table class="cap-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Location Name</th>
+          <th>Division</th>
+          <th>Floor Area</th>
+          <th>Capacity (T)</th>
+          <th>Staff</th>
+          <th>Loading Bays</th>
+          <th>Est. Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>01</td><td class="loc-name-cell">Kano Central Hub</td><td>Wholesale</td><td class="tbd">[ m² ]</td><td class="tbd">[ T ]</td><td class="tbd">[ # ]</td><td class="tbd">[ # ]</td><td>1988</td></tr>
+        <tr><td>02</td><td class="loc-name-cell">[ TBD ]</td><td class="tbd">[ Division ]</td><td class="tbd">[ m² ]</td><td class="tbd">[ T ]</td><td class="tbd">[ # ]</td><td class="tbd">[ # ]</td><td class="tbd">[ Yr ]</td></tr>
+        <tr><td>03</td><td class="loc-name-cell">[ TBD ]</td><td class="tbd">[ Division ]</td><td class="tbd">[ m² ]</td><td class="tbd">[ T ]</td><td class="tbd">[ # ]</td><td class="tbd">[ # ]</td><td class="tbd">[ Yr ]</td></tr>
+        <tr><td>04</td><td class="loc-name-cell">[ TBD ]</td><td class="tbd">[ Division ]</td><td class="tbd">[ m² ]</td><td class="tbd">[ T ]</td><td class="tbd">[ # ]</td><td class="tbd">[ # ]</td><td class="tbd">[ Yr ]</td></tr>
+        <tr><td>05</td><td class="loc-name-cell">[ TBD ]</td><td class="tbd">[ Division ]</td><td class="tbd">[ m² ]</td><td class="tbd">[ T ]</td><td class="tbd">[ # ]</td><td class="tbd">[ # ]</td><td class="tbd">[ Yr ]</td></tr>
+        <tr><td>06–19</td><td class="loc-name-cell tbd" colspan="7">[ All remaining locations — fill from MD interview forms ]</td></tr>
+      </tbody>
+      <tfoot>
+        <tr class="cap-total">
+          <td colspan="2">TOTAL — 19 LOCATIONS</td>
+          <td>All Divisions</td>
+          <td class="tbd">[ Total m² ]</td>
+          <td class="tbd">[ Total T ]</td>
+          <td class="tbd">[ Total Staff ]</td>
+          <td class="tbd">[ Total Bays ]</td>
+          <td>1988–Present</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CTA ═══════════════════════════════ -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Want to see an<br><em>Asia Group facility?</em></h2>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="../index.html#contact" class="btn-primary">Book a Visit →</a>
+      <a href="../index.html#contact" class="btn-outline">Distribution Enquiry</a>
+    </div>
+  </div>
+</section>
+
+<div class="footer-mini">
+  <p>© 2025 Asia Group of Companies Ltd — Operations</p>
+  <a href="../index.html">← Back to Asia Group</a>
+</div>
+
+<script>
+  // Filter buttons
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.loc-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.subsidiary === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // Scroll-reveal animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  cards.forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(24px)';
+    card.style.transition = `opacity 0.5s ease ${(i % 3) * 0.1}s, transform 0.5s ease ${(i % 3) * 0.1}s`;
+    observer.observe(card);
+  });
+</script>
+</body>
+</html>

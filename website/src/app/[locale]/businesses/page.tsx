@@ -23,8 +23,6 @@ export default async function BusinessesPage() {
   const promoCard = businessesAll.find(b => b.is_promo);
   const businesses = [...normalCards, ...(promoCard ? [promoCard] : [])];
 
-  const partnersDocs = getCollection('partners');
-  const partners = partnersDocs.map(doc => doc.data).sort((a, b) => a.order - b.order);
 
   return (
     <div>
@@ -93,22 +91,7 @@ export default async function BusinessesPage() {
         </div>
       </section>
 
-      {/* PARTNERS STRIP */}
-      <section className="section bg-dark">
-        <div className="inner">
-          <div className="partners-header fade-up" style={{ marginBottom: '48px' }}>
-            <h2 className="section-title">Brands That Trust Asia Group</h2>
-          </div>
 
-          <div className="partners-strip fade-up delay-1">
-            {partners.map((partner, i) => (
-              <div key={i} className="partners-strip__item">
-                <span className="partners-strip__name">{partner.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

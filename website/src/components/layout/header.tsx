@@ -16,10 +16,8 @@ export function Header() {
   const navLinks = [
     { name: 'About', href: '/about' },
     { name: 'Subsidiaries', href: '/businesses' },
-    { name: 'Operations', href: '/#operations' },
-    { name: 'Partners', href: '/#partners' },
-    { name: 'Leadership', href: '/#leadership' },
-    { name: 'Impact', href: '/sustainability' },
+    { name: 'Operations', href: '/operations' },
+    { name: 'CSR', href: '/csr' },
     { name: 'News', href: '/news' },
     { name: 'Contact', href: '/contact' },
   ];

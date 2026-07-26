@@ -2,7 +2,7 @@ backend:
   name: github
   repo: asiagroupnigeria/asia-group
   branch: main
-  base_url: /api
+  base_url: https://www.asiagroup.ng/api
 
 media_folder: website/public/media
 public_folder: /media
