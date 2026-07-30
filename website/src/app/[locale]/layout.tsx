@@ -1,6 +1,6 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { Cormorant_Garamond, Barlow, Barlow_Condensed } from 'next/font/google';
+import { Noto_Serif, Barlow, Barlow_Condensed } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 import 'remixicon/fonts/remixicon.css';
@@ -8,7 +8,7 @@ import '../globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 
-const cormorant = Cormorant_Garamond({
+const notoSerif = Noto_Serif({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   style: ['normal', 'italic'],
@@ -32,6 +32,12 @@ export const metadata = {
   description: 'From a single market stall in Abubakar Rimi Market to commanding over 30 global partnerships across four nations — Asia Group is the backbone of African trade.',
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default async function LocaleLayout({
   children,
   params
@@ -53,7 +59,7 @@ export default async function LocaleLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={`${cormorant.variable} ${barlow.variable} ${barlowCondensed.variable}`}>
+      <body className={`${notoSerif.variable} ${barlow.variable} ${barlowCondensed.variable}`}>
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main>{children}</main>

@@ -1,13 +1,16 @@
-import { LocationsGrid } from '@/components/operations/LocationsGrid';
-import { locations } from '@/data/locations';
+
 import Link from 'next/link';
-import { InteractiveMap } from '@/components/home/interactive-map';
+import { AwardsGrid } from '@/components/awards/AwardsGrid';
+import { awardsData } from '@/data/awards';
 import { Hero } from '@/components/home/hero';
 import { SubsidiariesGrid } from '@/components/home/subsidiaries-grid';
 import { AnimatedNumber } from '@/components/ui/animated-number';
 import { FadeUpObserver } from '@/components/ui/fade-up-observer';
 import { getCollection } from '@/lib/cms';
 
+import { PartnerCta } from '@/components/home/partner-cta';
+import { CommunityImpact } from '@/components/home/community-impact';
+import { GrowthTrajectory } from '@/components/home/growth-trajectory';
 export default async function Home() {
   // Fetch data from CMS
   const heroSlidesDocs = getCollection('hero_slides');
@@ -89,40 +92,6 @@ export default async function Home() {
         </div>
       </section>
 
-      
-      {/* ==================== 19 LOCATIONS PREVIEW ==================== */}
-      <section id="locations-preview" style={{ padding: '120px 60px', background: 'var(--dark-2)' }}>
-        <div className="lp-inner" style={{ maxWidth: '1300px', margin: '0 auto' }}>
-          <div className="lp-header" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'end', marginBottom: '56px' }}>
-            <div>
-              <div className="section-tag" style={{ fontFamily: 'var(--font-condensed)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--gold-light)', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-                <span style={{ display: 'block', width: '30px', height: '1px', background: 'var(--gold-light)' }}></span>
-                19 Locations — Kano
-              </div>
-              <h2 className="section-title" style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 4.5vw, 64px)', fontWeight: 300, lineHeight: 1.1, color: 'var(--white)' }}>
-                Every Warehouse.<br />Every Showroom.<br /><em style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>All Operational.</em>
-              </h2>
-            </div>
-            <div>
-              <p className="section-body" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 300, lineHeight: 1.85 }}>
-                No other distribution company in Northern Nigeria commands this density. Six subsidiaries, 19 dedicated locations — each with a named manager, a dedicated team, and direct stock access. This is what market dominance looks like on the ground.
-              </p>
-            </div>
-          </div>
-
-          <LocationsGrid locations={locations.slice(0, 6)} hideFilter={true} />
-
-          <div className="lp-cta-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '40px', flexWrap: 'wrap', gap: '16px' }}>
-            <div className="lp-total" style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
-              <div className="lp-total-num" style={{ fontFamily: 'var(--font-display)', fontSize: '52px', fontWeight: 600, color: 'var(--white)', lineHeight: 1 }}>19</div>
-              <div className="lp-total-text" style={{ fontFamily: 'var(--font-condensed)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)' }}>Total Locations<br />Across Kano</div>
-            </div>
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <Link href="/operations" className="btn btn-primary" style={{ fontFamily: 'var(--font-condensed)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--dark)', background: 'var(--gold-light)', padding: '16px 40px', textDecoration: 'none', display: 'inline-block' }}>Explore All 19 Locations →</Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
 {/* ==================== SUBSIDIARIES ==================== */}
       <section id="subsidiaries" className="section bg-dark-2">
@@ -172,25 +141,28 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ==================== OPERATIONS ==================== */}
-      <section id="operations" className="section bg-dark" style={{ backgroundColor: '#000000' }}>
-        <div className="inner grid-2 grid-2--start" style={{ marginBottom: '40px' }}>
-          <div className="fade-up">
-            <h2 className="section-title" style={{ color: '#FFFFFF' }}>
-              Operating Across<br />Four Nations. Expanding to the World.
+
+      {/* ==================== AWARDS & RECOGNITION ==================== */}
+      <section id="awards" className="section" style={{ background: '#ffffff', paddingTop: '120px', paddingBottom: '120px' }}>
+        <div className="inner">
+          <div className="fade-up" style={{ maxWidth: '800px' }}>
+            <h2 className="section-title" style={{ color: '#000000' }}>
+              Validated by<br />Independent Authority
             </h2>
-          </div>
-          <div className="fade-up delay-1">
-            <p className="section-body" style={{ color: '#A0AABF' }}>
-              Headquartered in Kano, Nigeria with operational footprint in Cameroon, Chad, and Niger — and active expansion into Central Africa, East Africa, Asia, Europe, and America.
+            <p className="section-body" style={{ color: 'rgba(0,0,0,0.7)', marginTop: '24px' }}>
+              Trust and Integrity are not self-descriptions — they are verdicts rendered by decades of industry partners, trade bodies, and the communities Asia Group serves.
             </p>
           </div>
-        </div>
-
-        <div className="fade-up delay-2" style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)' }}>
-          <InteractiveMap />
+          
+          <AwardsGrid awards={awardsData} />
         </div>
       </section>
+
+      {/* ==================== COMMUNITY IMPACT ==================== */}
+      <CommunityImpact />
+
+      {/* ==================== GROWTH TRAJECTORY ==================== */}
+      <GrowthTrajectory />
 
       {/* ==================== NEWS ==================== */}
       <section id="news" className="section bg-dark-2">
@@ -286,6 +258,9 @@ export default async function Home() {
           <Link href="/news" className="btn btn--outline">View All News & Press →</Link>
         </div>
       </section>
+
+      {/* ==================== PARTNER CTA ==================== */}
+      <PartnerCta />
 
     </div>
   );

@@ -8,13 +8,13 @@ export default function AutomobilesPage() {
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   
   html { scroll-behavior: smooth; }
-  body { font-family: var(--font-body); background: var(--dark); color: var(--white); overflow-x: hidden; }
-  nav { position:fixed; top:0; left:0; right:0; height:80px; background:rgba(10,10,10,0.95); backdrop-filter:blur(20px); border-bottom:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:space-between; padding:0 60px; z-index:1000; }
-  .nav-back { display:flex; align-items:center; gap:10px; font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.2s; }
-  .nav-back:hover { color:var(--white); }
-  .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; font-family:var(--font-condensed); font-size:17px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--white); }
+  body { font-family: var(--font-body); background: var(--bg-main); color: var(--text-main); overflow-x: hidden; }
+  nav { position:fixed; top:0; left:0; right:0; height:80px; background:rgba(255,255,255,0.95); backdrop-filter:blur(20px); border-bottom:1px solid rgba(0,0,0,0.06); display:flex; align-items:center; justify-content:space-between; padding:0 60px; z-index:1000; }
+  .nav-back { display:flex; align-items:center; gap:10px; font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; transition:color 0.2s; }
+  .nav-back:hover { color:var(--text-main); }
+  .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; font-family:var(--font-condensed); font-size:17px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-main); }
   .nav-logo img { height:40px; }
-  .nav-cta { font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--dark); background:var(--silver-light); padding:10px 24px; text-decoration:none; }
+  .nav-cta { font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--white); background:var(--green); padding:10px 24px; text-decoration:none; }
 
   .sub-hero { padding-top:80px; min-height:75vh; position:relative; display:flex; align-items:flex-end; }
   .sub-hero-bg {
@@ -26,26 +26,26 @@ export default function AutomobilesPage() {
   }
   .sub-hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.4) 60%, transparent 100%); }
   .sub-hero-content { position:relative; z-index:2; padding:80px 60px; max-width:1300px; margin:0 auto; width:100%; }
-  .breadcrumb { display:flex; align-items:center; gap:10px; font-family:var(--font-condensed); font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
-  .breadcrumb a { color:var(--silver-light); text-decoration:none; }
+  .breadcrumb { display:flex; align-items:center; gap:10px; font-family:var(--font-condensed); font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:24px; }
+  .breadcrumb a { color:var(--text-muted); text-decoration:none; }
   .sub-eyebrow { font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent-light); display:flex; align-items:center; gap:12px; margin-bottom:20px; }
   .sub-eyebrow::before { content:''; display:block; width:30px; height:1px; background:var(--accent-light); }
-  h1 { font-family:var(--font-display); font-size:clamp(48px,6vw,88px); font-weight:300; line-height:1.0; color:var(--white); max-width:800px; }
-  h1 em { font-style:italic; color:var(--silver-light); }
+  h1 { font-family:var(--font-display); font-size:clamp(48px,6vw,88px); font-weight:300; line-height:1.0; color:var(--text-main); max-width:800px; }
+  h1 em { font-style:italic; color:var(--text-muted); }
   .sub-hero-desc { font-size:17px; font-weight:300; line-height:1.85; color:rgba(255,255,255,0.6); max-width:580px; margin-top:24px; }
   .sub-hero-stats { display:flex; gap:0; margin-top:48px; border:1px solid rgba(255,255,255,0.08); width:fit-content; }
-  .sub-stat { padding:24px 40px; border-right:1px solid rgba(255,255,255,0.08); background:rgba(10,10,10,0.7); backdrop-filter:blur(10px); }
+  .sub-stat { padding:24px 40px; border-right:1px solid rgba(0,0,0,0.08); background:rgba(10,10,10,0.7); backdrop-filter:blur(10px); }
   .sub-stat:last-child { border-right:none; }
-  .sub-stat-number { font-family:var(--font-condensed); font-size:28px; font-weight:700; color:var(--silver-light); line-height:1; }
-  .sub-stat-label { font-family:var(--font-body); font-size:11px; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-top:6px; }
-  .section-tag { font-family:var(--font-condensed); font-size:11px; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--silver-light); display:flex; align-items:center; gap:12px; margin-bottom:20px; }
-  .section-tag::before { content:''; display:block; width:30px; height:1px; background:var(--silver-light); }
+  .sub-stat-number { font-family:var(--font-condensed); font-size:28px; font-weight:700; color:var(--text-muted); line-height:1; }
+  .sub-stat-label { font-family:var(--font-body); font-size:11px; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-top:6px; }
+  .section-tag { font-family:var(--font-condensed); font-size:11px; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--text-muted); display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+  .section-tag::before { content:''; display:block; width:30px; height:1px; background:var(--text-muted); }
 
   /* BRANDS */
-  .brands-section { padding:120px 60px; background:var(--dark-2); }
+  .brands-section { padding:120px 60px; background:var(--bg-card); }
   .brands-inner { max-width:1300px; margin:0 auto; }
-  .brands-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(255,255,255,0.04); margin-top:60px; }
-  .brand-feature { background:var(--dark); padding:60px 52px; display:flex; flex-direction:column; position:relative; overflow:hidden; }
+  .brands-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(0,0,0,0.04); margin-top:60px; }
+  .brand-feature { background:var(--bg-main); padding:60px 52px; display:flex; flex-direction:column; position:relative; overflow:hidden; }
   .brand-feature::after { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
   .brand-feature.sinot::after { background: #C0392B; }
   .brand-feature.mikano::after { background: var(--green-bright); }
@@ -58,65 +58,65 @@ export default function AutomobilesPage() {
   .brand-logo-text { font-family:var(--font-condensed); font-size:32px; font-weight:800; letter-spacing:0.05em; text-transform:uppercase; }
   .brand-logo-text.sinot { color:rgba(192,57,43,0.8); }
   .brand-logo-text.mikano { color:rgba(76,175,80,0.8); }
-  .brand-logo-sub { font-family:var(--font-condensed); font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-top:2px; }
-  .brand-feature h3 { font-family:var(--font-display); font-size:30px; font-weight:400; color:var(--white); line-height:1.2; margin-bottom:16px; }
-  .brand-feature p { font-size:14px; font-weight:300; line-height:1.8; color:rgba(255,255,255,0.5); }
-  .brand-specs { margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(255,255,255,0.06); }
-  .brand-spec { background:var(--dark-2); padding:16px 18px; }
-  .brand-spec-value { font-family:var(--font-condensed); font-size:18px; font-weight:700; color:var(--silver-light); }
-  .brand-spec-label { font-size:10px; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; margin-top:4px; }
+  .brand-logo-sub { font-family:var(--font-condensed); font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-top:2px; }
+  .brand-feature h3 { font-family:var(--font-display); font-size:30px; font-weight:400; color:var(--text-main); line-height:1.2; margin-bottom:16px; }
+  .brand-feature p { font-size:14px; font-weight:300; line-height:1.8; color:rgba(0,0,0,0.5); }
+  .brand-specs { margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(0,0,0,0.06); }
+  .brand-spec { background:var(--bg-card); padding:16px 18px; }
+  .brand-spec-value { font-family:var(--font-condensed); font-size:18px; font-weight:700; color:var(--text-muted); }
+  .brand-spec-label { font-size:10px; color:var(--text-muted); letter-spacing:0.08em; text-transform:uppercase; margin-top:4px; }
 
   /* PRODUCT SHOWCASE */
-  .products-section { padding:120px 60px; background:var(--dark); }
+  .products-section { padding:120px 60px; background:var(--bg-main); }
   .products-inner { max-width:1300px; margin:0 auto; }
-  .vehicles-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:rgba(255,255,255,0.04); margin-top:60px; }
-  .vehicle-card { background:var(--dark-2); overflow:hidden; }
+  .vehicles-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:rgba(0,0,0,0.04); margin-top:60px; }
+  .vehicle-card { background:var(--bg-card); overflow:hidden; }
   .vehicle-img {
     aspect-ratio:16/9;
     /* MEDIA: Vehicle product photos
        SinoTruck range: heavy duty trucks, dump trucks, tractor heads, tankers
        Mikano: generators, buses
        File: ../media/automobiles/[vehicle-model].jpg */
-    background:var(--dark-3); display:flex; align-items:center; justify-content:center;
+    background:var(--bg-muted); display:flex; align-items:center; justify-content:center;
     position:relative;
   }
-  .vehicle-img p { font-family:var(--font-condensed); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.15); text-align:center; padding:16px; }
-  .vehicle-badge { position:absolute; top:14px; left:14px; background:rgba(10,10,10,0.8); color:var(--silver-light); font-family:var(--font-condensed); font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:5px 10px; border:1px solid rgba(212,172,13,0.3); }
+  .vehicle-img p { font-family:var(--font-condensed); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(0,0,0,0.15); text-align:center; padding:16px; }
+  .vehicle-badge { position:absolute; top:14px; left:14px; background:rgba(10,10,10,0.8); color:var(--text-muted); font-family:var(--font-condensed); font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:5px 10px; border:1px solid rgba(212,172,13,0.3); }
   .vehicle-info { padding:24px 24px 28px; }
   .vehicle-brand { font-family:var(--font-condensed); font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent-light); margin-bottom:8px; }
-  .vehicle-name { font-family:var(--font-condensed); font-size:17px; font-weight:700; letter-spacing:0.04em; color:var(--white); margin-bottom:8px; }
-  .vehicle-desc { font-size:13px; font-weight:300; line-height:1.65; color:rgba(255,255,255,0.45); margin-bottom:16px; }
+  .vehicle-name { font-family:var(--font-condensed); font-size:17px; font-weight:700; letter-spacing:0.04em; color:var(--text-main); margin-bottom:8px; }
+  .vehicle-desc { font-size:13px; font-weight:300; line-height:1.65; color:rgba(0,0,0,0.45); margin-bottom:16px; }
   .vehicle-specs-row { display:flex; gap:20px; flex-wrap:wrap; }
   .vehicle-spec { }
-  .vehicle-spec-val { font-family:var(--font-condensed); font-size:14px; font-weight:700; color:var(--white); }
-  .vehicle-spec-lbl { font-size:10px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; margin-top:2px; }
+  .vehicle-spec-val { font-family:var(--font-condensed); font-size:14px; font-weight:700; color:var(--text-main); }
+  .vehicle-spec-lbl { font-size:10px; color:var(--text-muted); letter-spacing:0.06em; text-transform:uppercase; margin-top:2px; }
 
   /* CLIENTS */
-  .clients-section { padding:120px 60px; background:var(--dark-2); }
+  .clients-section { padding:120px 60px; background:var(--bg-card); }
   .clients-inner { max-width:1300px; margin:0 auto; display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:start; }
-  .clients-content h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--white); line-height:1.1; }
-  .clients-content h2 em { font-style:italic; color:var(--silver-light); }
-  .clients-content p { font-size:15px; font-weight:300; line-height:1.85; color:rgba(255,255,255,0.55); margin-top:16px; }
-  .client-sectors { margin-top:36px; display:flex; flex-direction:column; gap:0; border:1px solid rgba(255,255,255,0.06); }
-  .client-sector { display:flex; align-items:center; gap:20px; padding:20px 24px; border-bottom:1px solid rgba(255,255,255,0.04); }
+  .clients-content h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--text-main); line-height:1.1; }
+  .clients-content h2 em { font-style:italic; color:var(--text-muted); }
+  .clients-content p { font-size:15px; font-weight:300; line-height:1.85; color:rgba(0,0,0,0.55); margin-top:16px; }
+  .client-sectors { margin-top:36px; display:flex; flex-direction:column; gap:0; border:1px solid rgba(0,0,0,0.06); }
+  .client-sector { display:flex; align-items:center; gap:20px; padding:20px 24px; border-bottom:1px solid rgba(0,0,0,0.04); }
   .client-sector:last-child { border-bottom:none; }
   .client-sector-icon { font-size:22px; flex-shrink:0; }
-  .client-sector-name { font-family:var(--font-condensed); font-size:14px; font-weight:600; letter-spacing:0.06em; color:var(--white); flex:1; }
-  .client-sector-count { font-family:var(--font-condensed); font-size:11px; font-weight:600; color:var(--muted); }
+  .client-sector-name { font-family:var(--font-condensed); font-size:14px; font-weight:600; letter-spacing:0.06em; color:var(--text-main); flex:1; }
+  .client-sector-count { font-family:var(--font-condensed); font-size:11px; font-weight:600; color:var(--text-muted); }
   .clients-visual {
     /* MEDIA: Client operations, vehicle in use, construction site or logistics
        File: ../media/subsidiaries/automobiles-inuse.jpg */
-    aspect-ratio:4/3; background:var(--dark-3); border:1px solid rgba(255,255,255,0.06);
+    aspect-ratio:4/3; background:var(--bg-muted); border:1px solid rgba(0,0,0,0.06);
     display:flex; align-items:center; justify-content:center;
   }
-  .clients-visual p { font-family:var(--font-condensed); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.15); text-align:center; padding:20px; }
+  .clients-visual p { font-family:var(--font-condensed); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(0,0,0,0.15); text-align:center; padding:20px; }
 
-  .cta-band { padding:100px 60px; background:var(--dark-3); border-top:1px solid rgba(255,255,255,0.04); }
+  .cta-band { padding:100px 60px; background:var(--bg-muted); border-top:1px solid rgba(0,0,0,0.04); }
   .cta-band-inner { max-width:1300px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
-  .cta-band h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--white); }
-  .cta-band h2 em { font-style:italic; color:var(--silver-light); }
-  .btn-primary { font-family:var(--font-condensed); font-size:13px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--dark); background:var(--silver-light); padding:18px 48px; text-decoration:none; display:inline-block; white-space:nowrap; transition:background 0.2s; }
-  .btn-primary:hover { background:var(--white); }
+  .cta-band h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--text-main); }
+  .cta-band h2 em { font-style:italic; color:var(--text-muted); }
+  .btn-primary { font-family:var(--font-condensed); font-size:13px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--bg-main); background:var(--text-muted); padding:18px 48px; text-decoration:none; display:inline-block; white-space:nowrap; transition:background 0.2s; }
+  .btn-primary:hover { background:var(--text-main); }
   .footer-mini { background:var(--black); border-top:1px solid rgba(255,255,255,0.06); padding:32px 60px; display:flex; align-items:center; justify-content:space-between; }
   .footer-mini p { font-size:12px; color:rgba(255,255,255,0.2); font-weight:300; }
   .footer-mini a { color:var(--silver-light); text-decoration:none; font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; }
@@ -127,8 +127,7 @@ export default function AutomobilesPage() {
     .vehicles-grid { grid-template-columns:1fr 1fr; }
     .clients-inner { grid-template-columns:1fr; gap:48px; }
   }
-  @media (max-width:600px) { .vehicles-grid { grid-template-columns:1fr; } }
-` }} />
+  @media (max-width:600px) { .vehicles-grid { grid-template-columns:1fr; } }` }} />
       <div dangerouslySetInnerHTML={{ __html: `
 
 

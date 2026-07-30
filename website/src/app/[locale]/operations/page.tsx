@@ -50,7 +50,7 @@ export default function OperationsPage() {
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   
   html { scroll-behavior: smooth; }
-  body { font-family: var(--font-body); background: var(--dark); color: var(--white); overflow-x: hidden; }
+  body { font-family: var(--font-body); background: #ffffff; color: var(--dark); overflow-x: hidden; }
 
   /* ── NAV ── */
   nav {
@@ -121,7 +121,7 @@ export default function OperationsPage() {
   .hero-stat-l { font-size: 11px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
 
   /* ── FILTER BAR ── */
-  .filter-bar { background: var(--dark-2); border-bottom: 1px solid rgba(255,255,255,0.06); position: sticky; top: 80px; z-index: 100; }
+  .filter-bar { background: #f8f9fa; border-bottom: 1px solid rgba(0,0,0,0.06); position: sticky; top: 80px; z-index: 100; }
   .filter-bar-inner { max-width: 1300px; margin: 0 auto; padding: 0 60px; display: flex; align-items: center; gap: 0; overflow-x: auto; }
   .filter-btn {
     font-family: var(--font-condensed); font-size: 12px; font-weight: 600;
@@ -130,27 +130,27 @@ export default function OperationsPage() {
     cursor: pointer; transition: color .2s, border-color .2s; white-space: nowrap;
     margin-bottom: -1px;
   }
-  .filter-btn.active { color: var(--white); border-bottom-color: var(--silver-light); }
-  .filter-btn:hover { color: var(--white); }
-  .filter-count { font-size: 10px; background: rgba(255,255,255,0.1); border-radius: 99px; padding: 2px 7px; margin-left: 6px; color: var(--muted); }
-  .filter-btn.active .filter-count { background: rgba(212,172,13,0.2); color: var(--silver-light); }
+  .filter-btn.active { color: var(--dark); border-bottom-color: var(--dark); }
+  .filter-btn:hover { color: var(--dark); }
+  .filter-count { font-size: 10px; background: rgba(0,0,0,0.05); border-radius: 99px; padding: 2px 7px; margin-left: 6px; color: var(--muted); }
+  .filter-btn.active .filter-count { background: rgba(0,0,0,0.1); color: var(--dark); }
 
   /* ── LOCATIONS GRID ── */
-  .locations-section { padding: 80px 60px 120px; background: var(--dark); }
+  .locations-section { padding: 80px 60px 120px; background: #ffffff; }
   .locations-inner { max-width: 1300px; margin: 0 auto; }
   .locations-grid {
     display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 2px; background: rgba(255,255,255,0.04);
+    gap: 2px; background: rgba(0,0,0,0.04);
   }
 
   /* LOCATION CARD */
   .loc-card {
-    background: var(--dark-2); overflow: hidden;
+    background: #f8f9fa; overflow: hidden;
     display: flex; flex-direction: column;
     transition: background .25s;
     cursor: pointer;
   }
-  .loc-card:hover { background: var(--dark-3); }
+  .loc-card:hover { background: #ffffff; }
   /* Photography container */
   .loc-photo {
     position: relative; aspect-ratio: 1/1; overflow: hidden;
@@ -191,25 +191,25 @@ export default function OperationsPage() {
   .loc-number {
     position: absolute; bottom: 14px; right: 14px;
     font-family: var(--font-condensed); font-size: 28px; font-weight: 800;
-    color: rgba(255,255,255,0.08); line-height: 1; pointer-events: none;
+    color: rgba(0,0,0,0.04); line-height: 1; pointer-events: none;
   }
   /* Card body */
   .loc-body { padding: 24px 24px 28px; flex: 1; display: flex; flex-direction: column; }
-  .loc-name { font-family: var(--font-condensed); font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--white); margin-bottom: 4px; }
-  .loc-role { font-size: 12px; color: var(--silver-light); font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; font-family: var(--font-condensed); margin-bottom: 14px; }
-  .loc-address { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 300; line-height: 1.55; margin-bottom: 16px; }
+  .loc-name { font-family: var(--font-condensed); font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--dark); margin-bottom: 4px; }
+  .loc-role { font-size: 12px; color: var(--muted); font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; font-family: var(--font-condensed); margin-bottom: 14px; }
+  .loc-address { font-size: 13px; color: rgba(0,0,0,0.5); font-weight: 300; line-height: 1.55; margin-bottom: 16px; }
   /* Key figures row */
-  .loc-figures { display: flex; gap: 0; border: 1px solid rgba(255,255,255,0.06); margin-top: auto; }
-  .loc-figure { flex: 1; padding: 12px 14px; border-right: 1px solid rgba(255,255,255,0.06); }
+  .loc-figures { display: flex; gap: 0; border: 1px solid rgba(0,0,0,0.06); margin-top: auto; }
+  .loc-figure { flex: 1; padding: 12px 14px; border-right: 1px solid rgba(0,0,0,0.06); }
   .loc-figure:last-child { border-right: none; }
-  .loc-fig-val { font-family: var(--font-condensed); font-size: 15px; font-weight: 700; color: var(--white); line-height: 1; }
-  .loc-fig-val.tbd { color: rgba(255,255,255,0.2); font-size: 12px; }
+  .loc-fig-val { font-family: var(--font-condensed); font-size: 15px; font-weight: 700; color: var(--dark); line-height: 1; }
+  .loc-fig-val.tbd { color: rgba(0,0,0,0.2); font-size: 12px; }
   .loc-fig-lbl { font-size: 9px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
   /* Expand overlay */
   .loc-expand {
-    position: absolute; inset: 0; background: rgba(10,10,10,0.92);
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 32px; opacity: 0; transition: opacity .3s; pointer-events: none;
+    position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 80%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 16px; opacity: 0; transition: opacity .3s; pointer-events: none;
   }
   .loc-card:hover .loc-expand { opacity: 1; pointer-events: auto; }
   .loc-expand-title { font-family: var(--font-condensed); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--silver-light); margin-bottom: 12px; }
@@ -218,13 +218,13 @@ export default function OperationsPage() {
   .loc-expand-desc { font-size: 13px; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.6); }
 
   /* ── MAP SECTION ── */
-  .map-section { padding: 100px 60px; background: var(--dark-2); }
+  .map-section { padding: 100px 60px; background: #f8f9fa; }
   .map-inner { max-width: 1300px; margin: 0 auto; }
   .map-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 48px; }
-  .section-tag { font-family: var(--font-condensed); font-size: 11px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--silver-light); display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-  .section-tag::before { content: ''; display: block; width: 30px; height: 1px; background: var(--silver-light); }
-  h2 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px); font-weight: 300; color: var(--white); line-height: 1.1; }
-  h2 em { font-style: italic; color: var(--silver-light); }
+  .section-tag { font-family: var(--font-condensed); font-size: 11px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .section-tag::before { content: ''; display: block; width: 30px; height: 1px; background: var(--muted); }
+  h2 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px); font-weight: 700; color: var(--dark); line-height: 1.1; }
+  h2 em { font-style: normal; color: var(--muted); }
   .map-container {
     width: 100%; aspect-ratio: 16/7;
     /* MEDIA: Replace with embedded Google Map or custom Mapbox map
@@ -233,20 +233,20 @@ export default function OperationsPage() {
        Google Maps Embed URL:
        https://www.google.com/maps/embed?pb=... (generate in Google Maps with all 19 pins saved)
        OR use Mapbox GL JS for full custom styling matching site palette */
-    background: var(--dark-3); border: 1px solid rgba(255,255,255,0.06);
+    background: #e9ecef; border: 1px solid rgba(0,0,0,0.06);
     display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
   }
   .map-placeholder-inner { text-align: center; }
   .map-placeholder-inner svg { opacity: 0.08; margin-bottom: 20px; }
-  .map-placeholder-inner h3 { font-family: var(--font-condensed); font-size: 15px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 8px; }
-  .map-placeholder-inner p { font-family: var(--font-condensed); font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.12); line-height: 1.7; }
+  .map-placeholder-inner h3 { font-family: var(--font-condensed); font-size: 15px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(0,0,0,0.4); margin-bottom: 8px; }
+  .map-placeholder-inner p { font-family: var(--font-condensed); font-size: 11px; letter-spacing: 0.1em; color: rgba(0,0,0,0.3); line-height: 1.7; }
   /* Map pin legend */
   .map-legend { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 20px; }
   .legend-item { display: flex; align-items: center; gap: 8px; font-family: var(--font-condensed); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 0; flex-shrink: 0; }
 
   /* ── PHOTO STRIP ── */
-  .strip-section { overflow: hidden; background: var(--dark); }
+  .strip-section { overflow: hidden; background: #ffffff; }
   .strip-inner {
     display: flex; gap: 4px;
     /* Each strip image: 300px wide, full height */
@@ -255,24 +255,24 @@ export default function OperationsPage() {
     flex: 0 0 280px; height: 220px; position: relative; overflow: hidden;
     /* MEDIA: Best operational photography — interior warehouse, products, loading bays
        Files: ../media/operations/strip-[n].jpg (pick 8 best varied shots) */
-    background: var(--dark-3);
+    background: #e9ecef;
     display: flex; align-items: center; justify-content: center;
   }
   .strip-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
   .strip-photo:hover img { transform: scale(1.06); }
-  .strip-photo-placeholder { font-family: var(--font-condensed); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.12); text-align: center; padding: 12px; }
+  .strip-photo-placeholder { font-family: var(--font-condensed); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(0,0,0,0.2); text-align: center; padding: 12px; }
 
   /* ── CAPACITY TABLE ── */
-  .capacity-section { padding: 100px 60px; background: var(--dark-2); }
+  .capacity-section { padding: 100px 60px; background: #f8f9fa; }
   .cap-inner { max-width: 1300px; margin: 0 auto; }
-  .cap-table { width: 100%; margin-top: 48px; border: 1px solid rgba(255,255,255,0.06); border-collapse: collapse; }
-  .cap-table th { font-family: var(--font-condensed); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); padding: 14px 20px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); }
-  .cap-table td { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.65); padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: middle; }
+  .cap-table { width: 100%; margin-top: 48px; border: 1px solid rgba(0,0,0,0.06); border-collapse: collapse; }
+  .cap-table th { font-family: var(--font-condensed); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); padding: 14px 20px; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.06); background: rgba(0,0,0,0.02); }
+  .cap-table td { font-size: 13px; font-weight: 400; color: rgba(0,0,0,0.65); padding: 16px 20px; border-bottom: 1px solid rgba(0,0,0,0.04); vertical-align: middle; }
   .cap-table tr:last-child td { border-bottom: none; }
-  .cap-table tr:hover td { background: rgba(255,255,255,0.02); }
-  .cap-table .loc-name-cell { font-family: var(--font-condensed); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: var(--white); }
-  .cap-table .tbd { color: rgba(255,255,255,0.2); font-style: italic; }
-  .cap-total td { background: rgba(212,172,13,0.06); border-top: 1px solid rgba(212,172,13,0.2); font-weight: 600; color: var(--silver-light); font-family: var(--font-condensed); font-size: 14px; letter-spacing: 0.04em; }
+  .cap-table tr:hover td { background: rgba(0,0,0,0.02); }
+  .cap-table .loc-name-cell { font-family: var(--font-condensed); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: var(--dark); }
+  .cap-table .tbd { color: rgba(0,0,0,0.2); font-style: normal; }
+  .cap-total td { background: rgba(212,172,13,0.06); border-top: 1px solid rgba(212,172,13,0.2); font-weight: 700; color: var(--dark); font-family: var(--font-condensed); font-size: 14px; letter-spacing: 0.04em; }
 
   /* ── CTA ── */
   .cta-section { padding: 100px 60px; background: var(--green); }

@@ -21,8 +21,15 @@ export default async function BusinessesPage() {
 
   const normalCards = businessesAll.filter(b => !b.is_promo);
   const promoCard = businessesAll.find(b => b.is_promo);
-  const businesses = [...normalCards, ...(promoCard ? [promoCard] : [])];
 
+  const subsidiaryColors: Record<string, string> = {
+    wholesale: 'var(--green-light, #4CAF50)',
+    pharmacy: '#4DB6AC',
+    automobiles: '#EF5350',
+    beverages: '#42A5F5',
+    cosmetics: '#CE93D8',
+    phones: '#4FC3F7',
+  };
 
   return (
     <div>
@@ -45,16 +52,17 @@ export default async function BusinessesPage() {
       <section className="section bg-dark-2">
         <div className="inner">
           <div className="grid-3">
-            {businesses.map((sub, i) => (
+            {normalCards.map((sub, i) => (
               <Link 
                 key={i} 
                 href={`/businesses/${sub.slug}`} 
                 className="subsidiary-card fade-up delay-1"
                 style={{ 
+                  '--sub-color': subsidiaryColors[sub.slug] || 'var(--green-bright)',
                   backgroundImage: `url(${sub.hero_image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
-                }}
+                } as React.CSSProperties}
               >
                 <div style={{ marginTop: 'auto' }}>
                   <span className="subsidiary-card__num">{String(i + 1).padStart(2, '0')}</span>
@@ -68,25 +76,27 @@ export default async function BusinessesPage() {
               </Link>
             ))}
 
-            {/* Promo card - Keep as static feature */}
-            <Link 
-              href="/businesses/euromega" 
-              className="subsidiary-card subsidiary-card--promo fade-up delay-2"
-              style={{
-                background: 'linear-gradient(to right, rgba(27, 94, 32, 0.95) 30%, rgba(27, 94, 32, 0.3) 100%), url(/media/hero-fmcg.jpg) center/cover'
-              }}
-            >
-              <div>
-                <div className="subsidiary-card__name">Asia Wholesale &amp; Distribution</div>
-                <div className="subsidiary-card__sector">Sugar · Rice · Detergent · Seasoning · Soap · Flour</div>
-                <p className="subsidiary-card__desc">
-                  The engine that started it all — and still the most powerful. Africa&apos;s #1 detergent distributor, moving 100,000 tonnes annually and commanding logistics across four nations and expanding.
-                </p>
-              </div>
-              <div style={{ flexShrink: 0 }}>
-                <span className="btn btn--primary" style={{ whiteSpace: 'nowrap' }}>Explore Wholesale →</span>
-              </div>
-            </Link>
+            {/* Promo card dynamically rendered to match homepage */}
+            {promoCard && (
+              <Link 
+                href={`/businesses/${promoCard.slug}`} 
+                className="subsidiary-card subsidiary-card--promo fade-up delay-2"
+                style={{
+                  background: `linear-gradient(to right, rgba(27, 94, 32, 0.75) 30%, rgba(27, 94, 32, 0.1) 100%), url(${promoCard.hero_image}) center/cover`
+                }}
+              >
+                <div>
+                  <div className="subsidiary-card__name">{promoCard.title}</div>
+                  <div className="subsidiary-card__sector">{promoCard.tagline}</div>
+                  <p className="subsidiary-card__desc">
+                    {promoCard.description}
+                  </p>
+                </div>
+                <div style={{ flexShrink: 0 }}>
+                  <span className="btn btn--primary" style={{ whiteSpace: 'nowrap' }}>Explore Wholesale →</span>
+                </div>
+              </Link>
+            )}
           </div>
         </div>
       </section>

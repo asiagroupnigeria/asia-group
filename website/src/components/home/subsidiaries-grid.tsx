@@ -22,6 +22,15 @@ export function SubsidiariesGrid({ businesses }: SubsidiariesGridProps) {
   const normalCards = businesses.filter(b => !b.is_promo);
   const promoCard = businesses.find(b => b.is_promo);
 
+  const subsidiaryColors: Record<string, string> = {
+    wholesale: 'var(--green-light, #4CAF50)',
+    pharmacy: '#4DB6AC',
+    automobiles: '#EF5350',
+    beverages: '#42A5F5',
+    cosmetics: '#CE93D8',
+    phones: '#4FC3F7',
+  };
+
   return (
     <div className="inner grid-3" style={{ position: 'relative', zIndex: 1, marginBottom: '40px' }}>
       
@@ -43,13 +52,14 @@ export function SubsidiariesGrid({ businesses }: SubsidiariesGridProps) {
           onMouseEnter={() => setHoveredIndex(i)}
           onMouseLeave={() => setHoveredIndex(null)}
           style={{
+            '--sub-color': subsidiaryColors[sub.slug] || 'var(--green-bright)',
             backgroundImage: hoveredIndex === null ? `url(${sub.hero_image})` : 'none',
             backgroundColor: hoveredIndex === null ? 'transparent' : (hoveredIndex === i ? 'transparent' : 'rgba(255, 255, 255, 0.15)'),
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backdropFilter: hoveredIndex !== null && hoveredIndex !== i ? 'blur(4px)' : 'none',
-            WebkitBackdropFilter: hoveredIndex !== null && hoveredIndex !== i ? 'blur(4px)' : 'none'
-          }}
+            backdropFilter: hoveredIndex !== null && hoveredIndex !== i ? 'blur(2px)' : 'none',
+            WebkitBackdropFilter: hoveredIndex !== null && hoveredIndex !== i ? 'blur(2px)' : 'none'
+          } as React.CSSProperties}
         >
           <div style={{ marginTop: 'auto' }}>
             <span className="subsidiary-card__num">{String(i + 1).padStart(2, '0')}</span>
@@ -70,7 +80,7 @@ export function SubsidiariesGrid({ businesses }: SubsidiariesGridProps) {
           className="subsidiary-card subsidiary-card--promo fade-up delay-2" 
           style={{ 
             zIndex: 2,
-            backgroundImage: `linear-gradient(to right, rgba(27, 94, 32, 0.95) 30%, rgba(27, 94, 32, 0.3) 100%), url(${promoCard.hero_image})`,
+            backgroundImage: `linear-gradient(to right, rgba(27, 94, 32, 0.75) 30%, rgba(27, 94, 32, 0.1) 100%), url(${promoCard.hero_image})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}

@@ -6,9 +6,21 @@ interface LocationCardProps {
 }
 
 export function LocationCard({ location }: LocationCardProps) {
+  const subsidiaryColors: Record<string, string> = {
+    wholesale: 'var(--green-light, #4CAF50)',
+    pharmacy: '#4DB6AC',
+    automobiles: '#EF5350',
+    beverages: '#42A5F5',
+    cosmetics: '#CE93D8',
+    phones: '#4FC3F7',
+  };
+
+  const subColor = subsidiaryColors[location.subsidiaryId] || 'var(--green-light, #4CAF50)';
+
   return (
     <div className="loc-card" data-subsidiary={location.subsidiaryId}>
       <div className="loc-photo">
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: subColor, zIndex: 10 }}></div>
         {location.image ? (
           <img
             className="loc-photo-img"
@@ -27,9 +39,7 @@ export function LocationCard({ location }: LocationCardProps) {
             </div>
           </div>
         )}
-        <div className={`loc-badge ${location.subsidiaryId}`}>
-          {location.subsidiaryName}
-        </div>
+        {/* loc-badge removed to match asia.html design */}
         <div className="loc-number">{location.id}</div>
         <div className="loc-expand">
           <div className="loc-expand-title">Location {location.id} — Management</div>
@@ -41,8 +51,18 @@ export function LocationCard({ location }: LocationCardProps) {
         </div>
       </div>
       <div className="loc-body" style={{ paddingBottom: '24px' }}>
-        <div className="loc-name">{location.name}</div>
-        <div className="loc-role">{location.role}</div>
+        <div style={{
+          fontFamily: 'var(--font-condensed)',
+          fontSize: '10px',
+          fontWeight: 700,
+          letterSpacing: '0.2em',
+          textTransform: 'uppercase',
+          marginBottom: '6px',
+          color: subColor
+        }}>
+          {location.subsidiaryName}
+        </div>
+        <div className="loc-name" style={{ fontFamily: 'var(--font-condensed)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>{location.name}</div>
         <div
           className="loc-address"
           style={{ marginBottom: 0 }}

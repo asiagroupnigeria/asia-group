@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export function Header() {
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -14,6 +15,7 @@ export function Header() {
   }, []);
 
   const navLinks = [
+    { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Subsidiaries', href: '/businesses' },
     { name: 'Operations', href: '/operations' },
@@ -21,6 +23,15 @@ export function Header() {
     { name: 'News', href: '/news' },
     { name: 'Contact', href: '/contact' },
   ];
+
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === '/') {
+      return pathname === '/' || /^\/[a-zA-Z]{2}$/.test(pathname);
+    }
+    return pathname.includes(href);
+  };
 
   return (
     <>
@@ -34,7 +45,7 @@ export function Header() {
         <ul className="nav__links" style={{ margin: 0, padding: 0 }}>
           {navLinks.map((link) => (
             <li key={link.href}>
-              <Link href={link.href} className="nav__link">
+              <Link href={link.href} className={`nav__link ${isActive(link.href) ? 'active' : ''}`}>
                 {link.name}
               </Link>
             </li>

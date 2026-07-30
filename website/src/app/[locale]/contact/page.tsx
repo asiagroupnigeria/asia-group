@@ -83,10 +83,10 @@ export default function ContactPage() {
         <div className="page-header__watermark" aria-hidden="true">CONTACT</div>
         <div className="inner">
           <h1 className="display-title">
-            Partner With<br />Africa&apos;s Best
+            Corporate<br />Enquiries
           </h1>
           <p className="page-header__desc">
-            Whether you&apos;re a global manufacturer seeking African distribution reach, an investor exploring partnership, or a buyer requiring container-scale quantities — Asia Group is your partner.
+            Connect with the Asia Group Global Headquarters. Direct your enquiries to the appropriate department for swift assistance regarding our operations, investments, or general information.
           </p>
         </div>
       </section>

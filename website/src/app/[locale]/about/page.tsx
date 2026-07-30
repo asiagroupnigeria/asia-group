@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import Link from 'next/link';
+import { InteractiveMap } from '@/components/home/interactive-map';
 
 export default function AboutPage() {
   useEffect(() => {
@@ -144,12 +145,12 @@ export default function AboutPage() {
   .exec-portrait-placeholder p { font-family: var(--font-condensed); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.15); line-height: 1.7; }
   .exec-hover {
     position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(27,94,32,0.92) 0%, transparent 55%);
+    background: linear-gradient(to top, rgba(27,94,32,0.6) 0%, transparent 70%);
     opacity: 0; transition: opacity 0.3s;
     display: flex; align-items: flex-end; padding: 24px;
   }
   .exec-card:hover .exec-hover { opacity: 1; }
-  .exec-hover-bio { font-size: 12px; line-height: 1.65; color: rgba(255,255,255,0.9); font-weight: 300; }
+  .exec-hover-bio { font-size: 12px; line-height: 1.65; color: rgba(255,255,255,0.95); font-weight: 300; }
   .exec-info { padding: 24px 24px 28px; border-top: 1px solid rgba(255,255,255,0.04); }
   .exec-name { font-family: var(--font-condensed); font-size: 17px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--white); margin-bottom: 5px; }
   .exec-title { font-size: 12px; color: var(--silver-light); font-weight: 400; letter-spacing: 0.06em; margin-bottom: 12px; }
@@ -173,7 +174,7 @@ export default function AboutPage() {
   /* CTA */
   .cta-band { padding: 100px 60px; background: var(--green); }
   .cta-band-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
-  .cta-band h2 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 56px); font-weight: 300; color: var(--white); }
+  .cta-band h2 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 56px); font-weight: 700; color: var(--white); }
   .cta-band h2 em { font-style: italic; color: var(--silver-light); }
   .btn-primary { font-family:var(--font-condensed); font-size:13px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--dark); background:var(--silver-light); padding:18px 48px; text-decoration:none; display:inline-block; white-space:nowrap; transition: background 0.2s; }
   .btn-primary:hover { background: var(--white); }
@@ -222,13 +223,14 @@ export default function AboutPage() {
   .loc-md-card[data-div="phones"]::before      { background: #4FC3F7; }
   /* Hover overlay with location info */
   .loc-md-hover {
-    position: absolute; inset: 0; background: rgba(10,10,10,0.9);
+    position: absolute; inset: 0; 
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
     display: flex; flex-direction: column; justify-content: flex-end;
     padding: 16px; opacity: 0; transition: opacity .3s; pointer-events: none;
   }
   @media (hover: hover) { .loc-md-card:hover .loc-md-hover { opacity: 1; } }
-  .loc-md-hover-loc { font-family: var(--font-condensed); font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--silver-light); margin-bottom: 4px; }
-  .loc-md-hover-role { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.5; }
+  .loc-md-hover-loc { font-family: var(--font-condensed); font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); margin-bottom: 4px; }
+  .loc-md-hover-role { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.85); line-height: 1.5; }
   /* Card label below portrait */
   .loc-md-label { padding: 14px 14px 16px; border-top: 1px solid rgba(255,255,255,0.04); }
   .loc-md-name { font-family: var(--font-condensed); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -307,35 +309,6 @@ export default function AboutPage() {
 ` }} />
       
       {/* HISTORY TIMELINE */}
-
-      <section className="section bg-off-white">
-        <div className="inner">
-          <div className="fade-up" style={{ marginBottom: '80px' }}>
-            
-            <h2 className="section-title section-title--dark">From a Market Stall<br />to a Continental Empire</h2>
-          </div>
-
-          <div className="fade-up delay-1 timeline">
-            {[
-              { year: '1988', title: 'The Beginning', content: 'Alhaji Sani Isah Abubakar, still in junior secondary school, starts trading polythene bags at Abubakar Rimi Market in Kano with ₦20,000 capital.', gold: false },
-              { year: '1990s', title: 'Expansion into Sugar & Detergents', content: 'The business pivots into sugar trading, then detergent distribution. A partnership with PZ Cussons marks the beginning of Asia Group\'s rise to continental prominence.', gold: false },
-              { year: '2003', title: 'Multi-Location Expansion', content: 'Operations expand across multiple locations within Abubakar Rimi Market and beyond. Distribution footprint begins to grow beyond Kano.', gold: true },
-              { year: '2010s', title: 'Subsidiary Formation', content: 'Formal incorporation of Asia Pharmacy, Asia Beverages, Asia Automobiles, Asia Cosmetics, and Asia Phones & Accessories as distinct subsidiary businesses.', gold: true },
-              { year: '2019', title: 'Head Office & Regional Dominance', content: 'Formal Head Office established. Asia Group recognised as the leading distribution partner for Nestlé, Cadbury, Olam, Dangote Group, BUA Group, and others.', gold: true },
-              { year: '2024+', title: 'Continental & Global Expansion', content: 'Expansion into Central and East Africa underway. Plans for global presence in Asia, Europe, and America. Manufacturing ambitions announced.', gold: true },
-            ].map((item, i) => (
-              <div key={i} className="timeline__item">
-                <div className="timeline__dot timeline__dot--green" />
-                <div className="timeline__year">{item.year}</div>
-                <div>
-                  <h3 className="timeline__title">{item.title}</h3>
-                  <p className="timeline__desc">{item.content}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <div dangerouslySetInnerHTML={{ __html: `<!-- EXECUTIVE TEAM -->
 <section class="executives-section">
@@ -861,22 +834,65 @@ export default function AboutPage() {
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-band">
-  <div class="cta-band-inner">
-    <h2>Join a team building<br>Africa's legacy.</h2>
-    <a href="../careers" class="btn-primary">View Open Roles →</a>
-  </div>
-</section>
-
-
-
-
 ` }} />
 
-    
-      
-    
+      {/* HISTORY TIMELINE */}
+      <section className="section bg-off-white">
+        <div className="inner">
+          <div className="fade-up" style={{ marginBottom: '80px' }}>
+            <h2 className="section-title section-title--dark">From a Market Stall<br />to a Continental Empire</h2>
+          </div>
+
+          <div className="fade-up delay-1 timeline">
+            {[
+              { year: '1988', title: 'The Beginning', content: 'Alhaji Sani Isah Abubakar, still in junior secondary school, starts trading polythene bags at Abubakar Rimi Market in Kano with ₦20,000 capital.', gold: false },
+              { year: '1990s', title: 'Expansion into Sugar & Detergents', content: 'The business pivots into sugar trading, then detergent distribution. A partnership with PZ Cussons marks the beginning of Asia Group\'s rise to continental prominence.', gold: false },
+              { year: '2003', title: 'Multi-Location Expansion', content: 'Operations expand across multiple locations within Abubakar Rimi Market and beyond. Distribution footprint begins to grow beyond Kano.', gold: true },
+              { year: '2010s', title: 'Subsidiary Formation', content: 'Formal incorporation of Asia Pharmacy, Asia Beverages, Asia Automobiles, Asia Cosmetics, and Asia Phones & Accessories as distinct subsidiary businesses.', gold: true },
+              { year: '2019', title: 'Head Office & Regional Dominance', content: 'Formal Head Office established. Asia Group recognised as the leading distribution partner for Nestlé, Cadbury, Olam, Dangote Group, BUA Group, and others.', gold: true },
+              { year: '2024+', title: 'Continental & Global Expansion', content: 'Expansion into Central and East Africa underway. Plans for global presence in Asia, Europe, and America. Manufacturing ambitions announced.', gold: true },
+            ].map((item, i) => (
+              <div key={i} className="timeline__item">
+                <div className="timeline__dot timeline__dot--green" />
+                <div className="timeline__year">{item.year}</div>
+                <div>
+                  <h3 className="timeline__title">{item.title}</h3>
+                  <p className="timeline__desc">{item.content}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== OPERATIONS ==================== */}
+      <section id="operations" className="section bg-dark" style={{ backgroundColor: '#000000', paddingTop: '120px', paddingBottom: '120px' }}>
+        <div className="inner grid-2 grid-2--start" style={{ marginBottom: '40px' }}>
+          <div className="fade-up">
+            <h2 className="section-title" style={{ color: '#FFFFFF', fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 4.5vw, 64px)', fontWeight: 700, lineHeight: 1.1 }}>
+              Operating Across<br />Four Nations. Expanding to the World.
+            </h2>
+          </div>
+          <div className="fade-up delay-1">
+            <p className="section-body" style={{ color: '#A0AABF', fontSize: '16px', lineHeight: 1.85, fontWeight: 300 }}>
+              Headquartered in Kano, Nigeria with operational footprint in Cameroon, Chad, and Niger — and active expansion into Central Africa, East Africa, Asia, Europe, and America.
+            </p>
+          </div>
+        </div>
+
+        <div className="fade-up delay-2" style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)' }}>
+          <InteractiveMap />
+        </div>
+      </section>
+
+      {/* ==================== CTA ==================== */}
+      <section className="cta-band">
+        <div className="cta-band-inner">
+          <h2>Join a team building<br />Africa&apos;s legacy.</h2>
+          <Link href="/careers" className="btn-primary">View Open Roles →</Link>
+        </div>
+      </section>
+
     </div>
   );
 }
