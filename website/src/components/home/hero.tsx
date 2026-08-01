@@ -85,8 +85,6 @@ export function Hero({ slides }: HeroProps) {
                 />
               )}
               <div className="hero__grid" />
-              <div className="hero__overlay" />
-
               <div className="hero__content-wrap" style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                 <div className="hero__content">
                   
@@ -101,7 +99,7 @@ export function Hero({ slides }: HeroProps) {
                       </Link>
                     )}
                     {slide.cta_2_text && slide.cta_2_link && (
-                      <Link href={slide.cta_2_link} className="btn btn--outline">
+                      <Link href={slide.cta_2_link} className="btn btn--outline" style={{ background: 'var(--white)' }}>
                         {slide.cta_2_text}
                       </Link>
                     )}

@@ -20,7 +20,7 @@ export function CommunityImpact() {
           {/* Section tag removed per requirements */}
           <h2 className="section-title">Business as<br />Service to People</h2>
           <p className="section-body" style={{ marginTop: '20px' }}>
-            For Alhaji Sani Isah, success is not only measured in trade volumes — it is measured in lives touched. Asia Group&apos;s philanthropy is woven into the daily fabric of operations, not an afterthought.
+            For Aaia Group, success is not only measured in trade volumes, it is measured in lives touched. Asia Group&apos;s philanthropy is woven into the daily fabric of operations, not an afterthought.
           </p>
           <div className="csr-meal-counter">
             <div className="csr-meal-number">1.46M</div>

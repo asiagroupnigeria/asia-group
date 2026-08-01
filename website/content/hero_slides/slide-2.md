@@ -1,7 +1,7 @@
 ---
-title: "Feeding &amp; Supplying<br /><strong>The Next Generation</strong> of Africa"
+title: "Feeding &amp; Supplying The Next Generation of Africa"
 subtitle: "Unrivaled volume in sugar, rice, and detergents, connecting global brands to local markets."
-background_media: "/media/hero-fmcg.jpg"
+background_media: "/media/asia-operation-cards/hero-autos-sg.png"
 is_video: false
 cta_1_text: "Explore FMCG Division"
 cta_1_link: "/businesses"

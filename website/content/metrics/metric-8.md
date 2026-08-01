@@ -1,8 +1,8 @@
 ---
-value: 4
-suffix: "K"
+value: 6
+suffix: ""
 unit: ""
-label: "Daily Meals Served"
-description: "2,000 afternoon and 2,000 evening meals provided daily to people across Kano"
+label: "Core Sectors"
+description: "Operating across Wholesale & Distribution, Pharmaceuticals, FMCG, Automotives, Phones & Accessories and Cosmetics."
 order: 8
 ---

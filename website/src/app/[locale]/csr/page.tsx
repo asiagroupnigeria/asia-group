@@ -208,35 +208,16 @@ export default function CSRPage() {
 
 
 <!-- ═══ HERO ═══ -->
-<section class="hero">
-  <div class="hero-bg">
-    <!-- MEDIA: Meal distribution or community photography — warm, human
-         File: ../media/csr/hero-community.jpg -->
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="breadcrumb"><a href="../index.html">Asia Group</a><span>/</span><span style="color:var(--white);">Community Impact</span></div>
-    
-    <h1 class="hero-headline">
-      Business as<br><em>Service to People.</em>
-    </h1>
-    <p class="hero-sub">
-      For Alhaji Sani Isah Abubakar, success is measured not only in trade volumes — but in lives touched. Asia Group's philanthropy is not an afterthought. It is woven into the daily fabric of operations.
+<section class="page-header">
+  <div class="page-header__watermark" aria-hidden="true">IMPACT</div>
+  <div class="inner">
+    <h1 class="display-title">Building Business.<br>Feeding Communities.</h1>
+    <p class="page-header__desc">
+      Asia Group's success is rooted in the communities we serve. Our philanthropic initiatives — starting with our daily meal programme — reflect a core belief: true market leadership must be matched by societal impact.
     </p>
-    <div class="meal-counter-wrap">
-      <div class="meal-number">4,000</div>
-      <div class="meal-label-col">
-        <div class="meal-label-top">Free Meals</div>
-        <div class="meal-label-sub">Served Every Single Day</div>
-        <div class="meal-label-sub">to the people of Kano</div>
-      </div>
-    </div>
-    <div class="meal-breakdown">
-      <div class="meal-time"><div class="meal-time-n">2,000</div><div class="meal-time-l">Afternoon</div></div>
-      <div class="meal-time"><div class="meal-time-n">2,000</div><div class="meal-time-l">Evening</div></div>
-      <div class="meal-time"><div class="meal-time-n">365</div><div class="meal-time-l">Days a Year</div></div>
-      <div class="meal-time"><div class="meal-time-n">[ Yr ]</div><div class="meal-time-l">Running Since</div></div>
-    </div>
+    
+    <!-- Rolling meal counter -->
+    
   </div>
 </section>
 
@@ -259,7 +240,7 @@ export default function CSRPage() {
     </div>
     <div class="meals-content-side">
       
-      <h2>4,000 Meals.<br><em>Every Day. Without Fail.</em></h2>
+      <h2>4,000 Meals.<br>Every Day. Without Fail.</h2>
       <div class="body-text" style="margin-top: 20px; color: rgba(255,255,255,0.65);">
         <p>Asia Group's daily feeding programme is one of the most consistent and significant acts of private philanthropy in Northern Nigeria. Every single day — without disruption, without publicity — 4,000 meals are prepared and distributed to people in Kano.</p>
         <p>The programme runs in two sessions: 2,000 meals in the afternoon and 2,000 meals in the evening. Those who come are fed. No questions asked. No conditions attached.</p>
@@ -312,7 +293,7 @@ export default function CSRPage() {
 <section class="gallery-section">
   <div class="gallery-inner">
     
-    <h2>Seen in the Field,<br><em>Not in a Report</em></h2>
+    <h2>Seen in the Field,<br>Not in a Report</h2>
     <!--
     PHOTOGRAPHY DIRECTION FOR GALLERY:
     Capture 8–10 authentic community moments across:
@@ -376,7 +357,7 @@ export default function CSRPage() {
 <section class="programmes-section">
   <div class="programmes-inner">
     
-    <h2>A Complete Commitment<br><em>to Community</em></h2>
+    <h2>A Complete Commitment<br>to Community</h2>
     <!-- PLACEHOLDER: All programme details below are template structures.
          Fill with confirmed programme names, descriptions, reach figures, and photography
          from CEO interview and CSR team session. Add or remove cards as needed. -->
@@ -490,7 +471,7 @@ export default function CSRPage() {
   <div class="impact-bg-text" aria-hidden="true">IMPACT</div>
   <div class="impact-inner">
     
-    <h2>Impact That Can<br><em>Be Measured</em></h2>
+    <h2>Impact That Can<br>Be Measured</h2>
     <!-- PLACEHOLDER: All figures below to be confirmed from CEO interview and CSR team -->
     <div class="impact-grid">
       <div class="impact-stat">
@@ -521,7 +502,7 @@ export default function CSRPage() {
 <section class="testimonials-section">
   <div class="testimonials-inner">
     
-    <h2>What People Say About<br><em>Asia Group's Impact</em></h2>
+    <h2>What People Say About<br>Asia Group's Impact</h2>
     <!-- PLACEHOLDER: All testimonials to be collected from community members, local leaders,
          religious figures, and beneficiaries during or after field visits.
          Collect: name, role/position, photograph (with permission), quote (Hausa or English).
@@ -568,7 +549,7 @@ export default function CSRPage() {
   <div class="partner-cta-inner">
     <div class="partner-cta-content">
       
-      <h2>Support a Legacy<br><em>Being Built Daily</em></h2>
+      <h2>Support a Legacy<br>Being Built Daily</h2>
       <p>Whether you are a corporation seeking a CSR partnership, a donor looking to scale community impact, or an organisation aligned with food security and community empowerment — Asia Group welcomes your partnership.</p>
     </div>
     <div class="partner-cta-actions">

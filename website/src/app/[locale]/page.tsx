@@ -1,7 +1,5 @@
 
 import Link from 'next/link';
-import { AwardsGrid } from '@/components/awards/AwardsGrid';
-import { awardsData } from '@/data/awards';
 import { Hero } from '@/components/home/hero';
 import { SubsidiariesGrid } from '@/components/home/subsidiaries-grid';
 import { AnimatedNumber } from '@/components/ui/animated-number';
@@ -10,7 +8,6 @@ import { getCollection } from '@/lib/cms';
 
 import { PartnerCta } from '@/components/home/partner-cta';
 import { CommunityImpact } from '@/components/home/community-impact';
-import { GrowthTrajectory } from '@/components/home/growth-trajectory';
 export default async function Home() {
   // Fetch data from CMS
   const heroSlidesDocs = getCollection('hero_slides');
@@ -93,7 +90,7 @@ export default async function Home() {
       </section>
 
 
-{/* ==================== SUBSIDIARIES ==================== */}
+      {/* ==================== SUBSIDIARIES ==================== */}
       <section id="subsidiaries" className="section bg-dark-2">
         <div className="inner grid-2 grid-2--end" style={{ marginBottom: '80px' }}>
           <div>
@@ -103,7 +100,7 @@ export default async function Home() {
           </div>
           <div>
             <p className="section-body">
-              Each subsidiary leads its sector. Together they form the most vertically diversified distribution and commerce group in Northern Nigeria — and one of the largest on the continent.
+              Each subsidiary leads its sector. Together they form the most vertically diversified distribution and commerce group in Northern Nigeria, and one of the largest on the continent.
             </p>
           </div>
         </div>
@@ -142,27 +139,8 @@ export default async function Home() {
       </section>
 
 
-      {/* ==================== AWARDS & RECOGNITION ==================== */}
-      <section id="awards" className="section" style={{ background: '#ffffff', paddingTop: '120px', paddingBottom: '120px' }}>
-        <div className="inner">
-          <div className="fade-up" style={{ maxWidth: '800px' }}>
-            <h2 className="section-title" style={{ color: '#000000' }}>
-              Validated by<br />Independent Authority
-            </h2>
-            <p className="section-body" style={{ color: 'rgba(0,0,0,0.7)', marginTop: '24px' }}>
-              Trust and Integrity are not self-descriptions — they are verdicts rendered by decades of industry partners, trade bodies, and the communities Asia Group serves.
-            </p>
-          </div>
-          
-          <AwardsGrid awards={awardsData} />
-        </div>
-      </section>
-
       {/* ==================== COMMUNITY IMPACT ==================== */}
       <CommunityImpact />
-
-      {/* ==================== GROWTH TRAJECTORY ==================== */}
-      <GrowthTrajectory />
 
       {/* ==================== NEWS ==================== */}
       <section id="news" className="section bg-dark-2">

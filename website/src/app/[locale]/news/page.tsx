@@ -25,7 +25,7 @@ export default async function NewsPage() {
       <section className="page-header">
         <div className="page-header__watermark" aria-hidden="true">MEDIA</div>
         <div className="inner fade-up">
-          <h1 className="display-title" style={{ fontSize: 'clamp(48px, 6vw, 88px)' }}>
+          <h1 className="display-title">
             News &amp; Media
           </h1>
         </div>

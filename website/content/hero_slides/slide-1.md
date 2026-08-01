@@ -1,7 +1,7 @@
 ---
-title: "Africa's Number One<br /><strong>Wholesale &amp; Distribution</strong> Conglomerate"
+title: "Africa's No  1 Wholesale &amp; Distribution Conglomerate"
 subtitle: "Powering commerce across four nations with trust, scale, and uncompromising vision."
-background_media: "/media/about-hero.jpg"
+background_media: "/media/asia-operation-cards/niger-street.png"
 is_video: false
 cta_1_text: "Discover Our Story"
 cta_1_link: "/about"

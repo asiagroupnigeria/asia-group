@@ -315,26 +315,17 @@ export default function OperationsPage() {
 
 
 <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
-<section class="hero">
-  <div class="hero-bg">
-    <!-- MEDIA: Drone / aerial of main Kano warehouse
-         File: ../media/operations/kano-aerial-hero.jpg
-         For video: <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><source src="../media/operations/kano-drone.mp4" type="video/mp4"></video> -->
+<section class="page-header">
+  <div class="page-header__watermark" aria-hidden="true">OPERATIONS</div>
+  <div class="inner">
+    <h1 class="display-title">Scale Without<br>Compromise.</h1>
+    <p class="page-header__desc">
+      Operating 19 high-capacity facilities across Kano, Abuja, Niger, and Chad. Moving thousands of tonnes of commodities daily through Africa's most demanding trade routes.
+    </p>
   </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-grid-lines"></div>
-  <div class="hero-content">
-    <div class="breadcrumb">
-      <a href="../index.html">Asia Group</a><span>/</span>
-      <span style="color:var(--white);">Operations</span>
-    </div>
-    
-    <h1 class="hero-headline">
-      19 Locations.
-      One Kano.
-    </h1>
-    <p class="hero-sub">
-                ` }} />
+</section>
+` }} />
+
 
       <LocationsGrid locations={locations} />
 

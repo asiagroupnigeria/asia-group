@@ -80,10 +80,8 @@ export function SubsidiariesGrid({ businesses }: SubsidiariesGridProps) {
           className="subsidiary-card subsidiary-card--promo fade-up delay-2" 
           style={{ 
             zIndex: 2,
-            backgroundImage: `linear-gradient(to right, rgba(27, 94, 32, 0.75) 30%, rgba(27, 94, 32, 0.1) 100%), url(${promoCard.hero_image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
+            '--promo-bg': `url('${promoCard.hero_image}')`
+          } as React.CSSProperties}
         >
           <div>
             <div className="subsidiary-card__name">{promoCard.title}</div>

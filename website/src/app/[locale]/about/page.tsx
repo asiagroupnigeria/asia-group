@@ -3,27 +3,13 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { InteractiveMap } from '@/components/home/interactive-map';
+import { AwardsGrid } from '@/components/awards/AwardsGrid';
+import { awardsData } from '@/data/awards';
+import { GrowthTrajectory } from '@/components/home/growth-trajectory';
 
 export default function AboutPage() {
   useEffect(() => {
-    const filterBtns = document.querySelectorAll('.div-pill');
-    const cards = document.querySelectorAll('.loc-md-card');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-div-filter');
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        cards.forEach(card => {
-          if (filter === 'all' || card.getAttribute('data-div') === filter) {
-            (card as HTMLElement).style.display = 'block';
-          } else {
-            (card as HTMLElement).style.display = 'none';
-          }
-        });
-      });
-    });
+    
 
     const fadeEls = document.querySelectorAll('.fade-up');
     const observer = new IntersectionObserver((entries) => {
@@ -58,29 +44,6 @@ export default function AboutPage() {
   .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; font-family:var(--font-condensed); font-size:17px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--white); }
   .nav-logo img { height:40px; }
   .nav-cta { font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--dark); background:var(--silver-light); padding:10px 24px; text-decoration:none; }
-
-  /* PAGE HEADER */
-  .page-header {
-    padding: 160px 60px 100px;
-    background: var(--dark);
-    position: relative;
-    overflow: hidden;
-  }
-  .page-header::before {
-    content: 'LEADERSHIP';
-    position: absolute; right: 60px; bottom: -20px;
-    font-family: var(--font-condensed); font-size: 160px; font-weight: 800;
-    color: rgba(255,255,255,0.025); letter-spacing: -0.03em;
-    pointer-events: none; user-select: none; white-space: nowrap;
-  }
-  .page-header-inner { max-width: 1300px; margin: 0 auto; }
-  .breadcrumb { display:flex; align-items:center; gap:10px; font-family:var(--font-condensed); font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
-  .breadcrumb a { color:var(--silver-light); text-decoration:none; }
-  .section-tag { font-family:var(--font-condensed); font-size:11px; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--silver-light); display:flex; align-items:center; gap:12px; margin-bottom:20px; }
-  .section-tag::before { content:''; display:block; width:30px; height:1px; background:var(--silver-light); }
-  .page-title { font-family:var(--font-display); font-size: clamp(48px, 6vw, 88px); font-weight:300; line-height:1.0; color:var(--white); }
-  .page-title em { font-style:italic; color:var(--silver-light); }
-  .page-desc { font-size:17px; font-weight:300; line-height:1.85; color:rgba(255,255,255,0.55); max-width:600px; margin-top:24px; }
 
   /* FOUNDER FEATURE */
   .founder-section { padding: 0 60px 80px; background: var(--dark); }
@@ -255,15 +218,10 @@ export default function AboutPage() {
 
 
 <section class="page-header">
-  <div class="page-header-inner">
-    <div class="breadcrumb">
-      <a href="../index.html">Asia Group</a>
-      <span>/</span>
-      <span style="color:var(--white);">Our Story &amp; Leadership</span>
-    </div>
-    
-    <h1 class="page-title">Our Story &amp; Leadership<br>Built for a Continent</h1>
-    <p class="page-desc">
+  <div class="page-header__watermark" aria-hidden="true">HERITAGE</div>
+  <div class="inner">
+    <h1 class="display-title">Our Story &amp; Leadership<br>Built for a Continent</h1>
+    <p class="page-header__desc">
       A founder who built from nothing, executives who lead with depth, and a board that steers with wisdom. Meet the individuals carrying Asia Group toward its next chapter.
     </p>
   </div>
@@ -310,531 +268,7 @@ export default function AboutPage() {
       
       {/* HISTORY TIMELINE */}
 
-      <div dangerouslySetInnerHTML={{ __html: `<!-- EXECUTIVE TEAM -->
-<section class="executives-section">
-  <div class="executives-inner">
-    <div class="executives-intro">
-      
-      <h2 style="font-family:var(--font-display); font-size: clamp(32px,4vw,52px); font-weight:300; color:var(--white); line-height:1.1;">
-        The Executives Who<br>Run the Machine
-      </h2>
-      <p style="font-size:15px; font-weight:300; line-height:1.85; color:rgba(255,255,255,0.5); margin-top:16px;">
-        Each subsidiary is led by a dedicated Managing Director with deep sector expertise. Together they form an executive team that has commanded Africa's most dominant distribution group for decades.
-      </p>
-    </div>
 
-    <div class="executives-grid">
-
-      <!-- PLACEHOLDER EXECUTIVE CARDS — Complete after sessions with each subsidiary MD -->
-      <!-- Template for each card:
-        Name, Title, Subsidiary, 2-3 sentence bio, Portrait image path
-        Recommended: Consistent portrait style — formal, dark or white background, shoulders-up
-      -->
-
-      <div class="exec-card">
-        <div class="exec-portrait">
-          <!-- MEDIA: Group MD portrait — File: media/leadership/group-md.jpg -->
-          <img src="/media/leadership/ceo-sani-isah.jpg" alt="Sani Isah" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="exec-hover"></div>
-        </div>
-        <div class="exec-info">
-          <div class="exec-name">Sani Isah</div>
-          <div class="exec-title">Group Managing Director</div>
-          <span class="exec-subsidiary">Asia Group</span>
-        </div>
-      </div>
-
-      <div class="exec-card">
-        <div class="exec-portrait">
-          <img src="/media/leadership/khalid.jpeg" alt="Khalid Sabiu Sulaiman" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="exec-hover"></div>
-        </div>
-        <div class="exec-info">
-          <div class="exec-name">Khalid Sabiu Sulaiman</div>
-          <div class="exec-title">Market Development Officer</div>
-          <span class="exec-subsidiary">Asia Group</span>
-        </div>
-      </div>
-
-      <div class="exec-card">
-        <div class="exec-portrait">
-          <img src="/media/leadership/khadija.jpeg" alt="Khadija Sabiu Sulaiman" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="exec-hover"></div>
-        </div>
-        <div class="exec-info">
-          <div class="exec-name">Khadija Sabiu Sulaiman</div>
-          <div class="exec-title">Head Of Expansion</div>
-          <span class="exec-subsidiary">Asia Group</span>
-        </div>
-      </div>
-
-      <div class="exec-card">
-        <div class="exec-portrait">
-          <img src="/media/leadership/abba-sani-isah-md-main-branch.png" alt="Abba Sani Isah" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="exec-hover"></div>
-        </div>
-        <div class="exec-info">
-          <div class="exec-name">Abba Sani Isah</div>
-          <div class="exec-title">Managing Director</div>
-          <span class="exec-subsidiary">Asia Wholesale</span>
-        </div>
-      </div>
-
-      <div class="exec-card">
-        <div class="exec-portrait">
-          <!-- MEDIA: Asia Pharmacy MD portrait — File: media/leadership/pharmacy-md.jpg -->
-          <img src="/media/leadership/Saddam-md-pharamacy.png" alt="Saddam" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="exec-hover"></div>
-        </div>
-        <div class="exec-info">
-          <div class="exec-name">Saddam</div>
-          <div class="exec-title">Managing Director</div>
-          <span class="exec-subsidiary">Asia Pharmacy</span>
-        </div>
-      </div>
-
-      <div class="exec-card">
-        <div class="exec-portrait">
-          <!-- MEDIA: Asia Automobiles MD portrait — File: media/leadership/automobiles-md.jpg -->
-          <img src="/media/leadership/Abubakar Bala Muhammad-md-automobile-post-office.png" alt="Abubakar Bala Muhammad" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="exec-hover"></div>
-        </div>
-        <div class="exec-info">
-          <div class="exec-name">Abubakar Bala Muhammad</div>
-          <div class="exec-title">Managing Director</div>
-          <span class="exec-subsidiary">Asia Automobiles</span>
-        </div>
-      </div>
-
-      <div class="exec-card">
-        <div class="exec-portrait">
-          <!-- MEDIA: Asia Beverages MD portrait — File: media/leadership/beverages-md.jpg -->
-          <img src="/media/leadership/Sani Mustapha Musa-md-beverages.png" alt="Sani Mustapha Musa" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="exec-hover"></div>
-        </div>
-        <div class="exec-info">
-          <div class="exec-name">Sani Mustapha Musa</div>
-          <div class="exec-title">Managing Director</div>
-          <span class="exec-subsidiary">Asia Beverages</span>
-        </div>
-      </div>
-
-      <div class="exec-card">
-        <div class="exec-portrait">
-          <!-- MEDIA: Asia Cosmetics MD portrait — File: media/leadership/cosmetics-md.jpg -->
-          <img src="/media/leadership/Abdulaziz Yusuf-md-cosmetics-sg.png" alt="Abdulaziz Yusuf" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="exec-hover"></div>
-        </div>
-        <div class="exec-info">
-          <div class="exec-name">Abdulaziz Yusuf</div>
-          <div class="exec-title">Managing Director</div>
-          <span class="exec-subsidiary">Asia Cosmetics</span>
-        </div>
-      </div>
-
-      <div class="exec-card">
-        <div class="exec-portrait">
-          <!-- MEDIA: Asia Phones MD portrait — File: media/leadership/phones-md.jpg -->
-          <img src="/media/leadership/Abba Sani-md-accessories-post-office.png" alt="Abba Sani" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="exec-hover"></div>
-        </div>
-        <div class="exec-info">
-          <div class="exec-name">Abba Sani</div>
-          <div class="exec-title">Managing Director</div>
-          <span class="exec-subsidiary">Asia Phones &amp; Accessories</span>
-        </div>
-      </div>
-
-      <!-- Additional executive slots — CFO, COO, Heads of Operations, Regional Heads, etc. -->
-      <!-- Each follows the same card template above — fill after executive data sessions -->
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════
-     LOCATION MANAGEMENT — 19 MDs
-     ══════════════════════════════════════════════ -->
-<section class="location-mds-section">
-  <div class="location-mds-intro">
-    <div>
-      
-      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--white);line-height:1.1;">
-        19 Locations.<br>19 Leaders.
-      </h2>
-    </div>
-    <div>
-      <p style="font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.5);">
-        Every Asia Group location is led by a dedicated manager — accountable, experienced, and trusted by the Chairman. This is the management layer that runs Africa's most dominant distribution network on the ground, every day.
-      </p>
-      <!-- Division filter -->
-      <div class="div-filter" style="margin-top:24px;">
-        <button class="div-pill active" data-div-filter="all">All Locations</button>
-        <button class="div-pill" data-div-filter="wholesale">Wholesale</button>
-        <button class="div-pill" data-div-filter="pharmacy">Pharmacy</button>
-        <button class="div-pill" data-div-filter="automobiles">Automobiles</button>
-        <button class="div-pill" data-div-filter="beverages">Beverages</button>
-        <button class="div-pill" data-div-filter="cosmetics">Cosmetics</button>
-        <button class="div-pill" data-div-filter="phones">Phones</button>
-      </div>
-    </div>
-  </div>
-
-  <!--
-  ═══════════════════════════════════════════════════════════════════
-  LOCATION MD CARD INSTRUCTIONS:
-  - data-div: wholesale | pharmacy | automobiles | beverages | cosmetics | phones
-  - MEDIA comment: unique portrait path for each MD
-  - loc-md-name: Full name from MD interview form
-  - loc-md-loc: Location name (e.g. "Kano Central Hub")
-  - loc-md-hover-loc: Location name again (in overlay)
-  - loc-md-hover-role: 1-line role description
-  All 19 cards follow the exact same structure — fill from field visit data.
-  ═══════════════════════════════════════════════════════════════════
-  -->
-  <div class="location-mds-grid" id="loc-mds-grid">
-    <!-- MD 01 -->
-    <div class="loc-md-card" data-div="automobiles">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Kamal Ismail Salihu-md-automobiles-kofar-ruwa.png" alt="Kamal Ismail Salihu" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Power And Energy</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Kamal Ismail Salihu</div>
-        <div class="loc-md-loc">Asia Power And Energy</div>
-      </div>
-    </div>
-
-    <!-- MD 02 -->
-    <div class="loc-md-card" data-div="pharmacy">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Saddam-md-pharamacy.png" alt="Saddam" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Maisauki Pharma Co Ltd</div>
-          <div class="loc-md-hover-role">Branch Pharmacist / Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Saddam</div>
-        <div class="loc-md-loc">Asia Maisauki Pharma Co Ltd</div>
-      </div>
-    </div>
-
-    <!-- MD 03 -->
-    <div class="loc-md-card" data-div="wholesale">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Shuaibu Balarabe-md-aa-plaza.png" alt="Shuaibu Balarabe" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Group Aa Plaza</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Shuaibu Balarabe</div>
-        <div class="loc-md-loc">Asia Group Aa Plaza</div>
-      </div>
-    </div>
-
-    <!-- MD 04 -->
-    <div class="loc-md-card" data-div="wholesale">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Umar Sulaiman Dan Sarauniya-md-walai-plaza.png" alt="Umar Sulaiman Dan Sarauniya" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Walai Plaza</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Umar Sulaiman Dan Sarauniya</div>
-        <div class="loc-md-loc">Walai Plaza</div>
-      </div>
-    </div>
-
-    <!-- MD 05 -->
-    <div class="loc-md-card" data-div="wholesale">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Muhammad Taallu-md-air-ways.png" alt="Muhammad Taallu" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Airways</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Muhammad Taallu</div>
-        <div class="loc-md-loc">Asia Airways</div>
-      </div>
-    </div>
-
-    <!-- MD 06 -->
-    <div class="loc-md-card" data-div="beverages">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Sani Mustapha Musa-md-beverages.png" alt="Sani Mustapha Musa" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Group Beverages</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Sani Mustapha Musa</div>
-        <div class="loc-md-loc">Asia Group Beverages</div>
-      </div>
-    </div>
-
-    <!-- MD 07 -->
-    <div class="loc-md-card" data-div="automobiles">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Abubakar Bala Muhammad-md-automobile-post-office.png" alt="Abubakar Bala Muhammad" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Automobiles, Energy And Power, Beirut</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Abubakar Bala Muhammad</div>
-        <div class="loc-md-loc">Asia Automobiles, Energy And Power, Beirut</div>
-      </div>
-    </div>
-
-    <!-- MD 08 -->
-    <div class="loc-md-card" data-div="phones">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Abba Sani-md-accessories-post-office.png" alt="Abba Sani" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Accessories Post Office</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Abba Sani</div>
-        <div class="loc-md-loc">Asia Accessories Post Office</div>
-      </div>
-    </div>
-
-    <!-- MD 09 -->
-    <div class="loc-md-card" data-div="automobiles">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Yusuf Khalifa Isma'il-md-automobiles-mm-way.png" alt="Yusuf Khalifa Isma'il" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Automobile Sg</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Yusuf Khalifa Isma'il</div>
-        <div class="loc-md-loc">Asia Automobile Sg</div>
-      </div>
-    </div>
-
-    <!-- MD 10 -->
-    <div class="loc-md-card" data-div="wholesale">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Kamalu Garba Umar-md-toothpaste.png" alt="Kamalu Garba Umar" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Toothpaste</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Kamalu Garba Umar</div>
-        <div class="loc-md-loc">Asia Toothpaste</div>
-      </div>
-    </div>
-
-    <!-- MD 11 -->
-    <div class="loc-md-card" data-div="wholesale">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Yahaya Gambo Albashir-md-sg2.png" alt="Yahaya Gambo Albashir" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Group Sg2</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Yahaya Gambo Albashir</div>
-        <div class="loc-md-loc">Asia Group Sg2</div>
-      </div>
-    </div>
-
-    <!-- MD 12 -->
-    <div class="loc-md-card" data-div="cosmetics">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Sulaiman Kabir-md-cosmetics-gashash.png" alt="Sulaiman Kabir" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Cosmetics</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Sulaiman Kabir</div>
-        <div class="loc-md-loc">Asia Cosmetics</div>
-      </div>
-    </div>
-
-    <!-- MD 13 -->
-    <div class="loc-md-card" data-div="wholesale">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Ahmad Ismail-md-provision-babban-gashi.png" alt="Ahmad Ismail" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Provision</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Ahmad Ismail</div>
-        <div class="loc-md-loc">Asia Provision</div>
-      </div>
-    </div>
-
-    <!-- MD 14 -->
-    <div class="loc-md-card" data-div="phones">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Usman-md-acessories-mai-karami.png" alt="Usman" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Accessories Mai Karami</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Usman</div>
-        <div class="loc-md-loc">Asia Accessories Mai Karami</div>
-      </div>
-    </div>
-
-    <!-- MD 15 -->
-    <div class="loc-md-card" data-div="wholesale">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Balarabe Auwalu-md-sg1.png" alt="Balarabe Auwalu" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Sg1</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Balarabe Auwalu</div>
-        <div class="loc-md-loc">Asia Sg1</div>
-      </div>
-    </div>
-
-    <!-- MD 16 -->
-    <div class="loc-md-card" data-div="cosmetics">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Abdulaziz Yusuf-md-cosmetics-sg.png" alt="Abdulaziz Yusuf" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Cosmetics SG</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Abdulaziz Yusuf</div>
-        <div class="loc-md-loc">Asia Cosmetics SG</div>
-      </div>
-    </div>
-
-    <!-- MD 17 -->
-    <div class="loc-md-card" data-div="wholesale">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Nasir Ibrahim-md-provision-gashash.png" alt="Nasir Ibrahim" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Provision Gashash</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Nasir Ibrahim</div>
-        <div class="loc-md-loc">Asia Provision Gashash</div>
-      </div>
-    </div>
-
-    <!-- MD 18 -->
-    <div class="loc-md-card" data-div="wholesale">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/Hashim Bashir Maidabino-md-fmgc-chatalas.png" alt="Hashim Bashir Maidabino" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Asia Fmgc Chatalas</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Hashim Bashir Maidabino</div>
-        <div class="loc-md-loc">Asia Fmgc Chatalas</div>
-      </div>
-    </div>
-
-    <!-- MD 19 -->
-    <div class="loc-md-card" data-div="wholesale">
-      <div class="loc-md-portrait">
-        <img src="/media/leadership/abba-sani-isah-md-main-branch.png" alt="Abba Sani Isah" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div class="loc-md-hover">
-          <div class="loc-md-hover-loc">Head Office</div>
-          <div class="loc-md-hover-role">Branch Manager</div>
-        </div>
-      </div>
-      <div class="loc-md-label">
-        <div class="loc-md-name">Abba Sani Isah</div>
-        <div class="loc-md-loc">Head Office</div>
-      </div>
-    </div>
-  </div><!-- /location-mds-grid -->
-
-  <div style="max-width:1300px;margin:32px auto 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-    
-    <a href="../operations/index.html" style="font-family:var(--font-condensed);font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--silver-light);text-decoration:none;">
-      View All 19 Locations →
-    </a>
-  </div>
-</section>
-
-<!-- BOARD OF DIRECTORS -->
-<section class="board-section">
-  <div class="board-inner">
-    
-    <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--white); line-height:1.1;">
-      Board of Directors
-    </h2>
-    <p style="font-size:15px; font-weight:300; line-height:1.8; color:rgba(255,255,255,0.5); max-width:560px; margin-top:16px;">
-      Asia Group's Board provides strategic oversight and governance across all subsidiaries. Members bring diverse expertise in finance, trade, law, and public affairs.
-    </p>
-    <!-- PLACEHOLDER: Board of Directors details to be confirmed with legal/company secretary
-         Required: Full names, titles, brief bios, headshots (circular format)
-    -->
-    <div class="board-grid">
-      <div class="board-card">
-        <div class="board-avatar">
-          <!-- MEDIA: Board member headshot (circular) -->
-          SA
-        </div>
-        <div class="board-name">Alhaji Sani Isah Abubakar</div>
-        <div class="board-title">Chairman of the Board</div>
-        <p class="board-bio">Founder and visionary behind Asia Group. 36+ years of entrepreneurial leadership in wholesale distribution, cross-border trade, and philanthropy.</p>
-      </div>
-
-      <!-- PLACEHOLDER: Remaining board members — complete after company secretary session -->
-      <div class="board-card" style="opacity:0.4;">
-        <div class="board-avatar">—</div>
-        <div class="board-name">[ Director — TBD ]</div>
-        <div class="board-title">Non-Executive Director</div>
-        
-      </div>
-      <div class="board-card" style="opacity:0.4;">
-        <div class="board-avatar">—</div>
-        <div class="board-name">[ Director — TBD ]</div>
-        <div class="board-title">Non-Executive Director</div>
-        
-      </div>
-      <div class="board-card" style="opacity:0.4;">
-        <div class="board-avatar">—</div>
-        <div class="board-name">[ Director — TBD ]</div>
-        <div class="board-title">Independent Director</div>
-        
-      </div>
-    </div>
-  </div>
-</section>
-
-` }} />
 
       {/* HISTORY TIMELINE */}
       <section className="section bg-off-white">
@@ -884,6 +318,25 @@ export default function AboutPage() {
           <InteractiveMap />
         </div>
       </section>
+
+      {/* ==================== AWARDS & RECOGNITION ==================== */}
+      <section id="awards" className="section" style={{ background: '#ffffff', paddingTop: '120px', paddingBottom: '120px' }}>
+        <div className="inner">
+          <div className="fade-up" style={{ maxWidth: '800px' }}>
+            <h2 className="section-title" style={{ color: '#000000' }}>
+              Validated by<br />Independent Authority
+            </h2>
+            <p className="section-body" style={{ color: 'rgba(0,0,0,0.7)', marginTop: '24px' }}>
+              Trust and Integrity are not self-descriptions — they are verdicts rendered by decades of industry partners, trade bodies, and the communities Asia Group serves.
+            </p>
+          </div>
+          
+          <AwardsGrid awards={awardsData} />
+        </div>
+      </section>
+
+      {/* ==================== GROWTH TRAJECTORY ==================== */}
+      <GrowthTrajectory />
 
       {/* ==================== CTA ==================== */}
       <section className="cta-band">
