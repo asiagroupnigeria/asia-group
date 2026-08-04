@@ -1,7 +1,11 @@
 
 import React from 'react';
+import { LocationsGrid } from '@/components/operations/LocationsGrid';
+import { locations } from '@/data/locations';
 
 export default function BeveragesPage() {
+  const subsidiaryLocations = locations.filter(loc => loc.subsidiaryId === 'beverages');
+
   return (
     <div className="beverages-page">
       <style dangerouslySetInnerHTML={{ __html: `
@@ -163,49 +167,29 @@ export default function BeveragesPage() {
 
 
 <!-- ══ OUR LOCATIONS ══ -->
-<section style="padding:100px 60px;background:var(--dark);">
-  <div style="max-width:1300px;margin:0 auto;">
+` }} />
+<section style={{padding:'100px 60px', background:'var(--dark)'}}>
+  <div style={{maxWidth:'1300px', margin:'0 auto'}}>
+    <div dangerouslySetInnerHTML={{ __html: `
     <div style="font-family:var(--font-condensed);font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--silver-light);display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="display:block;width:30px;height:1px;background:var(--silver-light);"></span>Asia Beverages Locations Across Kano</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px;">
       <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--white);line-height:1.1;">Find Us Near You</h2>
       <p style="font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.5);">Asia Beverages operates [ # ] beverages distribution and storage facilities across Kano. Every location is fully staffed, stocked, and ready to serve — from walk-in buyers to contract wholesale accounts.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,0.04);">
+    ` }} />
 
-      <!-- Location card — replicate for each Asia Beverages location. Fill from field visit data. -->
-      <div style="background:var(--dark-2);overflow:hidden;">
-        <!-- MEDIA: File: ../media/locations/0N-[slug]-exterior.jpg -->
-        <div style="aspect-ratio:16/9;background:var(--dark-3);display:flex;align-items:center;justify-content:center;">
-          <p style="font-family:var(--font-condensed);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.12);text-align:center;padding:12px;">MEDIA: Location Exterior</p>
-        </div>
-        <div style="padding:20px 20px 24px;">
-          <div style="font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#42A5F5;margin-bottom:6px;">Asia Beverages — Location [ N ]</div>
-          <div style="font-family:var(--font-condensed);font-size:16px;font-weight:700;letter-spacing:0.04em;color:var(--white);margin-bottom:4px;">[ Location Name — TBD ]</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.4);font-weight:300;margin-bottom:14px;">[ Address — TBD ]<br>Kano, Kano State</div>
-          <div style="display:flex;gap:0;border:1px solid rgba(255,255,255,0.06);">
-            <div style="flex:1;padding:10px 12px;border-right:1px solid rgba(255,255,255,0.06);"><div style="font-family:var(--font-condensed);font-size:15px;font-weight:700;color:rgba(255,255,255,0.3);">[ # ]</div><div style="font-size:9px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:3px;">Staff</div></div>
-            <div style="flex:1;padding:10px 12px;border-right:1px solid rgba(255,255,255,0.06);"><div style="font-family:var(--font-condensed);font-size:15px;font-weight:700;color:rgba(255,255,255,0.3);">[ # ]</div><div style="font-size:9px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:3px;">Clients</div></div>
-            <div style="flex:1;padding:10px 12px;"><div style="font-family:var(--font-condensed);font-size:13px;font-weight:600;color:rgba(255,255,255,0.3);">[ MD ]</div><div style="font-size:9px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:3px;">Manager</div></div>
-          </div>
-        </div>
-      </div>
+      <LocationsGrid locations={subsidiaryLocations} hideFilter={true} />
 
-      <!-- Placeholder cards — remove and replace with real cards as field data arrives -->
-      <div style="background:var(--dark-2);overflow:hidden;opacity:0.3;border:1px dashed rgba(255,255,255,0.06);">
-        <div style="aspect-ratio:16/9;background:var(--dark-3);display:flex;align-items:center;justify-content:center;"><p style="font-family:var(--font-condensed);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.1);text-align:center;padding:12px;">MEDIA: Location [ N ]</p></div>
-        <div style="padding:20px;"><div style="font-family:var(--font-condensed);font-size:16px;font-weight:700;color:rgba(255,255,255,0.2);">[ TBD ]</div><div style="font-size:12px;color:rgba(255,255,255,0.2);margin-top:4px;">[ Address — TBD ]</div></div>
-      </div>
-      <div style="background:var(--dark-2);overflow:hidden;opacity:0.3;border:1px dashed rgba(255,255,255,0.06);">
-        <div style="aspect-ratio:16/9;background:var(--dark-3);display:flex;align-items:center;justify-content:center;"><p style="font-family:var(--font-condensed);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.1);text-align:center;padding:12px;">MEDIA: Location [ N ]</p></div>
-        <div style="padding:20px;"><div style="font-family:var(--font-condensed);font-size:16px;font-weight:700;color:rgba(255,255,255,0.2);">[ TBD ]</div><div style="font-size:12px;color:rgba(255,255,255,0.2);margin-top:4px;">[ Address — TBD ]</div></div>
-      </div>
-    </div>
+<div dangerouslySetInnerHTML={{ __html: `
+
     <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
       <p style="font-size:13px;color:var(--muted);font-weight:300;">* Location cards updated with real data and photographs after field visit sessions.</p>
       <a href="../operations/index.html" style="font-family:var(--font-condensed);font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--silver-light);text-decoration:none;">View All 19 Asia Group Locations →</a>
     </div>
+` }} />
   </div>
 </section>
+<div dangerouslySetInnerHTML={{ __html: `
 
 <section class="cta-band">
   <div class="cta-band-inner">

@@ -82,8 +82,9 @@ export default async function BusinessesPage() {
                 href={`/businesses/${promoCard.slug}`} 
                 className="subsidiary-card subsidiary-card--promo fade-up delay-2"
                 style={{
-                  background: `linear-gradient(to right, rgba(27, 94, 32, 0.75) 30%, rgba(27, 94, 32, 0.1) 100%), url(${promoCard.hero_image}) center/cover`
-                }}
+                  zIndex: 2,
+                  '--promo-bg': `url('${promoCard.hero_image}')`
+                } as React.CSSProperties}
               >
                 <div>
                   <div className="subsidiary-card__name">{promoCard.title}</div>

@@ -53,7 +53,7 @@ export function CommunityImpact() {
             </div>
           </div>
           <div className="csr-cta-row" style={{ marginTop: '32px' }}>
-            <Link href="/csr" className="btn-primary">Our Full Community Story →</Link>
+            <Link href="/csr" className="btn btn--primary">Our Full Community Story →</Link>
           </div>
         </div>
       </div>

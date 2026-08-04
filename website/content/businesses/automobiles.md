@@ -4,7 +4,7 @@ slug: "automobiles"
 tagline: "Commercial Vehicles & Logistics"
 description: "Authorised partner for SinoTruck and Mikano Motors, supplying commercial trucks, generators, and industrial vehicles to construction, logistics, and industrial clients."
 hero_image: "/media/asia-operation-cards/automobiles-dantata.jpeg"
-order: 3
+order: 1
 published: true
 ---
 

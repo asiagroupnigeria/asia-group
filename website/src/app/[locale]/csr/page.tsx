@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Utensils, GraduationCap, HeartPulse, HandHelping, Users, HardHat } from 'lucide-react';
 
 export default function CSRPage() {
   return (
@@ -7,6 +8,16 @@ export default function CSRPage() {
       <style dangerouslySetInnerHTML={{ __html: `
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   
+  :root {
+    --green: #1B5E20; --green-mid: #2E7D32; --green-bright: #388E3C; --green-light: #4CAF50;
+    --gold: #B8860B; --gold-light: #D4AC0D;
+    --black: #0A0A0A; --dark: #111111; --dark-2: #1A1A1A; --dark-3: #222222;
+    --mid: #444444; --muted: #888888; --off-white: #F5F4F0; --white: #FFFFFF;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Barlow', sans-serif;
+    --font-condensed: 'Barlow Condensed', sans-serif;
+  }
+
   html { scroll-behavior: smooth; }
   body { font-family: var(--font-body); background: var(--dark); color: var(--white); overflow-x: hidden; }
 
@@ -120,7 +131,7 @@ export default function CSRPage() {
   .programmes-section { padding: 100px 60px; background: var(--dark-2); }
   .programmes-inner { max-width: 1300px; margin: 0 auto; }
   .programmes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.04); margin-top: 60px; }
-  .programme-card { background: var(--dark); padding: 48px 36px; }
+  .programmes-grid .programme-card { display: block; border: none; margin: 0; gap: 0; background: var(--dark); padding: 48px 36px; }
   .programme-photo {
     width: 100%; aspect-ratio: 16/9; background: var(--dark-3); margin-bottom: 28px;
     display: flex; align-items: center; justify-content: center; overflow: hidden;
@@ -128,13 +139,13 @@ export default function CSRPage() {
   }
   .programme-photo img { width: 100%; height: 100%; object-fit: cover; }
   .programme-photo-placeholder { font-family: var(--font-condensed); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.12); text-align: center; padding: 16px; }
-  .programme-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+  .programme-icon { font-size: 32px; margin-bottom: 16px; display: block; min-height: 38px; }
   .programme-name { font-family: var(--font-condensed); font-size: 18px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--white); margin-bottom: 8px; }
   .programme-status { font-family: var(--font-condensed); font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-light); margin-bottom: 16px; display: inline-block; border: 1px solid rgba(76,175,80,0.25); padding: 4px 10px; }
   .programme-status.pending { color: rgba(212,172,13,0.6); border-color: rgba(212,172,13,0.2); }
   .programme-desc { font-size: 14px; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.5); }
   .programme-metric { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06); }
-  .programme-metric-n { font-family: var(--font-condensed); font-size: 28px; font-weight: 700; color: var(--gold-light); line-height: 1; }
+  .programme-metric-n { font-family: var(--font-condensed); font-size: 28px; font-weight: 700; line-height: 1; }
   .programme-metric-l { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
 
   /* ── IMPACT NUMBERS ── */
@@ -142,11 +153,11 @@ export default function CSRPage() {
   .impact-bg-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--font-condensed); font-size: 260px; font-weight: 800; color: rgba(255,255,255,0.02); white-space: nowrap; pointer-events: none; letter-spacing: -0.04em; }
   .impact-inner { max-width: 1300px; margin: 0 auto; position: relative; z-index: 1; }
   .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid rgba(255,255,255,0.06); margin-top: 60px; }
-  .impact-stat { padding: 48px 36px; border-right: 1px solid rgba(255,255,255,0.06); }
+  .impact-grid .impact-stat { background: transparent; padding: 48px 36px; border-right: 1px solid rgba(255,255,255,0.06); }
   .impact-stat:last-child { border-right: none; }
   .impact-n { font-family: var(--font-display); font-size: clamp(48px, 5vw, 72px); font-weight: 600; color: var(--green-light); line-height: 1; }
   .impact-l { font-family: var(--font-condensed); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 10px; }
-  .impact-d { font-size: 13px; font-weight: 300; line-height: 1.6; color: rgba(255,255,255,0.3); margin-top: 8px; }
+  .impact-d { font-size: 13px; font-weight: 300; line-height: 1.6; color: rgba(255,255,255,0.65); margin-top: 8px; }
 
   /* ── TESTIMONIALS ── */
   .testimonials-section { padding: 100px 60px; background: var(--dark); }
@@ -353,124 +364,100 @@ export default function CSRPage() {
   </div>
 </section>
 
-<!-- ═══ OTHER PROGRAMMES ═══ -->
-<section class="programmes-section">
-  <div class="programmes-inner">
-    
-    <h2>A Complete Commitment<br>to Community</h2>
-    <!-- PLACEHOLDER: All programme details below are template structures.
-         Fill with confirmed programme names, descriptions, reach figures, and photography
-         from CEO interview and CSR team session. Add or remove cards as needed. -->
-    <div class="programmes-grid">
-      <div class="programme-card">
-        <div class="programme-photo">
-          <!-- MEDIA: Meal programme photography
-               File: ../media/csr/programme-meals.jpg -->
-          <div class="programme-photo-placeholder">MEDIA: Daily Meals Programme</div>
+` }} />
+
+
+<section className="programmes-section">
+  <div className="programmes-inner">
+    <h2>A Complete Commitment<br/>to Community</h2>
+    <div className="programmes-grid">
+      <div className="programme-card">
+        <div className="programme-photo">
+          <div className="programme-photo-placeholder">MEDIA: Daily Meals Programme</div>
         </div>
-        <span class="programme-icon">🍽️</span>
-        <div class="programme-name">Daily Feeding Programme</div>
-        <span class="programme-status">Active — Daily</span>
-        <p class="programme-desc">4,000 free meals served daily to the people of Kano — 2,000 in the afternoon and 2,000 in the evening. One of the largest private food security initiatives in Northern Nigeria, running continuously since [ year ].</p>
-        <div class="programme-metric">
-          <div class="programme-metric-n">4,000</div>
-          <div class="programme-metric-l">Meals Per Day</div>
+        <Utensils className="programme-icon" size={32} style={{ marginBottom: '16px', display: 'block' }} color="var(--green-light)" />
+        <div className="programme-name">Daily Feeding Programme</div>
+        <p className="programme-desc">4,000 free meals served daily to the people of Kano — 2,000 in the afternoon and 2,000 in the evening. One of the largest private food security initiatives in Northern Nigeria, running continuously since [ year ].</p>
+        <div className="programme-metric">
+          <div className="programme-metric-n">4,000</div>
+          <div className="programme-metric-l">Meals Per Day</div>
         </div>
       </div>
 
-      <div class="programme-card">
-        <div class="programme-photo">
-          <!-- MEDIA: Education/scholarship photography
-               File: ../media/csr/programme-education.jpg
-               Recommended: Students, scholarship presentation, school environment -->
-          <div class="programme-photo-placeholder">MEDIA: Education Programme</div>
+      <div className="programme-card">
+        <div className="programme-photo">
+          <div className="programme-photo-placeholder">MEDIA: Education Programme</div>
         </div>
-        <span class="programme-icon">🎓</span>
-        <div class="programme-name">Education &amp; Scholarships</div>
-        <!-- PLACEHOLDER: Confirm programme status and details with Chairman -->
-        <span class="programme-status pending">Details — To Be Confirmed</span>
-        <p class="programme-desc">Asia Group's commitment to education includes [ scholarship programme details, school support initiatives, and youth empowerment activities — to be confirmed with Group Chairman in CEO interview session ].</p>
-        <div class="programme-metric">
-          <div class="programme-metric-n">[ # ]</div>
-          <div class="programme-metric-l">Students Supported</div>
+        <GraduationCap className="programme-icon" size={32} style={{ marginBottom: '16px', display: 'block' }} color="var(--green-light)" />
+        <div className="programme-name">Education & Scholarships</div>
+        <p className="programme-desc">Asia Group's commitment to education includes [ scholarship programme details, school support initiatives, and youth empowerment activities — to be confirmed with Group Chairman in CEO interview session ].</p>
+        <div className="programme-metric">
+          <div className="programme-metric-n">[ # ]</div>
+          <div className="programme-metric-l">Students Supported</div>
         </div>
       </div>
 
-      <div class="programme-card">
-        <div class="programme-photo">
-          <!-- MEDIA: Healthcare outreach photography
-               File: ../media/csr/programme-healthcare.jpg
-               Recommended: Medical outreach, free clinic, medicine distribution -->
-          <div class="programme-photo-placeholder">MEDIA: Healthcare Programme</div>
+      <div className="programme-card">
+        <div className="programme-photo">
+          <div className="programme-photo-placeholder">MEDIA: Healthcare Programme</div>
         </div>
-        <span class="programme-icon">🏥</span>
-        <div class="programme-name">Healthcare Access</div>
-        <span class="programme-status pending">Details — To Be Confirmed</span>
-        <p class="programme-desc">Through Asia Pharmacy and the Group's healthcare network, Asia Group supports [ healthcare access initiatives — free medical outreach, medicine donations, community health campaigns — to be confirmed with Chairman and Pharmacy MD ].</p>
-        <div class="programme-metric">
-          <div class="programme-metric-n">[ # ]</div>
-          <div class="programme-metric-l">Beneficiaries Reached</div>
+        <HeartPulse className="programme-icon" size={32} style={{ marginBottom: '16px', display: 'block' }} color="var(--green-light)" />
+        <div className="programme-name">Healthcare Access</div>
+        <p className="programme-desc">Through Asia Pharmacy and the Group's healthcare network, Asia Group supports [ healthcare access initiatives — free medical outreach, medicine donations, community health campaigns — to be confirmed with Chairman and Pharmacy MD ].</p>
+        <div className="programme-metric">
+          <div className="programme-metric-n">[ # ]</div>
+          <div className="programme-metric-l">Beneficiaries Reached</div>
         </div>
       </div>
 
-      <div class="programme-card">
-        <div class="programme-photo">
-          <!-- MEDIA: Islamic/religious CSR photography
-               File: ../media/csr/programme-religious.jpg
-               Recommended: Mosque support, Ramadan programme, community worship -->
-          <div class="programme-photo-placeholder">MEDIA: Community &amp; Religious Support</div>
+      <div className="programme-card">
+        <div className="programme-photo">
+          <div className="programme-photo-placeholder">MEDIA: Community & Religious Support</div>
         </div>
-        <span class="programme-icon">🕌</span>
-        <div class="programme-name">Community &amp; Religious Support</div>
-        <span class="programme-status pending">Details — To Be Confirmed</span>
-        <p class="programme-desc">[ Religious community support activities — mosque contributions, Ramadan programmes, Eid distributions, and other faith-community initiatives — to be confirmed with Chairman in CEO interview ].</p>
-        <div class="programme-metric">
-          <div class="programme-metric-n">[ # ]</div>
-          <div class="programme-metric-l">Communities Reached</div>
+        <HandHelping className="programme-icon" size={32} style={{ marginBottom: '16px', display: 'block' }} color="var(--green-light)" />
+        <div className="programme-name">Community & Religious Support</div>
+        <p className="programme-desc">[ Religious community support activities — mosque contributions, Ramadan programmes, Eid distributions, and other faith-community initiatives — to be confirmed with Chairman in CEO interview ].</p>
+        <div className="programme-metric">
+          <div className="programme-metric-n">[ # ]</div>
+          <div className="programme-metric-l">Communities Reached</div>
         </div>
       </div>
 
-      <div class="programme-card">
-        <div class="programme-photo">
-          <!-- MEDIA: Youth empowerment / entrepreneurship photography
-               File: ../media/csr/programme-youth.jpg -->
-          <div class="programme-photo-placeholder">MEDIA: Youth Empowerment</div>
+      <div className="programme-card">
+        <div className="programme-photo">
+          <div className="programme-photo-placeholder">MEDIA: Youth Empowerment</div>
         </div>
-        <span class="programme-icon">💼</span>
-        <div class="programme-name">Youth Empowerment</div>
-        <span class="programme-status pending">Details — To Be Confirmed</span>
-        <p class="programme-desc">[ Youth skills training, apprenticeship, entrepreneurship support, and employment creation initiatives — to be confirmed. Note: Asia Group's 19 locations employ hundreds of young people across Kano — this itself is a youth empowerment story. ]</p>
-        <div class="programme-metric">
-          <div class="programme-metric-n">[ # ]</div>
-          <div class="programme-metric-l">Young People Employed</div>
+        <Users className="programme-icon" size={32} style={{ marginBottom: '16px', display: 'block' }} color="var(--green-light)" />
+        <div className="programme-name">Youth Empowerment</div>
+        <p className="programme-desc">[ Youth skills training, apprenticeship, entrepreneurship support, and employment creation initiatives — to be confirmed. Note: Asia Group's 19 locations employ hundreds of young people across Kano — this itself is a youth empowerment story. ]</p>
+        <div className="programme-metric">
+          <div className="programme-metric-n">[ # ]</div>
+          <div className="programme-metric-l">Young People Employed</div>
         </div>
       </div>
 
-      <div class="programme-card">
-        <div class="programme-photo">
-          <!-- MEDIA: Infrastructure / community development photography
-               File: ../media/csr/programme-infrastructure.jpg
-               Recommended: Road, borehole, community facility built by Asia Group -->
-          <div class="programme-photo-placeholder">MEDIA: Infrastructure &amp; Development</div>
+      <div className="programme-card">
+        <div className="programme-photo">
+          <div className="programme-photo-placeholder">MEDIA: Infrastructure & Development</div>
         </div>
-        <span class="programme-icon">🏗️</span>
-        <div class="programme-name">Infrastructure &amp; Development</div>
-        <span class="programme-status pending">Details — To Be Confirmed</span>
-        <p class="programme-desc">[ Community infrastructure contributions — roads, boreholes, public facilities, market infrastructure — to be confirmed with Chairman. Many major traders in Kano have made significant physical contributions to market and community infrastructure. ]</p>
-        <div class="programme-metric">
-          <div class="programme-metric-n">[ # ]</div>
-          <div class="programme-metric-l">Projects Completed</div>
+        <HardHat className="programme-icon" size={32} style={{ marginBottom: '16px', display: 'block' }} color="var(--green-light)" />
+        <div className="programme-name">Infrastructure & Development</div>
+        <p className="programme-desc">[ Community infrastructure contributions — roads, boreholes, public facilities, market infrastructure — to be confirmed with Chairman. Many major traders in Kano have made significant physical contributions to market and community infrastructure. ]</p>
+        <div className="programme-metric">
+          <div className="programme-metric-n">[ # ]</div>
+          <div className="programme-metric-l">Projects Completed</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+
+<div dangerouslySetInnerHTML={{ __html: `
 <!-- ═══ IMPACT NUMBERS ═══ -->
 <section class="impact-section">
   <div class="impact-bg-text" aria-hidden="true">IMPACT</div>
   <div class="impact-inner">
-    
     <h2>Impact That Can<br>Be Measured</h2>
     <!-- PLACEHOLDER: All figures below to be confirmed from CEO interview and CSR team -->
     <div class="impact-grid">
@@ -480,17 +467,17 @@ export default function CSRPage() {
         <p class="impact-d">Based on 4,000 meals × 365 days. Cumulative total from programme start to be confirmed.</p>
       </div>
       <div class="impact-stat">
-        <div class="impact-n" style="color:var(--gold-light);">[ # ]</div>
+        <div class="impact-n">[ # ]</div>
         <div class="impact-l">Students Supported</div>
         <p class="impact-d">Scholarship and education programme beneficiaries — to be confirmed with Chairman.</p>
       </div>
       <div class="impact-stat">
-        <div class="impact-n" style="color:var(--gold-light);">[ # ]</div>
+        <div class="impact-n">[ # ]</div>
         <div class="impact-l">Communities Reached</div>
         <p class="impact-d">Distinct communities benefitting from Asia Group's combined CSR programmes — to be confirmed.</p>
       </div>
       <div class="impact-stat">
-        <div class="impact-n" style="color:var(--gold-light);">[ ₦B ]</div>
+        <div class="impact-n">[ ₦B ]</div>
         <div class="impact-l">Total CSR Investment</div>
         <p class="impact-d">Cumulative investment in community programmes since the founding of the daily feeding programme — to be estimated with Finance team.</p>
       </div>

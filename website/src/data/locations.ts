@@ -230,7 +230,7 @@ export const locations: LocationData[] = [
     "id": "16",
     "subsidiaryId": "cosmetics",
     "subsidiaryName": "Asia Cosmetics",
-    "image": "",
+    "image": "/media/asia-operation-cards/cosmetics-sg.jpg",
     "name": "Asia Cosmetics SG",
     "role": "Asia Cosmetics",
     "address": "Murtala Muhammad way Kano",

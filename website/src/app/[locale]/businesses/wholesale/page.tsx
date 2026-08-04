@@ -1,7 +1,10 @@
 
 import React from 'react';
+import { LocationsGrid } from '@/components/operations/LocationsGrid';
+import { locations } from '@/data/locations';
 
 export default function WholesalePage() {
+  const subsidiaryLocations = locations.filter(loc => loc.subsidiaryId === 'wholesale');
   return (
     <div className="wholesale-page">
       <style dangerouslySetInnerHTML={{ __html: `
@@ -636,59 +639,26 @@ export default function WholesalePage() {
 </section>
 
 <!-- ══ OUR LOCATIONS ══ -->
-<section style="padding:100px 60px;background:var(--dark);">
-  <div style="max-width:1300px;margin:0 auto;">
+` }} />
+<section style={{padding:'100px 60px', background:'var(--dark)'}}>
+  <div style={{maxWidth:'1300px', margin:'0 auto'}}>
+    <div dangerouslySetInnerHTML={{ __html: `
     <div style="font-family:var(--font-condensed);font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--silver-light);display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="display:block;width:30px;height:1px;background:var(--silver-light);"></span>Wholesale Locations Across Kano</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px;">
       <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--white);line-height:1.1;">Every Location,<br>Ready to Serve You</h2>
       <p style="font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.5);">Asia Group's wholesale and distribution facilities span [ # ] locations across Kano — each with dedicated loading bays, trained staff, and direct stock access to all product categories. Every location is a full-service distribution point.</p>
     </div>
-    <!-- Location mini-cards — filtered to wholesale division only -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,0.04);">
-
-      <!-- Repeat this mini-card for every wholesale location (fill from field visit data) -->
-      <div style="background:var(--dark-2);overflow:hidden;">
-        <!-- MEDIA: Exterior photo of this location
-             File: ../media/locations/01-kano-main-hub-exterior.jpg
-             Replace the placeholder div with: <img src="../media/locations/01-kano-main-hub-exterior.jpg" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;"> -->
-        <div style="aspect-ratio:16/9;background:var(--dark-3);display:flex;align-items:center;justify-content:center;">
-          <p style="font-family:var(--font-condensed);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.12);text-align:center;padding:12px;">MEDIA: Location Exterior</p>
-        </div>
-        <div style="padding:20px 20px 24px;">
-          <div style="font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--green-light);margin-bottom:6px;">Location 01</div>
-          <div style="font-family:var(--font-condensed);font-size:16px;font-weight:700;letter-spacing:0.04em;color:var(--white);margin-bottom:4px;">Kano Central Hub</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.4);font-weight:300;margin-bottom:14px;">[ Full address — TBD ]</div>
-          <div style="display:flex;gap:16px;">
-            <div><div style="font-family:var(--font-condensed);font-size:16px;font-weight:700;color:var(--silver-light);">[ T ]</div><div style="font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:3px;">Capacity</div></div>
-            <div><div style="font-family:var(--font-condensed);font-size:16px;font-weight:700;color:var(--silver-light);">[ # ]</div><div style="font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:3px;">Staff</div></div>
-            <div><div style="font-family:var(--font-condensed);font-size:16px;font-weight:700;color:var(--silver-light);">[ # ]</div><div style="font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:3px;">Bays</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- DUPLICATE THE CARD ABOVE FOR EACH WHOLESALE LOCATION -->
-      <!-- Locations 02, 03, 06, 07, 11, 12, 14, 15, 17, 18, 19 (adjust to actual wholesale locations) -->
-      <!-- Each card: unique location name, address, capacity, staff, bays from MD interview form -->
-      <!-- Each card: unique exterior photograph from field visit -->
-
-      <!-- Placeholder cards for remaining wholesale locations -->
-      <div style="background:var(--dark-2);overflow:hidden;opacity:0.35;">
-        <div style="aspect-ratio:16/9;background:var(--dark-3);display:flex;align-items:center;justify-content:center;"><p style="font-family:var(--font-condensed);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.12);text-align:center;padding:12px;">MEDIA: Location Exterior</p></div>
-        <div style="padding:20px 20px 24px;"><div style="font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--green-light);margin-bottom:6px;">Location 0[ N ]</div><div style="font-family:var(--font-condensed);font-size:16px;font-weight:700;letter-spacing:0.04em;color:var(--white);margin-bottom:4px;">[ Location Name — TBD ]</div><div style="font-size:12px;color:rgba(255,255,255,0.4);font-weight:300;margin-bottom:14px;">[ Address — TBD ]</div></div>
-      </div>
-      <div style="background:var(--dark-2);overflow:hidden;opacity:0.35;">
-        <div style="aspect-ratio:16/9;background:var(--dark-3);display:flex;align-items:center;justify-content:center;"><p style="font-family:var(--font-condensed);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.12);text-align:center;padding:12px;">MEDIA: Location Exterior</p></div>
-        <div style="padding:20px 20px 24px;"><div style="font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--green-light);margin-bottom:6px;">Location 0[ N ]</div><div style="font-family:var(--font-condensed);font-size:16px;font-weight:700;letter-spacing:0.04em;color:var(--white);margin-bottom:4px;">[ Location Name — TBD ]</div><div style="font-size:12px;color:rgba(255,255,255,0.4);font-weight:300;margin-bottom:14px;">[ Address — TBD ]</div></div>
-      </div>
-
-    </div>
+    ` }} />
+    <LocationsGrid locations={subsidiaryLocations} hideFilter={true} />
+    <div dangerouslySetInnerHTML={{ __html: `
     <div style="margin-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
       <p style="font-size:13px;color:var(--muted);font-weight:300;">* All location cards to be completed with field visit data, photographs, and confirmed figures.</p>
       <a href="../operations/index.html" style="font-family:var(--font-condensed);font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--silver-light);text-decoration:none;">View All 19 Locations →</a>
     </div>
+    ` }} />
   </div>
 </section>
-
+<div dangerouslySetInnerHTML={{ __html: `
 <!-- CTA -->
 <section class="cta-band">
   <div class="cta-band-inner">
@@ -699,9 +669,6 @@ export default function WholesalePage() {
     </div>
   </div>
 </section>
-
-
-
 ` }} />
     </div>
   );
