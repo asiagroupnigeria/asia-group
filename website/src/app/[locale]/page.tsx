@@ -46,7 +46,7 @@ export default async function Home() {
 
   const normalCards = businessesAll.filter(b => !b.is_promo).slice(0, 3);
   const promoCard = businessesAll.find(b => b.is_promo);
-  const businesses = [...normalCards, ...(promoCard ? [promoCard] : [])];
+  const businesses = [...(promoCard ? [promoCard] : []), ...normalCards];
 
   const partnersDocs = getCollection('partners');
   let partners = partnersDocs.map(doc => doc.data).sort((a, b) => a.order - b.order);

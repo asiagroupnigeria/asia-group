@@ -62,7 +62,7 @@ export function LocationCard({ location }: LocationCardProps) {
         }}>
           {location.subsidiaryName}
         </div>
-        <div className="loc-name" style={{ fontFamily: 'var(--font-condensed)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>{location.name}</div>
+        <div className="loc-name" style={{ fontFamily: 'var(--font-condensed)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em', color: 'var(--text-main)' }}>{location.name}</div>
         <div
           className="loc-address"
           style={{ marginBottom: 0 }}

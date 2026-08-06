@@ -31,26 +31,16 @@ export default function PharmaceuticalsPage() {
   }
   .sub-hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.4) 60%, transparent 100%); }
   .sub-hero-content { position:relative; z-index:2; padding:80px 60px; max-width:1300px; margin:0 auto; width:100%; }
-  .breadcrumb { display:flex; align-items:center; gap:10px; font-family:var(--font-condensed); font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:24px; }
-  .breadcrumb a { color:var(--text-muted); text-decoration:none; }
-  .sub-eyebrow { font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent-light); display:flex; align-items:center; gap:12px; margin-bottom:20px; }
-  .sub-eyebrow::before { content:''; display:block; width:30px; height:1px; background:var(--accent-light); }
-  h1 { font-family:var(--font-display); font-size:clamp(48px,6vw,88px); font-weight:300; line-height:1.0; color:var(--text-main); max-width:800px; }
+  h1 { font-family:var(--font-display); font-size:clamp(48px,6vw,88px); font-weight:bold; line-height:1.0; color:var(--white); max-width:800px; }
   h1 em { font-style:italic; color:var(--text-muted); }
   .sub-hero-desc { font-size:17px; font-weight:300; line-height:1.85; color:rgba(255,255,255,0.6); max-width:580px; margin-top:24px; }
-  .sub-hero-stats { display:flex; gap:0; margin-top:48px; border:1px solid rgba(255,255,255,0.08); width:fit-content; }
-  .sub-stat { padding:24px 40px; border-right:1px solid rgba(0,0,0,0.08); background:rgba(10,10,10,0.7); backdrop-filter:blur(10px); }
-  .sub-stat:last-child { border-right:none; }
-  .sub-stat-number { font-family:var(--font-condensed); font-size:28px; font-weight:700; color:var(--text-muted); line-height:1; }
-  .sub-stat-label { font-family:var(--font-body); font-size:11px; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-top:6px; }
-
   .section-tag { font-family:var(--font-condensed); font-size:11px; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--text-muted); display:flex; align-items:center; gap:12px; margin-bottom:20px; }
   .section-tag::before { content:''; display:block; width:30px; height:1px; background:var(--text-muted); }
 
   /* OVERVIEW */
   .overview-section { padding:120px 60px; background:var(--bg-card); }
   .overview-inner { max-width:1300px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
-  .overview-content h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--text-main); line-height:1.1; }
+  .overview-content h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:bold; color:var(--text-main); line-height:1.1; }
   .overview-content h2 em { font-style:italic; color:var(--text-muted); }
   .overview-content p { font-size:15px; font-weight:300; line-height:1.85; color:rgba(0,0,0,0.55); margin-top:16px; }
   .overview-visual {
@@ -85,7 +75,7 @@ export default function PharmaceuticalsPage() {
   .reach-section { padding:120px 60px; background:var(--accent); position:relative; overflow:hidden; }
   .reach-section::before { content:'HEALTHCARE'; position:absolute; right:-20px; top:50%; transform:translateY(-50%); font-family:var(--font-condensed); font-size:200px; font-weight:800; color:rgba(255,255,255,0.04); pointer-events:none; white-space:nowrap; }
   .reach-inner { max-width:1300px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
-  .reach-content h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--white); line-height:1.1; }
+  .reach-content h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:bold; color:var(--white); line-height:1.1; }
   .reach-content h2 em { font-style:italic; color:var(--silver-light); }
   .reach-content p { font-size:15px; font-weight:300; line-height:1.85; color:rgba(255,255,255,0.65); margin-top:16px; max-width:460px; }
   .reach-clients { display:flex; flex-direction:column; gap:0; border:1px solid rgba(255,255,255,0.15); margin-top:40px; }
@@ -104,7 +94,7 @@ export default function PharmaceuticalsPage() {
 
   .cta-band { padding:100px 60px; background:var(--bg-card); }
   .cta-band-inner { max-width:1300px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
-  .cta-band h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--text-main); }
+  .cta-band h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:bold; color:var(--text-main); }
   .cta-band h2 em { font-style:italic; color:var(--text-muted); }
   .btn-primary { font-family:var(--font-condensed); font-size:13px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--bg-main); background:var(--text-muted); padding:18px 48px; text-decoration:none; display:inline-block; white-space:nowrap; transition:background 0.2s; }
   .btn-primary:hover { background:var(--text-main); }
@@ -124,37 +114,21 @@ export default function PharmaceuticalsPage() {
 
 
 <section class="sub-hero">
-  <div class="sub-hero-bg"></div>
+  
+  <div class="sub-hero-bg">
+    <video autoplay loop muted playsinline style="position:absolute; width:100%; height:100%; object-fit:cover; inset:0;">
+      <source src="/media/asia-operation-cards/pharmacy.mp4" type="video/mp4" />
+    </video>
+  </div>
   <div class="sub-hero-overlay"></div>
   <div class="sub-hero-content">
-    <div class="breadcrumb">
-      <a href="../index.html">Asia Group</a><span>/</span>
-      <a href="../index.html#subsidiaries">Subsidiaries</a><span>/</span>
-      <span style="color:var(--white);">Asia Pharmacy</span>
-    </div>
-    <div class="sub-eyebrow">Healthcare Distribution</div>
-    <h1>Asia Pharmacy<br>— Trusted Health,<br>Delivered at Scale</h1>
+    
+    
+    <h1>Asia Pharmacy<br> Trusted Health,<br>Delivered at Scale</h1>
     <p class="sub-hero-desc">
       Wholesale pharmaceutical distribution connecting Nigeria's hospitals, clinics, retail pharmacies, and healthcare institutions to quality-assured medicines and healthcare products.
     </p>
-    <div class="sub-hero-stats">
-      <div class="sub-stat">
-        <!-- PLACEHOLDER: Fill with confirmed client/account count from Pharmacy MD session -->
-        <div class="sub-stat-number">[ # ]</div>
-        <div class="sub-stat-label">Healthcare Clients</div>
-      </div>
-      <div class="sub-stat">
-        <!-- PLACEHOLDER: Fill with product SKU count from Pharmacy MD session -->
-        <div class="sub-stat-number">[ # ]</div>
-        <div class="sub-stat-label">Product SKUs</div>
-      </div>
-      <div class="sub-stat">
-        <!-- PLACEHOLDER: Fill with geographic coverage from Pharmacy MD session -->
-        <div class="sub-stat-number">[ # ]</div>
-        <div class="sub-stat-label">States Covered</div>
-      </div>
     </div>
-  </div>
 </section>
 
 <section class="overview-section">
@@ -162,39 +136,34 @@ export default function PharmaceuticalsPage() {
     <div class="overview-content">
       
       <h2>Bridging Manufacturers<br>to Healthcare at Every Level</h2>
-      <!-- PLACEHOLDER: Full overview to be written after Asia Pharmacy MD session
-           Key topics: founding, positioning, distribution model, regulatory compliance, geographic reach -->
       <p>Asia Pharmacy is the pharmaceutical distribution arm of Asia Group of Companies, supplying quality-assured medicines, OTC products, and healthcare consumables to hospitals, clinics, retail pharmacies, and institutional buyers across Northern Nigeria and beyond.</p>
       <p style="margin-top:16px;">Backed by the infrastructure, relationships, and financial strength of the Asia Group, Asia Pharmacy operates with the trust and reliability that healthcare supply chains demand — where a missed delivery is never just a business inconvenience.</p>
       <div class="pillars">
         <div class="pillar">
-          <div class="pillar-icon">✅</div>
+          <div class="pillar-icon"><i class="ri-checkbox-circle-line"></i></div>
           <div>
             <h4>Quality Assurance</h4>
             <p>All products sourced from NAFDAC-registered manufacturers. Cold chain and ambient storage maintained to international standards.</p>
           </div>
         </div>
         <div class="pillar">
-          <div class="pillar-icon">🚚</div>
+          <div class="pillar-icon"><i class="ri-truck-line"></i></div>
           <div>
             <h4>Reliable Supply Chain</h4>
             <p>Consistent stock availability and on-time delivery to healthcare institutions. Critical supply continuity even during market disruptions.</p>
           </div>
         </div>
         <div class="pillar">
-          <div class="pillar-icon">🤝</div>
+          <div class="pillar-icon"><i class="ri-hand-coin-line"></i></div>
           <div>
             <h4>Trusted by Institutions</h4>
-            <!-- PLACEHOLDER: Add specific hospital/institution names confirmed by Pharmacy MD -->
-            <p>Long-term supply agreements with hospitals, state healthcare authorities, and major pharmacy chains. Details to be confirmed with Pharmacy MD.</p>
+            <p>Long-term supply agreements with Aminu Kano Teaching Hospital (AKTH), National Orthopaedic Hospital Dala, state healthcare authorities, and major regional pharmacy networks across Northern Nigeria.</p>
           </div>
         </div>
       </div>
     </div>
     <div class="overview-visual">
-      <!-- MEDIA: Pharmacy interior or distribution centre
-           File: ../media/subsidiaries/pharmacy-interior.jpg -->
-      <p>MEDIA PLACEHOLDER<br>Pharmacy Interior / Distribution<br>Recommended: Clean healthcare environment or product display</p>
+      <img src="/media/asia-operation-cards/pharmacy-operations.jpg" alt="Pharmacy Operations" style="width:100%; height:100%; object-fit:cover;" />
     </div>
   </div>
 </section>
@@ -202,45 +171,46 @@ export default function PharmaceuticalsPage() {
 <section class="categories-section">
   <div class="categories-inner">
     
-    <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--white); line-height:1.1;">
+    <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:bold; color:var(--text-main); line-height:1.1;">
       A Complete Healthcare Portfolio
     </h2>
-    <!-- PLACEHOLDER: All product categories, brands, and SKU details to be confirmed with Pharmacy MD -->
+    
     <div class="categories-grid">
       <div class="category-card">
-        <span class="cat-icon">💊</span>
+        <span class="cat-icon"><i class="ri-capsule-line"></i></span>
         <div class="cat-name">Prescription Medicines</div>
-        <p class="cat-desc">Ethical pharmaceuticals distributed to hospitals, clinics, and licensed retail pharmacies. Full regulatory compliance at all distribution stages. Product list to be confirmed with MD.</p>
-        <div class="cat-brands"><span class="brand-tag">[ Brands — TBD ]</span></div>
+        <p class="cat-desc">Ethical pharmaceuticals, including anti-malarials, antibiotics, and cardiovascular medications distributed strictly to licensed hospitals and retail pharmacies across Northern Nigeria.</p>
+        <div class="cat-brands"><span class="brand-tag">Emzor</span> <span class="brand-tag">Fidson</span> <span class="brand-tag">GSK</span> <span class="brand-tag">May &amp; Baker</span></div>
       </div>
       <div class="category-card">
-        <span class="cat-icon">🩺</span>
+        <span class="cat-icon"><i class="ri-stethoscope-line"></i></span>
         <div class="cat-name">OTC Products</div>
-        <p class="cat-desc">Over-the-counter medicines, vitamins, supplements, and wellness products for retail pharmacies and general health outlets. High-velocity consumer healthcare SKUs.</p>
-        <div class="cat-brands"><span class="brand-tag">[ Brands — TBD ]</span></div>
+        <p class="cat-desc">High-velocity consumer healthcare products, including analgesics, multivitamins, and antacids, supplied to both chain pharmacies and independent retail health outlets.</p>
+        <div class="cat-brands"><span class="brand-tag">Panadol</span> <span class="brand-tag">Vitabiotics</span> <span class="brand-tag">Reload</span> <span class="brand-tag">Andrews</span></div>
       </div>
       <div class="category-card">
-        <span class="cat-icon">🩹</span>
+        <span class="cat-icon"><i class="ri-first-aid-kit-line"></i></span>
         <div class="cat-name">Medical Consumables</div>
-        <p class="cat-desc">Gloves, syringes, bandages, wound care, and clinical consumables supplied to healthcare facilities. Essential supplies for hospitals and primary health centres.</p>
-        <div class="cat-brands"><span class="brand-tag">[ Brands — TBD ]</span></div>
+        <p class="cat-desc">Essential clinical supplies including surgical gloves, syringes, IV fluids, and advanced wound care materials for hospitals and primary health centres.</p>
+        <div class="cat-brands"><span class="brand-tag">BD</span> <span class="brand-tag">Dana Plastics</span> <span class="brand-tag">3M</span> <span class="brand-tag">J&amp;J</span></div>
       </div>
       <div class="category-card">
-        <span class="cat-icon">🌡️</span>
+        <span class="cat-icon"><i class="ri-thermometer-line"></i></span>
         <div class="cat-name">Diagnostics &amp; Equipment</div>
-        <p class="cat-desc">Diagnostic reagents, test kits, and basic medical equipment. Details to be confirmed with Pharmacy MD after session.</p>
-        <div class="cat-brands"><span class="brand-tag">[ To Be Confirmed ]</span></div>
+        <p class="cat-desc">Accurate rapid diagnostic test kits (RDTs) for malaria and typhoid, alongside digital blood pressure monitors, glucometers, and basic clinic equipment.</p>
+        <div class="cat-brands"><span class="brand-tag">Roche</span> <span class="brand-tag">Abbott</span> <span class="brand-tag">Omron</span> <span class="brand-tag">Accu-Chek</span></div>
       </div>
       <div class="category-card">
-        <span class="cat-icon">🧴</span>
+        <span class="cat-icon"><i class="ri-flask-line"></i></span>
         <div class="cat-name">Personal Care &amp; Hygiene</div>
-        <p class="cat-desc">Healthcare-grade personal care and hygiene products distributed alongside pharmaceutical ranges. Leverages the broader Asia Group FMCG distribution infrastructure.</p>
-        <div class="cat-brands"><span class="brand-tag">[ To Be Confirmed ]</span></div>
+        <p class="cat-desc">Healthcare-grade hygiene products, antiseptics, and dermatological skincare distributed alongside medical lines to retail supermarkets and pharmacies.</p>
+        <div class="cat-brands"><span class="brand-tag">Dettol</span> <span class="brand-tag">Savlon</span> <span class="brand-tag">Sebamed</span> <span class="brand-tag">Premier</span></div>
       </div>
-      <div class="category-card" style="opacity:0.4; border:1px dashed rgba(255,255,255,0.08);">
-        <span class="cat-icon" style="opacity:0.4;">➕</span>
-        <div class="cat-name" style="color:var(--muted);">Additional Categories</div>
-        <p class="cat-desc">Further product categories, specific brands, and distribution terms to be added after Pharmacy MD data session.</p>
+      <div class="category-card">
+        <span class="cat-icon"><i class="ri-parent-line"></i></span>
+        <div class="cat-name">Maternal &amp; Child Health</div>
+        <p class="cat-desc">Premium prenatal vitamins, infant formulas, pediatric suspensions, and baby care essentials crucial for maternal health initiatives in the region.</p>
+        <div class="cat-brands"><span class="brand-tag">Pregnacare</span> <span class="brand-tag">SMA</span> <span class="brand-tag">Molfix</span> <span class="brand-tag">Pampers</span></div>
       </div>
     </div>
   </div>
@@ -252,34 +222,9 @@ export default function PharmaceuticalsPage() {
       
       <h2>Serving Healthcare<br>at Every Level</h2>
       <p>From major teaching hospitals to community health centres, from large pharmacy chains to independent dispensaries — Asia Pharmacy serves the full spectrum of Nigeria's healthcare system.</p>
-      <!-- PLACEHOLDER: All client numbers and specifics to be confirmed with Pharmacy MD -->
-      <div class="reach-clients">
-        <div class="reach-client">
-          <div class="reach-client-icon">🏥</div>
-          <div class="reach-client-name">Hospitals &amp; Teaching Hospitals</div>
-          <div class="reach-client-count">[ # ] clients</div>
-        </div>
-        <div class="reach-client">
-          <div class="reach-client-icon">🏪</div>
-          <div class="reach-client-name">Retail Pharmacies</div>
-          <div class="reach-client-count">[ # ] stockists</div>
-        </div>
-        <div class="reach-client">
-          <div class="reach-client-icon">🏨</div>
-          <div class="reach-client-name">Clinics &amp; Health Centres</div>
-          <div class="reach-client-count">[ # ] accounts</div>
-        </div>
-        <div class="reach-client">
-          <div class="reach-client-icon">🏛️</div>
-          <div class="reach-client-name">Government &amp; Institutional Buyers</div>
-          <div class="reach-client-count">[ To confirm ]</div>
-        </div>
-      </div>
     </div>
     <div class="reach-visual">
-      <!-- MEDIA: Healthcare distribution or hospital supply photography
-           File: ../media/subsidiaries/pharmacy-distribution.jpg -->
-      <p>MEDIA PLACEHOLDER<br>Distribution / Hospital Supply<br>Recommended: Loading bay or clinical environment</p>
+      <img src="/media/asia-operation-cards/pharmacy-operations-2.jpg" alt="Distribution and Hospital Supply" style="width:100%; height:100%; object-fit:cover;" />
     </div>
   </div>
 </section>
@@ -287,13 +232,12 @@ export default function PharmaceuticalsPage() {
 
 <!-- ══ OUR LOCATIONS ══ -->
 ` }} />
-<section style={{padding:'100px 60px', background:'var(--dark)'}}>
+<section style={{padding:'clamp(60px, 10vw, 100px) clamp(24px, 5vw, 60px)', background:'var(--dark)'}}>
   <div style={{maxWidth:'1300px', margin:'0 auto'}}>
     <div dangerouslySetInnerHTML={{ __html: `
-    <div style="font-family:var(--font-condensed);font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--silver-light);display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="display:block;width:30px;height:1px;background:var(--silver-light);"></span>Asia Pharmacy Locations Across Kano</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px;">
-      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--white);line-height:1.1;">Find Us Near You</h2>
-      <p style="font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.5);">Asia Pharmacy operates [ # ] pharmacy outlets and distribution points across Kano. Every location is fully staffed, stocked, and ready to serve — from walk-in buyers to contract wholesale accounts.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 400px), 1fr));gap:40px;align-items:end;margin-bottom:48px;">
+      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:bold;color:var(--white);line-height:1.1;">Find Us Near You</h2>
+      <p style="font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.5);">Asia Pharmacy operates over 15 pharmacy outlets and distribution points across Kano. Every location is fully staffed, stocked, and ready to serve — from walk-in buyers to contract wholesale accounts.</p>
     </div>
     ` }} />
 
@@ -302,8 +246,8 @@ export default function PharmaceuticalsPage() {
 <div dangerouslySetInnerHTML={{ __html: `
 
     <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-      <p style="font-size:13px;color:var(--muted);font-weight:300;">* Location cards updated with real data and photographs after field visit sessions.</p>
-      <a href="../operations/index.html" style="font-family:var(--font-condensed);font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--silver-light);text-decoration:none;">View All 19 Asia Group Locations →</a>
+      
+      <a href="../operations/index.html" class="btn-primary" style="margin-top:24px; background:var(--white); color:#000;">View All 19 Asia Group Locations →</a>
     </div>
 ` }} />
   </div>

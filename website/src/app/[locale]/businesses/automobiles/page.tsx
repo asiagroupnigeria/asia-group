@@ -30,18 +30,9 @@ export default function AutomobilesPage() {
   }
   .sub-hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.4) 60%, transparent 100%); }
   .sub-hero-content { position:relative; z-index:2; padding:80px 60px; max-width:1300px; margin:0 auto; width:100%; }
-  .breadcrumb { display:flex; align-items:center; gap:10px; font-family:var(--font-condensed); font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:24px; }
-  .breadcrumb a { color:var(--text-muted); text-decoration:none; }
-  .sub-eyebrow { font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent-light); display:flex; align-items:center; gap:12px; margin-bottom:20px; }
-  .sub-eyebrow::before { content:''; display:block; width:30px; height:1px; background:var(--accent-light); }
-  h1 { font-family:var(--font-display); font-size:clamp(48px,6vw,88px); font-weight:300; line-height:1.0; color:var(--text-main); max-width:800px; }
+  h1 { font-family:var(--font-display); font-size:clamp(48px,6vw,88px); font-weight:bold; line-height:1.0; color:var(--white); max-width:800px; }
   h1 em { font-style:italic; color:var(--text-muted); }
   .sub-hero-desc { font-size:17px; font-weight:300; line-height:1.85; color:rgba(255,255,255,0.6); max-width:580px; margin-top:24px; }
-  .sub-hero-stats { display:flex; gap:0; margin-top:48px; border:1px solid rgba(255,255,255,0.08); width:fit-content; }
-  .sub-stat { padding:24px 40px; border-right:1px solid rgba(0,0,0,0.08); background:rgba(10,10,10,0.7); backdrop-filter:blur(10px); }
-  .sub-stat:last-child { border-right:none; }
-  .sub-stat-number { font-family:var(--font-condensed); font-size:28px; font-weight:700; color:var(--text-muted); line-height:1; }
-  .sub-stat-label { font-family:var(--font-body); font-size:11px; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-top:6px; }
   .section-tag { font-family:var(--font-condensed); font-size:11px; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--text-muted); display:flex; align-items:center; gap:12px; margin-bottom:20px; }
   .section-tag::before { content:''; display:block; width:30px; height:1px; background:var(--text-muted); }
 
@@ -98,7 +89,7 @@ export default function AutomobilesPage() {
   /* CLIENTS */
   .clients-section { padding:120px 60px; background:var(--bg-card); }
   .clients-inner { max-width:1300px; margin:0 auto; display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:start; }
-  .clients-content h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--text-main); line-height:1.1; }
+  .clients-content h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:bold; color:var(--text-main); line-height:1.1; }
   .clients-content h2 em { font-style:italic; color:var(--text-muted); }
   .clients-content p { font-size:15px; font-weight:300; line-height:1.85; color:rgba(0,0,0,0.55); margin-top:16px; }
   .client-sectors { margin-top:36px; display:flex; flex-direction:column; gap:0; border:1px solid rgba(0,0,0,0.06); }
@@ -117,7 +108,7 @@ export default function AutomobilesPage() {
 
   .cta-band { padding:100px 60px; background:var(--bg-muted); border-top:1px solid rgba(0,0,0,0.04); }
   .cta-band-inner { max-width:1300px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
-  .cta-band h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--text-main); }
+  .cta-band h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:bold; color:var(--text-main); }
   .cta-band h2 em { font-style:italic; color:var(--text-muted); }
   .btn-primary { font-family:var(--font-condensed); font-size:13px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--bg-main); background:var(--text-muted); padding:18px 48px; text-decoration:none; display:inline-block; white-space:nowrap; transition:background 0.2s; }
   .btn-primary:hover { background:var(--text-main); }
@@ -139,38 +130,19 @@ export default function AutomobilesPage() {
   <div class="sub-hero-bg"></div>
   <div class="sub-hero-overlay"></div>
   <div class="sub-hero-content">
-    <div class="breadcrumb">
-      <a href="../index.html">Asia Group</a><span>/</span>
-      <a href="../index.html#subsidiaries">Subsidiaries</a><span>/</span>
-      <span style="color:var(--white);">Asia Automobiles</span>
-    </div>
-    <div class="sub-eyebrow">Commercial Vehicles &amp; Industrial Equipment</div>
-    <h1>Asia Automobiles<br>— Powering Africa's<br>Infrastructure</h1>
+    
+    
+    <h1>Asia Automobiles<br> Powering Africa's<br>Infrastructure</h1>
     <p class="sub-hero-desc">
       Authorised dealer and distributor for SinoTruck and Mikano Motors — supplying commercial trucks, generators, and industrial vehicles to Nigeria's construction, logistics, and energy sectors.
     </p>
-    <div class="sub-hero-stats">
-      <div class="sub-stat">
-        <div class="sub-stat-number">2</div>
-        <div class="sub-stat-label">Global Principals</div>
-      </div>
-      <div class="sub-stat">
-        <!-- PLACEHOLDER: Units sold / fleet clients from Automobiles MD session -->
-        <div class="sub-stat-number">[ # ]</div>
-        <div class="sub-stat-label">Units Delivered</div>
-      </div>
-      <div class="sub-stat">
-        <div class="sub-stat-number">[ # ]</div>
-        <div class="sub-stat-label">Fleet Clients</div>
-      </div>
     </div>
-  </div>
 </section>
 
 <section class="brands-section">
   <div class="brands-inner">
     
-    <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--white); line-height:1.1;">
+    <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:bold; color:var(--white); line-height:1.1;">
       World-Class Vehicles,<br>African Expertise
     </h2>
     <div class="brands-grid">
@@ -239,7 +211,7 @@ export default function AutomobilesPage() {
 <section class="products-section">
   <div class="products-inner">
     
-    <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--white); line-height:1.1;">
+    <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:bold; color:var(--white); line-height:1.1;">
       Built for Industry,<br>Delivered for Africa
     </h2>
     <!-- PLACEHOLDER: All vehicle models, specifications, and pricing to be confirmed with Automobiles MD -->
@@ -345,7 +317,7 @@ export default function AutomobilesPage() {
   <div class="clients-inner">
     <div>
       
-      <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--white); line-height:1.1;">
+      <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:bold; color:var(--white); line-height:1.1;">
         Every Sector That<br>Moves Nigeria
       </h2>
       <p style="font-size:15px; font-weight:300; line-height:1.85; color:rgba(255,255,255,0.55); margin-top:16px; max-width:480px;">
@@ -354,32 +326,32 @@ export default function AutomobilesPage() {
       <!-- PLACEHOLDER: Specific client names and sector breakdowns to be confirmed with Automobiles MD -->
       <div class="client-sectors">
         <div class="client-sector">
-          <div class="client-sector-icon">🏗️</div>
+          <div class="client-sector-icon"><i class="ri-building-line"></i></div>
           <div class="client-sector-name">Construction &amp; Infrastructure</div>
           <div class="client-sector-count">[ # ] clients</div>
         </div>
         <div class="client-sector">
-          <div class="client-sector-icon">🚛</div>
+          <div class="client-sector-icon"><i class="ri-truck-line"></i></div>
           <div class="client-sector-name">Logistics &amp; Haulage Operators</div>
           <div class="client-sector-count">[ # ] clients</div>
         </div>
         <div class="client-sector">
-          <div class="client-sector-icon">⛽</div>
+          <div class="client-sector-icon"><i class="ri-gas-station-line"></i></div>
           <div class="client-sector-name">Petroleum &amp; Energy Companies</div>
           <div class="client-sector-count">[ # ] clients</div>
         </div>
         <div class="client-sector">
-          <div class="client-sector-icon">🏛️</div>
+          <div class="client-sector-icon"><i class="ri-government-line"></i></div>
           <div class="client-sector-name">Government &amp; Public Institutions</div>
           <div class="client-sector-count">[ # ] clients</div>
         </div>
         <div class="client-sector">
-          <div class="client-sector-icon">🏭</div>
+          <div class="client-sector-icon"><i class="ri-building-3-line"></i></div>
           <div class="client-sector-name">Manufacturing &amp; Industrial</div>
           <div class="client-sector-count">[ # ] clients</div>
         </div>
         <div class="client-sector">
-          <div class="client-sector-icon">🌾</div>
+          <div class="client-sector-icon"><i class="ri-plant-line"></i></div>
           <div class="client-sector-name">Agribusiness &amp; Farming</div>
           <div class="client-sector-count">[ # ] clients</div>
         </div>
@@ -396,12 +368,11 @@ export default function AutomobilesPage() {
 
 <!-- ══ OUR LOCATIONS ══ -->
 ` }} />
-<section style={{padding:'100px 60px', background:'var(--dark)'}}>
+<section style={{padding:'clamp(60px, 10vw, 100px) clamp(24px, 5vw, 60px)', background:'var(--dark)'}}>
   <div style={{maxWidth:'1300px', margin:'0 auto'}}>
     <div dangerouslySetInnerHTML={{ __html: `
-    <div style="font-family:var(--font-condensed);font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--silver-light);display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="display:block;width:30px;height:1px;background:var(--silver-light);"></span>Asia Automobiles Locations Across Kano</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px;">
-      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--white);line-height:1.1;">Find Us Near You</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 400px), 1fr));gap:40px;align-items:end;margin-bottom:48px;">
+      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:bold;color:var(--white);line-height:1.1;">Find Us Near You</h2>
       <p style="font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.5);">Asia Automobiles operates [ # ] vehicle showrooms and service yards across Kano. Every location is fully staffed, stocked, and ready to serve — from walk-in buyers to contract wholesale accounts.</p>
     </div>
     ` }} />
@@ -412,7 +383,7 @@ export default function AutomobilesPage() {
 
     <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
       <p style="font-size:13px;color:var(--muted);font-weight:300;">* Location cards updated with real data and photographs after field visit sessions.</p>
-      <a href="../operations/index.html" style="font-family:var(--font-condensed);font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--silver-light);text-decoration:none;">View All 19 Asia Group Locations →</a>
+      <a href="../operations/index.html" class="btn-primary" style="margin-top:24px; background:var(--white); color:#000;">View All 19 Asia Group Locations →</a>
     </div>
 ` }} />
   </div>

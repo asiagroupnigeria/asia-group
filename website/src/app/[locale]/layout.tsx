@@ -7,6 +7,7 @@ import 'remixicon/fonts/remixicon.css';
 import '../globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { AutoPlayVideo } from '@/components/AutoPlayVideo';
 
 const notoSerif = Noto_Serif({
   subsets: ['latin'],
@@ -61,6 +62,7 @@ export default async function LocaleLayout({
       </head>
       <body className={`${notoSerif.variable} ${barlow.variable} ${barlowCondensed.variable}`}>
         <NextIntlClientProvider messages={messages}>
+          <AutoPlayVideo />
           <Header />
           <main>{children}</main>
           <Footer />

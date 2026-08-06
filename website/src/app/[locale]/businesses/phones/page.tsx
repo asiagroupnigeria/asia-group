@@ -24,18 +24,12 @@ export default function PhonesPage() {
   background:linear-gradient(135deg,#021929 0%,#0A0A0A 60%);}
   .sub-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,1) 0%,rgba(10,10,10,0.4) 60%,transparent 100%);}
   .sub-hero-content{position:relative;z-index:2;padding:80px 60px;max-width:1300px;margin:0 auto;width:100%;}
-  .breadcrumb{display:flex;align-items:center;gap:10px;font-family:var(--font-condensed);font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:24px;}.breadcrumb a{color:var(--text-muted);text-decoration:none;}
-  h1{font-family:var(--font-display);font-size:clamp(48px,6vw,88px);font-weight:300;line-height:1.0;color:var(--text-main);max-width:800px;}h1 em{font-style:italic;color:var(--text-muted);}
-  .sub-eyebrow{font-family:var(--font-condensed);font-size:12px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent-light);display:flex;align-items:center;gap:12px;margin-bottom:20px;}.sub-eyebrow::before{content:'';display:block;width:30px;height:1px;background:var(--accent-light);}
+  h1{font-family:var(--font-display);font-size:clamp(48px,6vw,88px);font-weight:bold;line-height:1.0;color:var(--white);max-width:800px;}h1 em{font-style:italic;color:var(--text-muted);}
   .sub-hero-desc{font-size:17px;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.6);max-width:580px;margin-top:24px;}
-  .sub-hero-stats{display:flex;gap:0;margin-top:48px;border:1px solid rgba(255,255,255,0.08);width:fit-content;}
-  .sub-stat{padding:24px 40px;border-right:1px solid rgba(0,0,0,0.08);background:rgba(10,10,10,0.7);backdrop-filter:blur(10px);}.sub-stat:last-child{border-right:none;}
-  .sub-stat-number{font-family:var(--font-condensed);font-size:28px;font-weight:700;color:var(--text-muted);line-height:1;}
-  .sub-stat-label{font-family:var(--font-body);font-size:11px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:6px;}
   .section-tag{font-family:var(--font-condensed);font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-muted);display:flex;align-items:center;gap:12px;margin-bottom:20px;}.section-tag::before{content:'';display:block;width:30px;height:1px;background:var(--text-muted);}
   section.pad{padding:120px 60px;}
   .inner{max-width:1300px;margin:0 auto;}
-  h2{font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--text-main);line-height:1.1;margin-bottom:16px;}
+  h2{font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:bold;color:var(--text-main);line-height:1.1;margin-bottom:16px;}
   h2 em{font-style:italic;color:var(--text-muted);}
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:60px;}
   .body-text{font-size:15px;font-weight:300;line-height:1.85;color:rgba(0,0,0,0.55);}
@@ -82,16 +76,11 @@ export default function PhonesPage() {
   <div class="sub-hero-bg"></div>
   <div class="sub-hero-overlay"></div>
   <div class="sub-hero-content">
-    <div class="breadcrumb"><a href="../index.html">Asia Group</a><span>/</span><a href="../index.html#subsidiaries">Subsidiaries</a><span>/</span><span style="color:var(--white);">Asia Phones &amp; Accessories</span></div>
-    <div class="sub-eyebrow">Consumer Electronics &amp; Mobile Distribution</div>
-    <h1>Asia Phones<br>&amp; Accessories<br>— Connecting Nigeria</h1>
+    
+    
+    <h1>Asia Phones<br>&amp; Accessories<br> Connecting Nigeria</h1>
     <p class="sub-hero-desc">Wholesale distributor of mobile phones and accessories into Northern Nigeria's fast-growing technology retail ecosystem — supplying thousands of stockists with the devices that connect a nation.</p>
-    <div class="sub-hero-stats">
-      <div class="sub-stat"><div class="sub-stat-number">[ # ]</div><div class="sub-stat-label">Retail Stockists</div></div>
-      <div class="sub-stat"><div class="sub-stat-number">[ # ]</div><div class="sub-stat-label">Device Brands</div></div>
-      <div class="sub-stat"><div class="sub-stat-number">[ # ]</div><div class="sub-stat-label">SKUs Distributed</div></div>
     </div>
-  </div>
 </section>
 
 <section class="pad" style="background:var(--dark-2);">
@@ -123,37 +112,37 @@ export default function PhonesPage() {
     <!-- PLACEHOLDER: Full product and brand list from Phones MD session -->
     <div class="cats-grid">
       <div class="cat-card">
-        <span class="cat-icon">📱</span>
+        <span class="cat-icon"><i class="ri-smartphone-line"></i></span>
         <div class="cat-name">Smartphones</div>
         <p class="cat-desc">Android smartphones across all price tiers — entry-level, mid-range, and premium. The primary driver of Nigeria's mobile retail market. Brand list to be confirmed with MD.</p>
         <div class="tags"><span class="tag">[ Brands — TBD ]</span><span class="tag">Android</span></div>
       </div>
       <div class="cat-card">
-        <span class="cat-icon">📟</span>
+        <span class="cat-icon"><i class="ri-device-line"></i></span>
         <div class="cat-name">Feature Phones</div>
         <p class="cat-desc">Durable, affordable feature phones for markets where connectivity matters more than computing power. Strong demand in rural and semi-urban markets across Northern Nigeria.</p>
         <div class="tags"><span class="tag">[ Brands — TBD ]</span></div>
       </div>
       <div class="cat-card">
-        <span class="cat-icon">🎧</span>
+        <span class="cat-icon"><i class="ri-headphone-line"></i></span>
         <div class="cat-name">Audio Accessories</div>
         <p class="cat-desc">Earphones, headphones, Bluetooth speakers, and audio accessories. High-margin accessory category with fast stock turnover at retail level.</p>
         <div class="tags"><span class="tag">[ Brands — TBD ]</span></div>
       </div>
       <div class="cat-card">
-        <span class="cat-icon">🔋</span>
+        <span class="cat-icon"><i class="ri-battery-line"></i></span>
         <div class="cat-name">Chargers &amp; Power Banks</div>
         <p class="cat-desc">Essential accessories in Nigeria's energy-constrained market. Chargers, power banks, cables, and adapters in consistently high demand across all market segments.</p>
         <div class="tags"><span class="tag">[ Brands — TBD ]</span></div>
       </div>
       <div class="cat-card">
-        <span class="cat-icon">🛡️</span>
+        <span class="cat-icon"><i class="ri-shield-line"></i></span>
         <div class="cat-name">Phone Protection</div>
         <p class="cat-desc">Cases, screen protectors, tempered glass, and device protection accessories. High-velocity retail item with strong attach rate at point of sale.</p>
         <div class="tags"><span class="tag">[ Brands — TBD ]</span></div>
       </div>
       <div class="cat-card" style="opacity:0.4;border:1px dashed rgba(255,255,255,0.08);">
-        <span class="cat-icon" style="opacity:0.4;">➕</span>
+        <span class="cat-icon" style="opacity:0.4;"><i class="ri-add-line"></i></span>
         <div class="cat-name" style="color:var(--muted);">Additional Categories</div>
         <p class="cat-desc">Smart watches, tablets, Wi-Fi routers, and further accessories to be confirmed with Phones MD. Full product catalogue coming after data session.</p>
       </div>
@@ -192,25 +181,25 @@ export default function PhonesPage() {
     <!-- PLACEHOLDER: Stockist numbers from Phones MD session -->
     <div class="stockist-grid">
       <div class="stockist-card">
-        <div class="st-icon">🏪</div>
+        <div class="st-icon"><i class="ri-store-2-line"></i></div>
         <div class="st-name">Phone Shops &amp; Kiosks</div>
         <p class="st-desc">Independent phone retailers and kiosks in markets, shopping centres, and roadside locations across Northern Nigeria.</p>
         <div class="st-count">[ # ] stockists</div>
       </div>
       <div class="stockist-card">
-        <div class="st-icon">🛒</div>
+        <div class="st-icon"><i class="ri-shopping-cart-line"></i></div>
         <div class="st-name">Electronics Supermarkets</div>
         <p class="st-desc">Formal electronics retail chains and multi-brand stores requiring consistent wholesale supply across multiple locations.</p>
         <div class="st-count">[ # ] accounts</div>
       </div>
       <div class="stockist-card">
-        <div class="st-icon">🏬</div>
+        <div class="st-icon"><i class="ri-store-3-line"></i></div>
         <div class="st-name">Market Traders</div>
         <p class="st-desc">Open-market phone traders in Kano's Computer Village and electronics sections of major markets — high-volume, fast-moving accounts.</p>
         <div class="st-count">[ # ] traders</div>
       </div>
       <div class="stockist-card">
-        <div class="st-icon">🌍</div>
+        <div class="st-icon"><i class="ri-earth-line"></i></div>
         <div class="st-name">Cross-Border Buyers</div>
         <p class="st-desc">Bulk buyers supplying Cameroon, Chad, Niger, and other neighbouring markets through Asia Group's established cross-border trade infrastructure.</p>
         <div class="st-count">[ # ] buyers</div>
@@ -222,12 +211,11 @@ export default function PhonesPage() {
 
 <!-- ══ OUR LOCATIONS ══ -->
 ` }} />
-<section style={{padding:'100px 60px', background:'var(--dark)'}}>
+<section style={{padding:'clamp(60px, 10vw, 100px) clamp(24px, 5vw, 60px)', background:'var(--dark)'}}>
   <div style={{maxWidth:'1300px', margin:'0 auto'}}>
     <div dangerouslySetInnerHTML={{ __html: `
-    <div style="font-family:var(--font-condensed);font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--silver-light);display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="display:block;width:30px;height:1px;background:var(--silver-light);"></span>Asia Phones Locations Across Kano</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px;">
-      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--white);line-height:1.1;">Find Us Near You</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 400px), 1fr));gap:40px;align-items:end;margin-bottom:48px;">
+      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:bold;color:var(--white);line-height:1.1;">Find Us Near You</h2>
       <p style="font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.5);">Asia Phones operates [ # ] phones and accessories distribution hubs across Kano. Every location is fully staffed, stocked, and ready to serve — from walk-in buyers to contract wholesale accounts.</p>
     </div>
     ` }} />
@@ -238,7 +226,7 @@ export default function PhonesPage() {
 
     <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
       <p style="font-size:13px;color:var(--muted);font-weight:300;">* Location cards updated with real data and photographs after field visit sessions.</p>
-      <a href="../operations/index.html" style="font-family:var(--font-condensed);font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--silver-light);text-decoration:none;">View All 19 Asia Group Locations →</a>
+      <a href="../operations/index.html" class="btn-primary" style="margin-top:24px; background:var(--white); color:#000;">View All 19 Asia Group Locations →</a>
     </div>
 ` }} />
   </div>
@@ -247,7 +235,7 @@ export default function PhonesPage() {
 
 <section class="cta-band">
   <div class="cta-inner">
-    <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--white);">Ready to stock the<br>latest devices?</h2>
+    <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:bold;color:var(--white);">Ready to stock the<br>latest devices?</h2>
     <a href="../index.html#contact" class="btn-primary">Enquire as a Stockist →</a>
   </div>
 </section>

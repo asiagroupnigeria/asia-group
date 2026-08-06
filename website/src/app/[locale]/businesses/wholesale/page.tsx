@@ -7,7 +7,8 @@ export default function WholesalePage() {
   const subsidiaryLocations = locations.filter(loc => loc.subsidiaryId === 'wholesale');
   return (
     <div className="wholesale-page">
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   
   html { scroll-behavior: smooth; }
@@ -64,39 +65,15 @@ export default function WholesalePage() {
     margin-bottom: 24px;
   }
   .sub-breadcrumb a { color: var(--text-muted); text-decoration: none; }
-  .sub-eyebrow {
-    font-family: var(--font-condensed); font-size: 12px; font-weight: 600;
-    letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted);
-    display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
-  }
-  .sub-eyebrow::before { content:''; display:block; width:30px; height:1px; background: var(--text-muted); }
   .sub-hero-title {
     font-family: var(--font-display); font-size: clamp(48px, 6vw, 88px);
-    font-weight: 300; line-height: 1.0; color: var(--white); max-width: 800px;
+    font-weight: bold; line-height: 1.0; color: var(--white); max-width: 800px;
   }
   .sub-hero-title em { font-style: italic; color: var(--silver-light); }
   .sub-hero-desc {
     font-size: 17px; font-weight: 300; line-height: 1.85;
     color: rgba(255,255,255,0.6); max-width: 580px; margin-top: 24px;
   }
-  .sub-hero-stats {
-    display: flex; gap: 0; margin-top: 48px;
-    border: 1px solid rgba(255,255,255,0.08); width: fit-content;
-  }
-  .sub-stat {
-    padding: 24px 40px; border-right: 1px solid rgba(0,0,0,0.08);
-    background: rgba(10,10,10,0.7); backdrop-filter: blur(10px);
-  }
-  .sub-stat:last-child { border-right: none; }
-  .sub-stat-number {
-    font-family: var(--font-condensed); font-size: 28px; font-weight: 700;
-    color: var(--text-muted); line-height: 1;
-  }
-  .sub-stat-label {
-    font-family: var(--font-body); font-size: 11px; font-weight: 400;
-    letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-top: 6px;
-  }
-
   /* PRODUCTS */
   .products-section { padding: 120px 60px; background: var(--bg-card); }
   .products-inner { max-width: 1300px; margin: 0 auto; }
@@ -252,7 +229,7 @@ export default function WholesalePage() {
     display: flex; align-items: center; justify-content: space-between;
     gap: 40px; flex-wrap: wrap;
   }
-  .cta-band h2 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 56px); font-weight: 300; color: var(--text-main); }
+  .cta-band h2 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 56px); font-weight: bold; color: var(--text-main); }
   .cta-band h2 em { font-style: italic; color: var(--text-muted); }
   .btn-primary {
     font-family: var(--font-condensed); font-size: 13px; font-weight: 600;
@@ -288,7 +265,8 @@ export default function WholesalePage() {
     .principals-grid { grid-template-columns: 1fr 1fr 1fr; }
     .cta-band-inner { flex-direction: column; align-items: flex-start; }
   }` }} />
-      <div dangerouslySetInnerHTML={{ __html: `
+      <div dangerouslySetInnerHTML={{
+        __html: `
 
 
 
@@ -303,38 +281,14 @@ export default function WholesalePage() {
   <div class="sub-hero-content">
     <div class="sub-breadcrumb">
       <a href="../index.html">Asia Group</a>
-      <span>/</span>
-      <span>Subsidiaries</span>
-      <span>/</span>
-      <span style="color: var(--white);">Wholesale &amp; Distribution</span>
     </div>
-    <div class="sub-eyebrow">Core Business — Since 1988</div>
-    <h1 class="sub-hero-title">
-      Africa's #1<br>
-      Wholesale &amp;<br>Distribution Engine
-    </h1>
+    
+    <h1 class="sub-hero-title">Africa's #1<br>
+      Wholesale &amp;<br>Distribution Engine</h1>
     <p class="sub-hero-desc">
       The largest detergent distributor on the African continent. Moving millions of tonnes of essential goods every year across Nigeria and beyond — powered by an unmatched logistics network and 36 years of trusted relationships.
     </p>
-    <div class="sub-hero-stats">
-      <div class="sub-stat">
-        <div class="sub-stat-number">100,000T</div>
-        <div class="sub-stat-label">Detergent / Year</div>
-      </div>
-      <div class="sub-stat">
-        <div class="sub-stat-number">#1</div>
-        <div class="sub-stat-label">In Africa</div>
-      </div>
-      <div class="sub-stat">
-        <div class="sub-stat-number">30+</div>
-        <div class="sub-stat-label">Brand Principals</div>
-      </div>
-      <div class="sub-stat">
-        <div class="sub-stat-number">4</div>
-        <div class="sub-stat-label">Countries</div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- PRODUCTS -->
@@ -345,11 +299,11 @@ export default function WholesalePage() {
     <div class="products-grid">
 
       <div class="product-card">
-        <span class="product-icon">🧴</span>
+        <span class="product-icon"><i class="ri-flask-line"></i></span>
         <div class="product-name">Detergents &amp; Soaps</div>
         <div class="product-volume">100,000<span style="font-size:18px;"> T/yr</span></div>
         <div class="product-volume-note">Africa's highest distribution volume</div>
-        <p class="product-desc">OMO, Ariel, Sunlight and full PZ Cussons product range. Distributed wholesale to retailers, institutions, and cross-border buyers.</p>
+        <p class="product-desc">OMO, Ariel, Sunlight and full Aspira Nigeria product range. Distributed wholesale to retailers, institutions, and cross-border buyers.</p>
         <div class="product-brands">
           <span class="brand-tag">PZ Cussons</span>
           <span class="brand-tag">Unilever</span>
@@ -358,7 +312,7 @@ export default function WholesalePage() {
       </div>
 
       <div class="product-card">
-        <span class="product-icon">🍬</span>
+        <span class="product-icon"><i class="ri-cake-3-line"></i></span>
         <div class="product-name">Sugar</div>
         <div class="product-volume" style="color: rgba(212,172,13,0.5); font-size: 22px;">Figure<br>Pending</div>
         <div class="product-volume-note">Confirmed annual volumes — coming after CEO data session</div>
@@ -370,7 +324,7 @@ export default function WholesalePage() {
       </div>
 
       <div class="product-card">
-        <span class="product-icon">🌾</span>
+        <span class="product-icon"><i class="ri-plant-line"></i></span>
         <div class="product-name">Rice</div>
         <div class="product-volume" style="color: rgba(212,172,13,0.5); font-size: 22px;">Figure<br>Pending</div>
         <div class="product-volume-note">Confirmed annual volumes — coming after CEO data session</div>
@@ -383,7 +337,7 @@ export default function WholesalePage() {
       </div>
 
       <div class="product-card">
-        <span class="product-icon">🧂</span>
+        <span class="product-icon"><i class="ri-blaze-line"></i></span>
         <div class="product-name">Seasoning &amp; Condiments</div>
         <div class="product-volume" style="color: rgba(212,172,13,0.5); font-size: 22px;">Figure<br>Pending</div>
         <div class="product-volume-note">Confirmed annual volumes — coming after CEO data session</div>
@@ -396,7 +350,7 @@ export default function WholesalePage() {
       </div>
 
       <div class="product-card">
-        <span class="product-icon">🍶</span>
+        <span class="product-icon"><i class="ri-cup-line"></i></span>
         <div class="product-name">Pommades &amp; Body Care</div>
         <div class="product-volume" style="color: rgba(212,172,13,0.5); font-size: 22px;">Figure<br>Pending</div>
         <div class="product-volume-note">Confirmed annual volumes — coming after CEO data session</div>
@@ -408,7 +362,7 @@ export default function WholesalePage() {
       </div>
 
       <div class="product-card">
-        <span class="product-icon">🌽</span>
+        <span class="product-icon"><i class="ri-plant-line"></i></span>
         <div class="product-name">Flour &amp; Grains</div>
         <div class="product-volume" style="color: rgba(212,172,13,0.5); font-size: 22px;">Figure<br>Pending</div>
         <div class="product-volume-note">Confirmed annual volumes — coming after CEO data session</div>
@@ -421,7 +375,7 @@ export default function WholesalePage() {
       </div>
 
       <div class="product-card">
-        <span class="product-icon">🥤</span>
+        <span class="product-icon"><i class="ri-cup-line"></i></span>
         <div class="product-name">Beverages (Soft Drinks)</div>
         <div class="product-volume" style="color: rgba(212,172,13,0.5); font-size: 22px;">Figure<br>Pending</div>
         <div class="product-volume-note">Confirmed annual volumes — coming after CEO data session</div>
@@ -434,7 +388,7 @@ export default function WholesalePage() {
 
       <!-- Placeholder for additional categories to be confirmed -->
       <div class="product-card" style="opacity: 0.4; border: 1px dashed rgba(255,255,255,0.08);">
-        <span class="product-icon" style="opacity:0.4;">➕</span>
+        <span class="product-icon" style="opacity:0.4;"><i class="ri-add-line"></i></span>
         <div class="product-name" style="color: var(--muted);">Additional Categories</div>
         <div class="product-volume" style="font-size:16px; color: var(--muted);">To Be Confirmed</div>
         <p class="product-desc">Further product categories and annual distribution volumes to be added after executive data sessions with the Group Chairman and MD.</p>
@@ -458,7 +412,7 @@ export default function WholesalePage() {
           <p>MEDIA PLACEHOLDER<br>Kano Main Warehouse<br>Exterior / Aerial Drone</p>
         </div>
         <div class="warehouse-info">
-          <div class="warehouse-location">🇳🇬 Kano, Nigeria</div>
+          <div class="warehouse-location"><i class="ri-flag-line"></i> Kano, Nigeria</div>
           <div class="warehouse-name">Kano Central Distribution Hub</div>
           <!-- PLACEHOLDER: Confirm warehouse dimensions, capacity, and year opened with operations team -->
           <div class="warehouse-specs">
@@ -481,7 +435,7 @@ export default function WholesalePage() {
           <p>MEDIA PLACEHOLDER<br>Niger State Head Office<br>Opened 2019</p>
         </div>
         <div class="warehouse-info">
-          <div class="warehouse-location">🇳🇬 Niger State, Nigeria</div>
+          <div class="warehouse-location"><i class="ri-flag-line"></i> Niger State, Nigeria</div>
           <div class="warehouse-name">Niger State Head Office &amp; Warehouse</div>
           <div class="warehouse-specs">
             <div class="warehouse-spec">
@@ -503,7 +457,7 @@ export default function WholesalePage() {
           <p>MEDIA PLACEHOLDER<br>Regional Cross-Border Facility<br>Cameroon / Chad / Niger</p>
         </div>
         <div class="warehouse-info">
-          <div class="warehouse-location">🌍 Regional Operations</div>
+          <div class="warehouse-location"><i class="ri-earth-line"></i> Regional Operations</div>
           <div class="warehouse-name">Cross-Border Distribution Centres</div>
           <div class="warehouse-specs">
             <div class="warehouse-spec">
@@ -543,7 +497,7 @@ export default function WholesalePage() {
       </p>
       <div class="logistics-list">
         <div class="logistics-item">
-          <div class="logistics-item-icon">🚛</div>
+          <div class="logistics-item-icon"><i class="ri-truck-line"></i></div>
           <div>
             <div class="logistics-item-title">Dedicated Truck Fleet</div>
             <!-- PLACEHOLDER: Fleet size to be confirmed -->
@@ -551,21 +505,21 @@ export default function WholesalePage() {
           </div>
         </div>
         <div class="logistics-item">
-          <div class="logistics-item-icon">🗺️</div>
+          <div class="logistics-item-icon"><i class="ri-map-pin-line"></i></div>
           <div>
             <div class="logistics-item-title">Cross-Border Trade Routes</div>
             <div class="logistics-item-desc">Established trade corridors into Cameroon, Chad, and Niger. Customs expertise and bonded warehousing for seamless cross-border clearance.</div>
           </div>
         </div>
         <div class="logistics-item">
-          <div class="logistics-item-icon">📦</div>
+          <div class="logistics-item-icon"><i class="ri-archive-line"></i></div>
           <div>
             <div class="logistics-item-title">Last-Mile Distribution</div>
             <div class="logistics-item-desc">Network of sub-distributors, agents, and retail stockists ensuring product availability at every market level — from container buyers to individual retailers.</div>
           </div>
         </div>
         <div class="logistics-item">
-          <div class="logistics-item-icon">⏱️</div>
+          <div class="logistics-item-icon"><i class="ri-timer-line"></i></div>
           <div>
             <div class="logistics-item-title">24/7 Operational Capacity</div>
             <div class="logistics-item-desc">Round-the-clock warehouse operations during peak periods, with dedicated loading and dispatch teams managing high-volume orders without delays.</div>
@@ -640,25 +594,27 @@ export default function WholesalePage() {
 
 <!-- ══ OUR LOCATIONS ══ -->
 ` }} />
-<section style={{padding:'100px 60px', background:'var(--dark)'}}>
-  <div style={{maxWidth:'1300px', margin:'0 auto'}}>
-    <div dangerouslySetInnerHTML={{ __html: `
-    <div style="font-family:var(--font-condensed);font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--silver-light);display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="display:block;width:30px;height:1px;background:var(--silver-light);"></span>Wholesale Locations Across Kano</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px;">
-      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--white);line-height:1.1;">Every Location,<br>Ready to Serve You</h2>
+      <section style={{ padding: 'clamp(60px, 10vw, 100px) clamp(24px, 5vw, 60px)', background: 'var(--dark)' }}>
+        <div style={{ maxWidth: '1300px', margin: '0 auto' }}>
+          <div dangerouslySetInnerHTML={{
+            __html: `
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 400px), 1fr));gap:40px;align-items:end;margin-bottom:48px;">
+      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:bold;color:var(--white);line-height:1.1;">Every Location,<br>Ready to Serve You</h2>
       <p style="font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.5);">Asia Group's wholesale and distribution facilities span [ # ] locations across Kano — each with dedicated loading bays, trained staff, and direct stock access to all product categories. Every location is a full-service distribution point.</p>
     </div>
     ` }} />
-    <LocationsGrid locations={subsidiaryLocations} hideFilter={true} />
-    <div dangerouslySetInnerHTML={{ __html: `
+          <LocationsGrid locations={subsidiaryLocations} hideFilter={true} />
+          <div dangerouslySetInnerHTML={{
+            __html: `
     <div style="margin-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
       <p style="font-size:13px;color:var(--muted);font-weight:300;">* All location cards to be completed with field visit data, photographs, and confirmed figures.</p>
       <a href="../operations/index.html" style="font-family:var(--font-condensed);font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--silver-light);text-decoration:none;">View All 19 Locations →</a>
     </div>
     ` }} />
-  </div>
-</section>
-<div dangerouslySetInnerHTML={{ __html: `
+        </div>
+      </section>
+      <div dangerouslySetInnerHTML={{
+        __html: `
 <!-- CTA -->
 <section class="cta-band">
   <div class="cta-band-inner">

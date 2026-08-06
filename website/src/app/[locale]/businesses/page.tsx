@@ -52,11 +52,34 @@ export default async function BusinessesPage() {
       <section className="section bg-dark-2">
         <div className="inner">
           <div className="grid-3">
+            {/* Promo card dynamically rendered to match homepage */}
+            {promoCard && (
+              <Link 
+                href={`/businesses/${promoCard.slug}`} 
+                className="subsidiary-card subsidiary-card--promo fade-up delay-1"
+                style={{
+                  zIndex: 2,
+                  '--promo-bg': `url('${promoCard.hero_image}')`
+                } as React.CSSProperties}
+              >
+                <div>
+                  <div className="subsidiary-card__name">{promoCard.title}</div>
+                  <div className="subsidiary-card__sector">{promoCard.tagline}</div>
+                  <p className="subsidiary-card__desc">
+                    {promoCard.description}
+                  </p>
+                </div>
+                <div style={{ flexShrink: 0 }}>
+                  <span className="btn btn--primary" style={{ whiteSpace: 'nowrap' }}>Explore Wholesale →</span>
+                </div>
+              </Link>
+            )}
+
             {normalCards.map((sub, i) => (
               <Link 
                 key={i} 
                 href={`/businesses/${sub.slug}`} 
-                className="subsidiary-card fade-up delay-1"
+                className="subsidiary-card fade-up delay-2"
                 style={{ 
                   '--sub-color': subsidiaryColors[sub.slug] || 'var(--green-bright)',
                   backgroundImage: `url(${sub.hero_image})`,
@@ -75,29 +98,6 @@ export default async function BusinessesPage() {
                 <div className="subsidiary-card__arrow">→</div>
               </Link>
             ))}
-
-            {/* Promo card dynamically rendered to match homepage */}
-            {promoCard && (
-              <Link 
-                href={`/businesses/${promoCard.slug}`} 
-                className="subsidiary-card subsidiary-card--promo fade-up delay-2"
-                style={{
-                  zIndex: 2,
-                  '--promo-bg': `url('${promoCard.hero_image}')`
-                } as React.CSSProperties}
-              >
-                <div>
-                  <div className="subsidiary-card__name">{promoCard.title}</div>
-                  <div className="subsidiary-card__sector">{promoCard.tagline}</div>
-                  <p className="subsidiary-card__desc">
-                    {promoCard.description}
-                  </p>
-                </div>
-                <div style={{ flexShrink: 0 }}>
-                  <span className="btn btn--primary" style={{ whiteSpace: 'nowrap' }}>Explore Wholesale →</span>
-                </div>
-              </Link>
-            )}
           </div>
         </div>
       </section>
