@@ -31,7 +31,7 @@ export default function PharmaceuticalsPage() {
   }
   .sub-hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.4) 60%, transparent 100%); }
   .sub-hero-content { position:relative; z-index:2; padding:80px 60px; max-width:1300px; margin:0 auto; width:100%; }
-  h1 { font-family:var(--font-display); font-size:clamp(48px,6vw,88px); font-weight:bold; line-height:1.0; color:var(--white); max-width:800px; }
+  h1 { font-family:var(--font-display); font-size:clamp(48px,6vw,88px); font-weight:800; line-height:1.0; color:var(--white); max-width:800px; text-transform:uppercase; }
   h1 em { font-style:italic; color:var(--text-muted); }
   .sub-hero-desc { font-size:17px; font-weight:300; line-height:1.85; color:rgba(255,255,255,0.6); max-width:580px; margin-top:24px; }
   .section-tag { font-family:var(--font-condensed); font-size:11px; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--text-muted); display:flex; align-items:center; gap:12px; margin-bottom:20px; }
@@ -40,7 +40,7 @@ export default function PharmaceuticalsPage() {
   /* OVERVIEW */
   .overview-section { padding:120px 60px; background:var(--bg-card); }
   .overview-inner { max-width:1300px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
-  .overview-content h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:bold; color:var(--text-main); line-height:1.1; }
+  .overview-content h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:800; color:var(--text-main); line-height:1.1; text-transform:uppercase; }
   .overview-content h2 em { font-style:italic; color:var(--text-muted); }
   .overview-content p { font-size:15px; font-weight:300; line-height:1.85; color:rgba(0,0,0,0.55); margin-top:16px; }
   .overview-visual {
@@ -75,7 +75,7 @@ export default function PharmaceuticalsPage() {
   .reach-section { padding:120px 60px; background:var(--accent); position:relative; overflow:hidden; }
   .reach-section::before { content:'HEALTHCARE'; position:absolute; right:-20px; top:50%; transform:translateY(-50%); font-family:var(--font-condensed); font-size:200px; font-weight:800; color:rgba(255,255,255,0.04); pointer-events:none; white-space:nowrap; }
   .reach-inner { max-width:1300px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
-  .reach-content h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:bold; color:var(--white); line-height:1.1; }
+  .reach-content h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:800; color:var(--white); line-height:1.1; text-transform:uppercase; }
   .reach-content h2 em { font-style:italic; color:var(--silver-light); }
   .reach-content p { font-size:15px; font-weight:300; line-height:1.85; color:rgba(255,255,255,0.65); margin-top:16px; max-width:460px; }
   .reach-clients { display:flex; flex-direction:column; gap:0; border:1px solid rgba(255,255,255,0.15); margin-top:40px; }
@@ -92,9 +92,9 @@ export default function PharmaceuticalsPage() {
   }
   .reach-visual p { font-family:var(--font-condensed); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.2); text-align:center; padding:20px; }
 
-  .cta-band { padding:100px 60px; background:var(--bg-card); }
+  .cta-band { padding:100px 60px; background:var(--bg-muted); }
   .cta-band-inner { max-width:1300px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
-  .cta-band h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:bold; color:var(--text-main); }
+  .cta-band h2 { font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:800; color:var(--text-main); text-transform:uppercase; }
   .cta-band h2 em { font-style:italic; color:var(--text-muted); }
   .btn-primary { font-family:var(--font-condensed); font-size:13px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--bg-main); background:var(--text-muted); padding:18px 48px; text-decoration:none; display:inline-block; white-space:nowrap; transition:background 0.2s; }
   .btn-primary:hover { background:var(--text-main); }
@@ -236,7 +236,7 @@ export default function PharmaceuticalsPage() {
   <div style={{maxWidth:'1300px', margin:'0 auto'}}>
     <div dangerouslySetInnerHTML={{ __html: `
     <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 400px), 1fr));gap:40px;align-items:end;margin-bottom:48px;">
-      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:bold;color:var(--white);line-height:1.1;">Find Us Near You</h2>
+      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:800;color:var(--white);line-height:1.1;text-transform:uppercase;">Find Us Near You</h2>
       <p style="font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.5);">Asia Pharmacy operates over 15 pharmacy outlets and distribution points across Kano. Every location is fully staffed, stocked, and ready to serve — from walk-in buyers to contract wholesale accounts.</p>
     </div>
     ` }} />
@@ -245,9 +245,8 @@ export default function PharmaceuticalsPage() {
 
 <div dangerouslySetInnerHTML={{ __html: `
 
-    <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-      
-      <a href="../operations/index.html" class="btn-primary" style="margin-top:24px; background:var(--white); color:#000;">View All 19 Asia Group Locations →</a>
+    <div style="margin-top:24px;display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px;">
+      <a href="/operations" class="btn-primary" style="background:var(--white); color:#000;">View All 19 Asia Group Locations →</a>
     </div>
 ` }} />
   </div>

@@ -43,12 +43,35 @@ export function SubsidiariesGrid({ businesses }: SubsidiariesGridProps) {
         />
       ))}
 
+      {/* Promo card */}
+      {promoCard && (
+        <Link 
+          href={`/businesses/${promoCard.slug}`} 
+          className="subsidiary-card subsidiary-card--promo fade-up delay-1" 
+          style={{ 
+            zIndex: 2,
+            '--promo-bg': `url('${promoCard.hero_image}')`
+          } as React.CSSProperties}
+        >
+          <div>
+            <div className="subsidiary-card__name">{promoCard.title}</div>
+            <div className="subsidiary-card__sector">{promoCard.tagline}</div>
+            <p className="subsidiary-card__desc">
+              {promoCard.description}
+            </p>
+          </div>
+          <div style={{ flexShrink: 0 }}>
+            <span className="btn btn--primary" style={{ whiteSpace: 'nowrap' }}>Explore Wholesale →</span>
+          </div>
+        </Link>
+      )}
+
       {/* Main Grid Cards */}
       {normalCards.map((sub, i) => (
         <Link 
           key={i} 
           href={`/businesses/${sub.slug}`} 
-          className="subsidiary-card fade-up"
+          className="subsidiary-card fade-up delay-2"
           onMouseEnter={() => setHoveredIndex(i)}
           onMouseLeave={() => setHoveredIndex(null)}
           style={{
@@ -72,29 +95,6 @@ export function SubsidiariesGrid({ businesses }: SubsidiariesGridProps) {
           <div className="subsidiary-card__arrow">→</div>
         </Link>
       ))}
-
-      {/* Promo card */}
-      {promoCard && (
-        <Link 
-          href={`/businesses/${promoCard.slug}`} 
-          className="subsidiary-card subsidiary-card--promo fade-up delay-2" 
-          style={{ 
-            zIndex: 2,
-            '--promo-bg': `url('${promoCard.hero_image}')`
-          } as React.CSSProperties}
-        >
-          <div>
-            <div className="subsidiary-card__name">{promoCard.title}</div>
-            <div className="subsidiary-card__sector">{promoCard.tagline}</div>
-            <p className="subsidiary-card__desc">
-              {promoCard.description}
-            </p>
-          </div>
-          <div>
-            <span className="btn btn--primary" style={{ whiteSpace: 'nowrap' }}>Explore Wholesale →</span>
-          </div>
-        </Link>
-      )}
     </div>
   );
 }

@@ -1,7 +1,58 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+
+function AutoplayVideo({ src, style }: { src: string; style?: React.CSSProperties }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.load();
+      video.play().catch((err) => {
+        console.warn("Video autoplay prevented or failed:", err);
+      });
+    }
+  }, [src]);
+
+  return (
+    <video
+      ref={videoRef}
+      src={src}
+      autoPlay
+      muted
+      loop
+      playsInline
+      style={style}
+    />
+  );
+}
+
+/** Renders a video (autoplay/muted/loop) for .mp4 paths, or a CSS background-image div for images. */
+function MediaThumbnail({ src, className, style, children }: { src: string; className: string; style?: React.CSSProperties; children?: React.ReactNode }) {
+  if (src && src.endsWith('.mp4')) {
+    return (
+      <div className={className} style={{ position: 'relative', overflow: 'hidden', ...style }}>
+        <AutoplayVideo
+          src={src}
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+        {children}
+      </div>
+    );
+  }
+  return (
+    <div
+      className={className}
+      style={{ backgroundImage: src ? `url(${src})` : 'none', backgroundSize: 'cover', backgroundPosition: 'center', ...style }}
+    >
+      {children}
+    </div>
+  );
+}
 
 export interface NewsItem {
   slug: string;
@@ -68,9 +119,9 @@ export function NewsClient({ initialNews }: { initialNews: NewsItem[] }) {
         <section className="featured-section">
           <div key={featuredArticle.slug} className="featured-inner fade-up">
             <Link href={`/news/${featuredArticle.slug}`} className="featured-article">
-              <div className="featured-img" style={{ backgroundImage: `url(${featuredArticle.hero_image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+              <MediaThumbnail src={featuredArticle.hero_image} className="featured-img">
                 <div className="featured-label">Featured</div>
-              </div>
+              </MediaThumbnail>
               <div className="featured-body">
                 <div className="article-category">{featuredArticle.category}</div>
                 <h2 className="article-title">{featuredArticle.title}</h2>
@@ -96,8 +147,7 @@ export function NewsClient({ initialNews }: { initialNews: NewsItem[] }) {
             <div key={activeFilter} className="articles-grid">
               {paginatedGridArticles.map((article, i) => (
                 <Link key={article.slug} href={`/news/${article.slug}`} className={`article-card fade-up delay-${(i % 3) + 1}`}>
-                  <div className="article-img" style={{ backgroundImage: `url(${article.hero_image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                  </div>
+                  <MediaThumbnail src={article.hero_image} className="article-img" />
                   <div className="article-body">
                     <div className="article-category">{article.category}</div>
                     <div className="article-title">{article.title}</div>

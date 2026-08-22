@@ -26,7 +26,7 @@ export default async function BusinessMicrosite({ params }: { params: Promise<{ 
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 to-slate-900/50 z-10" />
         {/* PLACEHOLDER: specific business unit image e.g. /public/media/images/business/{slug}-hero.webp */}
         <div className="container relative z-20 px-4 md:px-8 pt-20">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-4">{data.title}</h1>
+          <h1 className="text-4xl md:text-6xl font-extrabold uppercase text-white tracking-tight mb-4">{data.title}</h1>
           <p className="text-xl text-slate-300 max-w-2xl mb-8">
             Detailed overview of our {data.title} division. Content managed dynamically via Sveltia CMS.
           </p>
@@ -41,7 +41,7 @@ export default async function BusinessMicrosite({ params }: { params: Promise<{ 
       <section className="py-24 container px-4 md:px-8">
         <div className="grid md:grid-cols-2 gap-16 mb-24">
           <div>
-            <h2 className="text-3xl font-bold mb-6">Division Overview</h2>
+            <h2 className="text-3xl font-extrabold uppercase mb-6">Division Overview</h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
               This section is populated directly from the Markdown body field in the Sveltia CMS 'Businesses' collection.
               It details the strategic importance of the division, the regional reach, and the operational capacity.
@@ -54,7 +54,7 @@ export default async function BusinessMicrosite({ params }: { params: Promise<{ 
 
         {/* Categories Placeholder */}
         <div className="mb-24">
-           <h2 className="text-3xl font-bold mb-8">Product Categories</h2>
+           <h2 className="text-3xl font-extrabold uppercase mb-8">Product Categories</h2>
            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
              {[1,2,3,4].map(i => (
                <div key={i} className="aspect-square bg-card rounded-2xl border border-border flex items-center justify-center hover:border-primary transition-colors cursor-pointer">
@@ -66,7 +66,7 @@ export default async function BusinessMicrosite({ params }: { params: Promise<{ 
         
         {/* CTA */}
         <div className="bg-primary/5 rounded-3xl p-12 border border-primary/10 text-center max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4">Partner with {data.title}</h2>
+          <h2 className="text-3xl font-extrabold uppercase mb-4">Partner with {data.title}</h2>
           <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
             Join our distribution network or become a supplier. We are constantly expanding our portfolio to serve Africa better.
           </p>

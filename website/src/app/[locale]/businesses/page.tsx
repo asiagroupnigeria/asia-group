@@ -39,7 +39,7 @@ export default async function BusinessesPage() {
       <section className="page-header">
         <div className="page-header__watermark" aria-hidden="true">BUSINESSES</div>
         <div className="inner">
-          <h1 className="display-title">
+          <h1 className="display-title" style={{ textTransform: 'uppercase', fontWeight: 800 }}>
             Six Pillars of a<br />Diversified Empire
           </h1>
           <p className="page-header__desc">

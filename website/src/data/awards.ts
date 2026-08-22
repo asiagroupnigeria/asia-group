@@ -7,16 +7,16 @@ export interface AwardData {
 }
 
 export const awardsData: AwardData[] = [
-  { id: '01', issuer: 'PZ Cussons Nigeria', name: 'Africa\'s #1 Detergent Distribution Partner', year: 'Ongoing', image: '/media/award_placeholder.png' },
-  { id: '02', issuer: 'Kano Chamber of Commerce', name: 'Business Enterprise of the Year', year: '2023', image: '/media/award_placeholder.png' },
-  { id: '03', issuer: '7UP Bottling Company', name: 'Top Regional Distributor', year: '2022', image: '/media/award_placeholder.png' },
-  { id: '04', issuer: 'NAFDAC', name: 'Excellence in Pharmaceutical Handling', year: '2023', image: '/media/award_placeholder.png' },
-  { id: '05', issuer: 'Mikano Motors', name: 'Outstanding Sales Performance', year: '2022', image: '/media/award_placeholder.png' },
-  { id: '06', issuer: 'SinoTruck', name: 'Premium Dealership Award', year: '2021', image: '/media/award_placeholder.png' },
-  { id: '07', issuer: 'Federal Ministry of Trade', name: 'National Commerce Builder', year: '2023', image: '/media/award_placeholder.png' },
-  { id: '08', issuer: 'Aspira Nigeria', name: 'Platinum Distribution Partner', year: '2022', image: '/media/award_placeholder.png' },
-  { id: '09', issuer: 'Bua Group', name: 'Strategic Growth Partner', year: '2021', image: '/media/award_placeholder.png' },
-  { id: '10', issuer: 'Nigerian Medical Association', name: 'Healthcare Access Contributor', year: '2023', image: '/media/award_placeholder.png' },
-  { id: '11', issuer: 'Transsion Holdings', name: 'Northern Region Retail Excellence', year: '2022', image: '/media/award_placeholder.png' },
-  { id: '12', issuer: 'Asia Group Board', name: 'Decade of Market Dominance', year: '2020', image: '/media/award_placeholder.png' },
+  { id: '01', issuer: 'OFI (Olam Food Ingredients)', name: 'Distribution Award', year: '2026', image: '/media/awards/ofi-2026-distribution-award.jpg' },
+  { id: '02', issuer: 'Euromega Atlantic Nigeria', name: 'Award of Recognition', year: '2025', image: '/media/awards/euromega-2025-recognition-award.jpg' },
+  { id: '03', issuer: 'Kungiyar Hausa Ta B.U.K.', name: 'Shaidar Karramawa Ga Sani Isa Asia', year: '2024', image: '/media/awards/buk-hausa-group-honorary-ward.jpg' },
+  { id: '04', issuer: 'Al-Quran School / Shaidar Girmamawa', name: 'Award of Appreciation', year: '2024', image: '/media/awards/alquran-school-appreciation-award.jpg' },
+  { id: '05', issuer: 'Kannywood', name: 'Honorary Award', year: '2024', image: '/media/awards/kannywood honorary-awrd.jpg' },
+  { id: '06', issuer: 'Singer Market Development Association', name: 'Award of Excellence', year: '2023', image: '/media/awards/smda-exellence-award.jpg' },
+  { id: '07', issuer: 'Kano State Government', name: 'Award of Recognition - Consumer Ambassador', year: '2023', image: '/media/awards/kano-goverbment-recognition-award.jpg' },
+  { id: '08', issuer: 'ADKF Alherin Dadinkowa Foundation', name: 'Award of Excellence', year: '2022', image: '/media/awards/adk-exellence-award.jpg' },
+  { id: '09', issuer: 'Mamuda Group', name: 'Best Performing Distributor', year: '2022', image: '/media/awards/mamuda-2021-2022-best-performing-distributor.jpg' },
+  { id: '10', issuer: 'UMD (United Marketing Distributors)', name: 'Appreciation and Mentorship Award', year: '2022', image: '/media/awards/umd-appreciation-and-mentorship-award.jpg' },
+  { id: '11', issuer: 'Euromega Atlantic Nigeria', name: 'Award of Excellence - Top GoodMama KW', year: '2021', image: '/media/awards/euro-mega-2021-execellence-award.jpg' },
+  { id: '12', issuer: 'So Klin / PZ Cussons', name: 'No.1 Distributor Award', year: '2013', image: '/media/awards/soklin2013-recognition-award.jpg' },
 ];

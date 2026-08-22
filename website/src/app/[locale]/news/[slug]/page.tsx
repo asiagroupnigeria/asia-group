@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getEntryBySlug, getCollection } from '@/lib/cms';
 import ReactMarkdown from 'react-markdown';
 import { FadeUpObserver } from '@/components/ui/fade-up-observer';
+import { ArticleGallery } from '@/components/ui/article-gallery';
 
 interface Props {
   params: Promise<{
@@ -28,7 +29,8 @@ export default async function ArticlePage({ params }: Props) {
     hero_image: entry.data.hero_image,
     excerpt: entry.data.excerpt,
     author: entry.data.author || 'Asia Group Communications',
-    read_time: entry.data.read_time || 3
+    read_time: entry.data.read_time || 3,
+    gallery: (entry.data.gallery || []) as string[],
   };
 
   // Fetch related articles (same category, exclude current)
@@ -51,14 +53,29 @@ export default async function ArticlePage({ params }: Props) {
     <div>
       {/* HERO */}
       <section className="article-hero">
-        <div 
-          className="article-hero-img" 
-          style={{ 
-            backgroundImage: `url(${article.hero_image})`, 
-            backgroundSize: 'cover', 
-            backgroundPosition: 'center' 
-          }}
-        />
+        {article.hero_image.endsWith('.mp4') ? (
+          <div className="article-hero-img">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+            >
+              <source src={article.hero_image} type="video/mp4" />
+            </video>
+          </div>
+
+        ) : (
+          <div
+            className="article-hero-img"
+            style={{
+              backgroundImage: `url(${article.hero_image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          />
+        )}
         <div className="article-hero-overlay"></div>
         <div className="article-hero-content">
           <div className="breadcrumb">
@@ -95,6 +112,13 @@ export default async function ArticlePage({ params }: Props) {
           <div className="article-body">
             <ReactMarkdown>{entry.content}</ReactMarkdown>
           </div>
+
+          {/* PHOTO GALLERY */}
+          {article.gallery.length > 0 && (
+            <div className="article-gallery">
+              <ArticleGallery items={article.gallery} title={article.title} />
+            </div>
+          )}
 
           {/* TAGS + SHARE */}
           <div className="article-footer">
