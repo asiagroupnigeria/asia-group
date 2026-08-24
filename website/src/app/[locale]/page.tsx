@@ -8,6 +8,30 @@ import { getCollection } from '@/lib/cms';
 
 import { PartnerCta } from '@/components/home/partner-cta';
 import { CommunityImpact } from '@/components/home/community-impact';
+
+function HomeMediaThumbnail({ src, className, style }: { src: string; className: string; style?: React.CSSProperties }) {
+  if (src && src.endsWith('.mp4')) {
+    return (
+      <div className={className} style={{ position: 'relative', overflow: 'hidden', ...style }}>
+        <video
+          src={src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      </div>
+    );
+  }
+  return (
+    <div
+      className={className}
+      style={{ backgroundImage: src ? `url(${src})` : 'none', backgroundSize: 'cover', backgroundPosition: 'center', ...style }}
+    />
+  );
+}
+
 export default async function Home() {
   // Fetch data from CMS
   const heroSlidesDocs = getCollection('hero_slides');
@@ -159,8 +183,7 @@ export default async function Home() {
           {/* Featured News */}
           {news[0] && (
             <Link href={`/news/${news[0].slug}`} className="news-card fade-up">
-              <div className="news-card__image news-card__image--featured" style={{ backgroundImage: `url(${news[0].hero_image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-              </div>
+              <HomeMediaThumbnail src={news[0].hero_image} className="news-card__image news-card__image--featured" />
               <div className="news-card__body">
                 <div className="news-card__category">{news[0].category}</div>
                 <h3 className="news-card__title news-card__title--lg">{news[0].title}</h3>
@@ -175,8 +198,7 @@ export default async function Home() {
           <div className="flex flex-col h-full" style={{ gap: '2px' }}>
             {news[1] && (
               <Link href={`/news/${news[1].slug}`} className="news-card fade-up delay-1" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div className="news-card__image news-card__image--thumb" style={{ backgroundImage: `url(${news[1].hero_image})`, backgroundSize: 'cover', backgroundPosition: 'center', aspectRatio: '16/9' }}>
-                </div>
+                <HomeMediaThumbnail src={news[1].hero_image} className="news-card__image news-card__image--thumb" style={{ aspectRatio: '16/9' }} />
                 <div className="news-card__body mt-auto">
                   <div className="news-card__category">{news[1].category}</div>
                   <h3 className="news-card__title news-card__title--sm">{news[1].title}</h3>
@@ -188,8 +210,7 @@ export default async function Home() {
             )}
             {news[2] && (
               <Link href={`/news/${news[2].slug}`} className="news-card fade-up delay-2" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div className="news-card__image news-card__image--thumb" style={{ backgroundImage: `url(${news[2].hero_image})`, backgroundSize: 'cover', backgroundPosition: 'center', aspectRatio: '16/9' }}>
-                </div>
+                <HomeMediaThumbnail src={news[2].hero_image} className="news-card__image news-card__image--thumb" style={{ aspectRatio: '16/9' }} />
                 <div className="news-card__body mt-auto">
                   <div className="news-card__category">{news[2].category}</div>
                   <h3 className="news-card__title news-card__title--sm">{news[2].title}</h3>
@@ -205,8 +226,7 @@ export default async function Home() {
           <div className="flex flex-col h-full" style={{ gap: '2px' }}>
             {news[3] && (
               <Link href={`/news/${news[3].slug}`} className="news-card fade-up delay-3" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div className="news-card__image news-card__image--thumb" style={{ backgroundImage: `url(${news[3].hero_image})`, backgroundSize: 'cover', backgroundPosition: 'center', aspectRatio: '16/9' }}>
-                </div>
+                <HomeMediaThumbnail src={news[3].hero_image} className="news-card__image news-card__image--thumb" style={{ aspectRatio: '16/9' }} />
                 <div className="news-card__body mt-auto">
                   <div className="news-card__category">{news[3].category}</div>
                   <h3 className="news-card__title news-card__title--sm">{news[3].title}</h3>
@@ -218,8 +238,7 @@ export default async function Home() {
             )}
             {news[4] && (
               <Link href={`/news/${news[4].slug}`} className="news-card fade-up delay-4" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div className="news-card__image news-card__image--thumb" style={{ backgroundImage: `url(${news[4].hero_image})`, backgroundSize: 'cover', backgroundPosition: 'center', aspectRatio: '16/9' }}>
-                </div>
+                <HomeMediaThumbnail src={news[4].hero_image} className="news-card__image news-card__image--thumb" style={{ aspectRatio: '16/9' }} />
                 <div className="news-card__body mt-auto">
                   <div className="news-card__category">{news[4].category}</div>
                   <h3 className="news-card__title news-card__title--sm">{news[4].title}</h3>
