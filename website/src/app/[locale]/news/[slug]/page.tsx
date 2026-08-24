@@ -5,6 +5,29 @@ import ReactMarkdown from 'react-markdown';
 import { FadeUpObserver } from '@/components/ui/fade-up-observer';
 import { ArticleGallery } from '@/components/ui/article-gallery';
 
+function RelatedMediaThumbnail({ src, className }: { src: string; className: string }) {
+  if (src && src.endsWith('.mp4')) {
+    return (
+      <div className={className} style={{ position: 'relative', overflow: 'hidden' }}>
+        <video
+          src={src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      </div>
+    );
+  }
+  return (
+    <div
+      className={className}
+      style={{ backgroundImage: src ? `url(${src})` : 'none', backgroundSize: 'cover', backgroundPosition: 'center' }}
+    />
+  );
+}
+
 interface Props {
   params: Promise<{
     slug: string;
@@ -151,8 +174,7 @@ export default async function ArticlePage({ params }: Props) {
             <div className="related-grid">
               {relatedMapped.map((rel, i) => (
                 <Link key={i} href={`/news/${rel.slug}`} className="related-card fade-up">
-                  <div className="related-img" style={{ backgroundImage: `url(${rel.hero_image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                  </div>
+                  <RelatedMediaThumbnail src={rel.hero_image} className="related-img" />
                   <div className="related-body">
                     <div className="related-cat">{rel.category}</div>
                     <div className="related-title">{rel.title}</div>
