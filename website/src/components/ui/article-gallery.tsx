@@ -92,17 +92,33 @@ export function ArticleGallery({ items, title }: ArticleGalleryProps) {
       </div>
 
       <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '24px',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+        gap: '16px',
         marginTop: '24px',
       }}>
         {items.map((src, i) => (
-          <div key={i} style={{ overflow: 'hidden', width: '100%', position: 'relative', borderRadius: 0 }}>
+          <div key={i} style={{ 
+            overflow: 'hidden', 
+            aspectRatio: '3/2', 
+            position: 'relative', 
+            borderRadius: 0,
+            background: 'var(--bg-muted)' 
+          }}>
             <GalleryMedia
               src={src}
               onClick={() => open(i)}
-              style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 0 }}
+              style={{ 
+                width: '100%', 
+                height: '100%', 
+                objectFit: 'cover', 
+                display: 'block', 
+                borderRadius: 0,
+                cursor: 'pointer',
+                transition: 'transform 0.4s ease'
+              }}
+              onMouseOver={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1.05)'; }}
+              onMouseOut={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1)'; }}
             />
           </div>
         ))}
