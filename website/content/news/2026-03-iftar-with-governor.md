@@ -9,9 +9,9 @@ author: "Asia Group Communications"
 read_time: 3
 gallery:
   - /media/blog-posts/iftar-with-governor1.jpeg
-  - /media/blog-posts/iftar-with-governor-2.mp4
-  - /media/blog-posts/iftar-with-governor-3.mp4
-  - /media/blog-posts/iftar-with-governor-5.mp4
+  - /media/blog-posts/iftar-with-governor2.mp4
+  - /media/blog-posts/iftar-with-governor3.mp4
+  - /media/blog-posts/iftar-with-governor5.mp4
   - /media/blog-posts/iftar-with-governor-kano-satate.mp4
   - /media/blog-posts/iftar-with-governor-kano-satate2.mp4
   - /media/blog-posts/iftar-with-governor-kano-satate3.mp4
