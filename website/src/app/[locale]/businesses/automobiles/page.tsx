@@ -134,7 +134,7 @@ export default function AutomobilesPage() {
 
 <section class="brands-section">
   <div class="brands-inner">
-    <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:800; color:var(--white); line-height:1.1; text-transform:uppercase;">
+    <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:800; color:var(--text-main); line-height:1.1; text-transform:uppercase;">
       World-Class Vehicles,<br>African Expertise
     </h2>
     <div class="brands-grid">
@@ -355,9 +355,9 @@ export default function AutomobilesPage() {
 
       <!-- 9. SINOTRUCK HOWO TRACTOR HEAD -->
       <div class="vehicle-card">
-        <div class="vehicle-img" style="background: #111; display: flex; align-items: center; justify-content: center; padding: 24px;">
+        <div class="vehicle-img">
           <div class="vehicle-badge">SinoTruck</div>
-          <img src="/media/logos/sinotruck-real.png" alt="SinoTruck Logo" style="max-height: 80px; width: auto; object-fit: contain;" />
+          <img src="/media/mikano-automobiles/HOWO 6x4 Prime Mover.webp" alt="HOWO 6x4 Prime Mover" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-brand">SinoTruck • CNHTC</div>
@@ -373,9 +373,9 @@ export default function AutomobilesPage() {
 
       <!-- 10. SINOTRUCK HOWO DUMP TRUCK -->
       <div class="vehicle-card">
-        <div class="vehicle-img" style="background: #111; display: flex; align-items: center; justify-content: center; padding: 24px;">
+        <div class="vehicle-img">
           <div class="vehicle-badge">SinoTruck</div>
-          <img src="/media/logos/sinotruck-real.png" alt="SinoTruck Logo" style="max-height: 80px; width: auto; object-fit: contain;" />
+          <img src="/media/mikano-automobiles/HOWO Heavy Dump Truck.png" alt="HOWO Heavy Dump Truck" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-brand">SinoTruck • CNHTC</div>
