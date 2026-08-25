@@ -213,7 +213,7 @@ export default function AutomobilesPage() {
       <div class="vehicle-card">
         <div class="vehicle-img">
           <div class="vehicle-badge">GWM Tank</div>
-          <p>MEDIA: GWM Tank 500 Executive SUV</p>
+          <img src="/media/mikano-automobiles/GWM Tank 500 (Executive SUV).webp" alt="GWM Tank 500" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-brand">GWM Tank • Mikano Motors</div>
@@ -231,7 +231,7 @@ export default function AutomobilesPage() {
       <div class="vehicle-card">
         <div class="vehicle-img">
           <div class="vehicle-badge">Changan Auto</div>
-          <p>MEDIA: Changan UNI-K Flagship Crossover</p>
+          <img src="/media/mikano-automobiles/Changan UNI-K Luxury SUV.jpg" alt="Changan UNI-K" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-brand">Changan Auto • Mikano Motors</div>
@@ -249,7 +249,7 @@ export default function AutomobilesPage() {
       <div class="vehicle-card">
         <div class="vehicle-img">
           <div class="vehicle-badge">Changan Auto</div>
-          <p>MEDIA: Changan CS95 PLUS 7-Seater</p>
+          <img src="/media/mikano-automobiles/Changan CS95 PLUS (7-Seater).jpeg" alt="Changan CS95 PLUS" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-brand">Changan Auto • Mikano Motors</div>
@@ -267,7 +267,7 @@ export default function AutomobilesPage() {
       <div class="vehicle-card">
         <div class="vehicle-img">
           <div class="vehicle-badge">Changan Auto</div>
-          <p>MEDIA: Changan Hunter PLUS 4x4 Pickup</p>
+          <img src="/media/mikano-automobiles/Changan Hunter PLUS Pickup.jpg" alt="Changan Hunter PLUS" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-brand">Changan Auto • Mikano Motors</div>
@@ -285,7 +285,7 @@ export default function AutomobilesPage() {
       <div class="vehicle-card">
         <div class="vehicle-img">
           <div class="vehicle-badge">Deepal / Changan</div>
-          <p>MEDIA: Deepal G318 Cyberpunk Off-Roader</p>
+          <img src="/media/mikano-automobiles/Deepal G318 All-Terrain SUV.jpg" alt="Deepal G318" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-brand">Deepal • Mikano Motors</div>
@@ -303,7 +303,7 @@ export default function AutomobilesPage() {
       <div class="vehicle-card">
         <div class="vehicle-img">
           <div class="vehicle-badge">Maxus</div>
-          <p>MEDIA: Maxus D90 MAX Luxury SUV</p>
+          <img src="/media/mikano-automobiles/Maxus D90.jpg" alt="Maxus D90" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-brand">Maxus • Mikano Motors</div>
@@ -321,7 +321,7 @@ export default function AutomobilesPage() {
       <div class="vehicle-card">
         <div class="vehicle-img">
           <div class="vehicle-badge">Maxus</div>
-          <p>MEDIA: Maxus T90 High-Performance Pickup</p>
+          <img src="/media/mikano-automobiles/Maxus T90 4x4 Double Cabin.jpg" alt="Maxus T90" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-brand">Maxus • Mikano Motors</div>
@@ -339,7 +339,7 @@ export default function AutomobilesPage() {
       <div class="vehicle-card">
         <div class="vehicle-img">
           <div class="vehicle-badge">Changan Auto</div>
-          <p>MEDIA: Changan EADO PLUS Executive Sedan</p>
+          <img src="/media/mikano-automobiles/Changan EADO PLUS Sedan.jpg" alt="Changan EADO PLUS" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-brand">Changan Auto • Mikano Motors</div>
@@ -349,42 +349,6 @@ export default function AutomobilesPage() {
             <div class="vehicle-spec"><div class="vehicle-spec-val">170 HP / 260 Nm</div><div class="vehicle-spec-lbl">Power &amp; Torque</div></div>
             <div class="vehicle-spec"><div class="vehicle-spec-val">7-Speed DCT</div><div class="vehicle-spec-lbl">Transmission</div></div>
             <div class="vehicle-spec"><div class="vehicle-spec-val">13.2" HD Touch</div><div class="vehicle-spec-lbl">Screen</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 9. SINOTRUCK HOWO TRACTOR HEAD -->
-      <div class="vehicle-card">
-        <div class="vehicle-img">
-          <div class="vehicle-badge">SinoTruck</div>
-          <p>MEDIA: HOWO 6x4 Tractor Head</p>
-        </div>
-        <div class="vehicle-info">
-          <div class="vehicle-brand">SinoTruck • CNHTC</div>
-          <div class="vehicle-name">HOWO 6x4 Prime Mover</div>
-          <p class="vehicle-desc">Heavy-duty prime mover for long-haul interstate freight and cross-border transport corridors across West and Central Africa, built for maximum reliability on harsh roads.</p>
-          <div class="vehicle-specs-row">
-            <div class="vehicle-spec"><div class="vehicle-spec-val">371–420 HP</div><div class="vehicle-spec-lbl">Engine Power</div></div>
-            <div class="vehicle-spec"><div class="vehicle-spec-val">50–70 Ton</div><div class="vehicle-spec-lbl">GCM Payload</div></div>
-            <div class="vehicle-spec"><div class="vehicle-spec-val">6x4 Axle</div><div class="vehicle-spec-lbl">Drive</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 10. SINOTRUCK HOWO DUMP TRUCK -->
-      <div class="vehicle-card">
-        <div class="vehicle-img">
-          <div class="vehicle-badge">SinoTruck</div>
-          <p>MEDIA: HOWO Heavy Dump Truck</p>
-        </div>
-        <div class="vehicle-info">
-          <div class="vehicle-brand">SinoTruck • CNHTC</div>
-          <div class="vehicle-name">HOWO Heavy Dump Truck</div>
-          <p class="vehicle-desc">Reinforced tipper truck engineered for mining, quarry operations, construction haulage, and major infrastructure earthmoving projects across Nigeria.</p>
-          <div class="vehicle-specs-row">
-            <div class="vehicle-spec"><div class="vehicle-spec-val">371 HP</div><div class="vehicle-spec-lbl">Engine Power</div></div>
-            <div class="vehicle-spec"><div class="vehicle-spec-val">18–22 M³</div><div class="vehicle-spec-lbl">Bowl Capacity</div></div>
-            <div class="vehicle-spec"><div class="vehicle-spec-val">Heavy Duty</div><div class="vehicle-spec-lbl">Chassis</div></div>
           </div>
         </div>
       </div>
