@@ -7,7 +7,19 @@ interface ArticleGalleryProps {
   title: string;
 }
 
-function GalleryMedia({ src, style, onClick }: { src: string; style?: React.CSSProperties; onClick?: () => void }) {
+function GalleryMedia({ 
+  src, 
+  style, 
+  onClick,
+  onMouseOver,
+  onMouseOut
+}: { 
+  src: string; 
+  style?: React.CSSProperties; 
+  onClick?: () => void;
+  onMouseOver?: React.MouseEventHandler<HTMLElement>;
+  onMouseOut?: React.MouseEventHandler<HTMLElement>;
+}) {
   if (src.endsWith('.mp4')) {
     return (
       <video
@@ -16,6 +28,8 @@ function GalleryMedia({ src, style, onClick }: { src: string; style?: React.CSSP
         loop
         playsInline
         onClick={onClick}
+        onMouseOver={onMouseOver}
+        onMouseOut={onMouseOut}
         style={{ cursor: onClick ? 'pointer' : 'default', ...style }}
       >
         <source src={src} type="video/mp4" />
@@ -28,6 +42,8 @@ function GalleryMedia({ src, style, onClick }: { src: string; style?: React.CSSP
       alt=""
       loading="lazy"
       onClick={onClick}
+      onMouseOver={onMouseOver}
+      onMouseOut={onMouseOut}
       style={{ cursor: onClick ? 'pointer' : 'default', ...style }}
     />
   );
