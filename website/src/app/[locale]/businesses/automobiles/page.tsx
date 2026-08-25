@@ -120,7 +120,9 @@ export default function AutomobilesPage() {
 
 
 <section class="sub-hero">
-  <div class="sub-hero-bg"></div>
+  <div class="sub-hero-bg">
+    <video src="/media/automobile-videos/1 - Trim.mp4" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0;"></video>
+  </div>
   <div class="sub-hero-overlay"></div>
   <div class="sub-hero-content">
     
@@ -414,8 +416,8 @@ export default function AutomobilesPage() {
         </div>
       </div>
     </div>
-    <div class="clients-visual">
-      <p>MEDIA PLACEHOLDER<br>Automotive Fleet in Operation<br>Recommended: Heavy trucks and executive vehicles</p>
+    <div class="clients-visual" style="position: relative; overflow: hidden;">
+      <video src="/media/automobile-videos/2.mp4" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;"></video>
     </div>
   </div>
 </section>
