@@ -212,11 +212,9 @@ export default function AutomobilesPage() {
       <!-- 1. GWM TANK 500 -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <div class="vehicle-badge">GWM Tank</div>
           <img src="/media/mikano-automobiles/GWM Tank 500 (Executive SUV).webp" alt="GWM Tank 500" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
-          <div class="vehicle-brand">GWM Tank • Mikano Motors</div>
           <div class="vehicle-name">GWM Tank 500 (Executive SUV)</div>
           <p class="vehicle-desc">Flagship 7-seater luxury off-road SUV powered by a 3.0T V6 turbocharged engine, 9-speed automatic transmission, intelligent 4WD with locking differentials, Nappa leather interior, and 10-Year / 1,000,000 km warranty.</p>
           <div class="vehicle-specs-row">
@@ -230,11 +228,9 @@ export default function AutomobilesPage() {
       <!-- 2. CHANGAN UNI-K -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <div class="vehicle-badge">Changan Auto</div>
           <img src="/media/mikano-automobiles/Changan UNI-K Luxury SUV.jpg" alt="Changan UNI-K" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
-          <div class="vehicle-brand">Changan Auto • Mikano Motors</div>
           <div class="vehicle-name">Changan UNI-K Luxury SUV</div>
           <p class="vehicle-desc">Futuristic flagship crossover SUV featuring a 2.0L BlueCore TGDI engine, 8-speed Aisin automatic transmission, intelligent AWD, 21-inch alloy wheels, 12 Sony speakers, and 6-Year warranty.</p>
           <div class="vehicle-specs-row">
@@ -248,11 +244,9 @@ export default function AutomobilesPage() {
       <!-- 3. CHANGAN CS95 PLUS -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <div class="vehicle-badge">Changan Auto</div>
           <img src="/media/mikano-automobiles/Changan CS95 PLUS (7-Seater).jpeg" alt="Changan CS95 PLUS" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
-          <div class="vehicle-brand">Changan Auto • Mikano Motors</div>
           <div class="vehicle-name">Changan CS95 PLUS (7-Seater)</div>
           <p class="vehicle-desc">Full-size executive 3-row SUV delivering 2.0L Turbo BlueCore power, 4WD system, 3-zone automatic climate control, panoramic sunroof, and ventilated massaging front seats.</p>
           <div class="vehicle-specs-row">
@@ -266,11 +260,9 @@ export default function AutomobilesPage() {
       <!-- 4. CHANGAN HUNTER PLUS -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <div class="vehicle-badge">Changan Auto</div>
           <img src="/media/mikano-automobiles/Changan Hunter PLUS Pickup.jpg" alt="Changan Hunter PLUS" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
-          <div class="vehicle-brand">Changan Auto • Mikano Motors</div>
           <div class="vehicle-name">Changan Hunter PLUS Pickup</div>
           <p class="vehicle-desc">Rugged 4x4 double-cabin pickup truck engineered for heavy-duty commercial utility and executive off-road performance, featuring 2.0L Turbo power, 8-speed AT, and 80L tank capacity.</p>
           <div class="vehicle-specs-row">
@@ -284,11 +276,9 @@ export default function AutomobilesPage() {
       <!-- 5. DEEPAL G318 -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <div class="vehicle-badge">Deepal / Changan</div>
           <img src="/media/mikano-automobiles/Deepal G318 All-Terrain SUV.jpg" alt="Deepal G318" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
-          <div class="vehicle-brand">Deepal • Mikano Motors</div>
           <div class="vehicle-name">Deepal G318 All-Terrain SUV</div>
           <p class="vehicle-desc">Cyberpunk-styled all-terrain hybrid SUV equipped with 1.5L Turbo range-extender powertrain, 35.07 kWh battery, Level 2 ADAS driver assistance, and roof-mounted auxiliary expedition lights.</p>
           <div class="vehicle-specs-row">
@@ -302,11 +292,9 @@ export default function AutomobilesPage() {
       <!-- 6. MAXUS D90 MAX -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <div class="vehicle-badge">Maxus</div>
           <img src="/media/mikano-automobiles/Maxus D90.jpg" alt="Maxus D90" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
-          <div class="vehicle-brand">Maxus • Mikano Motors</div>
           <div class="vehicle-name">Maxus D90 MAX (7-Seater)</div>
           <p class="vehicle-desc">Full-size executive off-road SUV powered by a 2.0L Bi-Turbo engine producing 257 HP and 410 Nm torque, 8-speed automatic, 4WD system, dual 12.3" LCD screens, and 5-Year warranty.</p>
           <div class="vehicle-specs-row">
@@ -320,11 +308,9 @@ export default function AutomobilesPage() {
       <!-- 7. MAXUS T90 -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <div class="vehicle-badge">Maxus</div>
           <img src="/media/mikano-automobiles/Maxus T90 4x4 Double Cabin.jpg" alt="Maxus T90" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
-          <div class="vehicle-brand">Maxus • Mikano Motors</div>
           <div class="vehicle-name">Maxus T90 4x4 Double Cabin</div>
           <p class="vehicle-desc">High-performance luxury double-cabin pickup combining commercial load capacity with leather cabin luxury, 2.0L Bi-Turbo 257HP output, and 8-speed automatic transmission.</p>
           <div class="vehicle-specs-row">
@@ -338,11 +324,9 @@ export default function AutomobilesPage() {
       <!-- 8. CHANGAN EADO PLUS -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <div class="vehicle-badge">Changan Auto</div>
           <img src="/media/mikano-automobiles/Changan EADO PLUS Sedan.jpg" alt="Changan EADO PLUS" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
-          <div class="vehicle-brand">Changan Auto • Mikano Motors</div>
           <div class="vehicle-name">Changan EADO PLUS Sedan</div>
           <p class="vehicle-desc">Premium executive sedan featuring 1.5L Turbo BlueCore engine (170HP), 7-speed dual-clutch transmission, 13.2" touchscreen, leather ventilated seats, and fuel-efficient performance.</p>
           <div class="vehicle-specs-row">
@@ -356,11 +340,9 @@ export default function AutomobilesPage() {
       <!-- 9. SINOTRUCK HOWO TRACTOR HEAD -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <div class="vehicle-badge">SinoTruck</div>
           <img src="/media/mikano-automobiles/HOWO 6x4 Prime Mover.webp" alt="HOWO 6x4 Prime Mover" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
-          <div class="vehicle-brand">SinoTruck • CNHTC</div>
           <div class="vehicle-name">HOWO 6x4 Prime Mover</div>
           <p class="vehicle-desc">Heavy-duty prime mover for long-haul interstate freight and cross-border transport corridors across West and Central Africa, built for maximum reliability on harsh roads.</p>
           <div class="vehicle-specs-row">
@@ -374,11 +356,9 @@ export default function AutomobilesPage() {
       <!-- 10. SINOTRUCK HOWO DUMP TRUCK -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <div class="vehicle-badge">SinoTruck</div>
           <img src="/media/mikano-automobiles/HOWO Heavy Dump Truck.png" alt="HOWO Heavy Dump Truck" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
-          <div class="vehicle-brand">SinoTruck • CNHTC</div>
           <div class="vehicle-name">HOWO Heavy Dump Truck</div>
           <p class="vehicle-desc">Reinforced tipper truck engineered for mining, quarry operations, construction haulage, and major infrastructure earthmoving projects across Nigeria.</p>
           <div class="vehicle-specs-row">
