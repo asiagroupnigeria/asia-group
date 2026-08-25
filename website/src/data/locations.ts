@@ -132,7 +132,7 @@ export const locations: LocationData[] = [
     "id": "09",
     "subsidiaryId": "automobiles",
     "subsidiaryName": "Asia Automobiles",
-    "image": "",
+    "image": "/media/asia-operation-cards/asia-airways.jpg",
     "name": "Asia Automobile Sg",
     "role": "Asia Automobiles",
     "address": "No.6667 Murtala Muhd Way,yankura Kano.",
