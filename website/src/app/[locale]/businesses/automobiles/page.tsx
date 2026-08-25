@@ -66,9 +66,17 @@ export default function AutomobilesPage() {
   .vehicle-card { background:var(--bg-card); border:1px solid var(--border-color); border-radius:0; overflow:hidden; display:flex; flex-direction:column; transition:all .3s; }
   .vehicle-card:hover { transform:translateY(-4px); box-shadow:0 12px 30px rgba(0,0,0,0.2); border-color:rgba(76,175,80,0.4); }
   .vehicle-img {
-    aspect-ratio:16/9;
-    background:var(--bg-muted); display:flex; align-items:center; justify-content:center;
-    position:relative; border-bottom:1px solid var(--border-color);
+    aspect-ratio: 16/9;
+    background: var(--bg-muted);
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .vehicle-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
   }
   .vehicle-img p { font-family:var(--font-condensed); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(0,0,0,0.2); text-align:center; padding:16px; }
   .vehicle-badge { position:absolute; top:14px; left:14px; background:rgba(10,10,10,0.85); color:var(--green-bright, #4CAF50); font-family:var(--font-condensed); font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:6px 12px; border:1px solid rgba(76,175,80,0.3); }
@@ -214,7 +222,7 @@ export default function AutomobilesPage() {
       <!-- 1. GWM TANK 500 -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <img src="/media/mikano-automobiles/GWM Tank 500 (Executive SUV).webp" alt="GWM Tank 500" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="/media/mikano-automobiles/GWM%20Tank%20500%20(Executive%20SUV).webp" alt="GWM Tank 500" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-name">GWM Tank 500 (Executive SUV)</div>
@@ -230,7 +238,7 @@ export default function AutomobilesPage() {
       <!-- 2. CHANGAN UNI-K -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <img src="/media/mikano-automobiles/Changan UNI-K Luxury SUV.jpg" alt="Changan UNI-K" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="/media/mikano-automobiles/Changan%20UNI-K%20Luxury%20SUV.jpg" alt="Changan UNI-K" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-name">Changan UNI-K Luxury SUV</div>
@@ -246,7 +254,7 @@ export default function AutomobilesPage() {
       <!-- 3. CHANGAN CS95 PLUS -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <img src="/media/mikano-automobiles/Changan CS95 PLUS (7-Seater).jpeg" alt="Changan CS95 PLUS" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="/media/mikano-automobiles/Changan%20CS95%20PLUS%20(7-Seater).jpeg" alt="Changan CS95 PLUS" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-name">Changan CS95 PLUS (7-Seater)</div>
@@ -262,7 +270,7 @@ export default function AutomobilesPage() {
       <!-- 4. CHANGAN HUNTER PLUS -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <img src="/media/mikano-automobiles/Changan Hunter PLUS Pickup.jpg" alt="Changan Hunter PLUS" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="/media/mikano-automobiles/Changan%20Hunter%20PLUS%20Pickup.jpg" alt="Changan Hunter PLUS" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-name">Changan Hunter PLUS Pickup</div>
@@ -278,7 +286,7 @@ export default function AutomobilesPage() {
       <!-- 5. DEEPAL G318 -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <img src="/media/mikano-automobiles/Deepal G318 All-Terrain SUV.jpg" alt="Deepal G318" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="/media/mikano-automobiles/Deepal%20G318%20All-Terrain%20SUV.jpg" alt="Deepal G318" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-name">Deepal G318 All-Terrain SUV</div>
@@ -294,7 +302,7 @@ export default function AutomobilesPage() {
       <!-- 6. MAXUS D90 MAX -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <img src="/media/mikano-automobiles/Maxus D90.jpg" alt="Maxus D90" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="/media/mikano-automobiles/Maxus%20D90.jpg" alt="Maxus D90" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-name">Maxus D90 MAX (7-Seater)</div>
@@ -310,7 +318,7 @@ export default function AutomobilesPage() {
       <!-- 7. MAXUS T90 -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <img src="/media/mikano-automobiles/Maxus T90 4x4 Double Cabin.jpg" alt="Maxus T90" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="/media/mikano-automobiles/Maxus%20T90%204x4%20Double%20Cabin.jpg" alt="Maxus T90" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-name">Maxus T90 4x4 Double Cabin</div>
@@ -326,7 +334,7 @@ export default function AutomobilesPage() {
       <!-- 8. CHANGAN EADO PLUS -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <img src="/media/mikano-automobiles/Changan EADO PLUS Sedan.jpg" alt="Changan EADO PLUS" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="/media/mikano-automobiles/Changan%20EADO%20PLUS%20Sedan.jpg" alt="Changan EADO PLUS" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-name">Changan EADO PLUS Sedan</div>
@@ -342,7 +350,7 @@ export default function AutomobilesPage() {
       <!-- 9. SINOTRUCK HOWO TRACTOR HEAD -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <img src="/media/mikano-automobiles/HOWO 6x4 Prime Mover.webp" alt="HOWO 6x4 Prime Mover" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="/media/mikano-automobiles/HOWO%206x4%20Prime%20Mover.webp" alt="HOWO 6x4 Prime Mover" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-name">HOWO 6x4 Prime Mover</div>
@@ -358,7 +366,7 @@ export default function AutomobilesPage() {
       <!-- 10. SINOTRUCK HOWO DUMP TRUCK -->
       <div class="vehicle-card">
         <div class="vehicle-img">
-          <img src="/media/mikano-automobiles/HOWO Heavy Dump Truck.png" alt="HOWO Heavy Dump Truck" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img src="/media/mikano-automobiles/HOWO%20Heavy%20Dump%20Truck.png" alt="HOWO Heavy Dump Truck" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
         <div class="vehicle-info">
           <div class="vehicle-name">HOWO Heavy Dump Truck</div>
