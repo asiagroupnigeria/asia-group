@@ -352,6 +352,42 @@ export default function AutomobilesPage() {
           </div>
         </div>
       </div>
+
+      <!-- 9. SINOTRUCK HOWO TRACTOR HEAD -->
+      <div class="vehicle-card">
+        <div class="vehicle-img" style="background: #111; display: flex; align-items: center; justify-content: center; padding: 24px;">
+          <div class="vehicle-badge">SinoTruck</div>
+          <img src="/media/logos/sinotruck-real.png" alt="SinoTruck Logo" style="max-height: 80px; width: auto; object-fit: contain;" />
+        </div>
+        <div class="vehicle-info">
+          <div class="vehicle-brand">SinoTruck • CNHTC</div>
+          <div class="vehicle-name">HOWO 6x4 Prime Mover</div>
+          <p class="vehicle-desc">Heavy-duty prime mover for long-haul interstate freight and cross-border transport corridors across West and Central Africa, built for maximum reliability on harsh roads.</p>
+          <div class="vehicle-specs-row">
+            <div class="vehicle-spec"><div class="vehicle-spec-val">371–420 HP</div><div class="vehicle-spec-lbl">Engine Power</div></div>
+            <div class="vehicle-spec"><div class="vehicle-spec-val">50–70 Ton</div><div class="vehicle-spec-lbl">GCM Payload</div></div>
+            <div class="vehicle-spec"><div class="vehicle-spec-val">6x4 Axle</div><div class="vehicle-spec-lbl">Drive</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. SINOTRUCK HOWO DUMP TRUCK -->
+      <div class="vehicle-card">
+        <div class="vehicle-img" style="background: #111; display: flex; align-items: center; justify-content: center; padding: 24px;">
+          <div class="vehicle-badge">SinoTruck</div>
+          <img src="/media/logos/sinotruck-real.png" alt="SinoTruck Logo" style="max-height: 80px; width: auto; object-fit: contain;" />
+        </div>
+        <div class="vehicle-info">
+          <div class="vehicle-brand">SinoTruck • CNHTC</div>
+          <div class="vehicle-name">HOWO Heavy Dump Truck</div>
+          <p class="vehicle-desc">Reinforced tipper truck engineered for mining, quarry operations, construction haulage, and major infrastructure earthmoving projects across Nigeria.</p>
+          <div class="vehicle-specs-row">
+            <div class="vehicle-spec"><div class="vehicle-spec-val">371 HP</div><div class="vehicle-spec-lbl">Engine Power</div></div>
+            <div class="vehicle-spec"><div class="vehicle-spec-val">18–22 M³</div><div class="vehicle-spec-lbl">Bowl Capacity</div></div>
+            <div class="vehicle-spec"><div class="vehicle-spec-val">Heavy Duty</div><div class="vehicle-spec-lbl">Chassis</div></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
