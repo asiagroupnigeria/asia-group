@@ -4,122 +4,177 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="footer">
-      <div className="inner">
-        {/* Footer Top */}
-        <div className="footer__top">
-          {/* Brand */}
-          <div className="footer-brand">
-            <Link href="/" className="nav__logo" style={{ textDecoration: 'none', marginBottom: '20px' }}>
-              <img src="/logo.jpg" alt="Asia Group" style={{ height: '50px', width: 'auto', borderRadius: '0px' }} />
+    <footer className="footer-new">
+      <style>{`
+        .footer-new {
+          background: #082114; /* Deep dark forest green matching Option A theme */
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          padding: 60px 40px;
+          color: rgba(255, 255, 255, 0.7);
+          font-family: var(--font-body), sans-serif;
+        }
+        .footer-new__inner {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+        }
+        .footer-new__main {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 30px;
+          padding-bottom: 30px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .footer-new__brand {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .footer-new__logo-img {
+          height: 44px;
+          width: auto;
+          display: block;
+          filter: brightness(0) invert(1); /* Premium white logo style for dark green background */
+        }
+        .footer-new__socials {
+          display: flex;
+          gap: 16px;
+        }
+        .footer-new__social {
+          color: rgba(255, 255, 255, 0.5);
+          font-size: 18px;
+          transition: color 0.3s ease;
+          text-decoration: none;
+        }
+        .footer-new__social:hover {
+          color: #ffffff;
+        }
+        .footer-new__nav {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          flex-wrap: wrap;
+        }
+        .footer-new__link {
+          color: rgba(255, 255, 255, 0.7);
+          font-family: var(--font-condensed), sans-serif;
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+        .footer-new__link:hover {
+          color: #ffffff;
+        }
+        .footer-new__dot {
+          color: rgba(255, 255, 255, 0.2);
+          font-size: 12px;
+          user-select: none;
+        }
+        .footer-new__bottom {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 20px;
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.45);
+        }
+        .footer-new__copy {
+          font-weight: 300;
+        }
+        .footer-new__legal {
+          display: flex;
+          gap: 24px;
+        }
+        .footer-new__legal-link {
+          color: rgba(255, 255, 255, 0.45);
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+        .footer-new__legal-link:hover {
+          color: #ffffff;
+        }
+        @media (max-width: 768px) {
+          .footer-new {
+            padding: 48px 24px;
+          }
+          .footer-new__main {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 32px;
+          }
+          .footer-new__nav {
+            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+          }
+          .footer-new__dot {
+            display: none;
+          }
+          .footer-new__bottom {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+          }
+          .footer-new__legal {
+            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+          }
+        }
+      `}</style>
+
+      <div className="footer-new__inner">
+        <div className="footer-new__main">
+          {/* Brand Logo & Socials */}
+          <div className="footer-new__brand">
+            <Link href="/" className="nav__logo" style={{ textDecoration: 'none' }}>
+              <img src="/logo.jpg" alt="Asia Group" className="footer-new__logo-img" />
             </Link>
-            <p className="footer__desc">
-              Africa&apos;s number one wholesale and distribution conglomerate. Building legacy. Empowering trade. Growing together.
-            </p>
-            <div className="footer__socials">
-              {[
-                <i key="in" className="ri-linkedin-fill"></i>,
-                // <i key="x" className="ri-twitter-x-line"></i>,
-                <i key="f" className="ri-facebook-fill"></i>,
-                // <i key="ig" className="ri-instagram-line"></i>,
-                // <i key="yt" className="ri-youtube-fill"></i>
-              ].map((icon, i) => (
-                <a key={i} href="#" className="footer__social" style={{ fontSize: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  {icon}
-                </a>
-              ))}
+            <div className="footer-new__socials">
+              <a href="#" className="footer-new__social" aria-label="LinkedIn">
+                <i className="ri-linkedin-fill"></i>
+              </a>
+              <a href="#" className="footer-new__social" aria-label="Facebook">
+                <i className="ri-facebook-fill"></i>
+              </a>
             </div>
           </div>
 
-          {/* Company */}
-          <div>
-            <h5 className="footer__col-title">Company</h5>
-            <div className="footer__links">
-              {[
-                { label: 'About Asia Group', href: '/about' },
-                { label: 'Our History', href: '/about#history' },
-                { label: 'Community CSR', href: '/csr' },
-                { label: 'Careers', href: '/careers' },
-              ].map((link) => (
-                <Link key={link.href} href={link.href} className="footer__link">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Subsidiaries */}
-          <div>
-            <h5 className="footer__col-title">Subsidiaries</h5>
-            <div className="footer__links">
-              {[
-                { label: 'Wholesale & Distribution', href: '/businesses/wholesale' },
-                { label: 'Asia Pharmacy', href: '/businesses/pharmaceuticals' },
-                { label: 'Asia Beverages', href: '/businesses/beverages' },
-                { label: 'Asia Automobiles', href: '/businesses/automobiles' },
-                { label: 'Asia Cosmetics', href: '/businesses/cosmetics' },
-                { label: 'Asia Phones', href: '/businesses/phones' },
-              ].map((link) => (
-                <Link key={link.href} href={link.href} className="footer__link">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Sectors */}
-          <div>
-            <h5 className="footer__col-title">Sectors</h5>
-            <div className="footer__links">
-              {[
-                'FMCG Distribution',
-                'Pharmaceuticals',
-                'Automobiles & Logistics',
-                'Beverages',
-                'Consumer Electronics',
-                'Manufacturing (Coming)',
-              ].map((label) => (
-                <span key={label} className="footer__link" style={{ cursor: 'default' }}>
-                  {label}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h5 className="footer__col-title">Contact</h5>
-            <div className="footer__links">
-              {[
-                { label: 'Head Office — Kano', href: '/contact' },
-                { label: 'Niger State Office', href: '/contact' },
-                { label: 'Cameroon Office', href: '/contact' },
-                { label: 'Media Enquiries', href: '/contact' },
-                { label: 'Investor Relations', href: '/contact' },
-              ].map((link) => (
-                <Link key={link.label} href={link.href} className="footer__link">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
+          {/* Clean Horizontal Navigation Bar */}
+          <nav className="footer-new__nav">
+            <Link href="/about" className="footer-new__link">About</Link>
+            <span className="footer-new__dot">•</span>
+            <Link href="/businesses" className="footer-new__link">Subsidiaries</Link>
+            <span className="footer-new__dot">•</span>
+            <Link href="/csr" className="footer-new__link">CSR</Link>
+            <span className="footer-new__dot">•</span>
+            <Link href="/careers" className="footer-new__link">Careers</Link>
+            <span className="footer-new__dot">•</span>
+            <Link href="/news" className="footer-new__link">News</Link>
+            <span className="footer-new__dot">•</span>
+            <Link href="/contact" className="footer-new__link">Contact</Link>
+          </nav>
         </div>
 
         {/* Footer Bottom */}
-        <div className="footer__bottom">
-          <p className="footer__copy">
+        <div className="footer-new__bottom">
+          <p className="footer-new__copy">
             © {new Date().getFullYear()} Asia Group of Companies Ltd. All rights reserved. Registered in Nigeria.
           </p>
-          <div className="footer__legal">
-            {[
-              { label: 'Privacy Policy', href: '/privacy' },
-              { label: 'Terms of Use', href: '/terms' },
-              { label: 'Cookie Policy', href: '/cookies' },
-            ].map((link) => (
-              <Link key={link.href} href={link.href} className="footer__legal-link">
-                {link.label}
-              </Link>
-            ))}
+          <div className="footer-new__legal">
+            <Link href="/privacy" className="footer-new__legal-link">Privacy Policy</Link>
+            <Link href="/terms" className="footer-new__legal-link">Terms of Use</Link>
+            <Link href="/cookies" className="footer-new__legal-link">Cookie Policy</Link>
           </div>
         </div>
       </div>
