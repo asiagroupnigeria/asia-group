@@ -9,6 +9,7 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { AutoPlayVideo } from '@/components/AutoPlayVideo';
 import { CookieConsent } from '@/components/layout/cookie-consent';
+import { GoogleAnalytics } from '@/components/layout/google-analytics';
 
 const notoSerif = Noto_Serif({
   subsets: ['latin'],
@@ -68,6 +69,7 @@ export default async function LocaleLayout({
           <main>{children}</main>
           <Footer />
           <CookieConsent />
+          <GoogleAnalytics />
         </NextIntlClientProvider>
       </body>
     </html>

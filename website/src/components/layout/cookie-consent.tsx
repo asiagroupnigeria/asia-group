@@ -20,11 +20,13 @@ export function CookieConsent() {
 
   const handleAccept = () => {
     localStorage.setItem('asia_group_cookie_consent', 'accepted');
+    window.dispatchEvent(new Event('asia_group_consent_changed'));
     setIsVisible(false);
   };
 
   const handleDecline = () => {
     localStorage.setItem('asia_group_cookie_consent', 'declined');
+    window.dispatchEvent(new Event('asia_group_consent_changed'));
     setIsVisible(false);
   };
 
