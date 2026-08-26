@@ -10,6 +10,7 @@ import { Footer } from '@/components/layout/footer';
 import { AutoPlayVideo } from '@/components/AutoPlayVideo';
 import { CookieConsent } from '@/components/layout/cookie-consent';
 import { GoogleAnalytics } from '@/components/layout/google-analytics';
+import { SchemaMarkup } from '@/components/seo/SchemaMarkup';
 
 const notoSerif = Noto_Serif({
   subsets: ['latin'],
@@ -61,6 +62,7 @@ export default async function LocaleLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <SchemaMarkup />
       </head>
       <body className={`${notoSerif.variable} ${barlow.variable} ${barlowCondensed.variable}`}>
         <NextIntlClientProvider messages={messages}>
