@@ -39,10 +39,10 @@ export function SchemaMarkup() {
     ],
     'taxID': 'RC-1832253',
     'areaServed': [
-      { '@type': 'Country', 'name': 'Nigeria', 'code': 'NG' },
-      { '@type': 'Country', 'name': 'Cameroon', 'code': 'CM' },
-      { '@type': 'Country', 'name': 'Niger', 'code': 'NE' },
-      { '@type': 'Country', 'name': 'Chad', 'code': 'TD' }
+      { '@type': 'Country', 'name': 'Nigeria', 'identifier': 'NG' },
+      { '@type': 'Country', 'name': 'Cameroon', 'identifier': 'CM' },
+      { '@type': 'Country', 'name': 'Niger', 'identifier': 'NE' },
+      { '@type': 'Country', 'name': 'Chad', 'identifier': 'TD' }
     ],
     'knowsAbout': [
       'Wholesale Distribution',
