@@ -22,7 +22,7 @@ export function GoogleAnalytics() {
 
   if (consent !== 'accepted') return null;
 
-  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-Y6EGECV9R3';
+  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-9PJBSXMY5L';
 
   return (
     <>
