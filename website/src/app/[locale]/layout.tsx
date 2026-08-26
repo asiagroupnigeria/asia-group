@@ -34,6 +34,10 @@ const barlowCondensed = Barlow_Condensed({
 export const metadata = {
   title: 'Asia Group of Companies — Africa\'s Leading Wholesale & Distribution Conglomerate',
   description: 'From a single market stall in Abubakar Rimi Market to commanding over 30 global partnerships across four nations — Asia Group is the backbone of African trade.',
+  metadataBase: new URL('https://asiagroup.ng'),
+  alternates: {
+    canonical: './',
+  },
 };
 
 export const viewport = {
