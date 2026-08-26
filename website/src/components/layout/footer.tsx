@@ -42,23 +42,9 @@ export function Footer() {
           gap: 16px;
         }
         .footer-new__logo-img {
-          height: 48px;
+          height: 68px; /* Increased logo size from 48px to 68px for a more prominent brand presence */
           width: auto;
           display: block;
-          /* Removed brightness invert filter to show the real, full-color brand logo */
-        }
-        .footer-new__socials {
-          display: flex;
-          gap: 16px;
-        }
-        .footer-new__social {
-          color: rgba(255, 255, 255, 0.5);
-          font-size: 18px;
-          transition: color 0.3s ease;
-          text-decoration: none;
-        }
-        .footer-new__social:hover {
-          color: #ffffff;
         }
         .footer-new__nav {
           display: flex;
@@ -142,19 +128,11 @@ export function Footer() {
 
       <div className="footer-new__inner">
         <div className="footer-new__main">
-          {/* Brand Logo & Socials */}
+          {/* Brand Logo Only */}
           <div className="footer-new__brand">
             <Link href="/" className="nav__logo" style={{ textDecoration: 'none' }}>
               <img src="/logo.jpg" alt="Asia Group" className="footer-new__logo-img" />
             </Link>
-            <div className="footer-new__socials">
-              <a href="#" className="footer-new__social" aria-label="LinkedIn">
-                <i className="ri-linkedin-fill"></i>
-              </a>
-              <a href="#" className="footer-new__social" aria-label="Facebook">
-                <i className="ri-facebook-fill"></i>
-              </a>
-            </div>
           </div>
 
           {/* Clean Horizontal Navigation Bar */}
@@ -176,7 +154,7 @@ export function Footer() {
         {/* Footer Bottom */}
         <div className="footer-new__bottom">
           <p className="footer-new__copy">
-            © {year} Asia Group of Companies Ltd. All rights reserved. Registered in Nigeria.
+            © {year} Asia Group of Companies Ltd. All rights reserved.
           </p>
           <div className="footer-new__legal">
             <Link href="/privacy" className="footer-new__legal-link">Privacy Policy</Link>
