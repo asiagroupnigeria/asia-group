@@ -1,8 +1,15 @@
 'use client';
 
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export function Footer() {
+  const [year, setYear] = useState(2026);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="footer-new">
       <style>{`
@@ -35,10 +42,10 @@ export function Footer() {
           gap: 16px;
         }
         .footer-new__logo-img {
-          height: 44px;
+          height: 48px;
           width: auto;
           display: block;
-          filter: brightness(0) invert(1); /* Premium white logo style for dark green background */
+          /* Removed brightness invert filter to show the real, full-color brand logo */
         }
         .footer-new__socials {
           display: flex;
@@ -169,7 +176,7 @@ export function Footer() {
         {/* Footer Bottom */}
         <div className="footer-new__bottom">
           <p className="footer-new__copy">
-            © {new Date().getFullYear()} Asia Group of Companies Ltd. All rights reserved. Registered in Nigeria.
+            © {year} Asia Group of Companies Ltd. All rights reserved. Registered in Nigeria.
           </p>
           <div className="footer-new__legal">
             <Link href="/privacy" className="footer-new__legal-link">Privacy Policy</Link>
