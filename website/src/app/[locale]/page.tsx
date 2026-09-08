@@ -7,7 +7,7 @@ import { FadeUpObserver } from '@/components/ui/fade-up-observer';
 import { getCollection } from '@/lib/cms';
 
 import { PartnerCta } from '@/components/home/partner-cta';
-import { CommunityImpact } from '@/components/home/community-impact';
+// import { CommunityImpact } from '@/components/home/community-impact'; // TODO: Uncomment when CSR page is fully developed
 
 function HomeMediaThumbnail({ src, className, style }: { src: string; className: string; style?: React.CSSProperties }) {
   if (src && src.endsWith('.mp4')) {
@@ -116,7 +116,7 @@ export default async function Home() {
 
       {/* ==================== SUBSIDIARIES ==================== */}
       <section id="subsidiaries" className="section bg-dark-2">
-        <div className="inner grid-2 grid-2--end" style={{ marginBottom: '80px' }}>
+        <div className="inner grid-2 grid-2--end section-header-gap">
           <div>
             <h2 className="section-title">
               Six Pillars of a<br />Diversified Empire
@@ -140,7 +140,7 @@ export default async function Home() {
 
       {/* ==================== PARTNERS ==================== */}
       <section id="partners" className="partners-section">
-        <div className="inner grid-2 grid-2--end" style={{ marginBottom: '80px' }}>
+        <div className="inner grid-2 grid-2--end section-header-gap">
           <div className="fade-up">
             <h2 className="section-title section-title--dark">
               The World&apos;s Best<br />Trust Asia Group
@@ -153,9 +153,9 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="inner grid-6">
+        <div className="inner grid-6 partners-logo-grid">
           {partners.map((partner, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px 16px', borderRight: (i + 1) % 6 !== 0 ? '1px solid var(--border-color)' : 'none', borderBottom: i < partners.length - 6 ? '1px solid var(--border-color)' : 'none', height: '120px' }}>
+            <div key={i} className="partners-logo-cell">
               <img src={partner.logo} alt={partner.name} style={{ maxWidth: '140px', maxHeight: '60px', width: 'auto', height: 'auto', objectFit: 'contain' }} />
             </div>
           ))}
@@ -163,12 +163,12 @@ export default async function Home() {
       </section>
 
 
-      {/* ==================== COMMUNITY IMPACT ==================== */}
-      <CommunityImpact />
+      {/* ==================== COMMUNITY IMPACT (CSR) — TODO: Uncomment when CSR page is fully developed ==================== */}
+      {/* <CommunityImpact /> */}
 
       {/* ==================== NEWS ==================== */}
       <section id="news" className="section bg-dark-2">
-        <div className="inner grid-2 grid-2--end" style={{ marginBottom: '80px' }}>
+        <div className="inner grid-2 grid-2--end section-header-gap">
           <div>
             <h2 className="section-title">Asia Group<br />in the News</h2>
           </div>

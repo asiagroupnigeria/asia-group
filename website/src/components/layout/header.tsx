@@ -21,7 +21,7 @@ export function Header() {
     { name: 'Leadership', href: '/leadership' },
     { name: 'Subsidiaries', href: '/businesses' },
     { name: 'Operations', href: '/operations' },
-    { name: 'CSR', href: '/csr' },
+    // { name: 'CSR', href: '/csr' }, // TODO: Uncomment when CSR page is fully developed
     { name: 'News', href: '/news' },
     { name: 'Contact', href: '/contact' },
   ];

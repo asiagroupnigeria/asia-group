@@ -21,6 +21,8 @@ export default function WholesalePage() {
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 60px; z-index: 1000;
   }
+  /* Reset: prevent footer nav from inheriting page-level nav positioning */
+  .footer-new__nav { position: static; top: auto; left: auto; right: auto; height: auto; background: none; backdrop-filter: none; border-bottom: none; padding: 0; z-index: auto; flex-wrap: wrap; gap: 24px; }
   .nav-back {
     display: flex; align-items: center; gap: 10px;
     font-family: var(--font-condensed); font-size: 12px; font-weight: 600;

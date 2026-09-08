@@ -141,8 +141,8 @@ export function Footer() {
             <span className="footer-new__dot">•</span>
             <Link href="/businesses" className="footer-new__link">Subsidiaries</Link>
             <span className="footer-new__dot">•</span>
-            <Link href="/csr" className="footer-new__link">CSR</Link>
-            <span className="footer-new__dot">•</span>
+            {/* <Link href="/csr" className="footer-new__link">CSR</Link> */}
+            {/* <span className="footer-new__dot">•</span> */}
             <Link href="/careers" className="footer-new__link">Careers</Link>
             <span className="footer-new__dot">•</span>
             <Link href="/news" className="footer-new__link">News</Link>

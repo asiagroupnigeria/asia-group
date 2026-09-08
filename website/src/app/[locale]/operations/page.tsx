@@ -60,6 +60,8 @@ export default function OperationsPage() {
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 60px; z-index: 1000;
   }
+  /* Reset: prevent footer nav from inheriting page-level nav positioning */
+  .footer-new__nav { position: static; top: auto; left: auto; right: auto; height: auto; background: none; backdrop-filter: none; border-bottom: none; padding: 0; z-index: auto; flex-wrap: wrap; gap: 24px; }
   .nav-back { display: flex; align-items: center; gap: 10px; font-family: var(--font-condensed); font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
   .nav-back:hover { color: var(--white); }
   .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; font-family: var(--font-condensed); font-size: 17px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); }
@@ -265,7 +267,7 @@ export default function OperationsPage() {
   /* ── CAPACITY TABLE ── */
   .capacity-section { padding: 100px 60px; background: #f8f9fa; }
   .cap-inner { max-width: 1300px; margin: 0 auto; }
-  .cap-table { width: 100%; margin-top: 48px; border: 1px solid rgba(0,0,0,0.06); border-collapse: collapse; }
+  .cap-table { width: 100%; margin-top: 48px; border: 1px solid rgba(0,0,0,0.06); border-collapse: collapse; min-width: 600px; }
   .cap-table th { font-family: var(--font-condensed); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); padding: 14px 20px; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.06); background: rgba(0,0,0,0.02); }
   .cap-table td { font-size: 13px; font-weight: 400; color: rgba(0,0,0,0.65); padding: 16px 20px; border-bottom: 1px solid rgba(0,0,0,0.04); vertical-align: middle; }
   .cap-table tr:last-child td { border-bottom: none; }
@@ -305,6 +307,7 @@ export default function OperationsPage() {
     .hero-content { padding-left: 24px; padding-right: 24px; }
     .locations-grid { grid-template-columns: 1fr; }
     .cap-table { display: block; overflow-x: auto; }
+    .hero-headline .line-2 { padding-left: clamp(20px, 5vw, 60px); }
   }
 
   /* JS-driven filter hide */

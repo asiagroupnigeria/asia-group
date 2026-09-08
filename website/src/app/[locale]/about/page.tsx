@@ -39,6 +39,8 @@ export default function AboutPage() {
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 60px; z-index: 1000;
   }
+  /* Reset: prevent footer nav from inheriting page-level nav positioning */
+  .footer-new__nav { position: static; top: auto; left: auto; right: auto; height: auto; background: none; backdrop-filter: none; border-bottom: none; padding: 0; z-index: auto; flex-wrap: wrap; gap: 24px; }
   .nav-back { display:flex; align-items:center; gap:10px; font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.2s; }
   .nav-back:hover { color: var(--white); }
   .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; font-family:var(--font-condensed); font-size:17px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--white); }
@@ -155,8 +157,18 @@ export default function AboutPage() {
   }
   @media (max-width: 700px) {
     nav, .page-header, .founder-section, .executives-section, .board-section, .cta-band, .footer-mini { padding-left: 24px; padding-right: 24px; }
+    .executives-section { padding-top: 64px; padding-bottom: 64px; }
+    .board-section { padding-top: 64px; padding-bottom: 64px; }
     .executives-grid, .board-grid { grid-template-columns: 1fr; }
     .founder-facts { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .founder-content { padding: 28px 20px; }
+    .executives-section { padding-top: 48px; padding-bottom: 48px; }
+    .board-section { padding-top: 48px; padding-bottom: 48px; }
+  }
+  @media (max-width: 380px) {
+    .founder-facts { grid-template-columns: 1fr; }
   }
 
   /* ── LOCATION MDs TIER ── */
@@ -211,6 +223,8 @@ export default function AboutPage() {
     .location-mds-grid { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 600px)  { .location-mds-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px)  { .location-mds-grid { grid-template-columns: repeat(2, 1fr); } .loc-md-name { font-size: 10px; } .loc-md-loc { font-size: 9px; } }
+  @media (max-width: 380px)  { .location-mds-grid { grid-template-columns: 1fr; } }
 ` }} />
       
       <div dangerouslySetInnerHTML={{ __html: `

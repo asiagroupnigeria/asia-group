@@ -52,6 +52,8 @@ export default function LeadershipPage() {
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 60px; z-index: 1000;
   }
+  /* Reset: prevent footer nav from inheriting page-level nav positioning */
+  .footer-new__nav { position: static; top: auto; left: auto; right: auto; height: auto; background: none; backdrop-filter: none; border-bottom: none; padding: 0; z-index: auto; flex-wrap: wrap; gap: 24px; }
   .nav-back { display:flex; align-items:center; gap:10px; font-family:var(--font-condensed); font-size:12px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.2s; }
   .nav-back:hover { color: var(--white); }
   .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; font-family:var(--font-condensed); font-size:17px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--white); }
@@ -722,6 +724,7 @@ export default function LeadershipPage() {
 
       ` }} />
     
+      {/* ==================== BOARD OF DIRECTORS — TODO: Uncomment when board data is confirmed ====================
       <div dangerouslySetInnerHTML={{ __html: `
         <!-- BOARD OF DIRECTORS -->
 <section class="board-section">
@@ -770,6 +773,7 @@ export default function LeadershipPage() {
   </div>
 </section>
       `}} />
+      */}
 </div>
   );
 }

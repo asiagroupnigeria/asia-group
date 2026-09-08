@@ -22,6 +22,8 @@ export default function CSRPage() {
   body { font-family: var(--font-body); background: var(--dark); color: var(--white); overflow-x: hidden; }
 
   nav { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: rgba(10,10,10,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; padding: 0 60px; z-index: 1000; }
+  /* Reset: prevent footer nav from inheriting page-level nav positioning */
+  .footer-new__nav { position: static; top: auto; left: auto; right: auto; height: auto; background: none; backdrop-filter: none; border-bottom: none; padding: 0; z-index: auto; flex-wrap: wrap; gap: 24px; }
   .nav-back { display: flex; align-items: center; gap: 10px; font-family: var(--font-condensed); font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
   .nav-back:hover { color: var(--white); }
   .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; font-family: var(--font-condensed); font-size: 17px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); }
