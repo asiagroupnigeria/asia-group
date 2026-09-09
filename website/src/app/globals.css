@@ -318,6 +318,11 @@ body {
   height: 120px;
   border-right: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
+  background: var(--bg-main);
+}
+
+.partners-logo-cell img {
+  mix-blend-mode: multiply;
 }
 
 /* At 3 columns (900px), remove border from every 3rd cell */

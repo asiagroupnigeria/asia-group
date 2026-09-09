@@ -11,8 +11,7 @@ export default function ContactPage() {
     enquiryType: '',
     message: ''
   });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const fadeEls = document.querySelectorAll('.fade-up');
@@ -30,50 +29,10 @@ export default function ContactPage() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setStatus('loading');
-    setErrorMessage('');
-
-    let endpoint = '/api/inquiries/general';
-    let payload: any = {
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      message: formData.message,
-    };
-
-    if (formData.enquiryType === 'Investment / Business Partnership') {
-      endpoint = '/api/inquiries/investment';
-      payload.organization = formData.company;
-      payload.interest = formData.enquiryType;
-    } else if (formData.enquiryType === 'Bulk Purchase / Trade Enquiry' || formData.enquiryType === 'Distribution Partnership') {
-      endpoint = '/api/inquiries/export';
-      payload.company = formData.company || 'Not provided';
-      payload.country = 'Not provided'; // We could add a country field, but hardcoding for now if missing
-      payload.product_categories = [formData.enquiryType];
-      payload.volume_estimate = 'To be discussed';
-    }
-
-    try {
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.message || 'Something went wrong');
-      }
-
-      setStatus('success');
-      setFormData({ name: '', company: '', email: '', phone: '', enquiryType: '', message: '' });
-    } catch (err: any) {
-      console.error(err);
-      setStatus('error');
-      setErrorMessage(err.message || 'Failed to submit inquiry. Please try again.');
-    }
+    setSubmitted(true);
+    setFormData({ name: '', company: '', email: '', phone: '', enquiryType: '', message: '' });
   };
 
   return (
@@ -98,10 +57,26 @@ export default function ContactPage() {
           <div className="fade-up">
             <div className="contact-info">
               {[
-                { icon: <i className="ri-map-pin-line"></i>, label: 'Head Office', value: 'Abubakar Rimi Market Area\nKano State, Nigeria\n(Full address — to be confirmed)' },
-                { icon: <i className="ri-phone-line"></i>, label: 'Phone / WhatsApp', value: '[ Corporate Telephone — TBD ]\n[ WhatsApp Business — TBD ]' },
-                { icon: <i className="ri-mail-line"></i>, label: 'Email', value: '[ info@asiagroup.com.ng ]\n[ partnerships@asiagroup.com.ng ]' },
-                { icon: <i className="ri-time-line"></i>, label: 'Business Hours', value: 'Monday – Friday: 8:00am – 5:00pm\nSaturday: 9:00am – 1:00pm (WAT)' },
+                {
+                  icon: <i className="ri-map-pin-line"></i>,
+                  label: 'Head Office',
+                  value: 'No. 46, Niger Street\nAbubakar Rimi Market Area\nKano, Kano State, Nigeria'
+                },
+                {
+                  icon: <i className="ri-phone-line"></i>,
+                  label: 'Phone / WhatsApp',
+                  value: '+234 701 000 0013\n+234 704 190 0942'
+                },
+                {
+                  icon: <i className="ri-mail-line"></i>,
+                  label: 'Email',
+                  value: 'info@asiagroup.ng\npartnerships@asiagroup.ng\nexport@asiagroup.ng'
+                },
+                {
+                  icon: <i className="ri-time-line"></i>,
+                  label: 'Business Hours',
+                  value: 'Monday – Friday: 8:00am – 5:00pm\nSaturday: 9:00am – 1:00pm (WAT)'
+                },
               ].map((item, i) => (
                 <div key={i} className="contact-info-row">
                   <div className="contact-info-row__icon">{item.icon}</div>
@@ -118,23 +93,21 @@ export default function ContactPage() {
           <div className="fade-up delay-2">
             <div className="contact-form-wrap">
               <h3 className="contact-form-title">Send a Message</h3>
-              
-              {status === 'success' ? (
-                <div style={{ padding: '24px', backgroundColor: 'rgba(76, 175, 80, 0.1)', border: '1px solid #4CAF50', borderRadius: '8px', color: '#4CAF50' }}>
-                  <h4 style={{ marginBottom: '8px' }}>Message Sent Successfully!</h4>
-                  <p>Thank you for reaching out to Asia Group. Our team will get back to you shortly.</p>
-                  <button className="btn btn--outline" style={{ marginTop: '16px', borderColor: '#4CAF50', color: '#4CAF50' }} onClick={() => setStatus('idle')}>
+
+              {submitted ? (
+                <div style={{ padding: '32px', backgroundColor: 'rgba(27,94,32,0.12)', border: '1px solid var(--green-light)', color: 'var(--green-light)' }}>
+                  <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', marginBottom: '10px' }}>Message Sent Successfully!</h4>
+                  <p style={{ opacity: 0.85 }}>Thank you for reaching out to Asia Group. Our team will get back to you within 24 business hours.</p>
+                  <button
+                    className="btn btn--outline"
+                    style={{ marginTop: '20px', borderColor: 'var(--green-light)', color: 'var(--green-light)' }}
+                    onClick={() => setSubmitted(false)}
+                  >
                     Send Another Message
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
-                  {status === 'error' && (
-                    <div style={{ padding: '12px', marginBottom: '16px', backgroundColor: 'rgba(244, 67, 54, 0.1)', border: '1px solid #F44336', borderRadius: '4px', color: '#F44336' }}>
-                      {errorMessage}
-                    </div>
-                  )}
-                  
                   <div className="form-row">
                     <div className="form-group">
                       <label className="form-label">Full Name *</label>
@@ -177,8 +150,8 @@ export default function ContactPage() {
                   </div>
                   <div className="form-footer">
                     <span className="form-note">We respond within 24 business hours</span>
-                    <button type="submit" disabled={status === 'loading'} className="btn btn--primary">
-                      {status === 'loading' ? 'Sending...' : 'Send Message →'}
+                    <button type="submit" className="btn btn--primary">
+                      Send Message →
                     </button>
                   </div>
                 </form>
