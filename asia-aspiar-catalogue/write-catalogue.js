@@ -411,7 +411,6 @@ const html = `<!DOCTYPE html>
     </div>
   </div>
   <div class="rule" style="margin:0 0 28px"></div>
-  <img src="../catalogue-products-images/transit-map.png" alt="Kano to Lekki transit route" style="width:100%;height:180px;object-fit:cover;border-radius:20px;filter:saturate(0.6) contrast(0.85) brightness(1.1)">
   <div class="pg-num">13</div>
 </section>
 

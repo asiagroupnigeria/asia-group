@@ -3308,12 +3308,6 @@ textarea.form-control {
 .pc-path-arrow { font-size: 18px; color: rgba(255,255,255,0.3); margin-left: auto; padding-top: 4px; transition: color 0.2s, transform 0.2s; flex-shrink: 0; }
 .pc-path:hover .pc-path-arrow { color: var(--white); transform: translateX(4px); }
 
-@media (max-width: 900px) {
-  .pc-inner { grid-template-columns: 1fr; gap: 48px; }
-  .csr-inner { grid-template-columns: 1fr; gap: 48px; }
-  .exp-header { grid-template-columns: 1fr; gap: 32px; }
-  .exp-phases { grid-template-columns: 1fr; }
-}
 
 /* ==================== CSR / COMMUNITY IMPACT ==================== */
 #csr { padding: 120px 60px; background: var(--bg-main); overflow: hidden; }
@@ -3358,3 +3352,10 @@ textarea.form-control {
 .exp-phase.active .exp-item::before { color: var(--green); }
 .exp-phase.progress .exp-item::before { color: var(--text-muted); }
 .exp-phase.planned .exp-item::before { color: rgba(0,0,0,0.2); }
+
+@media (max-width: 900px) {
+  .pc-inner { grid-template-columns: 1fr; gap: 48px; }
+  .csr-inner { grid-template-columns: 1fr; gap: 48px; }
+  .exp-header { grid-template-columns: 1fr; gap: 32px; }
+  .exp-phases { grid-template-columns: 1fr; }
+}
