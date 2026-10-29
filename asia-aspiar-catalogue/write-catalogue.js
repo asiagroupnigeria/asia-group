@@ -331,7 +331,7 @@ const html = `<!DOCTYPE html>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
     <div><div class="kicker" style="margin-bottom:6px">Fluoride Protection</div><p style="font-size:14px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:0">Active fluoride formula strengthens enamel and prevents cavities with daily use.</p></div>
     <div><div class="kicker" style="margin-bottom:6px">Dual Formats</div><p style="font-size:14px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:0">Classic paste and red gel address different consumer preferences within one brand.</p></div>
-    <div><div class="kicker" style="margin-bottom:6px">Export-Ready</div><p style="font-size:14px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:0">Both SKUs are packaged and compliant for US and EU retail shelf requirements.</p></div>
+    <div><div class="kicker" style="margin-bottom:6px">Export-Ready</div><p style="font-size:14px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:0">Both SKUs are packaged and compliant for US and UK retail shelf requirements.</p></div>
   </div>
   <div class="pg-num">10</div>
 </section>

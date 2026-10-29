@@ -266,7 +266,7 @@ a {
 
 /* Right — Full-bleed image */
 .cover-right {
-  background-image: url('catalogue-products-images/packaging-line-vertical.png');
+  background-image: url('../catalogue-products-images/packaging-line-vertical.png');
   background-size: cover;
   background-position: center top;
   position: relative;
