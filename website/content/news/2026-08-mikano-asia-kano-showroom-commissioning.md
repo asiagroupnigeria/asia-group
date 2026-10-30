@@ -3,7 +3,7 @@ title: "Asia Group Commissions Ultra-Modern Kano Automotive Showroom and Service
 date: 2026-08-25
 category: "Expansion"
 hero_image: "/media/blog-posts/mikano-asia-kano-showroom-comissiooning/mikano-asia-kano-showroom-comissiooning.jpeg"
-excerpt: "Asia Group has formally commissioned its flagship state-of-the-art automotive showroom and after-sales service facility in Kano in partnership with Mikano Motors — establishing a world-class automotive hub for Northern Nigeria."
+excerpt: "Asia Group has formally commissioned its flagship state-of-the-art automotive showroom and after-sales service facility in Kano in partnership with Mikano Motors, establishing a world-class automotive hub for Northern Nigeria."
 featured: true
 author: "Asia Group Communications"
 read_time: 4
@@ -34,7 +34,7 @@ The signing took place before an audience of senior executives, industry stakeho
 
 > "When we announced our partnership with Mikano Motors, we committed to building a facility that matches the highest global automotive standards right here in Kano. Today, that commitment is a living reality. This showroom and service hub will provide individuals, corporate fleets, and government institutions with seamless access to world-class vehicles and dependable maintenance without needing to travel outside our region."
 >
-> — **Alhaji Sani Isa Abubakar**, Chairman & CEO, Asia Group
+> **Alhaji Sani Isa Abubakar**, Chairman & CEO, Asia Group
 
 ### World-Class Architectural Grandeur
 
@@ -42,7 +42,7 @@ The new Kano showroom sets a new architectural and experiential benchmark in Nor
 * **Grand Exhibition Gallery:** A sprawling vehicle showcase floor featuring high-gloss marble reflective flooring, ambient architectural illumination, and dedicated staging for luxury SUVs, rugged pickups, and executive sedans.
 * **Classical Decorative Craftsmanship:** Masterfully detailed columns adorned with gold-leaf accents and bespoke moulding, reflecting the dignity and heritage of Kano's commercial pedigree.
 * **VIP Consultation & Executive Lounges:** Soundproofed, glass-enclosed client negotiation suites designed for private corporate and institutional consultations.
-* **Leadership Wall of Honour:** Prominently mounted at the main entrance, portraits honouring President Bola Ahmed Tinubu GCFR, Governor Abba Kabir Yusuf, Emir of Kano Alhaji Aminu Ado Bayero, and Chairman Alhaji Sani Isa Abubakar — alongside commemorative portraits celebrating the joint leadership of Mikano and Asia Group.
+* **Leadership Wall of Honour:** Prominently mounted at the main entrance, portraits honouring President Bola Ahmed Tinubu GCFR, Governor Abba Kabir Yusuf, Emir of Kano Alhaji Aminu Ado Bayero, and Chairman Alhaji Sani Isa Abubakar, alongside commemorative portraits celebrating the joint leadership of Mikano and Asia Group.
 
 ### Delivering Global Brands to Northern Nigeria
 
@@ -59,4 +59,3 @@ Beyond vehicle sales, the complex houses a modern after-sales service center equ
 To guarantee customer satisfaction, master automotive technicians trained under Mikano’s factory-certified standards will oversee all servicing, warranty fulfillment, and scheduled maintenance. The facility also creates high-skilled automotive engineering jobs and apprenticeships, transferring modern technical expertise directly to local Kano youth.
 
 The commissioning of this landmark complex reflects Asia Group's enduring pledge to foster local prosperity, modern infrastructure, and world-class commercial standards in Kano and throughout Nigeria.
-

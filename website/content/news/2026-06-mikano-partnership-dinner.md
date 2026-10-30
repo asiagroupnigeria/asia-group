@@ -8,32 +8,30 @@ featured: true
 author: "Asia Group Communications"
 read_time: 4
 gallery:
-  - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-1.jpeg
   - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-8.jpeg
+  - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-2.jpeg
   - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-3.jpeg
-  - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-9.jpeg
-  - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-10.jpeg
+  - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-4.jpeg
+  - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-5.jpeg
   - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-6.jpeg
   - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-7.jpeg
-  - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-4.jpeg
-  - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-2.jpeg
-  - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-5.jpeg
   - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-11.jpeg
+  - /media/blog-posts/mikano-partnership-dinner/mikano-partnership-dinner-13.jpeg
 ---
 
-In a celebration of industrial synergy and shared vision, Asia Group and Mikano International hosted a high-level executive gala dinner to commemorate their strategic partnership — a multi-faceted collaboration established to transform automotive distribution, commercial fleet supply, and after-sales service throughout Northern Nigeria.
+In a celebration of industrial synergy and shared vision, Asia Group and Mikano International hosted a high-level executive gala dinner to commemorate their strategic partnership, a multifaceted collaboration established to transform automotive distribution, commercial fleet supply, and after-sales service throughout Northern Nigeria.
 
 The distinguished evening brought together the Chairman and Chief Executive Officer of Asia Group, **Alhaji Sani Isa Abubakar**, and the Chairman of Mikano International, **Mr. Mofid Karameh**, alongside executive management teams, industry leaders, dignitaries, and long-standing commercial associates.
 
 ### A Historic Industrial Alliance
 
-The partnership between Asia Group (through its automotive division, **Asia Automobiles**) and Mikano Motors brings together two of Nigeria's most accomplished commercial powerhouses. By combining Mikano's extensive portfolio of world-class automotive franchises — including **Changan Auto, Maxus, GWM Tank, and ZNA** — with Asia Group's unmatched market leadership, distribution footprint, and deep community heritage in Northern Nigeria, the alliance creates a powerhouse automotive hub headquartered in Kano.
+The partnership between Asia Group (through its automotive division, **Asia Automobiles**) and Mikano Motors brings together two of Nigeria's most accomplished commercial powerhouses. By combining Mikano's extensive portfolio of world-class automotive franchises, including **Changan Auto, Maxus, GWM Tank, and ZNA**, with Asia Group's unmatched market leadership, distribution footprint, and deep community heritage in Northern Nigeria, the alliance creates a powerhouse automotive hub headquartered in Kano.
 
 Throughout the evening, both chairmen reiterated their shared conviction that true industrial growth is built on trust, long-term commitment, and local value creation.
 
 > "Our alliance with Mikano is more than a commercial agreement; it is a shared promise to bring the very best global automotive technology, dependable heavy equipment, and international standard service directly to Northern Nigeria. When leaders with shared values come together, the entire community benefits."
 >
-> — **Alhaji Sani Isa Abubakar**, Chairman & CEO, Asia Group
+> **Alhaji Sani Isa Abubakar**, Chairman & CEO, Asia Group
 
 ### An Evening of Fellowship and Celebration
 
@@ -56,4 +54,3 @@ Through Asia Automobiles, the partnership guarantees:
 3. **Institutional Fleet Solutions:** Customized fleet acquisition and service contracts for corporations, construction companies, logistics operators, and government institutions.
 
 The gala dinner closed with mutual toasts celebrating not only what the two conglomerates have already accomplished, but also looking forward to the next milestone: the formal commissioning of Asia Group’s ultra-modern flagship showroom and automotive complex in Kano.
-
