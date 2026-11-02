@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Asia Group Corporate Website — Technical & Operational Handoff Document</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm 15mm 20mm 15mm;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #222222;
+      background: #fbfbfb;
+      line-height: 1.5;
+      font-size: 13px;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 50px 60px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      border-radius: 4px;
+    }
+    .header-block {
+      border-bottom: 2px solid #0E3A26;
+      padding-bottom: 24px;
+      margin-bottom: 30px;
+    }
+    .company-tag {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #B48C3C;
+      margin-bottom: 6px;
+    }
+    h1 {
+      font-size: 26px;
+      color: #0E3A26;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .doc-meta {
+      font-size: 12px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+    .callout {
+      background: #F2F7F4;
+      border-left: 4px solid #0E3A26;
+      padding: 14px 18px;
+      border-radius: 0 4px 4px 0;
+      margin: 24px 0;
+      font-size: 12.5px;
+      color: #1e3a2f;
+    }
+    .callout strong {
+      color: #0E3A26;
+    }
+    h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0E3A26;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #B48C3C;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    p {
+      margin-bottom: 12px;
+      color: #374151;
+    }
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 16px;
+      color: #374151;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 12px;
+    }
+    th, td {
+      border: 1px solid #e5e7eb;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #0E3A26;
+      color: #ffffff;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    tr:nth-child(even) {
+      background-color: #f9fafb;
+    }
+    .vault-table td {
+      font-size: 11.5px;
+    }
+    .vault-table th {
+      background-color: #134E35;
+    }
+    .code-tag {
+      font-family: monospace;
+      background: #f3f4f6;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-size: 11px;
+      color: #111827;
+    }
+    .badge-opt {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      background: #e6f4ea;
+      color: #137333;
+    }
+    .footer-note {
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 11px;
+      color: #9ca3af;
+      display: flex;
+      justify-content: space-between;
+    }
+    .print-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0E3A26;
+      color: #ffffff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .print-btn:hover {
+      background: #175438;
+    }
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      .print-btn {
+        display: none;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn" onclick="window.print()">
+    🖨️ Print / Save as PDF
+  </button>
+
+  <div class="container">
+    <div class="header-block">
+      <div class="company-tag">Asia Group of Companies</div>
+      <h1>Corporate Website Technical &amp; Operational Handoff Document</h1>
+      <div class="doc-meta">
+        <strong>Domain:</strong> https://asiagroup.ng &nbsp;|&nbsp; 
+        <strong>Release Date:</strong> October 2026 &nbsp;|&nbsp; 
+        <strong>Version:</strong> 1.0 (Final Production) &nbsp;|&nbsp; 
+        <strong>Status:</strong> Confidential Executive Handoff
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>EXECUTIVE NOTICE &amp; CONFIDENTIALITY:</strong> This document constitutes the complete operational and architectural handoff package for the Asia Group web platform. It contains administrative infrastructure blueprints, content publishing workflows, and an account credential vault. Keep this document stored securely and restrict access to authorized management and technical custodians.
+    </div>
+
+    <h2>1. Executive Summary &amp; Architecture Overview</h2>
+    <p>The Asia Group web platform is built as an enterprise-grade, statically optimized Next.js 16 application backed by a decoupled Git-based Content Management System (CMS). All content is maintained in version-controlled Markdown files with frontmatter metadata, allowing non-technical editors to publish via an online CMS UI while keeping all business data securely revisioned in Git.</p>
+    <ul>
+      <li><strong>Next.js 16 (App Router):</strong> High-speed edge rendering, serverless inquiry endpoints, and automated image optimization.</li>
+      <li><strong>Sveltia Git-CMS:</strong> Lightweight browser-based admin panel accessible at <code>/admin</code> without ongoing database hosting overhead.</li>
+      <li><strong>Vercel Enterprise Edge:</strong> Global edge CDN hosting with continuous deployment hooks triggered automatically on Git push.</li>
+      <li><strong>Google Analytics 4:</strong> Privacy-compliant event telemetry gated behind visitor cookie consent.</li>
+    </ul>
+
+    <h2>2. Technology Stack &amp; Key Specifications</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Technology</th>
+          <th>Configuration / Version</th>
+          <th>Key Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Framework</strong></td>
+          <td>Next.js (App Router)</td>
+          <td>16.2.10 (Turbopack)</td>
+          <td>Server-side rendering, static generation, API routes</td>
+        </tr>
+        <tr>
+          <td><strong>Frontend Engine</strong></td>
+          <td>React</td>
+          <td>19.2.4</td>
+          <td>Component hierarchy, interactive UI, fast hydration</td>
+        </tr>
+        <tr>
+          <td><strong>Styling</strong></td>
+          <td>Tailwind CSS + Custom CSS</td>
+          <td>PostCSS v4, Remixicon 4.9.1</td>
+          <td>Corporate branding, responsive layouts, animations</td>
+        </tr>
+        <tr>
+          <td><strong>Content Engine</strong></td>
+          <td>gray-matter + react-markdown</td>
+          <td>Decoupled CMS Pipeline</td>
+          <td>Static Markdown content in <code>content/</code> directory</td>
+        </tr>
+        <tr>
+          <td><strong>Internationalization</strong></td>
+          <td>next-intl</td>
+          <td>4.13.1</td>
+          <td>Multilingual routing architecture (<code>/[locale]/*</code>)</td>
+        </tr>
+        <tr>
+          <td><strong>Analytics</strong></td>
+          <td>Google Analytics 4 (GA4)</td>
+          <td>Property: G-9PJBSXMY5L</td>
+          <td>User telemetry, pageviews, and conversion tracking</td>
+        </tr>
+        <tr>
+          <td><strong>Email &amp; CRM</strong></td>
+          <td>Brevo API + Zoho Bigin</td>
+          <td>Serverless API Routes</td>
+          <td>Contact inquiry handling and sales lead pipeline</td>
+        </tr>
+        <tr>
+          <td><strong>CMS Portal</strong></td>
+          <td>Sveltia CMS</td>
+          <td>Single Page App (<code>/admin</code>)</td>
+          <td>Online WYSIWYG editor authenticated via GitHub OAuth</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>3. Content Management Workflows</h2>
+    <h3>Method A: Browser-Based CMS Portal (<code>/admin</code>)</h3>
+    <p>Non-technical team members can publish news stories, edit leadership profiles, or update business unit details directly from any web browser:</p>
+    <ol>
+      <li><strong>Access:</strong> Navigate to <a href="https://www.asiagroup.ng/admin" target="_blank">https://www.asiagroup.ng/admin</a>.</li>
+      <li><strong>Authentication:</strong> Click <em>"Login with GitHub"</em>. The system validates permissions against the Asia Group GitHub organization.</li>
+      <li><strong>Editing:</strong> Select <em>"Newsroom"</em>, <em>"Business Units"</em>, or <em>"Leadership"</em> from the sidebar.</li>
+      <li><strong>Publishing:</strong> Fill in article titles, upload high-resolution photography, and click <em>"Publish"</em>. Every publish action creates a Git commit on <code>main</code> and triggers a live Vercel rebuild automatically.</li>
+    </ol>
+
+    <h3>Method B: Direct Git / Developer Publishing</h3>
+    <p>Developers can publish directly by placing images in <code>website/public/media/blog-posts/&lt;folder&gt;/</code> and adding a Markdown file to <code>website/content/news/YYYY-MM-&lt;slug&gt;.md</code> with YAML frontmatter. Pushing to <code>origin main</code> triggers the live deployment.</p>
+
+    <div class="page-break"></div>
+
+    <h2>4. Analytics &amp; Tracking Architecture</h2>
+    <p>The website uses <strong>Google Analytics 4 (Property ID: G-9PJBSXMY5L)</strong>:</p>
+    <ul>
+      <li><strong>Consent Gating:</strong> Tracking scripts remain completely dormant until a visitor explicitly accepts cookies on the Cookie Consent banner.</li>
+      <li><strong>Execution:</strong> Once accepted, <code>localStorage</code> saves <code>asia_group_cookie_consent = 'accepted'</code> and dynamically triggers <code>gtag.js</code>.</li>
+      <li><strong>Live Dashboard:</strong> Analytics reports, visitor demographics, and traffic channels live in Google Analytics at <a href="https://analytics.google.com" target="_blank">https://analytics.google.com</a> under <code>asiagroup.ng@gmail.com</code>.</li>
+    </ul>
+
+    <h2>5. Cloudflare Security Architecture &amp; Implementation</h2>
+    <p>Currently, <code>asiagroup.ng</code> points directly to Vercel's nameservers. Setting up Cloudflare provides enterprise-grade DDoS protection, Web Application Firewall (WAF), and bot mitigation:</p>
+    <ul>
+      <li><span class="badge-opt">Option 1 (Recommended &amp; Free)</span> <strong>Full DNS Delegation with Cloudflare Proxy:</strong> Change nameservers at the <code>.ng</code> registrar to Cloudflare. Point CNAME records to <code>cname.vercel-dns.com</code> with Orange Cloud (Proxied) enabled, and set SSL/TLS mode to <strong>Full (Strict)</strong>. Unlocks Layer 7 DDoS mitigation, WAF rules, Bot Fight Mode, rate limiting on contact forms, and edge caching.</li>
+      <li><strong>Option 2 (DNS-Only / Gray Cloud):</strong> Cloudflare handles DNS but proxying is OFF. Zero WAF/DDoS protection (Not recommended).</li>
+      <li><strong>Option 3 (CNAME Partial Setup):</strong> Requires a paid Cloudflare Business/Enterprise plan ($200+/month) without any security advantage over Option 1.</li>
+    </ul>
+
+    <h2>6. Executive Credential, Account &amp; Password Vault</h2>
+    <p>This master register records all infrastructure accounts, portal URLs, custodians, and credential placeholders powering Asia Group's digital presence:</p>
+
+    <table class="vault-table">
+      <thead>
+        <tr>
+          <th>Service / Infrastructure</th>
+          <th>Portal URL</th>
+          <th>Username / Email</th>
+          <th>Password / Key Placeholder</th>
+          <th>2FA / Recovery Method</th>
+          <th>Custodian / Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Domain Registrar (.ng)</strong></td>
+          <td>Registrar Portal (NiRA / Web4Africa / Upperlink)</td>
+          <td>asiagroup.ng@gmail.com<br><small>(or corporate admin)</small></td>
+          <td><code>[Master Registrar Password]</code></td>
+          <td>SMS / Authenticator</td>
+          <td>IT Director / Domain Owner</td>
+        </tr>
+        <tr>
+          <td><strong>GitHub Organization</strong></td>
+          <td><a href="https://github.com/asiagroupnigeria" target="_blank">github.com/asiagroupnigeria</a></td>
+          <td>asiagroupnigeria</td>
+          <td><code>[GitHub Admin Password]</code><br><small>SSH: id_ed25519_asiagroup</small></td>
+          <td>Authenticator (TOTP) + Recovery Codes</td>
+          <td>DevOps / Lead Engineer</td>
+        </tr>
+        <tr>
+          <td><strong>GitHub OAuth App (CMS)</strong></td>
+          <td>GitHub Developer Settings</td>
+          <td>Client ID: <code>Ov23liLLsueZmJGZISc3</code></td>
+          <td>Secret: <code>886b...</code><br><small>(in .env.local &amp; Vercel)</small></td>
+          <td>Managed via GitHub Org</td>
+          <td>Head of Communications</td>
+        </tr>
+        <tr>
+          <td><strong>Vercel Cloud Hosting</strong></td>
+          <td><a href="https://vercel.com/login" target="_blank">vercel.com/login</a></td>
+          <td>asiagroup.ng@gmail.com<br><small>(or GitHub SSO)</small></td>
+          <td><code>[Vercel Account Password]</code></td>
+          <td>Authenticator App / GitHub SSO</td>
+          <td>DevOps / Lead Engineer</td>
+        </tr>
+        <tr>
+          <td><strong>Google Analytics 4 &amp; GSC</strong></td>
+          <td><a href="https://analytics.google.com" target="_blank">analytics.google.com</a></td>
+          <td>asiagroup.ng@gmail.com</td>
+          <td><code>[Google Workspace Password]</code></td>
+          <td>Google Prompt / 2FA</td>
+          <td>Corporate Communications</td>
+        </tr>
+        <tr>
+          <td><strong>Brevo Email API (Forms)</strong></td>
+          <td><a href="https://app.brevo.com" target="_blank">app.brevo.com</a></td>
+          <td>asiagroup.ng@gmail.com</td>
+          <td>Key: <code>BREVO_API_KEY</code><br><code>[Brevo Dashboard Pass]</code></td>
+          <td>Email Code / TOTP</td>
+          <td>IT Support / Webmaster</td>
+        </tr>
+        <tr>
+          <td><strong>Zoho Bigin CRM</strong></td>
+          <td><a href="https://bigin.zoho.com" target="_blank">bigin.zoho.com</a></td>
+          <td>asiagroup.ng@gmail.com</td>
+          <td>Token: <code>BIGIN_ACCESS_TOKEN</code><br><code>[Zoho Master Pass]</code></td>
+          <td>Zoho OneAuth / 2FA</td>
+          <td>Commercial Sales Director</td>
+        </tr>
+        <tr>
+          <td><strong>Cloudflare Security (Target)</strong></td>
+          <td><a href="https://dash.cloudflare.com" target="_blank">dash.cloudflare.com</a></td>
+          <td>asiagroup.ng@gmail.com</td>
+          <td><code>[Cloudflare Account Pass]</code></td>
+          <td>Authenticator (TOTP)</td>
+          <td>Security Admin / DevOps</td>
+        </tr>
+        <tr>
+          <td><strong>Corporate CMS Portal</strong></td>
+          <td><a href="https://asiagroup.ng/admin" target="_blank">asiagroup.ng/admin</a></td>
+          <td>Individual Editor GitHub</td>
+          <td>Authorized via GitHub OAuth</td>
+          <td>Org Membership check</td>
+          <td>Content Editors / Media Team</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>7. Operational Runbook &amp; Emergency Contacts</h2>
+    <ul>
+      <li><strong>Clone Repository:</strong> <span class="code-tag">git clone git@github.com-asiagroup:asiagroupnigeria/asia-group.git</span></li>
+      <li><strong>Run Locally:</strong> <span class="code-tag">cd website &amp;&amp; npm install &amp;&amp; npm run dev</span> (boots on <code>http://localhost:3010</code>)</li>
+      <li><strong>Verify Build:</strong> <span class="code-tag">npm run build</span> inside website directory to verify zero TypeScript errors.</li>
+      <li><strong>Deploy to Live:</strong> Pushing commits to <code>origin main</code> triggers an immediate production build on Vercel.</li>
+      <li><strong>Official Contacts:</strong> <a href="mailto:asiagroup.ng@gmail.com">asiagroup.ng@gmail.com</a> &nbsp;|&nbsp; Corporate Website: <a href="https://asiagroup.ng" target="_blank">https://asiagroup.ng</a></li>
+    </ul>
+
+    <div class="footer-note">
+      <div>Asia Group of Companies &copy; 2026. All Rights Reserved.</div>
+      <div>Confidential &mdash; Internal Management &amp; Technical Operations</div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -137,11 +137,12 @@ export default function LeadershipPage() {
   /* BOARD */
   .board-section { padding: 100px 60px; background: var(--dark); }
   .board-inner { max-width: 1300px; margin: 0 auto; }
-  .board-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: rgba(255,255,255,0.04); margin-top: 60px; }
-  .board-card { background: var(--dark-2); padding: 32px 28px 28px; }
-  .board-avatar { width: 64px; height: 64px; border-radius: 50%;
-    /* MEDIA: Board member headshot (circular) — File: media/leadership/board-[name].jpg */
-    background: var(--dark-3); border: 2px solid rgba(255,255,255,0.08);
+  .board-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; margin-top: 40px; }
+  .board-card { background: var(--dark-2); padding: 32px 24px 28px; border: 1px solid rgba(255,255,255,0.06); transition: transform 0.3s, border-color 0.3s; }
+  .board-card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.18); }
+  .board-avatar { width: 90px; height: 90px; border-radius: 50%;
+    overflow: hidden;
+    background: var(--dark-3); border: 2px solid rgba(255,255,255,0.15);
     display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
     font-family: var(--font-condensed); font-size: 18px; font-weight: 700; color: var(--muted);
   }
@@ -237,7 +238,7 @@ export default function LeadershipPage() {
               The Minds Behind<br>The Machine
             </h1>
             <p class="page-header__desc">
-              Meet the executive team and 19 location managers who drive Asia Group's daily operations across four nations.
+              Meet the Board of Directors, executive team, and 19 location managers who drive Asia Group's daily operations across four nations.
             </p>
           </div>
         </section>
@@ -376,6 +377,30 @@ export default function LeadershipPage() {
           <div class="exec-name">Abba Sani</div>
           <div class="exec-title">Managing Director</div>
           <span class="exec-subsidiary">Asia Phones &amp; Accessories</span>
+        </div>
+      </div>
+
+      <div class="exec-card">
+        <div class="exec-portrait">
+          <img src="/media/leadership/Alhassan Muhammad-operations-manager.png" alt="Alhassan Muhammad" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" />
+          <div class="exec-hover"></div>
+        </div>
+        <div class="exec-info">
+          <div class="exec-name">Alhassan Muhammad</div>
+          <div class="exec-title">Operations Manager</div>
+          <span class="exec-subsidiary">Asia Group</span>
+        </div>
+      </div>
+
+      <div class="exec-card">
+        <div class="exec-portrait">
+          <img src="/media/leadership/halifa-muhammad-group-secretary.png" alt="Halifa Muhammad" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" />
+          <div class="exec-hover"></div>
+        </div>
+        <div class="exec-info">
+          <div class="exec-name">Halifa Muhammad</div>
+          <div class="exec-title">Group Secretary</div>
+          <span class="exec-subsidiary">Asia Group</span>
         </div>
       </div>
 
@@ -724,56 +749,69 @@ export default function LeadershipPage() {
 
       ` }} />
     
-      {/* ==================== BOARD OF DIRECTORS — TODO: Uncomment when board data is confirmed ====================
+      {/* BOARD OF DIRECTORS */}
       <div dangerouslySetInnerHTML={{ __html: `
         <!-- BOARD OF DIRECTORS -->
 <section class="board-section">
   <div class="board-inner">
-    
-    <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--white); line-height:1.1;">
-      Board of Directors
-    </h2>
-    <p style="font-size:15px; font-weight:300; line-height:1.8; color:rgba(255,255,255,0.5); max-width:560px; margin-top:16px;">
-      Asia Group's Board provides strategic oversight and governance across all subsidiaries. Members bring diverse expertise in finance, trade, law, and public affairs.
-    </p>
-    <!-- PLACEHOLDER: Board of Directors details to be confirmed with legal/company secretary
-         Required: Full names, titles, brief bios, headshots (circular format)
-    -->
+    <div style="max-width: 650px; margin-bottom: 20px;">
+      <h2 style="font-family:var(--font-display); font-size:clamp(32px,4vw,52px); font-weight:300; color:var(--white); line-height:1.1;">
+        Board of Directors
+      </h2>
+      <p style="font-size:15px; font-weight:300; line-height:1.8; color:rgba(255,255,255,0.5); margin-top:16px;">
+        Asia Group's Board provides strategic oversight, institutional governance, and long-term vision across all corporate divisions and subsidiaries.
+      </p>
+    </div>
+
     <div class="board-grid">
       <div class="board-card">
         <div class="board-avatar">
-          <!-- MEDIA: Board member headshot (circular) -->
-          SA
+          <img src="/media/leadership/ceo-sani-isah.jpg" alt="Alhaji Sani Isah Abubakar" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" />
         </div>
         <div class="board-name">Alhaji Sani Isah Abubakar</div>
         <div class="board-title">Chairman of the Board</div>
-        <p class="board-bio">Founder and visionary behind Asia Group. 36+ years of entrepreneurial leadership in wholesale distribution, cross-border trade, and philanthropy.</p>
+        <p class="board-bio">Founder and visionary behind Asia Group. Over 36 years of entrepreneurial leadership in wholesale distribution, cross-border trade, and industrial development.</p>
       </div>
 
-      <!-- PLACEHOLDER: Remaining board members — complete after company secretary session -->
-      <div class="board-card" style="opacity:0.4;">
-        <div class="board-avatar">—</div>
-        <div class="board-name">[ Director — TBD ]</div>
-        <div class="board-title">Non-Executive Director</div>
-        
+      <div class="board-card">
+        <div class="board-avatar">
+          <img src="/media/leadership/alh-auwalu-isah-abubakar-board-of-directors.png" alt="Alh. Auwalu Isah Abubakar" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" />
+        </div>
+        <div class="board-name">Alh. Auwalu Isah Abubakar</div>
+        <div class="board-title">Member, Board of Directors</div>
+        <p class="board-bio">Executive leadership and strategic commercial advisory guiding Asia Group's diversified trading network and regional supply operations.</p>
       </div>
-      <div class="board-card" style="opacity:0.4;">
-        <div class="board-avatar">—</div>
-        <div class="board-name">[ Director — TBD ]</div>
-        <div class="board-title">Non-Executive Director</div>
-        
+
+      <div class="board-card">
+        <div class="board-avatar">
+          <img src="/media/leadership/alh-kabiru-isah-abubakar-board-of-directors.png" alt="Alh. Kabiru Isah Abubakar" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" />
+        </div>
+        <div class="board-name">Alh. Kabiru Isah Abubakar</div>
+        <div class="board-title">Member, Board of Directors</div>
+        <p class="board-bio">Guiding enterprise strategy, operational governance, and infrastructure development across Northern Nigeria and key regional markets.</p>
       </div>
-      <div class="board-card" style="opacity:0.4;">
-        <div class="board-avatar">—</div>
-        <div class="board-name">[ Director — TBD ]</div>
-        <div class="board-title">Independent Director</div>
-        
+
+      <div class="board-card">
+        <div class="board-avatar">
+          <img src="/media/leadership/saadatu-sani-isah-board-of-directors-1.png" alt="Sa'adatu Sani Isah" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" />
+        </div>
+        <div class="board-name">Sa'adatu Sani Isah</div>
+        <div class="board-title">Member, Board of Directors</div>
+        <p class="board-bio">Contributing strategic vision, institutional stewardship, and governance expertise to the Group's commercial and corporate developments.</p>
+      </div>
+
+      <div class="board-card">
+        <div class="board-avatar">
+          <img src="/media/leadership/saadatu-sani-isah-board-of-directors-2.png" alt="Sa'adatu Sani Isah" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" />
+        </div>
+        <div class="board-name">Sa'adatu Sani Isah</div>
+        <div class="board-title">Member, Board of Directors</div>
+        <p class="board-bio">Supporting organizational development, corporate policy formulation, and community-centered initiatives across the Group's portfolio.</p>
       </div>
     </div>
   </div>
 </section>
       `}} />
-      */}
 </div>
   );
 }
